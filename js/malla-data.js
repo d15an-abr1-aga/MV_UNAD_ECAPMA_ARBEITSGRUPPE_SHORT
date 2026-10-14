@@ -34,7 +34,6 @@
       { id: "p2c2", tipo: "P", creditos: 2, nombre: "Biología del desarrollo y fisiología animal" },
       { id: "p2c3", tipo: "M", creditos: 3, nombre: "Bioquímica metabólica", codigo: "352001" },
       { id: "p2c4", tipo: "M", creditos: 2, nombre: "Bioética y legislación Veterinaria" },
-      { id: "p2c5", tipo: "M", creditos: 3, nombre: "Herramientas digitales para la gestión del conocimiento", codigo: "200610" },
       { id: "p2c6", tipo: "T", creditos: 3, nombre: "Pensamiento lógico y matemático", codigo: "200611" }
     ]},
     { id: "p3", numero: "III", creditos: 17, cursos: [
