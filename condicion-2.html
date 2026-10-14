@@ -657,65 +657,122 @@
     </section> -->
 
     <!-- 4. Brecha crítica -->
-    <section class="slide" data-accent="navy" data-title="Brecha Crítica">
-        <div class="glass-panel">
-            <div class="gsap-reveal flex justify-between items-end border-b border-gray-200 dark:border-gray-700 pb-3 mb-4 shrink-0">
-                <h2 class="role-title text-unad-navy dark:text-white flex items-center gap-3">
-                    <span class="iconify text-unad-orange animate-pulse" data-icon="lucide:alert-triangle" data-width="30"></span>
-                    Brecha crítica en la formación veterinaria
-                </h2>
-                <span class="role-label bg-unad-orange text-white px-3 py-1 rounded-full">Paradoja territorial</span>
+<section class="slide" data-accent="navy" data-title="Brecha Crítica">
+    <style>
+        /* ═══════════════════════════════════════════════════════════
+           FIX slide "Brecha Crítica"
+           Causa raíz: .flex-1 con `justify-content: safe center` +
+                       hijos con flex-shrink:1 → tarjetas aplastadas
+                       y banner navy superpuesto sobre la 2ª fila.
+           ═══════════════════════════════════════════════════════════ */
+        .slide[data-title="Brecha Crítica"] .flex-1 {
+            justify-content: flex-start !important;
+            gap: 1rem;
+        }
+
+        /* Los hijos directos NO se encogen ni crecen */
+        .slide[data-title="Brecha Crítica"] .flex-1 > .grid,
+        .slide[data-title="Brecha Crítica"] .flex-1 > .bg-unad-navy {
+            flex-shrink: 0 !important;
+            flex-grow: 0 !important;
+        }
+
+        /* El grid interno: alinear arriba, NO centrar verticalmente */
+        .slide[data-title="Brecha Crítica"] .lg\:col-span-7.grid {
+            align-content: start !important;
+            align-items: stretch !important;
+        }
+
+        /* Tarjetas: alto natural, sin estirarse ni encogerse */
+        .slide[data-title="Brecha Crítica"] .mini-card {
+            height: auto !important;
+            min-height: 0 !important;
+            align-self: start;
+        }
+
+        /* Imagen: alto natural, sin heredar height:100% del .img-frame global */
+        .slide[data-title="Brecha Crítica"] .img-frame {
+            height: auto !important;
+            min-height: 0 !important;
+            max-height: 50vh !important;
+        }
+        .slide[data-title="Brecha Crítica"] .img-frame img {
+            height: auto !important;
+            max-height: 48vh !important;
+            object-fit: contain !important;
+        }
+
+        /* Banner: compacto y sin superposición */
+        .slide[data-title="Brecha Crítica"] .bg-unad-navy {
+            padding: 0.9rem 1.1rem !important;
+            position: relative;
+            z-index: 2;
+        }
+        .slide[data-title="Brecha Crítica"] .bg-unad-navy .t-body {
+            font-size: 0.82rem !important;
+            line-height: 1.45 !important;
+        }
+    </style>
+
+    <div class="glass-panel">
+        <div class="gsap-reveal flex justify-between items-end border-b border-gray-200 dark:border-gray-700 pb-3 mb-4 shrink-0">
+            <h2 class="role-title text-unad-navy dark:text-white flex items-center gap-3">
+                <span class="iconify text-unad-orange animate-pulse" data-icon="lucide:alert-triangle" data-width="30"></span>
+                Brecha crítica en la formación veterinaria
+            </h2>
+            <span class="role-label bg-unad-orange text-white px-3 py-1 rounded-full">Paradoja territorial</span>
+        </div>
+
+        <div class="flex-1 min-h-0 overflow-y-auto custom-scroll gsap-reveal pr-2">
+            <!-- items-start: cada columna toma su altura natural -->
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-5 items-start w-full">
+                <div class="lg:col-span-7 grid grid-cols-1 md:grid-cols-2 gap-3">
+                    <div class="mini-card hover-card border-l-4 border-l-unad-orange flex-col icon-pop">
+                        <span class="iconify text-unad-orange mb-2" data-icon="lucide:map-pin-off" data-width="26"></span>
+                        <h3 class="role-card-title text-unad-navy dark:text-white mb-1">Retos en zonas rurales</h3>
+                        <p class="t-caption text-gray-700 dark:text-gray-300 leading-relaxed">Los mayores retos (sanidad animal, producción pecuaria, vigilancia epidemiológica y control de zoonosis) se concentran donde el acceso a la formación es más limitado.</p>
+                    </div>
+                    <div class="mini-card hover-card border-l-4 border-l-unad-teal flex-col icon-pop">
+                        <span class="iconify text-unad-teal mb-2" data-icon="lucide:scale" data-width="26"></span>
+                        <h3 class="role-card-title text-unad-navy dark:text-white mb-1">Paradoja territorial</h3>
+                        <p class="t-caption text-gray-700 dark:text-gray-300 leading-relaxed">Las regiones que <strong>más necesitan</strong> médicos veterinarios son las que enfrentan <strong>mayores barreras</strong> para acceder a programas de formación.</p>
+                    </div>
+                    <div class="mini-card hover-card border-l-4 border-l-unad-green flex-col icon-pop">
+                        <span class="iconify text-unad-green mb-2" data-icon="lucide:wallet" data-width="26"></span>
+                        <h3 class="role-card-title text-unad-navy dark:text-white mb-1">Barreras económicas</h3>
+                        <p class="t-caption text-gray-700 dark:text-gray-300 leading-relaxed">Costos de desplazamiento, sostenimiento y permanencia que excluyen a muchos estudiantes de origen rural.</p>
+                    </div>
+                    <div class="mini-card hover-card border-l-4 border-l-unad-navy dark:border-l-gray-400 flex-col icon-pop">
+                        <span class="iconify text-unad-navy dark:text-white mb-2" data-icon="lucide:trending-down" data-width="26"></span>
+                        <h3 class="role-card-title text-unad-navy dark:text-white mb-1">Limitaciones de la oferta</h3>
+                        <p class="t-caption text-gray-700 dark:text-gray-300 leading-relaxed">Restricciones en cobertura, accesibilidad y pertinencia territorial.</p>
+                    </div>
+                </div>
+                <div class="lg:col-span-5 flex justify-center min-h-0">
+                    <a href="BrechaRuralColombia.png" class="lightbox-trigger block w-full img-frame hover-card cursor-zoom-in" title="Ver en tamaño completo">
+                        <img src="BrechaRuralColombia.png" alt="Brecha crítica de la formación veterinaria en Colombia" class="w-full h-auto object-contain rounded-xl">
+                    </a>
+                </div>
             </div>
 
-            <div class="flex-1 min-h-0 overflow-y-auto custom-scroll gsap-reveal pr-2">
-                <div class="grid grid-cols-1 lg:grid-cols-12 gap-5 items-stretch w-full">
-                    <div class="lg:col-span-7 grid grid-cols-1 md:grid-cols-2 gap-3 content-center">
-                        <div class="mini-card hover-card border-l-4 border-l-unad-orange flex-col icon-pop">
-                            <span class="iconify text-unad-orange mb-2" data-icon="lucide:map-pin-off" data-width="26"></span>
-                            <h3 class="role-card-title text-unad-navy dark:text-white mb-1">Retos en zonas rurales</h3>
-                            <p class="t-caption text-gray-700 dark:text-gray-300 leading-relaxed">Los mayores retos (sanidad animal, producción pecuaria, vigilancia epidemiológica y control de zoonosis) se concentran donde el acceso a la formación es más limitado.</p>
-                        </div>
-                        <div class="mini-card hover-card border-l-4 border-l-unad-teal flex-col icon-pop">
-                            <span class="iconify text-unad-teal mb-2" data-icon="lucide:scale" data-width="26"></span>
-                            <h3 class="role-card-title text-unad-navy dark:text-white mb-1">Paradoja territorial</h3>
-                            <p class="t-caption text-gray-700 dark:text-gray-300 leading-relaxed">Las regiones que <strong>más necesitan</strong> médicos veterinarios son las que enfrentan <strong>mayores barreras</strong> para acceder a programas de formación.</p>
-                        </div>
-                        <div class="mini-card hover-card border-l-4 border-l-unad-green flex-col icon-pop">
-                            <span class="iconify text-unad-green mb-2" data-icon="lucide:wallet" data-width="26"></span>
-                            <h3 class="role-card-title text-unad-navy dark:text-white mb-1">Barreras económicas</h3>
-                            <p class="t-caption text-gray-700 dark:text-gray-300 leading-relaxed">Costos de desplazamiento, sostenimiento y permanencia que excluyen a muchos estudiantes de origen rural.</p>
-                        </div>
-                        <div class="mini-card hover-card border-l-4 border-l-unad-navy dark:border-l-gray-400 flex-col icon-pop">
-                            <span class="iconify text-unad-navy dark:text-white mb-2" data-icon="lucide:trending-down" data-width="26"></span>
-                            <h3 class="role-card-title text-unad-navy dark:text-white mb-1">Limitaciones de la oferta</h3>
-                            <p class="t-caption text-gray-700 dark:text-gray-300 leading-relaxed">Restricciones en cobertura, accesibilidad y pertinencia territorial.</p>
-                        </div>
-                    </div>
-                    <div class="lg:col-span-5 flex justify-center min-h-0">
-                        <a href="BrechaRuralColombia.png" class="lightbox-trigger block w-full img-frame hover-card cursor-zoom-in" title="Ver en tamaño completo">
-                            <img src="BrechaRuralColombia.png" alt="Brecha crítica de la formación veterinaria en Colombia" class="w-full h-auto object-contain rounded-xl">
-                        </a>
-                    </div>
-                </div>
-
-                <div class="bg-unad-navy text-white p-5 rounded-xl border border-white/20 w-full mt-4">
-                    <p class="role-label text-unad-orange mb-2 flex items-center gap-2"><span class="iconify" data-icon="lucide:lightbulb" data-width="14"></span> Oportunidad de transformación</p>
-                    <p class="t-body text-gray-100 leading-relaxed italic">"Las regiones que más necesitan médicos veterinarios son las que tienen menos acceso a estudiarlos. La educación veterinaria requiere modelos más flexibles, inclusivos y conectados con las realidades del territorio. La propuesta de la UNAD surge como una alternativa innovadora para ampliar el acceso, fortalecer el desarrollo rural y formar profesionales donde más se necesitan."</p>
-                </div>
-            </div>
-
-            <div class="grid grid-cols-2 gap-4 mt-3 shrink-0 gsap-reveal">
-                <div class="bg-unad-orange/10 border-l-4 border-unad-orange p-3 rounded-r-lg hover-card">
-                    <h4 class="role-note w-semibold text-unad-orange mb-1 flex items-center gap-2"><span class="iconify" data-icon="lucide:alert-circle" data-width="16"></span> Criterio del Par Académico</h4>
-                    <p class="t-caption text-gray-700 dark:text-gray-300">Coherencia de la justificación con las brechas reales del entorno rural colombiano.</p>
-                </div>
-                <div class="bg-unad-green/10 border-l-4 border-unad-green p-3 rounded-r-lg hover-card">
-                    <h4 class="role-note w-semibold text-unad-green mb-1 flex items-center gap-2"><span class="iconify" data-icon="lucide:check-circle-2" data-width="16"></span> Evidencia que Sustenta</h4>
-                    <p class="t-caption text-gray-700 dark:text-gray-300">Diagnósticos territoriales; análisis del SNIES; caracterización de estudiantes potenciales.</p>
-                </div>
+            <div class="bg-unad-navy text-white p-5 rounded-xl border border-white/20 w-full mt-4">
+                <p class="role-label text-unad-orange mb-2 flex items-center gap-2"><span class="iconify" data-icon="lucide:lightbulb" data-width="14"></span> Oportunidad de transformación</p>
+                <p class="t-body text-gray-100 leading-relaxed italic">"Las regiones que más necesitan médicos veterinarios son las que tienen menos acceso a estudiarlos. La educación veterinaria requiere modelos más flexibles, inclusivos y conectados con las realidades del territorio. La propuesta de la UNAD surge como una alternativa innovadora para ampliar el acceso, fortalecer el desarrollo rural y formar profesionales donde más se necesitan."</p>
             </div>
         </div>
-    </section>
+
+        <div class="grid grid-cols-2 gap-4 mt-3 shrink-0 gsap-reveal">
+            <div class="bg-unad-orange/10 border-l-4 border-unad-orange p-3 rounded-r-lg hover-card">
+                <h4 class="role-note w-semibold text-unad-orange mb-1 flex items-center gap-2"><span class="iconify" data-icon="lucide:alert-circle" data-width="16"></span> Criterio del Par Académico</h4>
+                <p class="t-caption text-gray-700 dark:text-gray-300">Coherencia de la justificación con las brechas reales del entorno rural colombiano.</p>
+            </div>
+            <div class="bg-unad-green/10 border-l-4 border-unad-green p-3 rounded-r-lg hover-card">
+                <h4 class="role-note w-semibold text-unad-green mb-1 flex items-center gap-2"><span class="iconify" data-icon="lucide:check-circle-2" data-width="16"></span> Evidencia que Sustenta</h4>
+                <p class="t-caption text-gray-700 dark:text-gray-300">Diagnósticos territoriales; análisis del SNIES; caracterización de estudiantes potenciales.</p>
+            </div>
+        </div>
+    </div>
+</section>
 
     <!-- 5. Distribución de la oferta nacional -->
     <section class="slide" data-accent="teal" data-title="Distribución Oferta Nacional">
