@@ -381,3 +381,74 @@ button, input, select, textarea, optgroup { font-family: inherit; }
 .tabs-nav--5 .tab-card { padding: .7rem .35rem; gap: .3rem; }
 .tabs-nav--5 .tab-card__label { font-size: .68rem; letter-spacing: .03em; }
 .tabs-nav--5 .tab-card .iconify { width: 20px; height: 20px; }
+
+/* ══════════════════════════════════════════════
+   SLIDE 6 · Imagen a la izquierda (sin recorte) + tarjetas
+   ══════════════════════════════════════════════ */
+.slide-header { min-height: 4.5rem; }
+
+.slide-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);  /* 50 / 50 */
+    gap: clamp(1rem, 2vw, 1.75rem);
+    align-items: center;    /* imagen centrada vertical respecto a las tarjetas */
+    justify-content: center;
+}
+
+.slide-photo {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.5rem;
+    border-radius: 1rem;
+    background: rgb(255 255 255 / .35);
+    border: 1px solid rgb(255 255 255 / .45);
+    box-shadow: 0 6px 20px rgb(0 0 0 / .08);
+}
+.slide-photo img {
+    width: 100%;
+    height: auto;
+    max-height: 22rem;      /* techo de altura, sin recortar */
+    object-fit: contain;    /* muestra la imagen completa */
+    object-position: center;
+    border-radius: .75rem;
+    display: block;
+}
+
+@media (max-width: 768px) {
+    .slide-grid { grid-template-columns: 1fr; }
+    .slide-photo img { max-height: none; }
+}
+
+/* Micro-interacciones */
+.mini-card .iconify {
+    transition: transform .25s cubic-bezier(.34, 1.56, .64, .61);
+}
+.mini-card:hover .iconify { transform: rotate(8deg) scale(1.15); }
+
+.lift { transition: transform .25s ease, box-shadow .25s ease; }
+.lift:hover { transform: translateY(-4px); box-shadow: 0 12px 28px rgb(0 0 0 / .12); }
+
+.slide-footer .note { min-height: 100%; }
+
+/* Sin botón de ampliar ni lightbox */
+.slide .expand-btn,
+.slide .zoom-btn,
+.slide .fullscreen-btn,
+.slide [data-zoom],
+.slide [data-lightbox],
+.slide [aria-label*="mpliar" i],
+.slide [aria-label*="xpand" i],
+.slide [aria-label*="ullscreen" i] { display: none !important; }
+
+.slide figure img,
+.slide .figure img {
+    cursor: default !important;
+    pointer-events: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .mini-card:hover .iconify { transform: none; }
+    .lift:hover { transform: none; box-shadow: none; }
+}
