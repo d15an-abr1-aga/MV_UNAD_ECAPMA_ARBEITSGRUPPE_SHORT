@@ -31,13 +31,11 @@
     ]},
     { id: "p2", numero: "II", creditos: 19, cursos: [
       { id: "p2c1", tipo: "P", creditos: 4, nombre: "Anatomía Veterinaria comparada" },
-      { id: "p2c2", tipo: "P", creditos: 2, nombre: "Biología del desarrollo y fisiología animal" },
       { id: "p2c3", tipo: "M", creditos: 3, nombre: "Bioquímica metabólica", codigo: "352001" },
       { id: "p2c4", tipo: "M", creditos: 2, nombre: "Bioética y legislación Veterinaria" },
       { id: "p2c6", tipo: "T", creditos: 3, nombre: "Pensamiento lógico y matemático", codigo: "200611" }
     ]},
     { id: "p3", numero: "III", creditos: 17, cursos: [
-      { id: "p3c1", tipo: "P", creditos: 3, nombre: "Inmunología" },
       { id: "p3c2", tipo: "P", creditos: 2, nombre: "Nutrición clínica" },
       { id: "p3c3", tipo: "M", creditos: 3, nombre: "Genética y Genómica Aplicada a la Medicina Veterinaria" },
       { id: "p3c4", tipo: "T", creditos: 3, nombre: "Estadística Descriptiva Aplicada a las Ciencias Agrarias", codigo: "300032" },
@@ -53,7 +51,6 @@
       { id: "p4c4", tipo: "T", creditos: 2, nombre: "Diseño experimental", codigo: "300004" },
       { id: "p4c5", tipo: "P", creditos: 2, nombre: "Etología y bienestar animal" },
       { id: "p4c6", tipo: "M", creditos: 3, nombre: "Fundamentos en gestión integral", codigo: "112001" },
-      { id: "p4c7", tipo: "P", creditos: 2, nombre: "Virología animal" },
       { id: "p4c8", tipo: "T", creditos: 1, nombre: "Electiva campo de formación complementaria" }
     ]},
     { id: "p5", numero: "V", creditos: 18, cursos: [
