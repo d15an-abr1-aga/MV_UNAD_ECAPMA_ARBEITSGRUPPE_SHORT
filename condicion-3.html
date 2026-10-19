@@ -466,67 +466,126 @@
         <div class="flex-1 min-h-0 overflow-y-auto custom-scroll gsap-reveal mt-5">
 
             <!-- PANEL: PROPÓSITO -->
-            <div class="tab-panel is-active" data-panel="proposito">
-                <div class="bg-white/90 dark:bg-gray-900/70 p-5 rounded-2xl border border-unad-teal/20 shadow-lg backdrop-blur-md">
-                    <div class="flex items-center gap-3 mb-3">
-                        <div class="w-11 h-11 bg-unad-teal/10 rounded-xl flex items-center justify-center border border-unad-teal/20 shrink-0">
-                            <span class="iconify text-unad-teal" data-icon="lucide:crosshair" data-width="24"></span>
-                        </div>
-                        <h3 class="font-display font-bold text-xl text-unad-navy dark:text-white">Propósito de Formación</h3>
-                    </div>
-                    <p class="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">
-                        Formar Médicos Veterinarios con sólida fundamentación científica, clínica, sanitaria, ética y humanística, capaces de comprender e intervenir las dinámicas que afectan la salud y el bienestar animal, la salud pública veterinaria y la sostenibilidad de los sistemas productivos y los territorios. El programa desarrolla capacidades para la promoción, prevención, diagnóstico, tratamiento y gestión de problemáticas sanitarias, mediante la toma de decisiones basada en evidencia, la investigación, la innovación, el uso pertinente de tecnologías y la actuación responsable desde el enfoque Una sola Salud (One Health), contribuyendo al desarrollo sostenible y a la transformación de las realidades sociales, ambientales y productivas de los contextos en los que se desempeñan.
-                    </p>
-                    <div class="mt-4 text-xs text-gray-800 dark:text-gray-200 font-medium bg-gradient-to-r from-unad-teal/10 to-transparent p-3 rounded-lg border-l-4 border-unad-teal">
-                        El programa desarrolla capacidades mediante la toma de decisiones basada en evidencia y el abordaje desde el enfoque <strong>Una sola Salud (One Health)</strong>.
-                    </div>
-                </div>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-3 mt-4">
-                    <div class="bg-unad-orange/10 border-l-4 border-unad-orange p-3 rounded-r-lg">
-                        <h4 class="font-bold text-unad-orange mb-1 flex items-center gap-2 text-sm"><span class="iconify" data-icon="lucide:alert-circle" data-width="18"></span> Criterio del Par Académico</h4>
-                        <p class="text-xs text-gray-700 dark:text-gray-300">Coherencia del propósito formativo con las necesidades del entorno.</p>
-                    </div>
-                    <div class="bg-unad-green/10 border-l-4 border-unad-green p-3 rounded-r-lg">
-                        <h4 class="font-bold text-unad-green mb-1 flex items-center gap-2 text-sm"><span class="iconify" data-icon="lucide:check-circle-2" data-width="18"></span> Evidencia que Sustenta</h4>
-                        <p class="text-xs text-gray-700 dark:text-gray-300">Declaración explícita en el Documento Maestro (Matriz de Consistencia).</p>
-                    </div>
-                </div>
-            </div>
+<div class="tab-panel is-active" data-panel="proposito">
+    <div class="hover-card group relative bg-white/90 dark:bg-gray-900/70 p-5 rounded-2xl border border-unad-teal/20 shadow-lg backdrop-blur-md overflow-hidden">
+        <!-- Glow decorativo -->
+        <span class="pointer-events-none absolute -top-16 -right-16 w-48 h-48 rounded-full bg-unad-teal/10 blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700"></span>
 
-            <!-- PANEL: INGRESO -->
-            <div class="tab-panel" data-panel="ingreso">
-                <div class="bg-white/90 dark:bg-gray-900/70 p-5 rounded-2xl border border-unad-orange/20 shadow-lg backdrop-blur-md">
-                    <div class="flex items-center gap-3 mb-3">
-                        <div class="w-11 h-11 bg-unad-orange/10 rounded-xl flex items-center justify-center border border-unad-orange/20 shrink-0">
-                            <span class="iconify text-unad-orange" data-icon="lucide:user-plus" data-width="24"></span>
-                        </div>
-                        <h3 class="font-display font-bold text-xl text-unad-navy dark:text-white">Perfil de Ingreso</h3>
-                    </div>
-                    <p class="text-sm text-gray-700 dark:text-gray-300 leading-relaxed mb-4">
-                        El aspirante al programa de Medicina Veterinaria manifiesta interés por las ciencias biológicas, la salud y el bienestar animal, la producción pecuaria sostenible, la salud pública veterinaria y la interacción entre animales, seres humanos y ambiente. Cuenta con competencias básicas en ciencias naturales, matemáticas, comunicación y herramientas digitales, y demuestra disposición para el aprendizaje autónomo, el pensamiento crítico, la investigación, el trabajo colaborativo y el desarrollo de actividades prácticas propias de la formación veterinaria.
-                    </p>
-                    <div class="space-y-2">
-                        <div class="flex items-start gap-2.5 bg-white dark:bg-gray-800/80 p-3 rounded-lg shadow-sm border border-gray-100 dark:border-gray-700 hover:-translate-y-0.5 transition-transform">
-                            <div class="bg-unad-orange/20 p-1.5 rounded-md shrink-0 mt-0.5"><span class="iconify text-unad-orange" data-icon="lucide:check" data-width="14"></span></div>
-                            <p class="text-xs text-gray-700 dark:text-gray-300 font-medium leading-snug">Competencias básicas en ciencias naturales, matemáticas, comunicación y herramientas digitales.</p>
-                        </div>
-                        <div class="flex items-start gap-2.5 bg-white dark:bg-gray-800/80 p-3 rounded-lg shadow-sm border border-gray-100 dark:border-gray-700 hover:-translate-y-0.5 transition-transform">
-                            <div class="bg-unad-orange/20 p-1.5 rounded-md shrink-0 mt-0.5"><span class="iconify text-unad-orange" data-icon="lucide:check" data-width="14"></span></div>
-                            <p class="text-xs text-gray-700 dark:text-gray-300 font-medium leading-snug">Disposición para el aprendizaje autónomo, pensamiento crítico, investigación y trabajo colaborativo.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-3 mt-4">
-                    <div class="bg-unad-orange/10 border-l-4 border-unad-orange p-3 rounded-r-lg">
-                        <h4 class="font-bold text-unad-orange mb-1 flex items-center gap-2 text-sm"><span class="iconify" data-icon="lucide:alert-circle" data-width="18"></span> Criterio del Par Académico</h4>
-                        <p class="text-xs text-gray-700 dark:text-gray-300">Coherencia del propósito formativo con las necesidades del entorno.</p>
-                    </div>
-                    <div class="bg-unad-green/10 border-l-4 border-unad-green p-3 rounded-r-lg">
-                        <h4 class="font-bold text-unad-green mb-1 flex items-center gap-2 text-sm"><span class="iconify" data-icon="lucide:check-circle-2" data-width="18"></span> Evidencia que Sustenta</h4>
-                        <p class="text-xs text-gray-700 dark:text-gray-300">Declaración explícita en el Documento Maestro (Matriz de Consistencia).</p>
-                    </div>
-                </div>
+        <div class="flex items-center gap-3 mb-3 relative z-10">
+            <div class="w-11 h-11 bg-unad-teal/10 rounded-xl flex items-center justify-center border border-unad-teal/20 shrink-0
+                        transition-all duration-300 group-hover:scale-110 group-hover:bg-unad-teal/20 group-hover:rotate-6">
+                <span class="iconify text-unad-teal" data-icon="lucide:crosshair" data-width="24"></span>
             </div>
+            <h3 class="font-display font-bold text-xl text-unad-navy dark:text-white transition-colors duration-300 group-hover:text-unad-teal">
+                Propósito de Formación
+            </h3>
+        </div>
+
+        <p class="text-sm text-gray-700 dark:text-gray-300 leading-relaxed relative z-10
+                  underline-hover-group cursor-default
+                  transition-all duration-300
+                  border-l-2 border-transparent hover:border-unad-teal/40 hover:pl-3 hover:bg-unad-teal/[0.03] dark:hover:bg-unad-teal/[0.06] rounded-r-md py-1">
+            Formar Médicos Veterinarios con sólida fundamentación científica, clínica, sanitaria, ética y humanística, capaces de <strong class="text-unad-teal dark:text-teal-300 font-semibold">comprender e intervenir las dinámicas que afectan la salud y el bienestar animal, la salud pública veterinaria y la sostenibilidad de los sistemas productivos y los territorios</strong>. El programa desarrolla capacidades para la promoción, prevención, diagnóstico, tratamiento y gestión de problemáticas sanitarias, mediante la <strong class="text-unad-teal dark:text-teal-300 font-semibold">toma de decisiones basada en evidencia, la investigación, la innovación, el uso pertinente de tecnologías y la actuación responsable desde el enfoque Una sola Salud (One Health)</strong>, contribuyendo al desarrollo sostenible y a la transformación de las realidades sociales, ambientales y productivas de los contextos en los que se desempeñan.
+        </p>
+
+        <!-- Mensaje clave con interacción -->
+        <div class="relative z-10 mt-4 text-xs text-gray-800 dark:text-gray-200 font-medium
+                    bg-gradient-to-r from-unad-teal/10 via-unad-teal/[0.06] to-transparent
+                    p-3 rounded-lg border-l-4 border-unad-teal
+                    cursor-default
+                    transition-all duration-300
+                    hover:from-unad-teal/20 hover:via-unad-teal/10 hover:shadow-md hover:-translate-y-0.5 hover:border-unad-teal">
+            <span class="inline-flex items-start gap-2">
+                <span class="iconify text-unad-teal mt-0.5 shrink-0 transition-transform duration-300 group-hover:scale-110" data-icon="lucide:sparkles" data-width="14"></span>
+                <span>
+                    El programa desarrolla capacidades mediante la toma de decisiones basada en evidencia y el abordaje desde el enfoque <strong class="text-unad-teal dark:text-teal-300">Una sola Salud (One Health)</strong>.
+                </span>
+            </span>
+        </div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-3 mt-4">
+        <div class="hover-card bg-unad-orange/10 border-l-4 border-unad-orange p-3 rounded-r-lg transition-all duration-300 hover:bg-unad-orange/20 hover:shadow-md hover:-translate-y-0.5">
+            <h4 class="font-bold text-unad-orange mb-1 flex items-center gap-2 text-sm">
+                <span class="iconify transition-transform duration-300 hover:rotate-12" data-icon="lucide:alert-circle" data-width="18"></span> Criterio del Par Académico
+            </h4>
+            <p class="text-xs text-gray-700 dark:text-gray-300">Coherencia del propósito formativo con las necesidades del entorno.</p>
+        </div>
+        <div class="hover-card bg-unad-green/10 border-l-4 border-unad-green p-3 rounded-r-lg transition-all duration-300 hover:bg-unad-green/20 hover:shadow-md hover:-translate-y-0.5">
+            <h4 class="font-bold text-unad-green mb-1 flex items-center gap-2 text-sm">
+                <span class="iconify transition-transform duration-300 hover:rotate-12" data-icon="lucide:check-circle-2" data-width="18"></span> Evidencia que Sustenta
+            </h4>
+            <p class="text-xs text-gray-700 dark:text-gray-300">Declaración explícita en el Documento Maestro (Matriz de Consistencia).</p>
+        </div>
+    </div>
+</div>
+
+<!-- PANEL: INGRESO -->
+<div class="tab-panel" data-panel="ingreso">
+    <div class="hover-card group relative bg-white/90 dark:bg-gray-900/70 p-5 rounded-2xl border border-unad-orange/20 shadow-lg backdrop-blur-md overflow-hidden">
+        <!-- Glow decorativo -->
+        <span class="pointer-events-none absolute -top-16 -right-16 w-48 h-48 rounded-full bg-unad-orange/10 blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700"></span>
+
+        <div class="flex items-center gap-3 mb-3 relative z-10">
+            <div class="w-11 h-11 bg-unad-orange/10 rounded-xl flex items-center justify-center border border-unad-orange/20 shrink-0
+                        transition-all duration-300 group-hover:scale-110 group-hover:bg-unad-orange/20 group-hover:rotate-6">
+                <span class="iconify text-unad-orange" data-icon="lucide:user-plus" data-width="24"></span>
+            </div>
+            <h3 class="font-display font-bold text-xl text-unad-navy dark:text-white transition-colors duration-300 group-hover:text-unad-orange">
+                Perfil de Ingreso
+            </h3>
+        </div>
+
+        <p class="text-sm text-gray-700 dark:text-gray-300 leading-relaxed mb-4 relative z-10
+                  underline-hover-group cursor-default
+                  transition-all duration-300
+                  border-l-2 border-transparent hover:border-unad-orange/40 hover:pl-3 hover:bg-unad-orange/[0.03] dark:hover:bg-unad-orange/[0.06] rounded-r-md py-1">
+            El aspirante al programa de Medicina Veterinaria <strong class="text-unad-orange font-semibold">manifiesta interés por las ciencias biológicas, la salud y el bienestar animal, la producción pecuaria sostenible, la salud pública veterinaria y la interacción entre animales, seres humanos y ambiente</strong>. Cuenta con competencias básicas en ciencias naturales, matemáticas, comunicación y herramientas digitales, y demuestra disposición para el aprendizaje autónomo, el pensamiento crítico, la investigación, el trabajo colaborativo y el desarrollo de actividades prácticas propias de la formación veterinaria.
+        </p>
+
+        <div class="space-y-2 relative z-10">
+            <div class="group/item flex items-start gap-2.5 bg-white dark:bg-gray-800/80 p-3 rounded-lg shadow-sm border border-gray-100 dark:border-gray-700
+                        transition-all duration-300
+                        hover:-translate-y-1 hover:shadow-lg hover:border-unad-orange/40 hover:bg-unad-orange/[0.04] dark:hover:bg-unad-orange/[0.08]">
+                <div class="bg-unad-orange/20 p-1.5 rounded-md shrink-0 mt-0.5
+                            transition-all duration-300
+                            group-hover/item:bg-unad-orange/30 group-hover/item:scale-110 group-hover/item:rotate-6">
+                    <span class="iconify text-unad-orange" data-icon="lucide:check" data-width="14"></span>
+                </div>
+                <p class="text-xs text-gray-700 dark:text-gray-300 font-medium leading-snug transition-colors duration-300 group-hover/item:text-unad-navy dark:group-hover/item:text-white">
+                    Competencias básicas en ciencias naturales, matemáticas, comunicación y herramientas digitales.
+                </p>
+            </div>
+            <div class="group/item flex items-start gap-2.5 bg-white dark:bg-gray-800/80 p-3 rounded-lg shadow-sm border border-gray-100 dark:border-gray-700
+                        transition-all duration-300
+                        hover:-translate-y-1 hover:shadow-lg hover:border-unad-orange/40 hover:bg-unad-orange/[0.04] dark:hover:bg-unad-orange/[0.08]">
+                <div class="bg-unad-orange/20 p-1.5 rounded-md shrink-0 mt-0.5
+                            transition-all duration-300
+                            group-hover/item:bg-unad-orange/30 group-hover/item:scale-110 group-hover/item:rotate-6">
+                    <span class="iconify text-unad-orange" data-icon="lucide:check" data-width="14"></span>
+                </div>
+                <p class="text-xs text-gray-700 dark:text-gray-300 font-medium leading-snug transition-colors duration-300 group-hover/item:text-unad-navy dark:group-hover/item:text-white">
+                    Disposición para el aprendizaje autónomo, pensamiento crítico, investigación y trabajo colaborativo.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-3 mt-4">
+        <div class="hover-card bg-unad-orange/10 border-l-4 border-unad-orange p-3 rounded-r-lg transition-all duration-300 hover:bg-unad-orange/20 hover:shadow-md hover:-translate-y-0.5">
+            <h4 class="font-bold text-unad-orange mb-1 flex items-center gap-2 text-sm">
+                <span class="iconify transition-transform duration-300 hover:rotate-12" data-icon="lucide:alert-circle" data-width="18"></span> Criterio del Par Académico
+            </h4>
+            <p class="text-xs text-gray-700 dark:text-gray-300">Coherencia del propósito formativo con las necesidades del entorno.</p>
+        </div>
+        <div class="hover-card bg-unad-green/10 border-l-4 border-unad-green p-3 rounded-r-lg transition-all duration-300 hover:bg-unad-green/20 hover:shadow-md hover:-translate-y-0.5">
+            <h4 class="font-bold text-unad-green mb-1 flex items-center gap-2 text-sm">
+                <span class="iconify transition-transform duration-300 hover:rotate-12" data-icon="lucide:check-circle-2" data-width="18"></span> Evidencia que Sustenta
+            </h4>
+            <p class="text-xs text-gray-700 dark:text-gray-300">Declaración explícita en el Documento Maestro (Matriz de Consistencia).</p>
+        </div>
+    </div>
+</div>
 
             <!-- PANEL: FORMACIÓN -->
             <div class="tab-panel" data-panel="formacion">

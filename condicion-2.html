@@ -1073,6 +1073,74 @@
 
 <!-- 8. Estudio de mercado (cifras clave) — CON CONTADORES -->
 <section class="slide" data-accent="teal" data-title="Estudio de Mercado">
+    <style>
+        /* ═══════════════════════════════════════════════════════════
+           FIX slide "Estudio de Mercado"
+           Causa raíz: .flex-1 con `justify-content: safe center` +
+                       hijos con flex-shrink:1 → las tarjetas inferiores
+                       se aplastan y el banner navy se superpone.
+           ═══════════════════════════════════════════════════════════ */
+        .slide[data-title="Estudio de Mercado"] .flex-1 {
+            justify-content: flex-start !important;
+            gap: 0.75rem;
+        }
+
+        /* Los hijos directos del scroll NO se encogen ni crecen */
+        .slide[data-title="Estudio de Mercado"] .flex-1 > .grid,
+        .slide[data-title="Estudio de Mercado"] .flex-1 > .bg-unad-navy {
+            flex-shrink: 0 !important;
+            flex-grow: 0 !important;
+        }
+
+        /* El grid de cifras: alinear arriba, NO centrar verticalmente */
+        .slide[data-title="Estudio de Mercado"] .lg\:col-span-7.grid {
+            align-content: start !important;
+            align-items: stretch !important;
+        }
+
+        /* Tarjetas de cifras: alto natural */
+        .slide[data-title="Estudio de Mercado"] .stat-item {
+            height: auto !important;
+            min-height: 0 !important;
+            align-self: start;
+        }
+
+        /* Reducir un poco las cifras para que quepan las 4 sin apretar */
+        .slide[data-title="Estudio de Mercado"] .role-stat,
+        .slide[data-title="Estudio de Mercado"] p.role-stat {
+            font-size: clamp(40px, 3.6vw, 68px) !important;
+        }
+
+        /* Imagen: alto natural, sin heredar height:100% del .img-frame global */
+        .slide[data-title="Estudio de Mercado"] .img-frame {
+            height: auto !important;
+            min-height: 0 !important;
+            max-height: 48vh !important;
+        }
+        .slide[data-title="Estudio de Mercado"] .img-frame img {
+            height: auto !important;
+            max-height: 46vh !important;
+            object-fit: contain !important;
+        }
+
+        /* Banner: compacto, sin superposición */
+        .slide[data-title="Estudio de Mercado"] .bg-unad-navy {
+            padding: 0.9rem 1.1rem !important;
+            position: relative;
+            z-index: 2;
+        }
+        .slide[data-title="Estudio de Mercado"] .bg-unad-navy .role-quote {
+            font-size: 0.9rem !important;
+            line-height: 1.5 !important;
+        }
+
+        /* Padding más ajustado en las tarjetas de cifras */
+        .slide[data-title="Estudio de Mercado"] .stat-item {
+            padding: 1rem !important;
+            gap: 0.35rem !important;
+        }
+    </style>
+
     <div class="glass-panel">
 
         <!-- ─── Cabecera ─── -->
@@ -1092,15 +1160,15 @@
                 especialmente en regiones con vocación agropecuaria donde la oferta educativa es limitada.
             </p>
 
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-5 items-stretch w-full">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-5 items-start w-full">
                 <div class="lg:col-span-5 flex justify-center min-h-0">
                     <a href="EstudioMercado.png" class="lightbox-trigger block w-full img-frame hover-card cursor-zoom-in" title="Ver en tamaño completo">
                         <img src="EstudioMercado.png" alt="Estudio de mercado: cifras clave de demanda" class="w-full h-auto object-contain rounded-xl">
                     </a>
                 </div>
 
-                <div class="lg:col-span-7 grid grid-cols-2 gap-3 content-center">
-                    <article class="stat-item bg-white/85 dark:bg-black/50 p-5 rounded-2xl border-t-4 border-unad-teal shadow-sm hover-card">
+                <div class="lg:col-span-7 grid grid-cols-2 gap-3">
+                    <article class="stat-item bg-white/85 dark:bg-black/50 p-4 rounded-2xl border-t-4 border-unad-teal shadow-sm hover-card">
                         <p class="role-stat text-unad-teal">
                             <span data-count="82">82</span><span class="stat-unit">%</span>
                         </p>
@@ -1109,7 +1177,7 @@
                         </p>
                     </article>
 
-                    <article class="stat-item bg-white/85 dark:bg-black/50 p-5 rounded-2xl border-t-4 border-unad-orange shadow-sm hover-card">
+                    <article class="stat-item bg-white/85 dark:bg-black/50 p-4 rounded-2xl border-t-4 border-unad-orange shadow-sm hover-card">
                         <p class="role-stat text-unad-orange">
                             <span data-count="96">96</span><span class="stat-unit">%</span>
                         </p>
@@ -1118,7 +1186,7 @@
                         </p>
                     </article>
 
-                    <article class="stat-item bg-white/85 dark:bg-black/50 p-5 rounded-2xl border-t-4 border-unad-green shadow-sm hover-card">
+                    <article class="stat-item bg-white/85 dark:bg-black/50 p-4 rounded-2xl border-t-4 border-unad-green shadow-sm hover-card">
                         <p class="role-stat text-unad-green">
                             <span data-count="40">40</span><span class="stat-unit">%</span>
                         </p>
@@ -1127,7 +1195,7 @@
                         </p>
                     </article>
 
-                    <article class="stat-item bg-white/85 dark:bg-black/50 p-5 rounded-2xl border-t-4 border-unad-navy dark:border-t-gray-400 shadow-sm hover-card">
+                    <article class="stat-item bg-white/85 dark:bg-black/50 p-4 rounded-2xl border-t-4 border-unad-navy dark:border-t-gray-400 shadow-sm hover-card">
                         <p class="role-stat text-unad-navy dark:text-white">
                             <span data-count="56">56</span><span class="stat-unit">%</span>
                         </p>
@@ -1138,7 +1206,7 @@
                 </div>
             </div>
 
-            <div class="bg-unad-navy text-white p-5 rounded-xl border border-white/20 w-full mt-4">
+            <div class="bg-unad-navy text-white p-4 rounded-xl border border-white/20 w-full mt-3">
                 <p class="role-label text-unad-orange mb-2 flex items-center gap-2">
                     <span class="iconify" data-icon="lucide:lightbulb" data-width="14"></span>
                     Mensaje clave
@@ -1305,175 +1373,145 @@
         </div>
     </section>
 
-    <!-- 11. Modalidad y Competencias genéricas -->
-    <section class="slide" data-accent="orange" data-title="Modalidad y Competencias">
-        <div class="glass-panel">
-            <div class="gsap-reveal flex justify-between items-end border-b border-gray-200 dark:border-gray-700 pb-3 mb-4 shrink-0">
-                <h2 class="role-title text-unad-navy dark:text-white flex items-center gap-3">
-                    <span class="iconify text-unad-orange animate-pulse" data-icon="lucide:layers" data-width="30"></span>
-                    Modalidad de oferta y Competencias genéricas
-                </h2>
-                <span class="role-label bg-unad-teal text-white px-3 py-1 rounded-full">Estudio de mercado</span>
-            </div>
+   <!-- 11. Modalidad y Competencias genéricas -->
+<section class="slide" data-accent="orange" data-title="Modalidad y Competencias">
+    <div class="glass-panel">
+        <div class="gsap-reveal flex justify-between items-end border-b border-gray-200 dark:border-gray-700 pb-3 mb-4 shrink-0">
+            <h2 class="role-title text-unad-navy dark:text-white flex items-center gap-3">
+                <span class="iconify text-unad-orange animate-pulse" data-icon="lucide:layers" data-width="30"></span>
+                Modalidad de oferta y Competencias genéricas
+            </h2>
+            <span class="role-label bg-unad-teal text-white px-3 py-1 rounded-full">Estudio de mercado</span>
+        </div>
 
-            <div class="flex-1 min-h-0 overflow-y-auto custom-scroll gsap-reveal w-full flex items-center justify-center">
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 items-stretch w-full max-w-7xl mx-auto">
-                    <div class="flex flex-col gap-3 w-full">
-                        <div class="icon-pop bg-gradient-to-r from-unad-teal to-blue-700 text-white px-4 py-2.5 rounded-xl shadow-md flex items-center gap-2.5 shrink-0">
-                            <span class="iconify shrink-0" data-icon="lucide:clipboard-list" data-width="18"></span>
-                            <h3 class="role-card-title text-white">Hallazgos del estudio de mercado</h3>
-                        </div>
-                        <div class="hover-card relative bg-white/80 dark:bg-black/45 border-l-4 border-unad-teal px-5 py-5 rounded-2xl shadow-md flex flex-col gap-4 overflow-hidden">
-                            <svg class="absolute -bottom-6 -right-6 w-32 h-32 text-unad-teal/10 dark:text-unad-teal/15 pointer-events-none" viewBox="0 0 100 100" fill="currentColor" aria-hidden="true">
-                                <circle cx="35" cy="35" r="8"/>
-                                <circle cx="58" cy="28" r="7"/>
-                                <circle cx="70" cy="45" r="7.5"/>
-                                <circle cx="30" cy="55" r="6"/>
-                                <ellipse cx="52" cy="58" rx="14" ry="11"/>
-                            </svg>
-                            <span class="iconify text-unad-teal/40 absolute top-3 right-3" data-icon="lucide:quote" data-width="24"></span>
-                            <p class="underline-hover-group relative t-small text-gray-800 dark:text-gray-200 leading-relaxed italic pr-6">
-                                Los resultados del estudio de mercado evidencian que los estudiantes reconocen la importancia del <strong class="text-unad-navy dark:text-white not-italic">trabajo directo con animales</strong>, el desarrollo de <strong class="text-unad-navy dark:text-white not-italic">habilidades clínicas</strong> y la <strong class="text-unad-navy dark:text-white not-italic">experiencia en campo</strong> como elementos esenciales para una formación competente y segura.
-                            </p>
-                            <div class="relative grid grid-cols-3 gap-3">
-                                <div class="badge-circle icon-pop flex flex-col items-center text-center gap-1.5 cursor-default">
-                                    <span class="w-14 h-14 flex items-center justify-center rounded-full bg-unad-teal/12 dark:bg-unad-teal/20 border-2 border-unad-teal/30">
-                                        <span class="iconify text-unad-teal" data-icon="lucide:paw-print" data-width="22"></span>
-                                    </span>
-                                    <span class="role-label text-unad-teal dark:text-unad-orange leading-tight">Trabajo con animales</span>
-                                </div>
-                                <div class="badge-circle icon-pop flex flex-col items-center text-center gap-1.5 cursor-default">
-                                    <span class="w-14 h-14 flex items-center justify-center rounded-full bg-unad-teal/12 dark:bg-unad-teal/20 border-2 border-unad-teal/30">
-                                        <span class="iconify text-unad-teal" data-icon="lucide:stethoscope" data-width="22"></span>
-                                    </span>
-                                    <span class="role-label text-unad-teal dark:text-unad-orange leading-tight">Habilidades clínicas</span>
-                                </div>
-                                <div class="badge-circle icon-pop flex flex-col items-center text-center gap-1.5 cursor-default">
-                                    <span class="w-14 h-14 flex items-center justify-center rounded-full bg-unad-teal/12 dark:bg-unad-teal/20 border-2 border-unad-teal/30">
-                                        <span class="iconify text-unad-teal" data-icon="lucide:leaf" data-width="22"></span>
-                                    </span>
-                                    <span class="role-label text-unad-teal dark:text-unad-orange leading-tight">Experiencia en campo</span>
-                                </div>
-                            </div>
-                        </div>
-                        <p class="t-caption text-gray-500 dark:text-gray-400 italic flex items-start gap-1.5 shrink-0">
-                            <span class="iconify shrink-0 mt-0.5" data-icon="lucide:book-open" data-width="12"></span>
-                            <span><strong class="not-italic">Fuente:</strong> Encuestas estudio de mercado, Equipo de Medicina Veterinaria, UNAD. 2026</span>
-                        </p>
-                    </div>
+        <div class="flex-1 min-h-0 overflow-y-auto custom-scroll gsap-reveal w-full flex items-center justify-center">
+            <div class="flex flex-col gap-4 w-full max-w-5xl mx-auto">
 
-                    <div class="flex flex-col gap-3 w-full">
-                        <div class="icon-pop bg-gradient-to-r from-unad-orange to-orange-600 text-white px-4 py-2.5 rounded-xl shadow-md flex items-center gap-2.5 shrink-0">
-                            <span class="iconify shrink-0" data-icon="lucide:award" data-width="18"></span>
-                            <h3 class="role-card-title text-white">Competencias genéricas para un médico veterinario</h3>
-                        </div>
-                        <button type="button"
-                                class="img-zoom-trigger w-full flex-1 min-h-0 shadow-lg border border-gray-200 dark:border-gray-700 hover-card rounded-2xl overflow-hidden bg-white/70 dark:bg-black/40 p-2 flex items-center justify-center"
-                                data-image-zoom="Competencias genéricas.png"
-                                data-image-alt="Competencias genéricas para un médico veterinario"
-                                data-image-title="Competencias genéricas para un médico veterinario"
-                                data-image-label="Figura"
-                                data-image-icon="lucide:award"
-                                data-image-gradient-from="#ea580c"
-                                data-image-gradient-to="#1e3a5f">
-                            <img src="Competencias genéricas.png" alt="Competencias genéricas para un médico veterinario" class="w-full h-full object-contain max-h-[52vh]">
-                            <span class="img-zoom-trigger__overlay">
-                                <span class="img-zoom-trigger__hint">
-                                    <span class="iconify" data-icon="lucide:maximize-2" data-width="11"></span> Ampliar
-                                </span>
+                <!-- Cabecera del bloque -->
+                <div class="icon-pop bg-gradient-to-r from-unad-teal to-blue-700 text-white px-4 py-2.5 rounded-xl shadow-md flex items-center gap-2.5 shrink-0">
+                    <span class="iconify shrink-0" data-icon="lucide:clipboard-list" data-width="18"></span>
+                    <h3 class="role-card-title text-white">Hallazgos del estudio de mercado</h3>
+                </div>
+
+                <!-- Tarjeta principal con cita y badges -->
+                <div class="hover-card relative bg-white/80 dark:bg-black/45 border-l-4 border-unad-teal px-6 py-6 rounded-2xl shadow-md flex flex-col gap-5 overflow-hidden">
+                    <svg class="absolute -bottom-6 -right-6 w-40 h-40 text-unad-teal/10 dark:text-unad-teal/15 pointer-events-none" viewBox="0 0 100 100" fill="currentColor" aria-hidden="true">
+                        <circle cx="35" cy="35" r="8"/>
+                        <circle cx="58" cy="28" r="7"/>
+                        <circle cx="70" cy="45" r="7.5"/>
+                        <circle cx="30" cy="55" r="6"/>
+                        <ellipse cx="52" cy="58" rx="14" ry="11"/>
+                    </svg>
+                    <span class="iconify text-unad-teal/40 absolute top-3 right-3" data-icon="lucide:quote" data-width="26"></span>
+
+                    <p class="underline-hover-group relative t-body text-gray-800 dark:text-gray-200 leading-relaxed italic pr-8">
+                        Los resultados del estudio de mercado evidencian que los estudiantes reconocen la importancia del <strong class="text-unad-navy dark:text-white not-italic">trabajo directo con animales</strong>, el desarrollo de <strong class="text-unad-navy dark:text-white not-italic">habilidades clínicas</strong> y la <strong class="text-unad-navy dark:text-white not-italic">experiencia en campo</strong> como elementos esenciales para una formación competente y segura.
+                    </p>
+
+                    <div class="relative grid grid-cols-3 gap-6">
+                        <div class="badge-circle icon-pop flex flex-col items-center text-center gap-2 cursor-default">
+                            <span class="w-16 h-16 flex items-center justify-center rounded-full bg-unad-teal/12 dark:bg-unad-teal/20 border-2 border-unad-teal/30">
+                                <span class="iconify text-unad-teal" data-icon="lucide:paw-print" data-width="26"></span>
                             </span>
-                        </button>
-                        <p class="t-caption text-gray-500 dark:text-gray-400 italic flex items-start gap-1.5 shrink-0">
-                            <span class="iconify shrink-0 mt-0.5" data-icon="lucide:book-open" data-width="12"></span>
-                            <span><strong class="not-italic">Fuente:</strong> Encuestas estudio de mercado, Equipo de Medicina Veterinaria, UNAD. 2026</span>
-                        </p>
+                            <span class="role-label text-unad-teal dark:text-unad-orange leading-tight">Trabajo con animales</span>
+                        </div>
+                        <div class="badge-circle icon-pop flex flex-col items-center text-center gap-2 cursor-default">
+                            <span class="w-16 h-16 flex items-center justify-center rounded-full bg-unad-teal/12 dark:bg-unad-teal/20 border-2 border-unad-teal/30">
+                                <span class="iconify text-unad-teal" data-icon="lucide:stethoscope" data-width="26"></span>
+                            </span>
+                            <span class="role-label text-unad-teal dark:text-unad-orange leading-tight">Habilidades clínicas</span>
+                        </div>
+                        <div class="badge-circle icon-pop flex flex-col items-center text-center gap-2 cursor-default">
+                            <span class="w-16 h-16 flex items-center justify-center rounded-full bg-unad-teal/12 dark:bg-unad-teal/20 border-2 border-unad-teal/30">
+                                <span class="iconify text-unad-teal" data-icon="lucide:leaf" data-width="26"></span>
+                            </span>
+                            <span class="role-label text-unad-teal dark:text-unad-orange leading-tight">Experiencia en campo</span>
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <div class="grid grid-cols-2 gap-4 mt-4 shrink-0 gsap-reveal">
-                <div class="hover-card icon-pop bg-unad-orange/10 border-l-4 border-unad-orange p-3 rounded-r-lg">
-                    <h4 class="role-note w-semibold text-unad-orange mb-1 flex items-center gap-2">
-                        <span class="iconify" data-icon="lucide:alert-circle" data-width="16"></span> Criterio del Par Académico
-                    </h4>
-                    <p class="t-caption text-gray-700 dark:text-gray-300">Pertinencia de la modalidad y las competencias con las tendencias del mercado laboral veterinario.</p>
-                </div>
-                <div class="hover-card icon-pop bg-unad-green/10 border-l-4 border-unad-green p-3 rounded-r-lg">
-                    <h4 class="role-note w-semibold text-unad-green mb-1 flex items-center gap-2">
-                        <span class="iconify" data-icon="lucide:check-circle-2" data-width="16"></span> Evidencia que Sustenta
-                    </h4>
-                    <p class="t-caption text-gray-700 dark:text-gray-300">Encuestas aplicadas a aspirantes potenciales del programa (2026).</p>
-                </div>
+                <!-- Fuente -->
+                <p class="t-caption text-gray-500 dark:text-gray-400 italic flex items-start gap-1.5 shrink-0">
+                    <span class="iconify shrink-0 mt-0.5" data-icon="lucide:book-open" data-width="12"></span>
+                    <span><strong class="not-italic">Fuente:</strong> Encuestas estudio de mercado, Equipo de Medicina Veterinaria, UNAD. 2026</span>
+                </p>
             </div>
         </div>
-    </section>
 
-    <!-- 12. Encuesta a sector productivo -->
-    <section class="slide" data-accent="teal" data-title="Encuesta Sector Productivo">
-        <div class="glass-panel">
-            <div class="gsap-reveal flex justify-between items-end border-b border-gray-200 dark:border-gray-700 pb-3 mb-3 shrink-0">
-                <h2 class="role-title text-unad-navy dark:text-white flex items-center gap-3">
-                    <span class="iconify text-unad-teal animate-pulse" data-icon="lucide:building-2" data-width="30"></span>
-                    Encuesta a sector productivo
-                </h2>
-                <div class="flex items-center gap-2">
-                    <button type="button" onclick="openAliadosModal()"
-                            class="inline-flex items-center gap-2 bg-gradient-to-r from-unad-orange to-unad-teal text-white px-4 py-1.5 rounded-full role-label shadow-md hover:shadow-lg hover:-translate-y-0.5 transition-all duration-200">
-                        <span class="iconify" data-icon="lucide:handshake" data-width="14"></span>
-                        Ver Red de Aliados
-                    </button>
-                    <span class="role-label bg-unad-teal text-white px-3 py-1 rounded-full">226 empresarios</span>
-                </div>
+        <div class="grid grid-cols-2 gap-4 mt-4 shrink-0 gsap-reveal">
+            <div class="hover-card icon-pop bg-unad-orange/10 border-l-4 border-unad-orange p-3 rounded-r-lg">
+                <h4 class="role-note w-semibold text-unad-orange mb-1 flex items-center gap-2">
+                    <span class="iconify" data-icon="lucide:alert-circle" data-width="16"></span> Criterio del Par Académico
+                </h4>
+                <p class="t-caption text-gray-700 dark:text-gray-300">Pertinencia de la modalidad y las competencias con las tendencias del mercado laboral veterinario.</p>
             </div>
-
-            <p class="gsap-reveal t-body text-center text-gray-700 dark:text-gray-300 mb-3">
-                La encuesta la respondieron <strong class="text-unad-orange">226 empresarios</strong> relacionados con el sector pecuario, ubicados en <strong>todas las regiones del país</strong>.
-            </p>
-
-            <div class="flex-1 min-h-0 overflow-y-auto custom-scroll gsap-reveal w-full">
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 items-stretch h-full">
-                    <div class="flex flex-col gap-2 h-full">
-                        <div class="bg-gradient-to-r from-unad-teal to-blue-700 text-white px-4 py-2 rounded-xl shadow-md flex items-center gap-2.5 shrink-0">
-                            <span class="iconify shrink-0" data-icon="lucide:bar-chart-3" data-width="18"></span>
-                            <h3 class="role-card-title text-white">Categorías de desempeño</h3>
-                        </div>
-                        <a href="calificacion.png" class="lightbox-trigger block rounded-2xl overflow-hidden shadow-xl border border-gray-200 dark:border-gray-700 hover-card cursor-zoom-in bg-white/60 dark:bg-black/30 flex items-center justify-center p-2 flex-1 min-h-0" title="Ampliar imagen · Categorías de desempeño">
-                            <img src="calificacion.png" alt="Categorías de desempeño · Encuesta sector productivo" class="w-full h-full object-contain max-h-[55vh]">
-                        </a>
-                        <p class="t-caption text-gray-500 dark:text-gray-400 italic flex items-start gap-1.5 shrink-0">
-                            <span class="iconify shrink-0 mt-0.5" data-icon="lucide:book-open" data-width="12"></span>
-                            <span><strong class="not-italic">Fuente:</strong> Encuestas estudio de mercado, Equipo de Medicina Veterinaria, UNAD. 2026</span>
-                        </p>
-                    </div>
-
-                    <div class="flex flex-col gap-2 h-full">
-                        <div class="bg-gradient-to-r from-unad-orange to-orange-600 text-white px-4 py-2 rounded-xl shadow-md flex items-center gap-2.5 shrink-0">
-                            <span class="iconify shrink-0" data-icon="lucide:map-pinned" data-width="18"></span>
-                            <h3 class="role-card-title text-white">Alianzas con la región</h3>
-                        </div>
-                        <a href="Alianzas con la región.png" class="lightbox-trigger block rounded-2xl overflow-hidden shadow-xl border border-gray-200 dark:border-gray-700 hover-card cursor-zoom-in bg-white/60 dark:bg-black/30 flex items-center justify-center p-2 flex-1 min-h-0" title="Ampliar imagen · Alianzas con la región">
-                            <img src="Alianzas con la región.png" alt="Alianzas con la región · Encuesta sector productivo" class="w-full h-full object-contain max-h-[55vh]">
-                        </a>
-                        <p class="t-caption text-gray-500 dark:text-gray-400 italic flex items-start gap-1.5 shrink-0">
-                            <span class="iconify shrink-0 mt-0.5" data-icon="lucide:book-open" data-width="12"></span>
-                            <span><strong class="not-italic">Fuente:</strong> Encuestas estudio de mercado, Equipo de Medicina Veterinaria, UNAD. 2026</span>
-                        </p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="grid grid-cols-2 gap-4 mt-3 shrink-0 gsap-reveal">
-                <div class="bg-unad-orange/10 border-l-4 border-unad-orange p-3 rounded-r-lg hover-card">
-                    <h4 class="role-note w-semibold text-unad-orange mb-1 flex items-center gap-2"><span class="iconify" data-icon="lucide:alert-circle" data-width="16"></span> Criterio del Par Académico</h4>
-                    <p class="t-caption text-gray-700 dark:text-gray-300">Pertinencia de las categorías de desempeño y la red de alianzas regionales con el sector pecuario.</p>
-                </div>
-                <div class="bg-unad-green/10 border-l-4 border-unad-green p-3 rounded-r-lg hover-card">
-                    <h4 class="role-note w-semibold text-unad-green mb-1 flex items-center gap-2"><span class="iconify" data-icon="lucide:check-circle-2" data-width="16"></span> Evidencia que Sustenta</h4>
-                    <p class="t-caption text-gray-700 dark:text-gray-300">Encuestas aplicadas al sector productivo (226 empresarios · 2026).</p>
-                </div>
+            <div class="hover-card icon-pop bg-unad-green/10 border-l-4 border-unad-green p-3 rounded-r-lg">
+                <h4 class="role-note w-semibold text-unad-green mb-1 flex items-center gap-2">
+                    <span class="iconify" data-icon="lucide:check-circle-2" data-width="16"></span> Evidencia que Sustenta
+                </h4>
+                <p class="t-caption text-gray-700 dark:text-gray-300">Encuestas aplicadas a aspirantes potenciales del programa (2026).</p>
             </div>
         </div>
-    </section>
+    </div>
+</section>
+
+   <!-- 12. Encuesta a sector productivo -->
+<section class="slide" data-accent="teal" data-title="Encuesta Sector Productivo">
+    <div class="glass-panel">
+        <div class="gsap-reveal flex justify-between items-end border-b border-gray-200 dark:border-gray-700 pb-3 mb-3 shrink-0">
+            <h2 class="role-title text-unad-navy dark:text-white flex items-center gap-3">
+                <span class="iconify text-unad-teal animate-pulse" data-icon="lucide:building-2" data-width="30"></span>
+                Encuesta a sector productivo
+            </h2>
+            <div class="flex items-center gap-2">
+                <button type="button" onclick="openAliadosModal()"
+                        class="inline-flex items-center gap-2 bg-gradient-to-r from-unad-orange to-unad-teal text-white px-4 py-1.5 rounded-full role-label shadow-md hover:shadow-lg hover:-translate-y-0.5 transition-all duration-200">
+                    <span class="iconify" data-icon="lucide:handshake" data-width="14"></span>
+                    Ver Red de Aliados
+                </button>
+                <span class="role-label bg-unad-teal text-white px-3 py-1 rounded-full">226 empresarios</span>
+            </div>
+        </div>
+
+        <p class="gsap-reveal t-body text-center text-gray-700 dark:text-gray-300 mb-3">
+            La encuesta la respondieron <strong class="text-unad-orange">226 empresarios</strong> relacionados con el sector pecuario, ubicados en <strong>todas las regiones del país</strong>.
+        </p>
+
+        <div class="flex-1 min-h-0 overflow-y-auto custom-scroll gsap-reveal w-full flex items-center justify-center">
+            <div class="flex flex-col gap-2 w-full max-w-5xl mx-auto">
+
+                <div class="bg-gradient-to-r from-unad-orange to-orange-600 text-white px-4 py-2 rounded-xl shadow-md flex items-center gap-2.5 shrink-0">
+                    <span class="iconify shrink-0" data-icon="lucide:map-pinned" data-width="18"></span>
+                    <h3 class="role-card-title text-white">Alianzas con la región</h3>
+                </div>
+
+                <a href="Alianzas con la región.png"
+                   class="lightbox-trigger block rounded-2xl overflow-hidden shadow-xl border border-gray-200 dark:border-gray-700 hover-card cursor-zoom-in bg-white/60 dark:bg-black/30 flex items-center justify-center p-3"
+                   title="Ampliar imagen · Alianzas con la región">
+                    <img src="Alianzas con la región.png"
+                         alt="Alianzas con la región · Encuesta sector productivo"
+                         class="w-full h-auto object-contain max-h-[58vh]">
+                </a>
+
+                <p class="t-caption text-gray-500 dark:text-gray-400 italic flex items-start gap-1.5 shrink-0">
+                    <span class="iconify shrink-0 mt-0.5" data-icon="lucide:book-open" data-width="12"></span>
+                    <span><strong class="not-italic">Fuente:</strong> Encuestas estudio de mercado, Equipo de Medicina Veterinaria, UNAD. 2026</span>
+                </p>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-2 gap-4 mt-3 shrink-0 gsap-reveal">
+            <div class="bg-unad-orange/10 border-l-4 border-unad-orange p-3 rounded-r-lg hover-card">
+                <h4 class="role-note w-semibold text-unad-orange mb-1 flex items-center gap-2"><span class="iconify" data-icon="lucide:alert-circle" data-width="16"></span> Criterio del Par Académico</h4>
+                <p class="t-caption text-gray-700 dark:text-gray-300">Pertinencia de la red de alianzas regionales con el sector pecuario.</p>
+            </div>
+            <div class="bg-unad-green/10 border-l-4 border-unad-green p-3 rounded-r-lg hover-card">
+                <h4 class="role-note w-semibold text-unad-green mb-1 flex items-center gap-2"><span class="iconify" data-icon="lucide:check-circle-2" data-width="16"></span> Evidencia que Sustenta</h4>
+                <p class="t-caption text-gray-700 dark:text-gray-300">Encuestas aplicadas al sector productivo (226 empresarios · 2026).</p>
+            </div>
+        </div>
+    </div>
+</section>
 
     <!-- 13. Oportunidades de desarrollo -->
 <section class="slide" data-accent="green" data-title="Oportunidades de Desarrollo">
