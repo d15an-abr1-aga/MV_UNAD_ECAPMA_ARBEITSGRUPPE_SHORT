@@ -452,3 +452,983 @@ button, input, select, textarea, optgroup { font-family: inherit; }
     .mini-card:hover .iconify { transform: none; }
     .lift:hover { transform: none; box-shadow: none; }
 }
+/* ══════════════════════════════════════════════
+   SLIDE 6 · Resultado del modelo
+   (scoped: solo afecta esta slide)
+   ══════════════════════════════════════════════ */
+
+/* Marco de la imagen, mismo estilo que la slide 2 */
+[data-title="Resultado del modelo"] figure {
+    margin: 0;
+    display: block;
+    width: 100%;
+    padding: 0.75rem;
+    background: rgb(255 255 255 / 0.70);
+    border: 2px solid rgb(15 118 110 / 0.25);   /* unad-teal al 25 % */
+    border-radius: 1rem;
+    box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.10),
+                0 8px 10px -6px rgb(0 0 0 / 0.10);
+    overflow: hidden;
+}
+[data-title="Resultado del modelo"] figure img {
+    width: 100%;
+    height: auto;
+    max-height: 62vh;
+    object-fit: contain;
+    border-radius: 0.5rem;
+    display: block;
+}
+
+/* Modo oscuro del marco */
+.dark [data-title="Resultado del modelo"] figure {
+    background: rgb(0 0 0 / 0.40);
+}
+
+/* Sin lightbox ni zoom en la imagen */
+[data-title="Resultado del modelo"] [data-zoom],
+[data-title="Resultado del modelo"] [data-lightbox],
+[data-title="Resultado del modelo"] [aria-label*="mpliar" i],
+[data-title="Resultado del modelo"] [aria-label*="xpand" i] {
+    display: none !important;
+}
+[data-title="Resultado del modelo"] figure img {
+    cursor: default !important;
+    pointer-events: none;
+}
+
+/* ══════════════════════════════════════════════
+   SLIDE 9 · Ecosistema de aprendizaje híbrido
+   (scoped: solo esta slide)
+   ══════════════════════════════════════════════ */
+
+/* Marco de la imagen, mismo estilo que la slide 2 */
+[data-title="Ecosistema"] figure {
+    margin: 0;
+    display: block;
+    width: 100%;
+    padding: 0.75rem;
+    background: rgb(255 255 255 / 0.70);
+    border: 2px solid rgb(15 118 110 / 0.25);   /* unad-teal al 25 % */
+    border-radius: 1rem;
+    box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.10),
+                0 8px 10px -6px rgb(0 0 0 / 0.10);
+    overflow: hidden;
+}
+[data-title="Ecosistema"] figure img {
+    width: 100%;
+    height: auto;
+    max-height: 62vh;
+    object-fit: contain;
+    border-radius: 0.5rem;
+    display: block;
+}
+
+/* Modo oscuro del marco */
+.dark [data-title="Ecosistema"] figure {
+    background: rgb(0 0 0 / 0.40);
+}
+
+/* Sin lightbox ni zoom */
+[data-title="Ecosistema"] [data-zoom],
+[data-title="Ecosistema"] [data-lightbox],
+[data-title="Ecosistema"] [aria-label*="mpliar" i],
+[data-title="Ecosistema"] [aria-label*="xpand" i] {
+    display: none !important;
+}
+[data-title="Ecosistema"] figure img {
+    cursor: default !important;
+    pointer-events: none;
+}
+
+/* ══════════════════════════════════════════════
+   TABS · navegación por tarjetas (Propósito, NP…)
+   ══════════════════════════════════════════════ */
+.tabs-nav {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: 1fr;
+    gap: 0.75rem;
+}
+
+.tab-card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+    padding: 0.9rem 1rem;
+    border-radius: 1rem;
+    background: rgba(255, 255, 255, 0.7);
+    border: 2px solid transparent;
+    box-shadow: 0 2px 10px rgb(0 0 0 / 0.04);
+    cursor: pointer;
+    transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease, background .25s ease;
+}
+.dark .tab-card {
+    background: rgba(0, 0, 0, 0.35);
+}
+
+.tab-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgb(0 0 0 / 0.10);
+}
+
+.tab-card__label {
+    font-family: var(--font-display);
+    font-weight: var(--fw-semibold);
+    font-size: var(--fs-small);
+    line-height: 1.2;
+    text-align: left;
+}
+
+/* Estados activos por color institucional */
+.tab-card.is-active[data-accent="teal"]   { border-color: #0f766e; background: rgba(15, 118, 110, 0.08); }
+.tab-card.is-active[data-accent="green"]  { border-color: #166534; background: rgba(22, 101, 52, 0.08); }
+.tab-card.is-active[data-accent="orange"] { border-color: #d9691e; background: rgba(217, 105, 30, 0.08); }
+.tab-card.is-active[data-accent="navy"]   { border-color: #0b3a53; background: rgba(11, 58, 83, 0.08); }
+
+.tab-card.is-active[data-accent="teal"]   .iconify { color: #0f766e; }
+.tab-card.is-active[data-accent="green"]  .iconify { color: #166534; }
+.tab-card.is-active[data-accent="orange"] .iconify { color: #d9691e; }
+.tab-card.is-active[data-accent="navy"]   .iconify { color: #0b3a53; }
+
+/* Paneles */
+.tab-panel { display: none; }
+.tab-panel.is-active {
+    display: block;
+    animation: tab-fade-in .35s ease-out;
+}
+
+@keyframes tab-fade-in {
+    from { opacity: 0; transform: translateY(6px); }
+    to   { opacity: 1; transform: none; }
+}
+
+/* Responsive: en móvil los tabs pasan a 2 columnas o fila */
+@media (max-width: 640px) {
+    .tabs-nav { grid-auto-flow: row; grid-auto-columns: auto; grid-template-columns: 1fr 1fr; }
+    .tab-card { padding: 0.7rem 0.6rem; gap: 0.4rem; }
+    .tab-card__label { font-size: var(--fs-caption); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .tab-card { transition: none; }
+    .tab-card:hover { transform: none; }
+    .tab-panel.is-active { animation: none; }
+}
+
+/* ─── Badge numérico de competencias (C1, C2, C3, C4…) ─── */
+.num-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex: none;
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 999px;
+    line-height: 1;
+    font-family: var(--font-display);
+    font-weight: var(--fw-bold);
+    font-size: var(--fs-micro);
+    letter-spacing: 0;
+    font-variant-numeric: tabular-nums;
+}
+
+/* ══════════════════════════════════════════════
+   Checklist de grupos por categoría
+   (1.10 del catálogo + hover 3.6) — v2 con contraste
+   ══════════════════════════════════════════════ */
+.checklist {
+    list-style: none;
+    padding: 0.5rem 0.75rem;
+    margin: 0;
+    display: grid;
+    gap: 0.15rem;
+}
+.checklist li {
+    display: flex;
+    gap: 0.55rem;
+    align-items: flex-start;
+    padding: 0.4rem 0.5rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    color: #01333F;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    transition: background-color .2s ease, transform .2s ease, color .2s ease;
+}
+.dark .checklist li { color: #E5E7EB; }
+
+.checklist li:hover {
+    background: rgba(0, 68, 91, 0.08);
+    transform: translateX(4px);
+    font-weight: 800;
+    color: #00445B;
+}
+.dark .checklist li:hover {
+    background: rgba(210, 103, 20, 0.14);
+    color: #D26714;
+}
+
+.checklist li .iconify {
+    flex: none;
+    margin-top: 0.05em;
+    font-size: 1.05rem;
+    transition: transform .25s cubic-bezier(.34, 1.56, .64, 1);
+}
+.checklist li:hover .iconify {
+    transform: scale(1.2) rotate(-8deg);
+}
+.checklist li > span:last-child {
+    line-height: 1.35;
+    word-break: keep-all;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .checklist li, .checklist li .iconify { transition: none; }
+    .checklist li:hover { transform: none; }
+    .checklist li:hover .iconify { transform: none; }
+}
+/* Fila del checklist: menos padding vertical para que quepan 9 items */
+.checklist li {
+    padding: 0.25rem 0.5rem;
+}
+.checklist {
+    padding: 0.4rem 0.6rem;
+    gap: 0.1rem;
+}
+
+/* Tarjetas de métricas (15 / 18) más compactas */
+.stat-metric {
+    padding: 0.9rem 1rem !important;
+}
+.stat-metric .metric-num {
+    font-size: 2.4rem !important;
+    line-height: 1 !important;
+}
+.stat-metric .metric-label {
+    font-size: 0.68rem !important;
+    margin-top: 0.35rem !important;
+}
+/* ── Checklist de requisitos ───────────────────────── */
+.checklist { list-style: none; padding: 0; display: grid; gap: .5rem; }
+.checklist li { display: flex; gap: .55rem; align-items: flex-start; }
+.checklist li .iconify {
+    color: var(--accent, #0f766e);
+    flex: none;
+    margin-top: .15em;
+    transition: transform .25s cubic-bezier(.34, 1.56, .64, 1);
+}
+.checklist li:hover .iconify { transform: rotate(8deg) scale(1.15); }
+
+/* ── Mini-cards de trazabilidad ────────────────────── */
+.mini-card {
+    display: flex; align-items: center; gap: .55rem;
+    padding: .55rem .7rem;
+    border-radius: .75rem;
+    background: color-mix(in srgb, var(--accent, #0f766e) 8%, white);
+    border: 1px solid color-mix(in srgb, var(--accent, #0f766e) 22%, transparent);
+    transition: transform .25s ease, box-shadow .25s ease;
+}
+.mini-card .iconify {
+    color: var(--accent, #0f766e);
+    transition: transform .25s cubic-bezier(.34, 1.56, .64, 1);
+}
+.mini-card:hover { transform: translateY(-3px); box-shadow: 0 10px 22px rgb(0 0 0 / .10); }
+.mini-card:hover .iconify { transform: rotate(8deg) scale(1.15); }
+
+/* Modo oscuro */
+.dark .mini-card { background: color-mix(in srgb, var(--accent, #0f766e) 22%, #0b1220); }
+
+/* ── Badge de asignación de tiempo ─────────────────── */
+.tiempo-badge {
+    display: flex; align-items: center; gap: .7rem;
+    padding: .8rem 1rem;
+    border-radius: .9rem;
+    border-left: 4px solid var(--accent, #0f766e);
+    background: linear-gradient(90deg,
+        color-mix(in srgb, var(--accent, #0f766e) 14%, white),
+        transparent);
+}
+.tiempo-badge .iconify { color: var(--accent, #0f766e); flex: none; }
+
+/* ── Accesibilidad: sin movimiento si el usuario lo pide ── */
+@media (prefers-reduced-motion: reduce) {
+    .checklist li .iconify,
+    .mini-card,
+    .mini-card .iconify { transition: none !important; }
+    .checklist li:hover .iconify,
+    .mini-card:hover,
+    .mini-card:hover .iconify { transform: none !important; }
+}
+
+/* ── Checklist de requisitos ───────────────────────── */
+.checklist { list-style: none; padding: 0; display: grid; gap: .5rem; }
+.checklist li { display: flex; gap: .55rem; align-items: flex-start; }
+.checklist li .iconify {
+    color: var(--accent, #0f766e);
+    flex: none;
+    margin-top: .15em;
+    transition: transform .25s cubic-bezier(.34, 1.56, .64, 1);
+}
+.checklist li:hover .iconify { transform: rotate(8deg) scale(1.15); }
+
+/* ── Mini-cards de trazabilidad ────────────────────── */
+.mini-card {
+    display: flex; align-items: center; gap: .55rem;
+    padding: .55rem .7rem;
+    border-radius: .75rem;
+    background: color-mix(in srgb, var(--accent, #0f766e) 8%, white);
+    border: 1px solid color-mix(in srgb, var(--accent, #0f766e) 22%, transparent);
+    transition: transform .25s ease, box-shadow .25s ease;
+}
+.mini-card .iconify {
+    color: var(--accent, #0f766e);
+    transition: transform .25s cubic-bezier(.34, 1.56, .64, 1);
+}
+.mini-card:hover { transform: translateY(-3px); box-shadow: 0 10px 22px rgb(0 0 0 / .10); }
+.mini-card:hover .iconify { transform: rotate(8deg) scale(1.15); }
+
+.dark .mini-card { background: color-mix(in srgb, var(--accent, #0f766e) 22%, #0b1220); }
+
+/* ── Badge de asignación de tiempo ─────────────────── */
+.tiempo-badge {
+    display: flex; align-items: center; gap: .7rem;
+    padding: .8rem 1rem;
+    border-radius: .9rem;
+    border-left: 4px solid var(--accent, #0f766e);
+    background: linear-gradient(90deg,
+        color-mix(in srgb, var(--accent, #0f766e) 14%, white),
+        transparent);
+}
+.tiempo-badge .iconify { color: var(--accent, #0f766e); flex: none; }
+
+/* ── Accesibilidad ─────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+    .checklist li .iconify,
+    .mini-card,
+    .mini-card .iconify { transition: none !important; }
+    .checklist li:hover .iconify,
+    .mini-card:hover,
+    .mini-card:hover .iconify { transform: none !important; }
+}
+/* ── Checklist ─────────────────────────────────────── */
+.checklist { list-style: none; padding: 0; display: grid; gap: .5rem; }
+.checklist li { display: flex; gap: .55rem; align-items: flex-start; }
+.checklist li .iconify {
+    color: var(--accent, #0f766e);
+    flex: none;
+    margin-top: .15em;
+    transition: transform .25s cubic-bezier(.34, 1.56, .64, 1);
+}
+.checklist li:hover .iconify { transform: rotate(8deg) scale(1.15); }
+
+/* ── Mini-cards ────────────────────────────────────── */
+.mini-card {
+    display: flex; align-items: center; gap: .55rem;
+    padding: .55rem .7rem;
+    border-radius: .75rem;
+    background: color-mix(in srgb, var(--accent, #0f766e) 8%, white);
+    border: 1px solid color-mix(in srgb, var(--accent, #0f766e) 22%, transparent);
+    transition: transform .25s ease, box-shadow .25s ease;
+}
+.mini-card .iconify {
+    color: var(--accent, #0f766e);
+    transition: transform .25s cubic-bezier(.34, 1.56, .64, 1);
+}
+.mini-card:hover { transform: translateY(-3px); box-shadow: 0 10px 22px rgb(0 0 0 / .10); }
+.mini-card:hover .iconify { transform: rotate(8deg) scale(1.15); }
+.dark .mini-card { background: color-mix(in srgb, var(--accent, #0f766e) 22%, #0b1220); }
+
+/* ── Badge destacado ───────────────────────────────── */
+.tiempo-badge {
+    display: flex; align-items: center; gap: .7rem;
+    padding: .8rem 1rem;
+    border-radius: .9rem;
+    border-left: 4px solid var(--accent, #0f766e);
+    background: linear-gradient(90deg,
+        color-mix(in srgb, var(--accent, #0f766e) 14%, white),
+        transparent);
+}
+.tiempo-badge .iconify { color: var(--accent, #0f766e); flex: none; }
+
+/* ── Accesibilidad ─────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+    .checklist li .iconify,
+    .mini-card,
+    .mini-card .iconify { transition: none !important; }
+    .checklist li:hover .iconify,
+    .mini-card:hover,
+    .mini-card:hover .iconify { transform: none !important; }
+}
+/* ── Bento grid (slide internacionalización) ───────── */
+.bento {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: minmax(8rem, auto);
+    gap: .9rem;
+}
+.bento__cell {
+    border-radius: 1.1rem;
+    padding: 1.1rem;
+    background: #fff;
+    box-shadow: 0 4px 16px rgb(0 0 0 / .06);
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    transition: transform .25s ease, box-shadow .25s ease;
+}
+.bento__cell .iconify {
+    color: var(--accent, #0b3a53);
+    transition: transform .25s cubic-bezier(.34, 1.56, .64, 1);
+}
+.bento__cell:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 28px rgb(0 0 0 / .12);
+}
+.bento__cell:hover .iconify { transform: rotate(8deg) scale(1.15); }
+
+.bento__cell--wide { grid-column: span 2; }
+
+/* Celda destacada (nota institucional) */
+.bento__cell--accent {
+    background: var(--accent, #0b3a53);
+    color: #fff;
+}
+.bento__cell--accent .iconify,
+.bento__cell--accent .role-card-title { color: #fff; }
+.bento__cell--accent .role-note { color: rgb(255 255 255 / .88); }
+
+/* Modo oscuro */
+.dark .bento__cell {
+    background: color-mix(in srgb, var(--accent, #0b3a53) 18%, #0b1220);
+    color: #e5e7eb;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .bento { grid-template-columns: 1fr 1fr; }
+    .bento__cell--wide { grid-column: span 2; }
+}
+@media (max-width: 480px) {
+    .bento { grid-template-columns: 1fr; }
+    .bento__cell--wide { grid-column: span 1; }
+}
+
+/* Accesibilidad */
+@media (prefers-reduced-motion: reduce) {
+    .bento__cell,
+    .bento__cell .iconify { transition: none !important; }
+    .bento__cell:hover,
+    .bento__cell:hover .iconify { transform: none !important; }
+}
+/* ── Bento: celda a ancho completo (mensaje central) ── */
+.bento__cell--full { grid-column: 1 / -1; }
+
+/* ── Bento: celda navy (mensaje central destacado) ─── */
+.bento__cell--navy {
+    background: var(--brand-navy, #0b3a53);
+    color: #fff;
+}
+.bento__cell--navy .role-body { color: rgb(255 255 255 / .92); }
+
+/* ── Decoración: birrete de graduación de fondo ────── */
+.bg-deco-icon {
+    position: absolute;
+    right: -2%;
+    bottom: -4%;
+    color: var(--accent, #d9691e);
+    opacity: .06;
+    pointer-events: none;
+    z-index: 0;
+    transform: rotate(-14deg);
+}
+@media (max-width: 768px) {
+    .bg-deco-icon { right: -12%; bottom: -8%; opacity: .05; }
+}
+
+/* ── Responsive del bento (por si acaso) ───────────── */
+@media (max-width: 768px) {
+    .bento__cell--full { grid-column: 1 / -1; }
+}
+
+/* ── Accesibilidad ─────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+    .bento__cell,
+    .bento__cell .iconify { transition: none !important; }
+    .bento__cell:hover,
+    .bento__cell:hover .iconify { transform: none !important; }
+}
+/* ── Columnas numeradas (slide 15) ─────────────────── */
+.ind-cols {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.25rem;
+    max-width: 84rem;
+    margin-inline: auto;
+    align-items: start;
+}
+
+.ind-col {
+    display: flex;
+    flex-direction: column;
+    gap: .55rem;
+    padding-top: .85rem;
+    border-top: 4px solid var(--col-accent, var(--accent, #0f766e));
+    transition: transform .25s ease;
+}
+.ind-col:hover { transform: translateY(-3px); }
+
+/* Número grande protagonista */
+.ind-col__num {
+    font-family: var(--font-display, inherit);
+    font-weight: 800;
+    font-size: clamp(1.75rem, 1.1rem + 1.8vw, 2.5rem);
+    line-height: 1;
+    color: var(--col-accent, var(--accent, #0f766e));
+    letter-spacing: -.02em;
+}
+
+/* Icono */
+.ind-col__icon {
+    color: var(--col-accent, var(--accent, #0f766e));
+    transition: transform .25s cubic-bezier(.34, 1.56, .64, 1);
+}
+.ind-col:hover .ind-col__icon { transform: rotate(8deg) scale(1.15); }
+
+/* Labels internos más discretos */
+.ind-col .role-label {
+    margin-top: .35rem;
+    opacity: .6;
+    font-weight: 700;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+}
+
+/* Colores por columna (paleta institucional, no cambia el accent de la slide) */
+.ind-col--1 { --col-accent: var(--brand-teal,   #0f766e); }
+.ind-col--2 { --col-accent: var(--brand-orange, #d9691e); }
+.ind-col--3 { --col-accent: var(--brand-green,  #166534); }
+.ind-col--4 { --col-accent: var(--brand-navy,   #0b3a53); }
+
+/* Modo oscuro: aclarar el número y el icono para contraste */
+.dark .ind-col__num,
+.dark .ind-col__icon { color: color-mix(in srgb, var(--col-accent, #0f766e) 70%, white); }
+
+/* Subrayado animado en palabras clave del párrafo superior */
+.slide p strong {
+    background: linear-gradient(currentColor, currentColor) left bottom / 0 2px no-repeat;
+    transition: background-size .35s ease;
+    padding-bottom: 1px;
+}
+.slide p:hover strong { background-size: 100% 2px; }
+
+/* Decoración de fondo */
+.bg-deco-icon {
+    position: absolute;
+    right: -3%;
+    bottom: -6%;
+    color: var(--accent, #0f766e);
+    opacity: .06;
+    pointer-events: none;
+    z-index: 0;
+    transform: rotate(-8deg);
+}
+@media (max-width: 768px) {
+    .bg-deco-icon { right: -14%; bottom: -10%; opacity: .05; }
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .ind-cols { grid-template-columns: repeat(2, 1fr); gap: 1.5rem 1.25rem; }
+}
+@media (max-width: 520px) {
+    .ind-cols { grid-template-columns: 1fr; }
+}
+
+/* Accesibilidad */
+@media (prefers-reduced-motion: reduce) {
+    .ind-col,
+    .ind-col__icon { transition: none !important; }
+    .ind-col:hover,
+    .ind-col:hover .ind-col__icon { transform: none !important; }
+    .slide p strong { background: none; }
+}
+
+/* ── Bento con solo 2 celdas + 1 full-width ────────── */
+.bento--duo { grid-template-columns: repeat(2, 1fr); }
+.bento--duo .bento__cell--full { grid-column: 1 / -1; }
+
+@media (max-width: 768px) {
+    .bento--duo { grid-template-columns: 1fr; }
+    .bento--duo .bento__cell--full { grid-column: 1 / -1; }
+}
+/* ── Sección Perfil de formación (slide 4) ─────────── */
+.perfil-formacion {
+    padding: 1rem 1.1rem;
+    border-radius: 1.1rem;
+    background: color-mix(in srgb, var(--accent, #0b3a53) 6%, transparent);
+    border: 1px dashed color-mix(in srgb, var(--accent, #0b3a53) 35%, transparent);
+}
+
+/* Mini-cards en formato columna (icono arriba, texto debajo) */
+.mini-card.flex-col {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: .45rem;
+    padding: .85rem .9rem;
+    text-align: left;
+}
+.mini-card.flex-col .iconify { color: var(--accent, #0b3a53); }
+.mini-card.flex-col .role-card-title { margin: 0; }
+
+/* Modo oscuro */
+.dark .perfil-formacion {
+    background: color-mix(in srgb, var(--accent, #0b3a53) 22%, #0b1220);
+    border-color: color-mix(in srgb, var(--accent, #0b3a53) 45%, transparent);
+}
+
+/* Ajuste fino del checklist reutilizado */
+.checklist .role-body { line-height: 1.45; }
+
+/* ── Escalera / capas (slide Plan de Cualificación) ── */
+.ladder {
+    display: grid;
+    gap: .85rem;
+    margin-inline: auto;
+    align-items: stretch;
+}
+
+.ladder__level {
+    border-radius: 1.1rem;
+    padding: 1rem 1.25rem;
+    background: #fff;
+    box-shadow: 0 4px 16px rgb(0 0 0 / .06);
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    position: relative;
+    transition: transform .25s ease, box-shadow .25s ease;
+}
+.ladder__level:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 26px rgb(0 0 0 / .10);
+}
+
+/* Ancho decreciente (zigurat) — refuerza el ascenso visual */
+.ladder__level--1 { width: 100%; border-left: 4px solid var(--brand-teal, #0f766e); }
+.ladder__level--2 { width: 92%;  margin-inline: auto; border-left: 4px solid var(--brand-green, #166534); }
+.ladder__level--3 { width: 78%;  margin-inline: auto; border-left: 4px solid var(--brand-orange, #d9691e); }
+
+/* Iconos protagonistas */
+.ladder__level .iconify {
+    color: var(--accent, #0f766e);
+    transition: transform .25s cubic-bezier(.34, 1.56, .64, 1);
+}
+.ladder__level:hover .iconify { transform: rotate(8deg) scale(1.15); }
+.ladder__level--2 .iconify { color: var(--brand-green, #166534); }
+.ladder__level--3 .iconify { color: var(--brand-orange, #d9691e); }
+
+/* Filas internas del nivel 2 */
+.ladder__row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: .85rem;
+}
+.ladder__item {
+    display: flex;
+    flex-direction: column;
+    gap: .35rem;
+    padding: .65rem .75rem;
+    border-radius: .75rem;
+    background: color-mix(in srgb, var(--accent, #0f766e) 6%, transparent);
+    transition: transform .25s ease;
+}
+.ladder__item:hover { transform: translateY(-2px); }
+.ladder__item .role-note { line-height: 1.35; }
+
+/* Modo oscuro */
+.dark .ladder__level {
+    background: color-mix(in srgb, var(--accent, #0f766e) 14%, #0b1220);
+    color: #e5e7eb;
+}
+.dark .ladder__item { background: color-mix(in srgb, var(--accent, #0f766e) 22%, transparent); }
+
+/* Responsive: en móvil se pierde el zigurat pero se conserva el orden */
+@media (max-width: 768px) {
+    .ladder__level--1,
+    .ladder__level--2,
+    .ladder__level--3 { width: 100%; }
+    .ladder__row { grid-template-columns: 1fr; }
+}
+
+/* Accesibilidad */
+@media (prefers-reduced-motion: reduce) {
+    .ladder__level,
+    .ladder__level .iconify,
+    .ladder__item { transition: none !important; }
+    .ladder__level:hover,
+    .ladder__level:hover .iconify,
+    .ladder__item:hover { transform: none !important; }
+}
+/* ── Stat boxes (cifras protagonistas) ─────────────── */
+.stat-box {
+    padding: 1rem 1.1rem;
+    border-radius: 1.1rem;
+    color: #fff;
+    text-align: center;
+    box-shadow: 0 6px 18px rgb(0 0 0 / .10);
+    transition: transform .25s ease, box-shadow .25s ease;
+}
+.stat-box:hover { transform: translateY(-3px); box-shadow: 0 12px 26px rgb(0 0 0 / .14); }
+
+.stat-box--teal { background: linear-gradient(135deg, var(--brand-teal, #0f766e), var(--brand-navy, #0b3a53)); }
+.stat-box--navy { background: linear-gradient(135deg, var(--brand-navy, #0b3a53), var(--brand-teal, #0f766e)); }
+
+.stat-box__num {
+    font-family: var(--font-display, inherit);
+    font-weight: 800;
+    font-size: clamp(2.25rem, 1.5rem + 2vw, 3.25rem);
+    line-height: 1;
+    display: block;
+    margin-bottom: .35rem;
+}
+.stat-box__label {
+    font-size: .72rem;
+    text-transform: uppercase;
+    letter-spacing: .12em;
+    font-weight: 700;
+    color: var(--brand-orange, #d9691e);
+    display: block;
+}
+.stat-box__sub {
+    font-size: .72rem;
+    opacity: .8;
+    display: block;
+    margin-top: .25rem;
+}
+
+/* ── Tabla compacta (lista de centros) ─────────────── */
+.tabla-compact {
+    padding: .85rem 1rem;
+    border-radius: 1.1rem;
+    background: color-mix(in srgb, var(--accent, #0f766e) 6%, transparent);
+    border: 1px dashed color-mix(in srgb, var(--accent, #0f766e) 30%, transparent);
+}
+.checklist--sm { gap: .35rem !important; }
+.checklist--sm li { gap: .45rem !important; }
+.checklist--sm .role-note { line-height: 1.35; }
+.checklist--sm .iconify { font-size: 1rem; }
+
+/* ── Mapa embed ────────────────────────────────────── */
+.map-frame {
+    width: 100%;
+    border-radius: 1.25rem;
+    overflow: hidden;
+    border: 2px solid color-mix(in srgb, var(--accent, #0f766e) 30%, transparent);
+    box-shadow: 0 10px 28px rgb(0 0 0 / .10);
+    background: #fff;
+}
+.map-frame iframe { border-radius: inherit; }
+
+/* Modo oscuro */
+.dark .tabla-compact {
+    background: color-mix(in srgb, var(--accent, #0f766e) 22%, #0b1220);
+    border-color: color-mix(in srgb, var(--accent, #0f766e) 45%, transparent);
+}
+
+/* Responsive: en móvil el mapa baja debajo */
+@media (max-width: 1024px) {
+    .map-frame iframe { height: 420px !important; }
+}
+@media (max-width: 640px) {
+    .map-frame iframe { height: 320px !important; }
+}
+
+/* Accesibilidad */
+@media (prefers-reduced-motion: reduce) {
+    .stat-box { transition: none !important; }
+    .stat-box:hover { transform: none !important; }
+}
+/* ══════════════════════════════════════════════
+   SLIDE · Recursos y Bases de Datos
+   ══════════════════════════════════════════════ */
+
+/* Tira de cifras (horizontal, compacta) */
+.res-hero {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: .75rem;
+    margin: 0 auto .85rem;
+    max-width: 40rem;
+}
+.res-stat {
+    display: flex;
+    align-items: center;
+    gap: .85rem;
+    padding: .6rem .9rem;
+    border-radius: .9rem;
+    background: linear-gradient(135deg,
+        color-mix(in srgb, var(--accent, #0f766e) 12%, white),
+        color-mix(in srgb, var(--accent, #0f766e) 4%, white));
+    border-left: 4px solid var(--accent, #0f766e);
+    transition: transform .25s ease, box-shadow .25s ease;
+}
+.res-stat:hover { transform: translateY(-2px); box-shadow: 0 8px 18px rgb(0 0 0 / .08); }
+.res-stat--orange { border-left-color: var(--brand-orange, #d9691e); background: linear-gradient(135deg,
+        color-mix(in srgb, var(--brand-orange, #d9691e) 12%, white),
+        color-mix(in srgb, var(--brand-orange, #d9691e) 4%, white)); }
+.res-stat__num {
+    font-family: var(--font-display, inherit);
+    font-weight: 800;
+    font-size: clamp(1.6rem, 1rem + 1.4vw, 2.1rem);
+    line-height: 1;
+    color: var(--accent, #0f766e);
+    flex: none;
+    font-variant-numeric: tabular-nums;
+}
+.res-stat--orange .res-stat__num { color: var(--brand-orange, #d9691e); }
+.res-stat__label {
+    font-size: .72rem;
+    text-transform: uppercase;
+    letter-spacing: .08em;
+    font-weight: 700;
+    color: #334155;
+    line-height: 1.25;
+}
+.dark .res-stat { background: color-mix(in srgb, var(--accent, #0f766e) 22%, #0b1220); }
+.dark .res-stat--orange { background: color-mix(in srgb, var(--brand-orange, #d9691e) 22%, #0b1220); }
+.dark .res-stat__label { color: #e5e7eb; }
+
+/* Grid principal: recursos + imagen */
+.res-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+    gap: 1rem;
+    align-items: start;
+}
+@media (max-width: 900px) {
+    .res-grid { grid-template-columns: 1fr; }
+}
+
+.res-col { display: flex; flex-direction: column; gap: .75rem; min-width: 0; }
+.res-col--media { position: sticky; top: 0; }
+
+/* Grupo de recursos */
+.res-group {
+    padding: .7rem .9rem;
+    border-radius: .85rem;
+    background: color-mix(in srgb, var(--accent, #0f766e) 5%, transparent);
+    border-left: 3px solid var(--accent, #0f766e);
+}
+.res-group--green {
+    background: color-mix(in srgb, var(--brand-green, #166534) 5%, transparent);
+    border-left-color: var(--brand-green, #166534);
+}
+.dark .res-group { background: color-mix(in srgb, var(--accent, #0f766e) 18%, #0b1220); }
+.dark .res-group--green { background: color-mix(in srgb, var(--brand-green, #166534) 18%, #0b1220); }
+
+/* Lista numerada de bases de datos */
+.res-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    gap: .3rem;
+}
+.res-list li {
+    display: flex;
+    gap: .55rem;
+    align-items: baseline;
+    padding: .25rem .35rem;
+    border-radius: .4rem;
+    transition: background-color .2s ease;
+}
+.res-list li:hover { background: color-mix(in srgb, var(--accent, #0f766e) 8%, transparent); }
+
+.res-list__num {
+    font-family: var(--font-display, inherit);
+    font-weight: 700;
+    font-size: .72rem;
+    color: var(--accent, #0f766e);
+    letter-spacing: .04em;
+    flex: none;
+    min-width: 1.4rem;
+}
+.res-list .role-note { line-height: 1.35; }
+
+/* Pills de open access */
+.res-pills { display: flex; flex-wrap: wrap; gap: .4rem; }
+.res-pill {
+    display: inline-flex;
+    align-items: center;
+    padding: .3rem .7rem;
+    border-radius: 999px;
+    background: color-mix(in srgb, var(--brand-green, #166534) 8%, white);
+    border: 1px solid color-mix(in srgb, var(--brand-green, #166534) 30%, transparent);
+    font-size: .72rem;
+    font-weight: 600;
+    color: var(--brand-green, #166534);
+}
+.dark .res-pill {
+    background: color-mix(in srgb, var(--brand-green, #166534) 25%, #0b1220);
+    color: #7FD9C4;
+}
+
+/* Imagen convenios */
+.res-photo {
+    margin: 0;
+    padding: .6rem;
+    border-radius: .9rem;
+    background: rgb(255 255 255 / .75);
+    border: 2px solid color-mix(in srgb, var(--accent, #0f766e) 30%, transparent);
+    box-shadow: 0 8px 22px rgb(0 0 0 / .08);
+}
+.dark .res-photo { background: rgb(0 0 0 / .40); }
+.res-photo img {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-height: 38vh;
+    object-fit: contain;
+    border-radius: .5rem;
+    cursor: default;
+    pointer-events: none;
+}
+@media (min-height: 900px) {
+    .res-photo img { max-height: 46vh; }
+}
+
+/* Cita destacada (nota institucional) */
+.res-quote {
+    margin-top: .85rem;
+    padding: 1rem 1.1rem 1rem 2.6rem;
+    position: relative;
+    border-left: 4px solid var(--brand-orange, #d9691e);
+    background: color-mix(in srgb, var(--brand-orange, #d9691e) 8%, white);
+    border-radius: 0 .85rem .85rem 0;
+}
+.res-quote::before {
+    content: "“";
+    position: absolute;
+    left: .65rem;
+    top: -.15rem;
+    font: 700 3rem/1 var(--font-display, inherit);
+    color: var(--brand-orange, #d9691e);
+    opacity: .45;
+}
+.res-quote .role-label {
+    margin-top: .35rem;
+    color: var(--brand-orange, #d9691e);
+    font-weight: 800;
+}
+.dark .res-quote {
+    background: color-mix(in srgb, var(--brand-orange, #d9691e) 18%, #0b1220);
+}
+
+/* Accesibilidad */
+@media (prefers-reduced-motion: reduce) {
+    .res-stat,
+    .res-list li { transition: none !important; }
+    .res-stat:hover { transform: none !important; }
+}
