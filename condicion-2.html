@@ -9,465 +9,25 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
 
-<script>
-  (function () {
-    try {
-      if (localStorage.getItem('unad-theme') === 'dark') {
-        document.documentElement.classList.add('dark');
-        document.documentElement.classList.remove('light');
-      }
-    } catch (e) {}
-  })();
-</script>
+<!-- Tema (va primero para evitar el destello) -->
+<script src="js/theme.js"></script>
 
+<!-- Tailwind + configuración común del sitio -->
 <script src="https://cdn.tailwindcss.com"></script>
-<script>
-    tailwind.config = {
-        darkMode: 'class',
-        theme: {
-            extend: {
-                colors: {
-                    unad: {
-                        teal: '#00445B', navy: '#01333F', green: '#035B3B',
-                        orange: '#D26714', base: '#EAEAEA', darkbg: '#0a1922'
-                    }
-                },
-                fontFamily: {
-                    sans: ['Inter', 'sans-serif'],
-                    display: ['Montserrat', 'sans-serif'],
-                }
-            }
-        }
-    }
-</script>
+<script src="js/tailwind-config.js"></script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/Observer.min.js"></script>
 <script src="https://code.iconify.design/3/3.1.0/iconify.min.js"></script>
 
+<!-- Sistema visual común -->
 <link rel="stylesheet" href="css/nav.css" />
+<link rel="stylesheet" href="css/presentacion.css" />
 <script src="js/nav.js" defer></script>
-
-<style>
-    /* ══════════════════════════════════════════════
-       SISTEMA TIPOGRÁFICO GLOBAL
-       ══════════════════════════════════════════════ */
-    :root {
-        --font-display: 'Montserrat', system-ui, sans-serif;
-        --font-body:    'Inter', system-ui, sans-serif;
-
-        --fs-hero:    clamp(2rem,    1.4rem + 2.6vw, 3.25rem);
-        --fs-h1:      clamp(1.6rem,  1.2rem + 1.6vw, 2.4rem);
-        --fs-h2:      clamp(1.25rem, 1.05rem + 0.8vw, 1.6rem);
-        --fs-h3:      clamp(1.05rem, 0.95rem + 0.4vw, 1.25rem);
-        --fs-body:    clamp(0.9rem,  0.85rem + 0.2vw, 1rem);
-        --fs-small:   clamp(0.8rem,  0.76rem + 0.15vw, 0.875rem);
-        --fs-caption: clamp(0.7rem,  0.67rem + 0.1vw, 0.775rem);
-        --fs-micro:   clamp(0.62rem, 0.6rem + 0.08vw, 0.7rem);
-
-        --lh-tight: 1.15;  --lh-snug: 1.35;
-        --lh-normal: 1.55; --lh-relaxed: 1.7;
-
-        --fw-light: 300; --fw-regular: 400; --fw-medium: 500;
-        --fw-semibold: 600; --fw-bold: 700; --fw-black: 800;
-
-        --tr-tight: -0.02em; --tr-wide: 0.03em;
-        --tr-wider: 0.06em;  --tr-widest: 0.12em;
-
-        --brand-navy:   #01333F;
-        --brand-teal:   #00445B;
-        --brand-orange: #D26714;
-        --brand-green:  #035B3B;
-    }
-
-    /* Acentos por slide (solo slides 2-15; portada y cierre quedan sin data-accent) */
-    .slide[data-accent="navy"]   { --accent: var(--brand-navy); }
-    .slide[data-accent="teal"]   { --accent: var(--brand-teal); }
-    .slide[data-accent="orange"] { --accent: var(--brand-orange); }
-    .slide[data-accent="green"]  { --accent: var(--brand-green); }
-
-    body { font-family: var(--font-body); font-weight: var(--fw-regular);
-        -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
-
-    .t-hero    { font-size: var(--fs-hero);    line-height: var(--lh-tight); }
-    .t-h1      { font-size: var(--fs-h1);      line-height: var(--lh-tight); }
-    .t-h2      { font-size: var(--fs-h2);      line-height: var(--lh-snug); }
-    .t-h3      { font-size: var(--fs-h3);      line-height: var(--lh-snug); }
-    .t-body    { font-size: var(--fs-body);    line-height: var(--lh-normal); }
-    .t-small   { font-size: var(--fs-small);   line-height: var(--lh-normal); }
-    .t-caption { font-size: var(--fs-caption); line-height: var(--lh-snug); }
-    .t-micro   { font-size: var(--fs-micro);   line-height: var(--lh-snug); }
-    .t-body-compact { font-size: calc(var(--fs-body) * 0.92); line-height: 1.4; }
-
-    .f-display { font-family: var(--font-display); }
-    .f-body    { font-family: var(--font-body); }
-
-    .w-light { font-weight: var(--fw-light); } .w-regular { font-weight: var(--fw-regular); }
-    .w-medium { font-weight: var(--fw-medium); } .w-semibold { font-weight: var(--fw-semibold); }
-    .w-bold { font-weight: var(--fw-bold); } .w-black { font-weight: var(--fw-black); }
-
-    .s-italic { font-style: italic; } .s-upper { text-transform: uppercase; }
-    .s-balance { text-wrap: balance; } .s-pretty { text-wrap: pretty; }
-
-    .tr-tight  { letter-spacing: var(--tr-tight); }
-    .tr-wide   { letter-spacing: var(--tr-wide); }
-    .tr-wider  { letter-spacing: var(--tr-wider); }
-    .tr-widest { letter-spacing: var(--tr-widest); }
-
-    .role-hero { font: var(--fw-black) var(--fs-hero)/var(--lh-tight) var(--font-display); letter-spacing: var(--tr-tight); }
-    .role-title { font: var(--fw-bold) var(--fs-h1)/var(--lh-tight) var(--font-display); letter-spacing: var(--tr-tight); text-wrap: balance; }
-    .role-subtitle { font: var(--fw-semibold) var(--fs-h2)/var(--lh-snug) var(--font-display); }
-    .role-card-title { font: var(--fw-semibold) var(--fs-h3)/var(--lh-snug) var(--font-display); }
-    .role-body { font: var(--fw-regular) var(--fs-body)/var(--lh-normal) var(--font-body); }
-    .role-body strong { font-weight: var(--fw-semibold); }
-    .role-note { font: var(--fw-regular) var(--fs-small)/var(--lh-normal) var(--font-body); }
-    .role-label { font: var(--fw-bold) var(--fs-micro)/var(--lh-snug) var(--font-display);
-        text-transform: uppercase; letter-spacing: var(--tr-widest); }
-    .role-quote { font: italic var(--fw-medium) var(--fs-h3)/var(--lh-relaxed) var(--font-body); }
-    /* ─── Cifra protagonista ─── */
-.role-stat,
-.slide .role-stat {
-    font-family: var(--font-display) !important;
-    font-weight: var(--fw-black) !important;
-    font-size: var(--fs-stat) !important;
-    line-height: 0.95 !important;
-    letter-spacing: -0.035em;
-    font-variant-numeric: tabular-nums lining-nums;
-    color: inherit;                 /* respeta text-unad-teal/orange/green/navy */
-    display: block;
-    margin: 0;
-    text-align: center;
-}
-.slide .role-stat--sm { font-size: var(--fs-stat-sm) !important; }
-
-/* Unidad (%, +, k) al 45 % del número */
-.slide .stat-unit {
-    font-size: 0.45em;
-    font-weight: var(--fw-bold);
-    margin-left: 0.05em;
-    vertical-align: 0.12em;
-}
-
-/* Contenedor de cada cifra + descripción */
-.slide .stat-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 0.5rem;
-    text-align: center;
-}
-
-/* La descripción es apoyo: un escalón por debajo del cuerpo */
-.slide .stat-item .role-body {
-    font-size: var(--fs-small);
-    line-height: 1.45;
-    max-width: 26ch;
-    text-wrap: balance;
-    margin: 0;
-}
-
-    .slide h1, .slide h2 { font: var(--fw-bold) var(--fs-h1)/var(--lh-tight) var(--font-display); letter-spacing: var(--tr-tight); }
-    .slide h3 { font: var(--fw-semibold) var(--fs-h3)/var(--lh-snug) var(--font-display); }
-    .slide p, .slide li { font: var(--fw-regular) var(--fs-body)/var(--lh-normal) var(--font-body); }
-    .slide strong, .slide b { font-weight: var(--fw-semibold); }
-    .slide small { font-size: var(--fs-caption); }
-
-    /* ══════════════════════════════════════════════
-       BASE ORIGINAL DE LA SLIDE (intacta)
-       ══════════════════════════════════════════════ */
-    body { background-color: #EAEAEA; color: #01333F; margin: 0; padding: 0; overflow: hidden; transition: background-color 0.3s ease, color 0.3s ease; }
-    .dark body { background-color: #0a1922; color: #EAEAEA; }
-    body::before { content: ""; position: fixed; inset: 0; z-index: 1; pointer-events: none;
-        background-image: url('data:image/svg+xml;utf8,<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><filter id="noiseFilter"><feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="3" stitchTiles="stitch"/></filter><rect width="100%" height="100%" filter="url(%23noiseFilter)"/></svg>');
-        opacity: 0.04; mix-blend-mode: multiply; }
-    .dark body::before { opacity: 0.02; mix-blend-mode: screen; }
-
-    .orb { position: fixed; border-radius: 50%; filter: blur(140px); z-index: 0; opacity: 0.6; pointer-events: none; }
-    .orb--navy { background: #00445B; animation: float1 20s ease-in-out infinite; }
-    .orb--orange { background: #D26714; animation: float2 25s ease-in-out infinite reverse; opacity: 0.4; }
-    @keyframes float1 { 0%, 100% { transform: translate(0, 0) scale(1); } 50% { transform: translate(5vw, 5vh) scale(1.1); } }
-    @keyframes float2 { 0%, 100% { transform: translate(0, 0) scale(1); } 50% { transform: translate(-5vw, -5vh) scale(1.1); } }
-
-    .sitenav { position: fixed; top: 1rem; left: 50%; transform: translateX(-50%); width: 92%; max-width: 1500px; z-index: 50;
-        display: flex; justify-content: space-between; align-items: center; padding: 0.75rem 1.5rem; border-radius: 1rem;
-        backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
-        background: rgba(255, 255, 255, 0.85); border: 1px solid rgba(255, 255, 255, 0.5);
-        box-shadow: 0 4px 20px rgba(1, 51, 63, 0.05); transition: all 0.3s ease; }
-    .dark .sitenav { background: rgba(1, 51, 63, 0.7); border: 1px solid rgba(255, 255, 255, 0.1); box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3); }
-    .sitenav__brand { display: flex; align-items: center; gap: 0.75rem; font-family: 'Montserrat', sans-serif; font-weight: 700; color: #01333F; text-decoration: none; }
-    .dark .sitenav__brand { color: #ffffff; }
-    .sitenav__brand small { display: block; font-size: 0.75rem; font-weight: 500; color: #00445B; }
-    .dark .sitenav__brand small { color: #D26714; }
-    .sitenav__right { display: flex; align-items: center; gap: 1.5rem; }
-    .sitenav__links { display: flex; gap: 1.5rem; list-style: none; margin: 0; padding: 0; font-size: 0.875rem; font-weight: 600; }
-    .sitenav__links a { color: #01333F; text-decoration: none; transition: color 0.2s; }
-    .dark .sitenav__links a { color: #EAEAEA; }
-    .sitenav__links a:hover { color: #D26714; }
-    .sitenav__links a[aria-current="page"] { color: #D26714; border-bottom: 2px solid #D26714; padding-bottom: 2px; }
-    .theme-toggle { background: none; border: none; cursor: pointer; font-size: 1.25rem; display: flex; align-items: center; justify-content: center; width: 36px; height: 36px; border-radius: 50%; background-color: rgba(0,0,0,0.05); transition: background-color 0.2s; }
-    .dark .theme-toggle { background-color: rgba(255,255,255,0.1); }
-
-    .slider-container { position: relative; width: 100vw; height: 100vh; z-index: 10; }
-    .slide { position: absolute; top: 0; left: 0; width: 100vw; height: 100vh; visibility: hidden; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 5rem 2rem 2rem 2rem; }
-
-    .glass-panel {
-        width: 100%; max-width: 95vw; height: 86vh;
-        backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
-        background-image: linear-gradient(rgba(255, 255, 255, 0.35), rgba(255, 255, 255, 0.35)), url('assets/Fondo_1.png');
-        background-size: cover, cover; background-position: center center, center center; background-repeat: no-repeat, no-repeat;
-        border: 1px solid rgba(255, 255, 255, 0.6);
-        box-shadow: 0 10px 40px rgba(1, 51, 63, 0.08);
-        border-radius: 1.5rem; padding: 2rem;
-        display: flex; flex-direction: column;
-        transition: all 0.3s ease;
-    }
-    .dark .glass-panel {
-        background-image: linear-gradient(rgba(1, 51, 63, 0.55), rgba(1, 51, 63, 0.55)), url('assets/Fondo_1.png');
-        border: 1px solid rgba(255, 255, 255, 0.12);
-        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
-    }
-
-    .custom-scroll { overflow-y: auto; overflow-x: hidden; padding-right: 10px; }
-    .custom-scroll::-webkit-scrollbar { width: 6px; height: 6px; }
-    .custom-scroll::-webkit-scrollbar-track { background: rgba(0,68,91,0.05); border-radius: 10px; }
-    .custom-scroll::-webkit-scrollbar-thumb { background: rgba(0,68,91,0.2); border-radius: 10px; }
-    .dark .custom-scroll::-webkit-scrollbar-track { background: rgba(255,255,255,0.05); }
-    .dark .custom-scroll::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.2); }
-
-    .sidenav-dots { position: fixed; right: 20px; top: 50%; transform: translateY(-50%); z-index: 50;
-        display: flex; flex-direction: column; align-items: center; gap: 4px;
-        background: rgba(255,255,255,0.5); backdrop-filter: blur(8px); padding: 10px 6px; border-radius: 30px; border: 1px solid rgba(255,255,255,0.3); }
-    .dark .sidenav-dots { background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.1); }
-    .nav-btn { background: none; border: none; cursor: pointer; color: inherit; padding: 2px; display: flex; align-items: center; justify-content: center; }
-    .dot { width: 6px; height: 6px; border-radius: 50%; background: #00445B; opacity: 0.3; transition: all 0.3s; }
-    .dark .dot { background: #EAEAEA; }
-    .dot.active { opacity: 1; height: 18px; border-radius: 4px; background: #D26714; }
-    .dot-wrapper { position: relative; min-height: 18px; padding: 3px 4px; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: transform 0.2s ease; }
-    .dot-wrapper:hover .dot { transform: scale(1.6); opacity: 0.85; }
-    .dot-wrapper:hover .dot.active { transform: none; }
-    .dot-wrapper::after { content: attr(data-title); position: absolute; right: calc(100% + 14px); top: 50%;
-        transform: translateY(-50%) translateX(6px) scale(0.96);
-        background: #01333F; color: #ffffff; padding: 6px 12px; border-radius: 8px;
-        font-size: 11px; font-weight: 600; font-family: 'Inter', sans-serif; letter-spacing: 0.02em; white-space: nowrap;
-        opacity: 0; pointer-events: none; transition: opacity 0.22s ease, transform 0.22s ease;
-        box-shadow: 0 6px 18px rgba(1,51,63,0.30); z-index: 100; }
-    .dot-wrapper::before { content: ''; position: absolute; right: calc(100% + 8px); top: 50%; transform: translateY(-50%) translateX(6px);
-        width: 0; height: 0; border-top: 5px solid transparent; border-bottom: 5px solid transparent; border-left: 6px solid #01333F;
-        opacity: 0; pointer-events: none; transition: opacity 0.22s ease, transform 0.22s ease; z-index: 100; }
-    .dot-wrapper:hover::after { opacity: 1; transform: translateY(-50%) translateX(0) scale(1); }
-    .dot-wrapper:hover::before { opacity: 1; transform: translateY(-50%) translateX(0); }
-    .dark .dot-wrapper::after { background: #D26714; }
-    .dark .dot-wrapper::before { border-left-color: #D26714; }
-
-    .styled-table { width: 100%; border-collapse: collapse; text-align: left; font-size: 0.85rem; }
-    .styled-table th { background-color: #00445B; color: white; padding: 12px; font-weight: 600; text-transform: uppercase; font-size: 0.75rem; position: sticky; top: 0; z-index: 10; }
-    .styled-table td { padding: 10px 12px; border-bottom: 1px solid rgba(0,0,0,0.1); vertical-align: top; }
-    .dark .styled-table td { border-bottom: 1px solid rgba(255,255,255,0.1); }
-    .styled-table tr:hover td { background-color: rgba(0,68,91,0.03); }
-    .dark .styled-table tr:hover td { background-color: rgba(255,255,255,0.03); }
-    .styled-table tr:last-child td { border-bottom: none; }
-
-    .hover-card { transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s, border-color 0.3s; }
-    .hover-card:hover { transform: translateY(-4px); box-shadow: 0 12px 30px -8px rgba(0, 68, 91, 0.15); border-color: #D26714; }
-
-    /* ══════════════════════════════════════════════
-       MODAL DE ZOOM DE IMÁGENES (RESTAURADO)
-       ══════════════════════════════════════════════ */
-    #image-modal { position: fixed; inset: 0; z-index: 9999; background: rgba(0, 0, 0, 0.85); backdrop-filter: blur(8px);
-        display: flex; justify-content: center; align-items: center; opacity: 0; pointer-events: none; transition: opacity 0.3s ease; }
-    #image-modal.active { opacity: 1; pointer-events: auto; }
-    #image-modal img { max-width: 95vw; max-height: 95vh; border-radius: 0.5rem;
-        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7); transform: scale(0.95); transition: transform 0.3s ease; object-fit: contain; }
-    #image-modal.active img { transform: scale(1); }
-    .modal-close { position: absolute; top: 1.5rem; right: 2rem; color: white; font-size: 3rem; line-height: 1;
-        background: transparent; border: none; cursor: pointer; opacity: 0.8; transition: opacity 0.2s; }
-    .modal-close:hover { opacity: 1; text-shadow: 0 0 10px rgba(255,255,255,0.5); }
-
-    /* ══════════════════════════════════════════════
-       CENTRADO VERTICAL + HORIZONTAL DEL CONTENIDO
-       ══════════════════════════════════════════════ */
-    .glass-panel .flex-1 {
-        min-height: 0 !important;
-        overflow-y: auto !important;
-        padding-bottom: 1rem;
-        display: flex;
-        flex-direction: column;
-        justify-content: safe center;
-    }
-
-    .mini-card { display: flex; gap: 0.75rem; align-items: flex-start; padding: 1rem 1.15rem; border-radius: 1rem;
-        background: rgba(255,255,255,0.85); border: 1px solid rgba(0,0,0,0.06); box-shadow: 0 1px 3px rgba(1,51,63,0.05); }
-    .dark .mini-card { background: rgba(0,0,0,0.45); border-color: rgba(255,255,255,0.08); }
-
-    .img-frame {
-        position: relative;
-        border-radius: 1.25rem;
-        overflow: hidden;
-        background: rgba(255,255,255,0.7);
-        padding: 0.6rem;
-        border: 2px solid rgba(0,68,91,0.2);
-        box-shadow: 0 12px 32px -10px rgba(1,51,63,0.25);
-        width: 100%;
-        height: 100%;
-        max-height: 55vh;
-        min-height: 240px;
-        box-sizing: border-box;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-    .dark .img-frame {
-        background: rgba(0,0,0,0.4);
-        border-color: rgba(255,255,255,0.12);
-    }
-    .img-frame img {
-        width: 100% !important;
-        height: 100% !important;
-        object-fit: contain !important;
-        display: block !important;
-        border-radius: 0.65rem;
-    }
-
-    .table-wrap { width: 100%; background: rgba(255,255,255,0.85); border-radius: 0.75rem;
-        border: 1px solid rgba(0,0,0,0.08); box-shadow: 0 1px 3px rgba(1,51,63,0.05); overflow: hidden; }
-    .dark .table-wrap { background: rgba(0,0,0,0.45); border-color: rgba(255,255,255,0.08); }
-
-    @media (max-height: 900px) {
-        .glass-panel { height: 92vh !important; padding: 1.25rem !important; }
-        .slide { padding-top: 3.5rem !important; padding-bottom: 1rem !important; }
-        .styled-table th, .styled-table td { padding: 8px 10px !important; font-size: 0.8rem !important; }
-    }
-    @media (max-height: 700px) {
-        .glass-panel { height: 95vh !important; padding: 1rem !important; }
-    }
-
-    .grid { min-height: 0; }
-
-    .sitenav { padding: 0.25rem 0.75rem !important; top: 0.25rem !important; max-width: 1100px !important; width: 95% !important;
-        opacity: 0.85; border-radius: 0.75rem !important; box-shadow: 0 2px 10px rgba(1, 51, 63, 0.05) !important;
-        transition: opacity 0.3s ease, top 0.3s ease, background 0.3s ease !important; }
-    .sitenav:hover { opacity: 1; top: 0.5rem !important; }
-    .sitenav__links { gap: 0.75rem !important; font-size: 0.65rem !important; line-height: 1.2 !important; }
-    .sitenav__brand { font-size: 0.75rem !important; gap: 0.4rem !important; line-height: 1.2 !important; }
-    .sitenav__brand small { font-size: 0.55rem !important; }
-    .sitenav__logo { width: 22px !important; height: 22px !important; font-size: 0.65rem !important; display: flex; align-items: center; justify-content: center; border-radius: 0.35rem !important; }
-    .theme-toggle { width: 22px !important; height: 22px !important; font-size: 0.85rem !important; }
-
-    .table-x-scroll { overflow-x: auto; }
-    .table-x-scroll::-webkit-scrollbar { height: 6px; }
-    .table-x-scroll::-webkit-scrollbar-thumb { background: rgba(0,68,91,0.25); border-radius: 10px; }
-
-    /* === Hover en filas de tabla === */
-    .data-table tbody tr { transition: background-color 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease; cursor: default; }
-    .data-table tbody tr:hover { background-color: rgba(13, 148, 136, 0.10); transform: scale(1.008);
-        box-shadow: 0 2px 10px rgba(0,0,0,0.08); position: relative; z-index: 1; }
-    .data-table tbody tr:hover td:first-child { border-left: 3px solid var(--unad-orange, #f97316); }
-    .data-table tbody tr:hover td:last-child  { border-right: 3px solid var(--unad-teal, #0d9488); }
-    .data-table tbody tr td { transition: padding-left 0.2s ease; }
-    .data-table tbody tr:hover td:first-child { padding-left: 1.1rem; }
-
-    /* === Subrayado animado en <strong> === */
-    .underline-hover-group strong, .underline-hover-group b {
-        background-image: linear-gradient(currentColor, currentColor);
-        background-position: 0% 100%; background-repeat: no-repeat;
-        background-size: 0% 2px; transition: background-size 0.35s ease; padding-bottom: 1px;
-    }
-    .underline-hover-group:hover strong, .underline-hover-group:hover b { background-size: 100% 2px; }
-    .underline-hover-group:hover strong:nth-of-type(1) { transition-delay: 0s; }
-    .underline-hover-group:hover strong:nth-of-type(2) { transition-delay: 0.08s; }
-    .underline-hover-group:hover strong:nth-of-type(3) { transition-delay: 0.16s; }
-
-    /* Iconos que saltan */
-    .icon-pop .iconify { transition: transform 0.25s cubic-bezier(.34,1.56,.64,1); display: inline-block; }
-    .icon-pop:hover .iconify { transform: rotate(8deg) scale(1.15); }
-
-    /* Badges circulares */
-    .badge-circle { transition: transform 0.25s cubic-bezier(.34,1.56,.64,1), box-shadow 0.25s ease, background-color 0.25s ease; }
-    .badge-circle:hover { transform: translateY(-4px) scale(1.06); box-shadow: 0 8px 16px rgba(13,148,136,0.25); }
-
-    /* Tabla SNIES hover */
-    .snies-table tbody tr { transition: opacity 0.2s ease, background-color 0.2s ease, transform 0.2s ease; }
-    .snies-table tbody:hover tr:not(:hover) { opacity: 0.35; }
-    .snies-table tbody tr:hover { background-color: rgba(210, 103, 20, 0.08) !important; transform: scale(1.005); box-shadow: inset 0 0 0 1px rgba(210, 103, 20, 0.25); }
-    .dark .snies-table tbody tr:hover { background-color: rgba(210, 103, 20, 0.15) !important; }
-    .snies-arrow { display: inline-flex; align-items: center; justify-content: center; width: 18px; height: 18px; border-radius: 999px;
-        font-size: 11px; font-weight: 900; margin-right: 6px; vertical-align: middle; flex-shrink: 0; }
-    .snies-arrow--up { background: #035B3B; color: #ffffff; box-shadow: 0 0 0 3px rgba(3, 91, 59, 0.15); }
-    .snies-arrow--down { background: #D26714; color: #ffffff; box-shadow: 0 0 0 3px rgba(210, 103, 20, 0.15); }
-
-    /* Tarjeta destacada One Health */
-    .mini-card--highlight {
-        position: relative;
-        background: linear-gradient(135deg, #035B3B 0%, #0d9488 55%, #1e3a5f 100%) !important;
-        border-left: 4px solid #D26714 !important;
-        box-shadow: 0 10px 28px -8px rgba(3, 91, 59, 0.45), 0 4px 12px -4px rgba(13, 148, 136, 0.30) !important;
-        transform: scale(1.03);
-        z-index: 2;
-        animation: oneHealthPulse 3.2s ease-in-out infinite;
-    }
-    .dark .mini-card--highlight {
-        background: linear-gradient(135deg, #035B3B 0%, #0d9488 55%, #01333F 100%) !important;
-        box-shadow: 0 12px 32px -8px rgba(13, 148, 136, 0.55), 0 4px 12px -4px rgba(0, 0, 0, 0.5) !important;
-    }
-    @keyframes oneHealthPulse {
-        0%, 100% { box-shadow: 0 10px 28px -8px rgba(3, 91, 59, 0.45), 0 4px 12px -4px rgba(13, 148, 136, 0.30), 0 0 0 0 rgba(210, 103, 20, 0.55); }
-        50%      { box-shadow: 0 10px 28px -8px rgba(3, 91, 59, 0.45), 0 4px 12px -4px rgba(13, 148, 136, 0.30), 0 0 0 10px rgba(210, 103, 20, 0); }
-    }
-    .mini-card--highlight h3, .mini-card--highlight p { color: #ffffff !important; }
-    .mini-card--highlight::before {
-        content: '★'; position: absolute; top: -10px; right: 12px;
-        background: #D26714; color: #ffffff; font-family: 'Inter', sans-serif; font-size: 9px; font-weight: 800;
-        letter-spacing: 0.12em; text-transform: uppercase; padding: 3px 10px; border-radius: 999px;
-        box-shadow: 0 3px 10px rgba(210, 103, 20, 0.5);
-    }
-    .mini-card--highlight .iconify { color: #FBBF24 !important; filter: drop-shadow(0 2px 6px rgba(251, 191, 36, 0.55)); transform: scale(1.12); }
-
-    /* Modal de aliados */
-    #aliados-modal .aliados-table { width: 100%; border-collapse: collapse; font-size: 13px; background: white; }
-    #aliados-modal .aliados-table thead th {
-        background: linear-gradient(to right, #0d2c54, #1a8c8c); color: white; font-weight: 700;
-        font-size: 11.5px; text-transform: uppercase; letter-spacing: 0.05em; padding: 14px 18px;
-        text-align: left; position: sticky; top: 0; z-index: 2; border-bottom: 2px solid rgba(255,255,255,0.15);
-    }
-    #aliados-modal .aliados-table tbody td { padding: 12px 18px; color: #1f2937; border-bottom: 1px solid #e5e7eb; vertical-align: middle; line-height: 1.4; }
-    #aliados-modal .aliados-table tbody td:first-child { font-weight: 600; color: #0d2c54; border-left: 4px solid #1a8c8c; min-width: 260px; }
-    #aliados-modal .aliados-table tbody td:nth-child(2) { font-family: 'Courier New', monospace; font-weight: 600; color: #1a8c8c; font-size: 12.5px; white-space: nowrap; }
-    #aliados-modal .aliados-table tbody td:last-child { color: #d97706; font-weight: 600; white-space: nowrap; }
-    #aliados-modal .aliados-table tbody tr:nth-child(even) { background-color: #f9fafb; }
-    #aliados-modal .aliados-table tbody tr:hover { background-color: rgba(26, 140, 140, 0.08); transition: background-color 0.15s ease; }
-    .dark #aliados-modal .aliados-table { background: #1a1a1a; }
-    .dark #aliados-modal .aliados-table tbody td { color: #e5e7eb; border-bottom-color: #374151; }
-    .dark #aliados-modal .aliados-table tbody td:first-child { color: #7dd3fc; }
-    .dark #aliados-modal .aliados-table tbody td:nth-child(2) { color: #2dd4bf; }
-    .dark #aliados-modal .aliados-table tbody td:last-child { color: #fbbf24; }
-    .dark #aliados-modal .aliados-table tbody tr:nth-child(even) { background-color: #262626; }
-    .dark #aliados-modal .aliados-table tbody tr:hover { background-color: rgba(26, 140, 140, 0.15); }
-
-    /* Accesibilidad: reducir movimiento */
-    @media (prefers-reduced-motion: reduce) {
-        *, *::before, *::after { animation: none !important; transition: none !important; }
-    }
-</style>
 </head>
 <body>
 
-<!-- ═══════════ MODAL DE ZOOM DE IMÁGENES (RESTAURADO) ═══════════ -->
-<div id="image-modal">
-    <div class="img-modal__panel">
-        <header class="img-modal__header" id="modal-header">
-            <span class="iconify img-modal__icon" id="modal-icon" data-icon="lucide:image" data-width="22"></span>
-            <div class="img-modal__meta">
-                <span class="img-modal__label" id="modal-label"></span>
-                <h3 class="img-modal__title" id="modal-title"></h3>
-            </div>
-            <button class="img-modal__close" id="modal-close" aria-label="Cerrar">&times;</button>
-        </header>
-        <div class="img-modal__body">
-            <img id="modal-image" src="" alt="Imagen ampliada">
-        </div>
-    </div>
-</div>
+
 
 <div class="orb orb--navy" style="width:480px;height:480px;top:-160px;left:-140px;"></div>
 <div class="orb orb--orange" style="width:420px;height:420px;bottom:-180px;right:10vw;"></div>
@@ -516,31 +76,31 @@
     <!-- 1. Portada -->
     <section class="slide" data-title="Portada">
         <div class="glass-panel items-center justify-center text-center">
-            <span class="gsap-reveal px-4 py-1.5 rounded-full bg-unad-orange text-white text-xs font-bold uppercase tracking-wider mb-6 flex items-center gap-2 shadow-sm">
+            <span class="gsap-reveal px-4 py-1.5 rounded-full bg-unad-orange text-white t-caption font-bold uppercase tracking-wider mb-6 flex items-center gap-2 shadow-sm">
                 <span class="iconify animate-pulse" data-icon="lucide:sparkles" data-width="16"></span> C2
             </span>
-            <h1 class="gsap-reveal text-4xl md:text-6xl font-display font-bold text-unad-teal dark:text-white mb-8">Condición 2. Justificación</h1>
+            <h1 class="gsap-reveal font-display font-bold text-unad-teal dark:text-white mb-8 t-hero">Condición 2. Justificación</h1>
 
             <div class="gsap-reveal grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl text-left bg-white/60 dark:bg-black/40 p-8 rounded-2xl border border-unad-teal/10 shadow-sm w-full">
                 <div class="flex items-start gap-4">
                     <span class="iconify text-unad-teal mt-1 shrink-0" data-icon="lucide:graduation-cap" data-width="24"></span>
                     <div>
-                        <span class="block text-xs font-bold text-gray-500 uppercase">Programa:</span>
-                        <span class="font-semibold text-base dark:text-gray-200">Medicina Veterinaria (ECAPMA · UNAD)</span>
+                        <span class="block t-caption font-bold text-gray-500 uppercase">Programa:</span>
+                        <span class="font-semibold t-body dark:text-gray-200">Medicina Veterinaria (ECAPMA · UNAD)</span>
                     </div>
                 </div>
                 <div class="flex items-start gap-4">
                     <span class="iconify text-unad-orange mt-1 shrink-0" data-icon="lucide:compass" data-width="24"></span>
                     <div>
-                        <span class="block text-xs font-bold text-gray-500 uppercase">Componente:</span>
-                        <span class="font-semibold text-base dark:text-gray-200">Justificación y pertinencia</span>
+                        <span class="block t-caption font-bold text-gray-500 uppercase">Componente:</span>
+                        <span class="font-semibold t-body dark:text-gray-200">Justificación y pertinencia</span>
                     </div>
                 </div>
                 <div class="col-span-1 md:col-span-2 flex items-start gap-4 mt-2">
                     <span class="iconify text-unad-green mt-1 shrink-0" data-icon="lucide:target" data-width="24"></span>
                     <div>
-                        <span class="block text-xs font-bold text-gray-500 uppercase">Objetivo del Componente:</span>
-                        <span class="font-medium text-base dark:text-gray-200 leading-relaxed">Demostrar la pertinencia y viabilidad de la creación del programa de Medicina Veterinaria en modalidad híbrida, evidenciando la necesidad del entorno, la oportunidad de mercado y la respuesta institucional frente a los retos del país.</span>
+                        <span class="block t-caption font-bold text-gray-500 uppercase">Objetivo del Componente:</span>
+                        <span class="font-medium t-body dark:text-gray-200 leading-relaxed">Demostrar la pertinencia y viabilidad de la creación del programa de Medicina Veterinaria en modalidad híbrida, evidenciando la necesidad del entorno, la oportunidad de mercado y la respuesta institucional frente a los retos del país.</span>
                     </div>
                 </div>
             </div>
@@ -550,20 +110,18 @@
     <!-- 2. Contexto internacional + situación Colombia -->
     <section class="slide" data-accent="teal" data-title="Contexto y Situación">
         <div class="glass-panel">
-            <div class="gsap-reveal flex justify-between items-end border-b border-gray-200 dark:border-gray-700 pb-3 mb-4 shrink-0">
-                <h2 class="role-title text-unad-navy dark:text-white flex items-center gap-3">
+            <div class="slide-head gsap-reveal">
+                <h2 class="role-title text-unad-navy dark:text-white">
                     <span class="iconify text-unad-teal animate-bounce" data-icon="lucide:globe" data-width="30"></span>
                     Estado de la oferta de educación veterinaria
                 </h2>
-                <span class="role-label bg-unad-teal text-white px-3 py-1 rounded-full">Panorama</span>
+                <span class="role-label slide-tag bg-unad-teal text-white">Panorama</span>
             </div>
 
             <div class="flex-1 min-h-0 overflow-y-auto custom-scroll gsap-reveal pr-2">
                 <div class="grid grid-cols-1 lg:grid-cols-12 gap-5 items-stretch w-full">
                     <div class="lg:col-span-5 flex justify-center min-h-0">
-                        <a href="ContextoInternacional.png" class="lightbox-trigger block w-full img-frame hover-card cursor-zoom-in" title="Ver en tamaño completo">
-                            <img src="ContextoInternacional.png" alt="Comparativo internacional vs Colombia en formación veterinaria" class="w-full h-auto object-contain rounded-xl">
-                        </a>
+                        <button type="button" class="img-zoom-trigger figura " data-image-zoom="ContextoInternacional.png" data-image-alt="Comparativo internacional vs Colombia en formación veterinaria" data-image-title="Comparativo internacional vs Colombia en formación veterinaria" data-image-label="Figura" data-image-icon="lucide:image"><img src="ContextoInternacional.png" alt="Comparativo internacional vs Colombia en formación veterinaria" class="figura__img"><span class="img-zoom-trigger__overlay"><span class="img-zoom-trigger__hint"><span class="iconify" data-icon="lucide:maximize-2" data-width="11"></span> Ampliar</span></span><span class="figura__cap"><b>Figura 1.</b> Comparativo internacional vs Colombia en formación veterinaria</span></button>
                     </div>
                     <div class="lg:col-span-7 flex flex-col gap-3 justify-center">
                         <div class="mini-card hover-card border-l-4 border-l-unad-teal flex-col icon-pop">
@@ -594,14 +152,14 @@
                 </div>
             </div>
 
-            <div class="grid grid-cols-2 gap-4 mt-3 shrink-0 gsap-reveal">
-                <div class="bg-unad-orange/10 border-l-4 border-unad-orange p-3 rounded-r-lg hover-card">
-                    <h4 class="role-note w-semibold text-unad-orange mb-1 flex items-center gap-2"><span class="iconify" data-icon="lucide:alert-circle" data-width="16"></span> Criterio del Par Académico</h4>
-                    <p class="t-caption text-gray-700 dark:text-gray-300">Pertinencia del programa frente al estado actual de la oferta nacional e internacional.</p>
+            <div class="par-footer gsap-reveal">
+                <div class="par-box par-box--criterio">
+                    <h4><span class="iconify" data-icon="lucide:alert-circle" data-width="16"></span> Criterio del Par Académico</h4>
+                    <p>Pertinencia del programa frente al estado actual de la oferta nacional e internacional.</p>
                 </div>
-                <div class="bg-unad-green/10 border-l-4 border-unad-green p-3 rounded-r-lg hover-card">
-                    <h4 class="role-note w-semibold text-unad-green mb-1 flex items-center gap-2"><span class="iconify" data-icon="lucide:check-circle-2" data-width="16"></span> Evidencia que Sustenta</h4>
-                    <p class="t-caption text-gray-700 dark:text-gray-300">Documento maestro; datos del SNIES; tendencias internacionales de educación veterinaria.</p>
+                <div class="par-box par-box--evidencia">
+                    <h4><span class="iconify" data-icon="lucide:check-circle-2" data-width="16"></span> Evidencia que Sustenta</h4>
+                    <p>Documento maestro; datos del SNIES; tendencias internacionales de educación veterinaria.</p>
                 </div>
             </div>
         </div>
@@ -610,12 +168,12 @@
     <!-- 3. Oportunidad y pertinencia
     <section class="slide" data-accent="orange" data-title="Oportunidad y Pertinencia">
         <div class="glass-panel">
-            <div class="gsap-reveal flex justify-between items-end border-b border-gray-200 dark:border-gray-700 pb-3 mb-4 shrink-0">
-                <h2 class="role-title text-unad-navy dark:text-white flex items-center gap-3">
+            <div class="slide-head gsap-reveal">
+                <h2 class="role-title text-unad-navy dark:text-white">
                     <span class="iconify text-unad-teal animate-pulse" data-icon="lucide:target" data-width="30"></span>
                     Oportunidad y pertinencia
                 </h2>
-                <span class="role-label bg-unad-orange text-white px-3 py-1 rounded-full">Brecha territorial</span>
+                <span class="role-label slide-tag bg-unad-orange text-white">Brecha territorial</span>
             </div>
 
             <div class="flex-1 min-h-0 overflow-y-auto custom-scroll gsap-reveal pr-2">
@@ -643,14 +201,14 @@
                 </div>
             </div>
 
-            <div class="grid grid-cols-2 gap-4 mt-3 shrink-0 gsap-reveal">
-                <div class="bg-unad-orange/10 border-l-4 border-unad-orange p-3 rounded-r-lg hover-card">
-                    <h4 class="role-note w-semibold text-unad-orange mb-1 flex items-center gap-2"><span class="iconify" data-icon="lucide:alert-circle" data-width="16"></span> Criterio del Par Académico</h4>
-                    <p class="t-caption text-gray-700 dark:text-gray-300">Justificación clara de la oportunidad de ampliación de cobertura educativa.</p>
+            <div class="par-footer gsap-reveal">
+                <div class="par-box par-box--criterio">
+                    <h4><span class="iconify" data-icon="lucide:alert-circle" data-width="16"></span> Criterio del Par Académico</h4>
+                    <p>Justificación clara de la oportunidad de ampliación de cobertura educativa.</p>
                 </div>
-                <div class="bg-unad-green/10 border-l-4 border-unad-green p-3 rounded-r-lg hover-card">
-                    <h4 class="role-note w-semibold text-unad-green mb-1 flex items-center gap-2"><span class="iconify" data-icon="lucide:check-circle-2" data-width="16"></span> Evidencia que Sustenta</h4>
-                    <p class="t-caption text-gray-700 dark:text-gray-300">Análisis comparativo internacional; caracterización de la oferta nacional.</p>
+                <div class="par-box par-box--evidencia">
+                    <h4><span class="iconify" data-icon="lucide:check-circle-2" data-width="16"></span> Evidencia que Sustenta</h4>
+                    <p>Análisis comparativo internacional; caracterización de la oferta nacional.</p>
                 </div>
             </div>
         </div>
@@ -658,69 +216,13 @@
 
     <!-- 4. Brecha crítica -->
 <section class="slide" data-accent="navy" data-title="Brecha Crítica">
-    <style>
-        /* ═══════════════════════════════════════════════════════════
-           FIX slide "Brecha Crítica"
-           Causa raíz: .flex-1 con `justify-content: safe center` +
-                       hijos con flex-shrink:1 → tarjetas aplastadas
-                       y banner navy superpuesto sobre la 2ª fila.
-           ═══════════════════════════════════════════════════════════ */
-        .slide[data-title="Brecha Crítica"] .flex-1 {
-            justify-content: flex-start !important;
-            gap: 1rem;
-        }
-
-        /* Los hijos directos NO se encogen ni crecen */
-        .slide[data-title="Brecha Crítica"] .flex-1 > .grid,
-        .slide[data-title="Brecha Crítica"] .flex-1 > .bg-unad-navy {
-            flex-shrink: 0 !important;
-            flex-grow: 0 !important;
-        }
-
-        /* El grid interno: alinear arriba, NO centrar verticalmente */
-        .slide[data-title="Brecha Crítica"] .lg\:col-span-7.grid {
-            align-content: start !important;
-            align-items: stretch !important;
-        }
-
-        /* Tarjetas: alto natural, sin estirarse ni encogerse */
-        .slide[data-title="Brecha Crítica"] .mini-card {
-            height: auto !important;
-            min-height: 0 !important;
-            align-self: start;
-        }
-
-        /* Imagen: alto natural, sin heredar height:100% del .img-frame global */
-        .slide[data-title="Brecha Crítica"] .img-frame {
-            height: auto !important;
-            min-height: 0 !important;
-            max-height: 50vh !important;
-        }
-        .slide[data-title="Brecha Crítica"] .img-frame img {
-            height: auto !important;
-            max-height: 48vh !important;
-            object-fit: contain !important;
-        }
-
-        /* Banner: compacto y sin superposición */
-        .slide[data-title="Brecha Crítica"] .bg-unad-navy {
-            padding: 0.9rem 1.1rem !important;
-            position: relative;
-            z-index: 2;
-        }
-        .slide[data-title="Brecha Crítica"] .bg-unad-navy .t-body {
-            font-size: 0.82rem !important;
-            line-height: 1.45 !important;
-        }
-    </style>
-
     <div class="glass-panel">
-        <div class="gsap-reveal flex justify-between items-end border-b border-gray-200 dark:border-gray-700 pb-3 mb-4 shrink-0">
-            <h2 class="role-title text-unad-navy dark:text-white flex items-center gap-3">
+        <div class="slide-head gsap-reveal">
+            <h2 class="role-title text-unad-navy dark:text-white">
                 <span class="iconify text-unad-orange animate-pulse" data-icon="lucide:alert-triangle" data-width="30"></span>
                 Brecha crítica en la formación veterinaria
             </h2>
-            <span class="role-label bg-unad-orange text-white px-3 py-1 rounded-full">Paradoja territorial</span>
+            <span class="role-label slide-tag bg-unad-orange text-white">Paradoja territorial</span>
         </div>
 
         <div class="flex-1 min-h-0 overflow-y-auto custom-scroll gsap-reveal pr-2">
@@ -749,9 +251,7 @@
                     </div>
                 </div>
                 <div class="lg:col-span-5 flex justify-center min-h-0">
-                    <a href="BrechaRuralColombia.png" class="lightbox-trigger block w-full img-frame hover-card cursor-zoom-in" title="Ver en tamaño completo">
-                        <img src="BrechaRuralColombia.png" alt="Brecha crítica de la formación veterinaria en Colombia" class="w-full h-auto object-contain rounded-xl">
-                    </a>
+                    <button type="button" class="img-zoom-trigger figura " data-image-zoom="BrechaRuralColombia.png" data-image-alt="Brecha crítica de la formación veterinaria en Colombia" data-image-title="Brecha crítica de la formación veterinaria en Colombia" data-image-label="Figura" data-image-icon="lucide:image"><img src="BrechaRuralColombia.png" alt="Brecha crítica de la formación veterinaria en Colombia" class="figura__img"><span class="img-zoom-trigger__overlay"><span class="img-zoom-trigger__hint"><span class="iconify" data-icon="lucide:maximize-2" data-width="11"></span> Ampliar</span></span><span class="figura__cap"><b>Figura 2.</b> Brecha crítica de la formación veterinaria en Colombia</span></button>
                 </div>
             </div>
 
@@ -761,14 +261,14 @@
             </div>
         </div>
 
-        <div class="grid grid-cols-2 gap-4 mt-3 shrink-0 gsap-reveal">
-            <div class="bg-unad-orange/10 border-l-4 border-unad-orange p-3 rounded-r-lg hover-card">
-                <h4 class="role-note w-semibold text-unad-orange mb-1 flex items-center gap-2"><span class="iconify" data-icon="lucide:alert-circle" data-width="16"></span> Criterio del Par Académico</h4>
-                <p class="t-caption text-gray-700 dark:text-gray-300">Coherencia de la justificación con las brechas reales del entorno rural colombiano.</p>
+        <div class="par-footer gsap-reveal">
+            <div class="par-box par-box--criterio">
+                <h4><span class="iconify" data-icon="lucide:alert-circle" data-width="16"></span> Criterio del Par Académico</h4>
+                <p>Coherencia de la justificación con las brechas reales del entorno rural colombiano.</p>
             </div>
-            <div class="bg-unad-green/10 border-l-4 border-unad-green p-3 rounded-r-lg hover-card">
-                <h4 class="role-note w-semibold text-unad-green mb-1 flex items-center gap-2"><span class="iconify" data-icon="lucide:check-circle-2" data-width="16"></span> Evidencia que Sustenta</h4>
-                <p class="t-caption text-gray-700 dark:text-gray-300">Diagnósticos territoriales; análisis del SNIES; caracterización de estudiantes potenciales.</p>
+            <div class="par-box par-box--evidencia">
+                <h4><span class="iconify" data-icon="lucide:check-circle-2" data-width="16"></span> Evidencia que Sustenta</h4>
+                <p>Diagnósticos territoriales; análisis del SNIES; caracterización de estudiantes potenciales.</p>
             </div>
         </div>
     </div>
@@ -777,21 +277,19 @@
     <!-- 5. Distribución de la oferta nacional -->
     <section class="slide" data-accent="teal" data-title="Distribución Oferta Nacional">
         <div class="glass-panel">
-            <div class="gsap-reveal flex justify-between items-end border-b border-gray-200 dark:border-gray-700 pb-3 mb-4 shrink-0">
-                <h2 class="role-title text-unad-navy dark:text-white flex items-center gap-3">
+            <div class="slide-head gsap-reveal">
+                <h2 class="role-title text-unad-navy dark:text-white">
                     <span class="iconify text-unad-teal animate-spin" data-icon="lucide:map" data-width="30" style="animation-duration: 14s;"></span>
                     Distribución de la oferta nacional
                 </h2>
-                <span class="role-label bg-unad-teal text-white px-3 py-1 rounded-full">15 programas · 100 % presencial</span>
+                <span class="role-label slide-tag bg-unad-teal text-white">15 programas · 100 % presencial</span>
             </div>
             <p class="gsap-reveal t-body text-center text-gray-700 dark:text-gray-300 mb-3">Los 15 programas activos se concentran en las principales ciudades, dejando desatendidas las regiones con mayor vocación agropecuaria.</p>
 
             <div class="flex-1 min-h-0 overflow-y-auto custom-scroll gsap-reveal pr-2">
                 <div class="grid grid-cols-1 lg:grid-cols-12 gap-5 items-stretch w-full">
                     <div class="lg:col-span-6 flex items-center justify-center">
-                        <a href="MapaProgramasColombia.png" class="lightbox-trigger block w-full img-frame hover-card cursor-zoom-in" title="Ver en tamaño completo">
-                            <img src="MapaProgramasColombia.png" alt="Mapa de distribución de programas de Medicina Veterinaria en Colombia" class="w-full h-auto object-contain rounded-xl">
-                        </a>
+                        <button type="button" class="img-zoom-trigger figura " data-image-zoom="MapaProgramasColombia.png" data-image-alt="Mapa de distribución de programas de Medicina Veterinaria en Colombia" data-image-title="Mapa de distribución de programas de Medicina Veterinaria en Colombia" data-image-label="Figura" data-image-icon="lucide:image"><img src="MapaProgramasColombia.png" alt="Mapa de distribución de programas de Medicina Veterinaria en Colombia" class="figura__img"><span class="img-zoom-trigger__overlay"><span class="img-zoom-trigger__hint"><span class="iconify" data-icon="lucide:maximize-2" data-width="11"></span> Ampliar</span></span><span class="figura__cap"><b>Figura 3.</b> Mapa de distribución de programas de Medicina Veterinaria en Colombia</span></button>
                     </div>
                     <div class="lg:col-span-6 flex flex-col gap-3 justify-center">
                         <div class="mini-card hover-card border-l-4 border-l-unad-teal icon-pop">
@@ -823,14 +321,14 @@
                 </div>
             </div>
 
-            <div class="grid grid-cols-2 gap-4 mt-3 shrink-0 gsap-reveal">
-                <div class="bg-unad-orange/10 border-l-4 border-unad-orange p-3 rounded-r-lg hover-card">
-                    <h4 class="role-note w-semibold text-unad-orange mb-1 flex items-center gap-2"><span class="iconify" data-icon="lucide:alert-circle" data-width="16"></span> Criterio del Par Académico</h4>
-                    <p class="t-caption text-gray-700 dark:text-gray-300">Claridad en la identificación de la oportunidad territorial y del mercado educativo.</p>
+            <div class="par-footer gsap-reveal">
+                <div class="par-box par-box--criterio">
+                    <h4><span class="iconify" data-icon="lucide:alert-circle" data-width="16"></span> Criterio del Par Académico</h4>
+                    <p>Claridad en la identificación de la oportunidad territorial y del mercado educativo.</p>
                 </div>
-                <div class="bg-unad-green/10 border-l-4 border-unad-green p-3 rounded-r-lg hover-card">
-                    <h4 class="role-note w-semibold text-unad-green mb-1 flex items-center gap-2"><span class="iconify" data-icon="lucide:check-circle-2" data-width="16"></span> Evidencia que Sustenta</h4>
-                    <p class="t-caption text-gray-700 dark:text-gray-300">Fuente: elaboración propia con datos del SNIES (febrero 2026).</p>
+                <div class="par-box par-box--evidencia">
+                    <h4><span class="iconify" data-icon="lucide:check-circle-2" data-width="16"></span> Evidencia que Sustenta</h4>
+                    <p>Fuente: elaboración propia con datos del SNIES (febrero 2026).</p>
                 </div>
             </div>
         </div>
@@ -839,12 +337,12 @@
     <!-- 6. Programas SNIES -->
     <section class="slide" data-accent="green" data-title="Programas SNIES">
         <div class="glass-panel">
-            <div class="gsap-reveal flex justify-between items-end border-b border-gray-200 dark:border-gray-700 pb-3 mb-3 shrink-0">
-                <h2 class="role-title text-unad-navy dark:text-white flex items-center gap-3">
+            <div class="slide-head gsap-reveal">
+                <h2 class="role-title text-unad-navy dark:text-white">
                     <span class="iconify text-unad-teal animate-bounce" data-icon="lucide:list-ordered" data-width="28"></span>
                     Programas Activos de Medicina Veterinaria en Colombia (SNIES)
                 </h2>
-                <span class="role-label bg-unad-teal text-white px-3 py-1 rounded-full">15 instituciones</span>
+                <span class="role-label slide-tag bg-unad-teal text-white">15 instituciones</span>
             </div>
 
             <div class="flex-1 min-h-0 overflow-y-auto custom-scroll gsap-reveal bg-white/80 dark:bg-black/50 rounded-xl border border-gray-200 dark:border-gray-700">
@@ -919,14 +417,14 @@
                 <p class="t-caption text-gray-500 dark:text-gray-400 italic">Consulta: febrero 2026.</p>
             </div>
 
-            <div class="grid grid-cols-2 gap-4 mt-3 shrink-0 gsap-reveal">
-                <div class="bg-unad-orange/10 border-l-4 border-unad-orange p-3 rounded-r-lg hover-card">
-                    <h4 class="role-note w-semibold text-unad-orange mb-1 flex items-center gap-2"><span class="iconify" data-icon="lucide:alert-circle" data-width="16"></span> Criterio del Par Académico</h4>
-                    <p class="t-caption text-gray-700 dark:text-gray-300">Revisión del panorama nacional de la disciplina.</p>
+            <div class="par-footer gsap-reveal">
+                <div class="par-box par-box--criterio">
+                    <h4><span class="iconify" data-icon="lucide:alert-circle" data-width="16"></span> Criterio del Par Académico</h4>
+                    <p>Revisión del panorama nacional de la disciplina.</p>
                 </div>
-                <div class="bg-unad-green/10 border-l-4 border-unad-green p-3 rounded-r-lg hover-card">
-                    <h4 class="role-note w-semibold text-unad-green mb-1 flex items-center gap-2"><span class="iconify" data-icon="lucide:check-circle-2" data-width="16"></span> Evidencia que Sustenta</h4>
-                    <p class="t-caption text-gray-700 dark:text-gray-300">Consulta y reporte oficial del Sistema SNIES.</p>
+                <div class="par-box par-box--evidencia">
+                    <h4><span class="iconify" data-icon="lucide:check-circle-2" data-width="16"></span> Evidencia que Sustenta</h4>
+                    <p>Consulta y reporte oficial del Sistema SNIES.</p>
                 </div>
             </div>
         </div>
@@ -934,69 +432,13 @@
 
     <!-- 7. Matriz Ítem · Descripción -->
 <section class="slide" data-accent="orange" data-title="Matriz Ítem · Descripción">
-    <style>
-        /* ═══════════════════════════════════════════════════════════
-           FIX slide "Matriz Ítem · Descripción"
-           Causa raíz: los hijos del .flex-1 se encogían (flex-shrink:1)
-                       y aplastaban el grid → imagen/tabla desbordaban
-                       sobre el banner "Mensaje clave".
-           ═══════════════════════════════════════════════════════════ */
-        .slide[data-title="Matriz Ítem · Descripción"] .flex-1 {
-            justify-content: flex-start !important;
-            gap: 1rem;
-        }
-
-        /* Clave: los hijos directos NO se encogen */
-        .slide[data-title="Matriz Ítem · Descripción"] .flex-1 > .grid,
-        .slide[data-title="Matriz Ítem · Descripción"] .flex-1 > .bg-unad-navy {
-            flex-shrink: 0 !important;
-            flex-grow: 0 !important;
-        }
-
-        /* Imagen: alto natural, sin heredar height:100% del .img-frame global */
-        .slide[data-title="Matriz Ítem · Descripción"] .img-frame {
-            height: auto !important;
-            min-height: 0 !important;
-            max-height: 40vh !important;
-        }
-        .slide[data-title="Matriz Ítem · Descripción"] .img-frame img {
-            height: auto !important;
-            max-height: 38vh !important;
-            object-fit: contain !important;
-        }
-
-        /* Tabla: sin límite de alto, sin scroll interno, sin cortes */
-        .slide[data-title="Matriz Ítem · Descripción"] .table-wrap {
-            height: auto !important;
-            max-height: none !important;
-            overflow: visible !important;
-        }
-
-        /* Compactar celdas y banner para que quepa sin scroll a ~770px */
-        .slide[data-title="Matriz Ítem · Descripción"] .styled-table th,
-        .slide[data-title="Matriz Ítem · Descripción"] .styled-table td {
-            padding: 6px 10px !important;
-        }
-        .slide[data-title="Matriz Ítem · Descripción"] .styled-table td.t-small {
-            font-size: 0.78rem !important;
-            line-height: 1.35 !important;
-        }
-        .slide[data-title="Matriz Ítem · Descripción"] .bg-unad-navy {
-            padding: 0.85rem 1.1rem !important;
-        }
-        .slide[data-title="Matriz Ítem · Descripción"] .bg-unad-navy .t-body {
-            font-size: 0.82rem !important;
-            line-height: 1.45 !important;
-        }
-    </style>
-
     <div class="glass-panel">
-        <div class="gsap-reveal flex justify-between items-end border-b border-gray-200 dark:border-gray-700 pb-3 mb-3 shrink-0">
-            <h2 class="role-title text-unad-navy dark:text-white flex items-center gap-3">
+        <div class="slide-head gsap-reveal">
+            <h2 class="role-title text-unad-navy dark:text-white">
                 <span class="iconify text-unad-orange animate-pulse" data-icon="lucide:list-checks" data-width="30"></span>
                 Estudio de Mercado: Aspirantes
             </h2>
-            <span class="role-label bg-unad-teal text-white px-3 py-1 rounded-full">Estudio de mercado</span>
+            <span class="role-label slide-tag bg-unad-teal text-white">Estudio de mercado</span>
         </div>
 
         <p class="gsap-reveal t-body text-center text-gray-700 dark:text-gray-300 mb-3">
@@ -1007,9 +449,7 @@
             <!-- items-start: cada columna toma su altura natural -->
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-5 items-start w-full">
                 <div class="lg:col-span-5 flex justify-center">
-                    <a href="EncuestaMercado.png" class="lightbox-trigger block w-full img-frame hover-card cursor-zoom-in rounded-xl overflow-hidden border border-gray-200 dark:border-gray-700 shadow-lg" title="Ver en tamaño completo">
-                        <img src="EncuestaMercado.png" alt="Imagen de apoyo · Encuesta de mercado" class="w-full h-auto object-contain rounded-xl bg-white/60 dark:bg-black/30">
-                    </a>
+                    <button type="button" class="img-zoom-trigger figura " data-image-zoom="EncuestaMercado.png" data-image-alt="Imagen de apoyo · Encuesta de mercado" data-image-title="Imagen de apoyo · Encuesta de mercado" data-image-label="Figura" data-image-icon="lucide:image"><img src="EncuestaMercado.png" alt="Imagen de apoyo · Encuesta de mercado" class="figura__img"><span class="img-zoom-trigger__overlay"><span class="img-zoom-trigger__hint"><span class="iconify" data-icon="lucide:maximize-2" data-width="11"></span> Ampliar</span></span><span class="figura__cap"><b>Figura 4.</b> Imagen de apoyo · Encuesta de mercado</span></button>
                 </div>
                 <div class="lg:col-span-7">
                     <!-- Sin h-full; sin scroll interno; altura natural -->
@@ -1054,18 +494,18 @@
             </div>
         </div>
 
-        <div class="grid grid-cols-2 gap-4 mt-3 shrink-0 gsap-reveal">
-            <div class="bg-unad-orange/10 border-l-4 border-unad-orange p-3 rounded-r-lg hover-card">
-                <h4 class="role-note w-semibold text-unad-orange mb-1 flex items-center gap-2">
+        <div class="par-footer gsap-reveal">
+            <div class="par-box par-box--criterio">
+                <h4>
                     <span class="iconify" data-icon="lucide:alert-circle" data-width="16"></span> Criterio del Par Académico
                 </h4>
-                <p class="t-caption text-gray-700 dark:text-gray-300">Rigor metodológico y representatividad del estudio de mercado.</p>
+                <p>Rigor metodológico y representatividad del estudio de mercado.</p>
             </div>
-            <div class="bg-unad-green/10 border-l-4 border-unad-green p-3 rounded-r-lg hover-card">
-                <h4 class="role-note w-semibold text-unad-green mb-1 flex items-center gap-2">
+            <div class="par-box par-box--evidencia">
+                <h4>
                     <span class="iconify" data-icon="lucide:check-circle-2" data-width="16"></span> Evidencia que Sustenta
                 </h4>
-                <p class="t-caption text-gray-700 dark:text-gray-300">Informe metodológico del estudio de mercado institucional (2026).</p>
+                <p>Informe metodológico del estudio de mercado institucional (2026).</p>
             </div>
         </div>
     </div>
@@ -1073,74 +513,6 @@
 
 <!-- 8. Estudio de mercado (cifras clave) — CON CONTADORES -->
 <section class="slide" data-accent="teal" data-title="Estudio de Mercado">
-    <style>
-        /* ═══════════════════════════════════════════════════════════
-           FIX slide "Estudio de Mercado"
-           Causa raíz: .flex-1 con `justify-content: safe center` +
-                       hijos con flex-shrink:1 → las tarjetas inferiores
-                       se aplastan y el banner navy se superpone.
-           ═══════════════════════════════════════════════════════════ */
-        .slide[data-title="Estudio de Mercado"] .flex-1 {
-            justify-content: flex-start !important;
-            gap: 0.75rem;
-        }
-
-        /* Los hijos directos del scroll NO se encogen ni crecen */
-        .slide[data-title="Estudio de Mercado"] .flex-1 > .grid,
-        .slide[data-title="Estudio de Mercado"] .flex-1 > .bg-unad-navy {
-            flex-shrink: 0 !important;
-            flex-grow: 0 !important;
-        }
-
-        /* El grid de cifras: alinear arriba, NO centrar verticalmente */
-        .slide[data-title="Estudio de Mercado"] .lg\:col-span-7.grid {
-            align-content: start !important;
-            align-items: stretch !important;
-        }
-
-        /* Tarjetas de cifras: alto natural */
-        .slide[data-title="Estudio de Mercado"] .stat-item {
-            height: auto !important;
-            min-height: 0 !important;
-            align-self: start;
-        }
-
-        /* Reducir un poco las cifras para que quepan las 4 sin apretar */
-        .slide[data-title="Estudio de Mercado"] .role-stat,
-        .slide[data-title="Estudio de Mercado"] p.role-stat {
-            font-size: clamp(40px, 3.6vw, 68px) !important;
-        }
-
-        /* Imagen: alto natural, sin heredar height:100% del .img-frame global */
-        .slide[data-title="Estudio de Mercado"] .img-frame {
-            height: auto !important;
-            min-height: 0 !important;
-            max-height: 48vh !important;
-        }
-        .slide[data-title="Estudio de Mercado"] .img-frame img {
-            height: auto !important;
-            max-height: 46vh !important;
-            object-fit: contain !important;
-        }
-
-        /* Banner: compacto, sin superposición */
-        .slide[data-title="Estudio de Mercado"] .bg-unad-navy {
-            padding: 0.9rem 1.1rem !important;
-            position: relative;
-            z-index: 2;
-        }
-        .slide[data-title="Estudio de Mercado"] .bg-unad-navy .role-quote {
-            font-size: 0.9rem !important;
-            line-height: 1.5 !important;
-        }
-
-        /* Padding más ajustado en las tarjetas de cifras */
-        .slide[data-title="Estudio de Mercado"] .stat-item {
-            padding: 1rem !important;
-            gap: 0.35rem !important;
-        }
-    </style>
-
     <div class="glass-panel">
 
         <!-- ─── Cabecera ─── -->
@@ -1162,9 +534,7 @@
 
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-5 items-start w-full">
                 <div class="lg:col-span-5 flex justify-center min-h-0">
-                    <a href="EstudioMercado.png" class="lightbox-trigger block w-full img-frame hover-card cursor-zoom-in" title="Ver en tamaño completo">
-                        <img src="EstudioMercado.png" alt="Estudio de mercado: cifras clave de demanda" class="w-full h-auto object-contain rounded-xl">
-                    </a>
+                    <button type="button" class="img-zoom-trigger figura " data-image-zoom="EstudioMercado.png" data-image-alt="Estudio de mercado: cifras clave de demanda" data-image-title="Estudio de mercado: cifras clave de demanda" data-image-label="Figura" data-image-icon="lucide:image"><img src="EstudioMercado.png" alt="Estudio de mercado: cifras clave de demanda" class="figura__img"><span class="img-zoom-trigger__overlay"><span class="img-zoom-trigger__hint"><span class="iconify" data-icon="lucide:maximize-2" data-width="11"></span> Ampliar</span></span><span class="figura__cap"><b>Figura 5.</b> Estudio de mercado: cifras clave de demanda</span></button>
                 </div>
 
                 <div class="lg:col-span-7 grid grid-cols-2 gap-3">
@@ -1221,22 +591,22 @@
         </div>
 
         <!-- ─── Pie ─── -->
-        <div class="slide-footer grid grid-cols-2 gap-4 mt-3 shrink-0 gsap-reveal">
-            <div class="bg-unad-orange/10 border-l-4 border-unad-orange p-3 rounded-r-lg hover-card">
-                <h4 class="role-note w-semibold text-unad-orange mb-1 flex items-center gap-2">
+        <div class="par-footer gsap-reveal">
+            <div class="par-box par-box--criterio">
+                <h4>
                     <span class="iconify" data-icon="lucide:alert-circle" data-width="16"></span>
                     Criterio del Par Académico
                 </h4>
-                <p class="t-caption text-gray-700 dark:text-gray-300">
+                <p>
                     Sustento cuantitativo de la demanda insatisfecha y del interés en la modalidad híbrida.
                 </p>
             </div>
-            <div class="bg-unad-green/10 border-l-4 border-unad-green p-3 rounded-r-lg hover-card">
-                <h4 class="role-note w-semibold text-unad-green mb-1 flex items-center gap-2">
+            <div class="par-box par-box--evidencia">
+                <h4>
                     <span class="iconify" data-icon="lucide:check-circle-2" data-width="16"></span>
                     Evidencia que Sustenta
                 </h4>
-                <p class="t-caption text-gray-700 dark:text-gray-300">
+                <p>
                     Estudio de mercado institucional; encuestas a aspirantes potenciales; análisis de tendencias.
                 </p>
             </div>
@@ -1248,18 +618,16 @@
     <!-- 9. Motivos de interés de formación -->
     <section class="slide" data-accent="navy" data-title="Motivos de Interés">
         <div class="glass-panel">
-            <div class="gsap-reveal flex justify-between items-end border-b border-gray-200 dark:border-gray-700 pb-3 mb-3 shrink-0">
-                <h2 class="role-title text-unad-navy dark:text-white flex items-center gap-3">
+            <div class="slide-head gsap-reveal">
+                <h2 class="role-title text-unad-navy dark:text-white">
                     <span class="iconify text-unad-orange animate-pulse" data-icon="lucide:heart-handshake" data-width="30"></span>
                     Motivos de interés de formación en el Programa de Medicina Veterinaria
                 </h2>
-                <span class="role-label bg-unad-teal text-white px-3 py-1 rounded-full">Estudio de mercado</span>
+                <span class="role-label slide-tag bg-unad-teal text-white">Estudio de mercado</span>
             </div>
 
             <div class="flex-1 min-h-0 overflow-y-auto custom-scroll gsap-reveal flex flex-col justify-center items-center gap-4 w-full">
-                <a href="Motivos.png" class="lightbox-trigger block w-full max-w-5xl rounded-2xl overflow-hidden shadow-xl border border-gray-200 dark:border-gray-700 hover-card cursor-zoom-in" title="Ampliar imagen · Motivos de interés">
-                    <img src="Motivos.png" alt="Motivos de interés de formación en el Programa de Medicina Veterinaria UNAD" class="w-full h-auto max-h-[65vh] object-contain bg-white/60 dark:bg-black/30">
-                </a>
+                <button type="button" class="img-zoom-trigger figura max-w-5xl" data-image-zoom="Motivos.png" data-image-alt="Motivos de interés de formación en el Programa de Medicina Veterinaria UNAD" data-image-title="Motivos de interés de formación en el Programa de Medicina Veterinaria UNAD" data-image-label="Figura" data-image-icon="lucide:image"><img src="Motivos.png" alt="Motivos de interés de formación en el Programa de Medicina Veterinaria UNAD" class="figura__img"><span class="img-zoom-trigger__overlay"><span class="img-zoom-trigger__hint"><span class="iconify" data-icon="lucide:maximize-2" data-width="11"></span> Ampliar</span></span><span class="figura__cap"><b>Figura 6.</b> Motivos de interés de formación en el Programa de Medicina Veterinaria UNAD</span></button>
             </div>
 
             <div class="gsap-reveal mt-3 shrink-0 flex items-center justify-center gap-2 px-1">
@@ -1269,14 +637,14 @@
                 </p>
             </div>
 
-            <div class="grid grid-cols-2 gap-4 mt-3 shrink-0 gsap-reveal">
-                <div class="bg-unad-orange/10 border-l-4 border-unad-orange p-3 rounded-r-lg hover-card">
-                    <h4 class="role-note w-semibold text-unad-orange mb-1 flex items-center gap-2"><span class="iconify" data-icon="lucide:alert-circle" data-width="16"></span> Criterio del Par Académico</h4>
-                    <p class="t-caption text-gray-700 dark:text-gray-300">Pertinencia de los motivos de interés con el perfil de ingreso y la propuesta formativa.</p>
+            <div class="par-footer gsap-reveal">
+                <div class="par-box par-box--criterio">
+                    <h4><span class="iconify" data-icon="lucide:alert-circle" data-width="16"></span> Criterio del Par Académico</h4>
+                    <p>Pertinencia de los motivos de interés con el perfil de ingreso y la propuesta formativa.</p>
                 </div>
-                <div class="bg-unad-green/10 border-l-4 border-unad-green p-3 rounded-r-lg hover-card">
-                    <h4 class="role-note w-semibold text-unad-green mb-1 flex items-center gap-2"><span class="iconify" data-icon="lucide:check-circle-2" data-width="16"></span> Evidencia que Sustenta</h4>
-                    <p class="t-caption text-gray-700 dark:text-gray-300">Encuestas aplicadas a aspirantes potenciales del programa (2026).</p>
+                <div class="par-box par-box--evidencia">
+                    <h4><span class="iconify" data-icon="lucide:check-circle-2" data-width="16"></span> Evidencia que Sustenta</h4>
+                    <p>Encuestas aplicadas a aspirantes potenciales del programa (2026).</p>
                 </div>
             </div>
         </div>
@@ -1285,19 +653,19 @@
     <!-- 10. Propuesta diferenciadora UNAD -->
     <section class="slide" data-accent="green" data-title="Propuesta Diferenciadora">
         <div class="glass-panel">
-            <div class="gsap-reveal flex justify-between items-end border-b border-gray-200 dark:border-gray-700 pb-3 mb-4 shrink-0">
-                <h2 class="role-title text-unad-navy dark:text-white flex items-center gap-3">
+            <div class="slide-head gsap-reveal">
+                <h2 class="role-title text-unad-navy dark:text-white">
                     <span class="iconify text-unad-teal animate-bounce" data-icon="lucide:award" data-width="30"></span>
                     Propuesta diferenciadora UNAD
                 </h2>
-                <span class="role-label bg-unad-orange text-white px-3 py-1 rounded-full">Alternativa innovadora</span>
+                <span class="role-label slide-tag bg-unad-orange text-white">Alternativa innovadora</span>
             </div>
 
             <div class="flex-1 min-h-0 overflow-y-auto custom-scroll gsap-reveal pr-2">
                 <div class="grid grid-cols-1 lg:grid-cols-12 gap-5 items-stretch w-full">
                     <div class="lg:col-span-5 flex justify-center min-h-0">
                         <button type="button"
-                                class="img-zoom-trigger w-full shadow-lg border border-gray-200 dark:border-gray-700 hover-card rounded-2xl overflow-hidden"
+                                class="img-zoom-trigger figura"
                                 data-image-zoom="Enfoque_Diferenciador.png"
                                 data-image-alt="Enfoque diferenciador del programa: One Health, salud animal y salud pública"
                                 data-image-title="Enfoque diferenciador del programa"
@@ -1305,13 +673,14 @@
                                 data-image-icon="lucide:award"
                                 data-image-gradient-from="#0d9488"
                                 data-image-gradient-to="#1e3a5f">
-                            <img src="Enfoque_Diferenciador.png" alt="Enfoque diferenciador del programa: One Health, salud animal y salud pública" class="w-full h-full object-contain max-h-[55vh]">
+                            <img src="Enfoque_Diferenciador.png" alt="Enfoque diferenciador del programa: One Health, salud animal y salud pública" class="figura__img">
                             <span class="img-zoom-trigger__overlay">
                                 <span class="img-zoom-trigger__hint">
                                     <span class="iconify" data-icon="lucide:maximize-2" data-width="11"></span> Ampliar
                                 </span>
                             </span>
-                        </button>
+<span class="figura__cap"><b>Figura 7.</b> Enfoque diferenciador del programa</span>
+</button>
                     </div>
                     <div class="lg:col-span-7 grid grid-cols-1 gap-3 content-center">
                         <div class="mini-card hover-card border-l-4 border-l-unad-teal icon-pop">
@@ -1360,14 +729,14 @@
                 </div>
             </div>
 
-            <div class="grid grid-cols-2 gap-4 mt-4 shrink-0 gsap-reveal">
-                <div class="bg-unad-orange/10 border-l-4 border-unad-orange p-3 rounded-r-lg hover-card">
-                    <h4 class="role-note w-semibold text-unad-orange mb-1 flex items-center gap-2"><span class="iconify" data-icon="lucide:alert-circle" data-width="16"></span> Criterio del Par Académico</h4>
-                    <p class="t-caption text-gray-700 dark:text-gray-300">Claridad en la propuesta diferenciadora frente a la oferta nacional.</p>
+            <div class="par-footer gsap-reveal">
+                <div class="par-box par-box--criterio">
+                    <h4><span class="iconify" data-icon="lucide:alert-circle" data-width="16"></span> Criterio del Par Académico</h4>
+                    <p>Claridad en la propuesta diferenciadora frente a la oferta nacional.</p>
                 </div>
-                <div class="bg-unad-green/10 border-l-4 border-unad-green p-3 rounded-r-lg hover-card">
-                    <h4 class="role-note w-semibold text-unad-green mb-1 flex items-center gap-2"><span class="iconify" data-icon="lucide:check-circle-2" data-width="16"></span> Evidencia que Sustenta</h4>
-                    <p class="t-caption text-gray-700 dark:text-gray-300">Documento maestro; lineamientos institucionales de modalidad híbrida; figura Enfoque_Diferenciador.png.</p>
+                <div class="par-box par-box--evidencia">
+                    <h4><span class="iconify" data-icon="lucide:check-circle-2" data-width="16"></span> Evidencia que Sustenta</h4>
+                    <p>Documento maestro; lineamientos institucionales de modalidad híbrida; figura Enfoque_Diferenciador.png.</p>
                 </div>
             </div>
         </div>
@@ -1376,12 +745,12 @@
    <!-- 11. Modalidad y Competencias genéricas -->
 <section class="slide" data-accent="orange" data-title="Modalidad y Competencias">
     <div class="glass-panel">
-        <div class="gsap-reveal flex justify-between items-end border-b border-gray-200 dark:border-gray-700 pb-3 mb-4 shrink-0">
-            <h2 class="role-title text-unad-navy dark:text-white flex items-center gap-3">
+        <div class="slide-head gsap-reveal">
+            <h2 class="role-title text-unad-navy dark:text-white">
                 <span class="iconify text-unad-orange animate-pulse" data-icon="lucide:layers" data-width="30"></span>
                 Modalidad de oferta y Competencias genéricas
             </h2>
-            <span class="role-label bg-unad-teal text-white px-3 py-1 rounded-full">Estudio de mercado</span>
+            <span class="role-label slide-tag bg-unad-teal text-white">Estudio de mercado</span>
         </div>
 
         <div class="flex-1 min-h-0 overflow-y-auto custom-scroll gsap-reveal w-full flex items-center justify-center">
@@ -1438,18 +807,18 @@
             </div>
         </div>
 
-        <div class="grid grid-cols-2 gap-4 mt-4 shrink-0 gsap-reveal">
-            <div class="hover-card icon-pop bg-unad-orange/10 border-l-4 border-unad-orange p-3 rounded-r-lg">
-                <h4 class="role-note w-semibold text-unad-orange mb-1 flex items-center gap-2">
+        <div class="par-footer gsap-reveal">
+            <div class="par-box par-box--criterio">
+                <h4>
                     <span class="iconify" data-icon="lucide:alert-circle" data-width="16"></span> Criterio del Par Académico
                 </h4>
-                <p class="t-caption text-gray-700 dark:text-gray-300">Pertinencia de la modalidad y las competencias con las tendencias del mercado laboral veterinario.</p>
+                <p>Pertinencia de la modalidad y las competencias con las tendencias del mercado laboral veterinario.</p>
             </div>
-            <div class="hover-card icon-pop bg-unad-green/10 border-l-4 border-unad-green p-3 rounded-r-lg">
-                <h4 class="role-note w-semibold text-unad-green mb-1 flex items-center gap-2">
+            <div class="par-box par-box--evidencia">
+                <h4>
                     <span class="iconify" data-icon="lucide:check-circle-2" data-width="16"></span> Evidencia que Sustenta
                 </h4>
-                <p class="t-caption text-gray-700 dark:text-gray-300">Encuestas aplicadas a aspirantes potenciales del programa (2026).</p>
+                <p>Encuestas aplicadas a aspirantes potenciales del programa (2026).</p>
             </div>
         </div>
     </div>
@@ -1458,8 +827,8 @@
    <!-- 12. Encuesta a sector productivo -->
 <section class="slide" data-accent="teal" data-title="Encuesta Sector Productivo">
     <div class="glass-panel">
-        <div class="gsap-reveal flex justify-between items-end border-b border-gray-200 dark:border-gray-700 pb-3 mb-3 shrink-0">
-            <h2 class="role-title text-unad-navy dark:text-white flex items-center gap-3">
+        <div class="slide-head gsap-reveal">
+            <h2 class="role-title text-unad-navy dark:text-white">
                 <span class="iconify text-unad-teal animate-pulse" data-icon="lucide:building-2" data-width="30"></span>
                 Encuesta a sector productivo
             </h2>
@@ -1485,13 +854,9 @@
                     <h3 class="role-card-title text-white">Alianzas con la región</h3>
                 </div>
 
-                <a href="Alianzas con la región.png"
-                   class="lightbox-trigger block rounded-2xl overflow-hidden shadow-xl border border-gray-200 dark:border-gray-700 hover-card cursor-zoom-in bg-white/60 dark:bg-black/30 flex items-center justify-center p-3"
-                   title="Ampliar imagen · Alianzas con la región">
-                    <img src="Alianzas con la región.png"
+                <button type="button" class="img-zoom-trigger figura " data-image-zoom="Alianzas con la región.png" data-image-alt="Alianzas con la región · Encuesta sector productivo" data-image-title="Alianzas con la región · Encuesta sector productivo" data-image-label="Figura" data-image-icon="lucide:image"><img src="Alianzas con la región.png"
                          alt="Alianzas con la región · Encuesta sector productivo"
-                         class="w-full h-auto object-contain max-h-[58vh]">
-                </a>
+                         class="figura__img"><span class="img-zoom-trigger__overlay"><span class="img-zoom-trigger__hint"><span class="iconify" data-icon="lucide:maximize-2" data-width="11"></span> Ampliar</span></span><span class="figura__cap"><b>Figura 8.</b> Alianzas con la región · Encuesta sector productivo</span></button>
 
                 <p class="t-caption text-gray-500 dark:text-gray-400 italic flex items-start gap-1.5 shrink-0">
                     <span class="iconify shrink-0 mt-0.5" data-icon="lucide:book-open" data-width="12"></span>
@@ -1500,14 +865,14 @@
             </div>
         </div>
 
-        <div class="grid grid-cols-2 gap-4 mt-3 shrink-0 gsap-reveal">
-            <div class="bg-unad-orange/10 border-l-4 border-unad-orange p-3 rounded-r-lg hover-card">
-                <h4 class="role-note w-semibold text-unad-orange mb-1 flex items-center gap-2"><span class="iconify" data-icon="lucide:alert-circle" data-width="16"></span> Criterio del Par Académico</h4>
-                <p class="t-caption text-gray-700 dark:text-gray-300">Pertinencia de la red de alianzas regionales con el sector pecuario.</p>
+        <div class="par-footer gsap-reveal">
+            <div class="par-box par-box--criterio">
+                <h4><span class="iconify" data-icon="lucide:alert-circle" data-width="16"></span> Criterio del Par Académico</h4>
+                <p>Pertinencia de la red de alianzas regionales con el sector pecuario.</p>
             </div>
-            <div class="bg-unad-green/10 border-l-4 border-unad-green p-3 rounded-r-lg hover-card">
-                <h4 class="role-note w-semibold text-unad-green mb-1 flex items-center gap-2"><span class="iconify" data-icon="lucide:check-circle-2" data-width="16"></span> Evidencia que Sustenta</h4>
-                <p class="t-caption text-gray-700 dark:text-gray-300">Encuestas aplicadas al sector productivo (226 empresarios · 2026).</p>
+            <div class="par-box par-box--evidencia">
+                <h4><span class="iconify" data-icon="lucide:check-circle-2" data-width="16"></span> Evidencia que Sustenta</h4>
+                <p>Encuestas aplicadas al sector productivo (226 empresarios · 2026).</p>
             </div>
         </div>
     </div>
@@ -1518,24 +883,20 @@
     <div class="glass-panel">
 
         <!-- ─── Cabecera ─── -->
-        <div class="gsap-reveal flex justify-between items-end border-b border-gray-200 dark:border-gray-700 pb-3 mb-3 shrink-0">
-            <h2 class="role-title text-unad-navy dark:text-white flex items-center gap-3">
+        <div class="slide-head gsap-reveal">
+            <h2 class="role-title text-unad-navy dark:text-white">
                 <span class="iconify text-unad-teal animate-spin" data-icon="lucide:rocket" data-width="30" style="animation-duration: 14s;"></span>
                 Oportunidades de desarrollo del programa
             </h2>
-            <span class="role-label bg-unad-teal text-white px-3 py-1 rounded-full">3 dimensiones</span>
+            <span class="role-label slide-tag bg-unad-teal text-white">3 dimensiones</span>
         </div>
 
         <!-- ─── Contenido: imagen centrada ─── -->
         <div class="flex-1 min-h-0 overflow-y-auto custom-scroll gsap-reveal flex flex-col justify-center items-center gap-4 w-full">
 
-            <a href="ImpactoPrograma.png"
-               class="lightbox-trigger block w-full max-w-5xl rounded-2xl overflow-hidden shadow-xl border border-gray-200 dark:border-gray-700 hover-card cursor-zoom-in"
-               title="Ampliar imagen · Oportunidades de desarrollo">
-                <img src="ImpactoPrograma.png"
+            <button type="button" class="img-zoom-trigger figura max-w-5xl" data-image-zoom="ImpactoPrograma.png" data-image-alt="Oportunidades de desarrollo generadas por el programa" data-image-title="Oportunidades de desarrollo generadas por el programa" data-image-label="Figura" data-image-icon="lucide:image"><img src="ImpactoPrograma.png"
                      alt="Oportunidades de desarrollo generadas por el programa"
-                     class="w-full h-auto max-h-[60vh] object-contain bg-white/60 dark:bg-black/30">
-            </a>
+                     class="figura__img"><span class="img-zoom-trigger__overlay"><span class="img-zoom-trigger__hint"><span class="iconify" data-icon="lucide:maximize-2" data-width="11"></span> Ampliar</span></span><span class="figura__cap"><b>Figura 9.</b> Oportunidades de desarrollo generadas por el programa</span></button>
 
             <div class="bg-unad-navy text-white p-5 rounded-xl border border-white/20 w-full max-w-5xl">
                 <p class="role-label text-unad-orange mb-2 flex items-center gap-2">
@@ -1551,22 +912,22 @@
         </div>
 
         <!-- ─── Pie ─── -->
-        <div class="grid grid-cols-2 gap-4 mt-3 shrink-0 gsap-reveal">
-            <div class="bg-unad-orange/10 border-l-4 border-unad-orange p-3 rounded-r-lg hover-card">
-                <h4 class="role-note w-semibold text-unad-orange mb-1 flex items-center gap-2">
+        <div class="par-footer gsap-reveal">
+            <div class="par-box par-box--criterio">
+                <h4>
                     <span class="iconify" data-icon="lucide:alert-circle" data-width="16"></span>
                     Criterio del Par Académico
                 </h4>
-                <p class="t-caption text-gray-700 dark:text-gray-300">
+                <p>
                     Solidez en la justificación de las oportunidades de desarrollo e impacto del programa.
                 </p>
             </div>
-            <div class="bg-unad-green/10 border-l-4 border-unad-green p-3 rounded-r-lg hover-card">
-                <h4 class="role-note w-semibold text-unad-green mb-1 flex items-center gap-2">
+            <div class="par-box par-box--evidencia">
+                <h4>
                     <span class="iconify" data-icon="lucide:check-circle-2" data-width="16"></span>
                     Evidencia que Sustenta
                 </h4>
-                <p class="t-caption text-gray-700 dark:text-gray-300">
+                <p>
                     Documento maestro; proyecciones de impacto institucional; articulación con el Plan de Desarrollo.
                 </p>
             </div>
@@ -1578,12 +939,12 @@
     <!-- 14. Desafíos del país + respuesta UNAD -->
     <section class="slide" data-accent="navy" data-title="Desafíos y Respuesta UNAD">
         <div class="glass-panel">
-            <div class="gsap-reveal flex justify-between items-end border-b border-gray-200 dark:border-gray-700 pb-3 mb-4 shrink-0">
-                <h2 class="role-title text-unad-navy dark:text-white flex items-center gap-3">
+            <div class="slide-head gsap-reveal">
+                <h2 class="role-title text-unad-navy dark:text-white">
                     <span class="iconify text-unad-orange animate-pulse" data-icon="lucide:shield-check" data-width="30"></span>
                     Valor diferencial de Medicina Veterinaria
                 </h2>
-                <span class="role-label bg-unad-teal text-white px-3 py-1 rounded-full">Alineación estratégica</span>
+                <span class="role-label slide-tag bg-unad-teal text-white">Alineación estratégica</span>
             </div>
 
             <div class="flex-1 min-h-0 overflow-y-auto custom-scroll gsap-reveal pr-2">
@@ -1716,14 +1077,14 @@
                 </div>
             </div>
 
-            <div class="grid grid-cols-2 gap-4 mt-3 shrink-0 gsap-reveal">
-                <div class="bg-unad-orange/10 border-l-4 border-unad-orange p-3 rounded-r-lg hover-card">
-                    <h4 class="role-note w-semibold text-unad-orange mb-1 flex items-center gap-2"><span class="iconify" data-icon="lucide:alert-circle" data-width="16"></span> Criterio del Par Académico</h4>
-                    <p class="t-caption text-gray-700 dark:text-gray-300">Alineación del programa con las necesidades estratégicas del país.</p>
+            <div class="par-footer gsap-reveal">
+                <div class="par-box par-box--criterio">
+                    <h4><span class="iconify" data-icon="lucide:alert-circle" data-width="16"></span> Criterio del Par Académico</h4>
+                    <p>Alineación del programa con las necesidades estratégicas del país.</p>
                 </div>
-                <div class="bg-unad-green/10 border-l-4 border-unad-green p-3 rounded-r-lg hover-card">
-                    <h4 class="role-note w-semibold text-unad-green mb-1 flex items-center gap-2"><span class="iconify" data-icon="lucide:check-circle-2" data-width="16"></span> Evidencia que Sustenta</h4>
-                    <p class="t-caption text-gray-700 dark:text-gray-300">Diagnósticos nacionales; políticas públicas; articulación con el enfoque One Health.</p>
+                <div class="par-box par-box--evidencia">
+                    <h4><span class="iconify" data-icon="lucide:check-circle-2" data-width="16"></span> Evidencia que Sustenta</h4>
+                    <p>Diagnósticos nacionales; políticas públicas; articulación con el enfoque One Health.</p>
                 </div>
             </div>
         </div>
@@ -1732,19 +1093,19 @@
     <!-- 15. Oportunidades laborales y viabilidad financiera -->
     <section class="slide" data-accent="orange" data-title="Oportunidades y Viabilidad">
         <div class="glass-panel">
-            <div class="gsap-reveal flex justify-between items-end border-b border-gray-200 dark:border-gray-700 pb-3 mb-4 shrink-0">
-                <h2 class="role-title text-unad-navy dark:text-white flex items-center gap-3">
+            <div class="slide-head gsap-reveal">
+                <h2 class="role-title text-unad-navy dark:text-white">
                     <span class="iconify text-unad-orange animate-pulse" data-icon="lucide:briefcase" data-width="30"></span>
                     Oportunidades laborales y viabilidad financiera
                 </h2>
-                <span class="role-label bg-unad-teal text-white px-3 py-1 rounded-full">Amplio campo laboral</span>
+                <span class="role-label slide-tag bg-unad-teal text-white">Amplio campo laboral</span>
             </div>
 
             <div class="flex-1 min-h-0 overflow-y-auto custom-scroll gsap-reveal flex items-center justify-center relative">
                 <div class="grid grid-cols-1 lg:grid-cols-12 gap-5 items-stretch w-full max-w-7xl mx-auto relative z-10">
                     <div class="lg:col-span-5 flex items-center justify-center min-h-0">
                         <button type="button"
-                                class="img-zoom-trigger w-full shadow-xl border border-gray-200 dark:border-gray-700 hover-card rounded-2xl overflow-hidden bg-white/70 dark:bg-black/40 p-2 flex items-center justify-center"
+                                class="img-zoom-trigger figura"
                                 data-image-zoom="Exoticas.jpg"
                                 data-image-alt="Oportunidades laborales en medicina veterinaria de animales exóticos"
                                 data-image-title="Campo laboral en animales exóticos"
@@ -1752,13 +1113,14 @@
                                 data-image-icon="lucide:paw-print"
                                 data-image-gradient-from="#0d9488"
                                 data-image-gradient-to="#1e3a5f">
-                            <img src="Exoticas.jpg" alt="Oportunidades laborales en medicina veterinaria de animales exóticos" class="w-full h-full object-contain max-h-[58vh]">
+                            <img src="Exoticas.jpg" alt="Oportunidades laborales en medicina veterinaria de animales exóticos" class="figura__img">
                             <span class="img-zoom-trigger__overlay">
                                 <span class="img-zoom-trigger__hint">
                                     <span class="iconify" data-icon="lucide:maximize-2" data-width="14"></span>
                                 </span>
                             </span>
-                        </button>
+<span class="figura__cap"><b>Figura 10.</b> Campo laboral en animales exóticos</span>
+</button>
                     </div>
 
                     <div class="lg:col-span-7 flex flex-col gap-3">
@@ -1806,18 +1168,18 @@
                 </div>
             </div>
 
-            <div class="grid grid-cols-2 gap-4 mt-3 shrink-0 gsap-reveal">
-                <div class="bg-unad-orange/10 border-l-4 border-unad-orange p-3 rounded-r-lg hover-card">
-                    <h4 class="role-note w-semibold text-unad-orange mb-1 flex items-center gap-2">
+            <div class="par-footer gsap-reveal">
+                <div class="par-box par-box--criterio">
+                    <h4>
                         <span class="iconify" data-icon="lucide:alert-circle" data-width="16"></span> Criterio del Par Académico
                     </h4>
-                    <p class="t-caption text-gray-700 dark:text-gray-300">Sustento de la demanda laboral y viabilidad financiera del programa.</p>
+                    <p>Sustento de la demanda laboral y viabilidad financiera del programa.</p>
                 </div>
-                <div class="bg-unad-green/10 border-l-4 border-unad-green p-3 rounded-r-lg hover-card">
-                    <h4 class="role-note w-semibold text-unad-green mb-1 flex items-center gap-2">
+                <div class="par-box par-box--evidencia">
+                    <h4>
                         <span class="iconify" data-icon="lucide:check-circle-2" data-width="16"></span> Evidencia que Sustenta
                     </h4>
-                    <p class="t-caption text-gray-700 dark:text-gray-300">Estudios de mercado; análisis financiero; proyección presupuestal institucional.</p>
+                    <p>Estudios de mercado; análisis financiero; proyección presupuestal institucional.</p>
                 </div>
             </div>
         </div>
@@ -1830,22 +1192,22 @@
                 <span class="gsap-reveal inline-flex items-center justify-center w-20 h-20 rounded-full bg-gradient-to-br from-unad-teal to-unad-navy text-white shadow-xl">
                     <span class="iconify animate-pulse" data-icon="lucide:circle-check-big" data-width="44"></span>
                 </span>
-                <span class="gsap-reveal inline-flex items-center gap-2 rounded-full border border-unad-orange/40 bg-unad-orange/10 px-4 py-1.5 text-[11px] font-bold uppercase tracking-[0.2em] text-unad-orange">
+                <span class="gsap-reveal inline-flex items-center gap-2 rounded-full border border-unad-orange/40 bg-unad-orange/10 px-4 py-1.5 t-caption font-bold uppercase tracking-[0.2em] text-unad-orange">
                     <span class="iconify" data-icon="lucide:flag" data-width="15"></span>
                     Fin de la 
                 </span>
-                <h2 class="gsap-reveal font-display font-extrabold text-unad-navy dark:text-white text-3xl md:text-5xl leading-[1.15] max-w-3xl">
+                <h2 class="gsap-reveal font-display font-extrabold text-unad-navy dark:text-white leading-[1.15] max-w-3xl t-hero">
                 <span class="text-unad-orange">Condición 2</span>
                 </h2>
-                <p class="gsap-reveal text-sm md:text-base text-slate-600 dark:text-slate-300 max-w-3xl leading-relaxed italic">
+                <p class="gsap-reveal text-slate-600 dark:text-slate-300 max-w-3xl leading-relaxed italic t-body">
                     "La demanda existe, está creciendo y se concentra en territorios rurales donde la oferta es insuficiente. La modalidad híbrida de la UNAD responde directamente a esta necesidad."
                 </p>
-                <a href="condicion-3.html" class="gsap-reveal group inline-flex items-center gap-3 px-8 md:px-10 py-4 rounded-2xl bg-gradient-to-r from-unad-orange to-unad-teal text-white font-display font-bold text-base md:text-lg shadow-xl hover:shadow-2xl hover:-translate-y-1 hover:scale-[1.02] transition-all duration-300">
+                <a href="condicion-3.html" class="gsap-reveal group inline-flex items-center gap-3 px-8 md:px-10 py-4 rounded-2xl bg-gradient-to-r from-unad-orange to-unad-teal text-white font-display font-bold shadow-xl hover:shadow-2xl hover:-translate-y-1 hover:scale-[1.02] transition-all duration-300 t-h3">
                     <span class="iconify shrink-0" data-icon="lucide:circle-check-big" data-width="24"></span>
                     <span class="tracking-wide">Continuar a la Condición 3</span>
                     <span class="iconify shrink-0 group-hover:translate-x-1.5 transition-transform duration-300" data-icon="lucide:arrow-right" data-width="22"></span>
                 </a>
-                <div class="gsap-reveal flex flex-wrap items-center justify-center gap-3 mt-2 text-xs">
+                <div class="gsap-reveal flex flex-wrap items-center justify-center gap-3 mt-2 t-caption">
                     <a href="index.html" class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-unad-teal/25 dark:border-white/15 bg-white/60 dark:bg-white/5 text-unad-teal dark:text-unad-base hover:bg-unad-teal hover:text-white hover:border-unad-teal transition-all duration-200 font-semibold">
                         <span class="iconify" data-icon="lucide:home" data-width="15"></span>
                         Volver al inicio
@@ -1866,7 +1228,7 @@
     <!-- ═══════════ MODAL · TABLA 6 · RED DE ALIADOS ═══════════ -->
     <div id="aliados-modal"
          class="fixed inset-0 z-[9999] hidden items-center justify-center bg-black/70 backdrop-blur-sm p-2 md:p-4"
-         onclick="if(event.target===this) closeAliadosModal()">
+         onclick="if(event.target===this) closeAliadosModal()" data-modal>
 
         <div class="bg-white dark:bg-gray-900 rounded-2xl shadow-2xl w-full h-full max-w-[95vw] max-h-[95vh] flex flex-col overflow-hidden border border-white/20">
             <div class="flex items-center justify-between px-4 py-2.5 bg-gradient-to-r from-unad-navy to-unad-teal text-white shrink-0">
@@ -1947,365 +1309,10 @@
         </div>
     </div>
 
-    <style>
-        /* Estilos del modal de zoom (no se tocó el HTML del modal) */
-        .img-modal__panel { background: #fff; border-radius: 1.25rem; max-width: 90vw; max-height: 90vh; width: fit-content;
-            overflow: hidden; display: flex; flex-direction: column; box-shadow: 0 20px 60px rgba(0,0,0,0.4);
-            transform: scale(0.96); transition: transform 0.25s ease; }
-        #image-modal.active .img-modal__panel { transform: scale(1); }
-        .dark .img-modal__panel { background: #111827; }
-        .img-modal__header { display: flex; align-items: center; gap: 0.75rem; padding: 0.9rem 1.25rem; color: #fff;
-            background: linear-gradient(90deg, #0d9488, #1e3a5f); }
-        .img-modal__header[hidden] { display: none; }
-        .img-modal__icon { flex-shrink: 0; }
-        .img-modal__meta { display: flex; flex-direction: column; line-height: 1.2; flex: 1; min-width: 0; }
-        .img-modal__label { font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; opacity: 0.85; }
-        .img-modal__title { font-size: 0.95rem; font-weight: 700; margin: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-        .img-modal__close { flex-shrink: 0; background: rgba(255,255,255,0.15); border: none; color: #fff;
-            width: 2rem; height: 2rem; border-radius: 9999px; font-size: 1.25rem; line-height: 1;
-            cursor: pointer; display: flex; align-items: center; justify-content: center; transition: background 0.2s ease; }
-        .img-modal__close:hover { background: rgba(255,255,255,0.3); }
-        .img-modal__body { overflow: auto; display: flex; align-items: center; justify-content: center; padding: 1rem; background: #f8fafc; }
-        .dark .img-modal__body { background: #0b1220; }
-        #modal-image { max-width: 100%; max-height: 78vh; width: auto; height: auto; object-fit: contain; display: block; }
-        .img-zoom-trigger { position: relative; cursor: zoom-in; }
-        .img-zoom-trigger__overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.35) 0%, transparent 40%);
-            opacity: 0; transition: opacity 0.25s ease; pointer-events: none; display: flex; align-items: flex-end; justify-content: flex-end; padding: 0.75rem; }
-        .img-zoom-trigger:hover .img-zoom-trigger__overlay { opacity: 1; }
-        .img-zoom-trigger__hint { display: inline-flex; align-items: center; gap: 0.35rem;
-            background: rgba(255,255,255,0.92); color: #01333F; padding: 0.35rem 0.65rem;
-            border-radius: 9999px; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; }
+    </main>
 
-        /* ══════════════════════════════════════════════
-   CIFRAS PROTAGONISTAS · v2
-   - Tamaño reducido: 48 → 88 px
-   - Colores por cifra explícitos (sin inherit)
-   ══════════════════════════════════════════════ */
-.slide .role-stat,
-.slide p.role-stat,
-html body .slide .role-stat {
-    font-family: 'Montserrat', system-ui, sans-serif !important;
-    font-weight: 800 !important;
-    font-size: clamp(48px, 4.5vw, 88px) !important;   /* antes 56–104 → ahora 48–88 */
-    line-height: 0.95 !important;
-    letter-spacing: -0.035em !important;
-    font-variant-numeric: tabular-nums lining-nums;
-    display: block;
-    margin: 0;
-    text-align: center;
-    /* OJO: sin `color` aquí. Cada color se declara abajo. */
-}
 
-/* ─── Colores por cifra ─── */
-.slide .role-stat.text-unad-teal,
-.slide p.role-stat.text-unad-teal   { color: #00445B !important; }
-
-.slide .role-stat.text-unad-orange,
-.slide p.role-stat.text-unad-orange { color: #D26714 !important; }
-
-.slide .role-stat.text-unad-green,
-.slide p.role-stat.text-unad-green  { color: #035B3B !important; }
-
-.slide .role-stat.text-unad-navy,
-.slide p.role-stat.text-unad-navy   { color: #01333F !important; }
-
-/* En modo oscuro, la navy se vuelve clara para que se lea */
-.dark .slide .role-stat.text-unad-navy,
-.dark .slide p.role-stat.text-unad-navy { color: #EAEAEA !important; }
-
-/* Unidad (%, +, k) al 45 % del número, mismo color que la cifra */
-.slide .stat-unit {
-    font-size: 0.45em !important;
-    font-weight: 700 !important;
-    margin-left: 0.05em;
-    vertical-align: 0.12em;
-    color: inherit;   /* hereda del .role-stat, así cada % va con su número */
-}
-
-/* Tarjeta: cifra + descripción */
-.slide .stat-item {
-    display: flex !important;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 0.5rem;
-    text-align: center;
-}
-
-/* Descripción: 14 px, un escalón por debajo */
-.slide .stat-item .role-body,
-.slide .stat-item p {
-    font-family: 'Inter', system-ui, sans-serif !important;
-    font-size: 14px !important;
-    line-height: 1.45 !important;
-    font-weight: 400 !important;
-    max-width: 26ch;
-    text-wrap: balance;
-    margin: 0;
-}
-    </style>
-</main>
-
-<script>
-    const urlParams = new URLSearchParams(window.location.search);
-    const isEmbed = urlParams.get('embed') === '1';
-
-    if (isEmbed) {
-        const nav = document.getElementById('main-nav');
-        const sideNav = document.getElementById('side-nav');
-        if (nav) nav.style.display = 'none';
-        if (sideNav) sideNav.style.display = 'none';
-        document.querySelectorAll('.slide').forEach(s => { s.style.paddingTop = '1.5rem'; });
-    }
-
-    /* ═══════════════════════════════════════════════
-       MODAL DE ZOOM DE IMÁGENES (RESTAURADO)
-       ═══════════════════════════════════════════════ */
-    const imageModal = document.getElementById('image-modal');
-    const modalImage = document.getElementById('modal-image');
-    const modalClose = document.getElementById('modal-close');
-
-    if (imageModal) {
-        const modalHeader = document.getElementById('modal-header');
-        const modalIcon   = document.getElementById('modal-icon');
-        const modalLabel  = document.getElementById('modal-label');
-        const modalTitle  = document.getElementById('modal-title');
-
-        document.querySelectorAll('.lightbox-trigger').forEach(trigger => {
-            trigger.addEventListener('click', (e) => {
-                e.preventDefault();
-                const imgSrc = trigger.getAttribute('href') || trigger.querySelector('img').src;
-                const altText = trigger.querySelector('img')?.alt || '';
-                modalImage.src = imgSrc;
-                modalImage.alt = altText;
-                if (modalHeader) modalHeader.hidden = true;
-                imageModal.classList.add('active');
-            });
-        });
-
-        document.querySelectorAll('.img-zoom-trigger').forEach(trigger => {
-            trigger.addEventListener('click', (e) => {
-                e.preventDefault();
-                e.stopPropagation();
-                const src   = trigger.dataset.imageZoom;
-                const alt   = trigger.dataset.imageAlt   || '';
-                const title = trigger.dataset.imageTitle || '';
-                const label = trigger.dataset.imageLabel || '';
-                const icon  = trigger.dataset.imageIcon  || 'lucide:image';
-                const from  = trigger.dataset.imageGradientFrom || '#0d9488';
-                const to    = trigger.dataset.imageGradientTo   || '#1e3a5f';
-                if (!src) return;
-                modalImage.src = src;
-                modalImage.alt = alt;
-                const hasMeta = title || label || icon;
-                if (modalHeader) modalHeader.hidden = !hasMeta;
-                if (modalLabel) modalLabel.textContent = label;
-                if (modalTitle) modalTitle.textContent = title;
-                if (modalIcon) {
-                    modalIcon.setAttribute('data-icon', icon);
-                    if (window.Iconify && Iconify.scan) Iconify.scan();
-                }
-                if (modalHeader) {
-                    modalHeader.style.background = `linear-gradient(90deg, ${from}, ${to})`;
-                }
-                imageModal.classList.add('active');
-            });
-        });
-
-        function closeModal() {
-            imageModal.classList.remove('active');
-            setTimeout(() => { modalImage.src = ''; }, 300);
-        }
-        modalClose.addEventListener('click', closeModal);
-        imageModal.addEventListener('click', (e) => {
-            if (e.target === imageModal) closeModal();
-        });
-        window.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && imageModal.classList.contains('active')) closeModal();
-        });
-    }
-
-    /* ═══════════════════════════════════════════════
-       CONTADORES ANIMADOS
-       ═══════════════════════════════════════════════ */
-    const countersDone = new WeakSet();
-    function animateCounter(el) {
-        if (countersDone.has(el)) return;
-        countersDone.add(el);
-        const end = parseFloat(el.dataset.count);
-        const dec = (el.dataset.count.split('.')[1] || '').length;
-        const suffix = el.dataset.suffix || '';
-        if (matchMedia('(prefers-reduced-motion: reduce)').matches) {
-            el.textContent = end.toFixed(dec) + suffix;
-            return;
-        }
-        const dur = 1200, t0 = performance.now();
-        const tick = (t) => {
-            const p = Math.min((t - t0) / dur, 1);
-            const eased = 1 - Math.pow(1 - p, 3);
-            el.textContent = (end * eased).toFixed(dec) + suffix;
-            if (p < 1) requestAnimationFrame(tick);
-        };
-        requestAnimationFrame(tick);
-    }
-    function fireCountersIn(slide) {
-        slide.querySelectorAll('[data-count]').forEach(animateCounter);
-    }
-
-    /* ═══════════════════════════════════════════════
-       NAVEGACIÓN DE SLIDES
-       ═══════════════════════════════════════════════ */
-    gsap.registerPlugin(Observer);
-
-    const slides = document.querySelectorAll('.slide');
-    const dotContainer = document.getElementById('dot-container');
-    let currentIndex = 0;
-    let isAnimating = false;
-
-    if (!isEmbed && dotContainer) {
-        slides.forEach((slide, i) => {
-            const title = slide.getAttribute('data-title') || ('Diapositiva ' + (i + 1));
-            const wrapper = document.createElement('div');
-            wrapper.className = 'dot-wrapper';
-            wrapper.setAttribute('data-title', title);
-            wrapper.setAttribute('aria-label', 'Ir a: ' + title);
-            wrapper.addEventListener('click', () => gotoSlide(i, i > currentIndex ? 1 : -1));
-            const dot = document.createElement('div');
-            dot.className = 'dot';
-            wrapper.appendChild(dot);
-            dotContainer.appendChild(wrapper);
-        });
-    }
-    const dots = document.querySelectorAll('.dot');
-
-    function updateDots() {
-        if (isEmbed) return;
-        dots.forEach((dot, i) => {
-            if (i === currentIndex) dot.classList.add('active');
-            else dot.classList.remove('active');
-        });
-    }
-
-    gsap.set(slides, { yPercent: 100, autoAlpha: 0 });
-    gsap.set(slides[0], { yPercent: 0, autoAlpha: 1 });
-    updateDots();
-    animateElementsIn(slides[0]);
-    fireCountersIn(slides[0]);
-
-    function animateElementsIn(slide) {
-        const elements = slide.querySelectorAll('.gsap-reveal');
-        if (elements.length > 0) {
-            gsap.fromTo(elements,
-                { y: 30, autoAlpha: 0 },
-                { y: 0, autoAlpha: 1, duration: 0.6, stagger: 0.06, ease: "power3.out", overwrite: "auto", delay: 0.05 }
-            );
-        }
-    }
-
-    function gotoSlide(index, direction) {
-        if (imageModal && imageModal.classList.contains('active')) return;
-        if (isAnimating || index < 0 || index >= slides.length || index === currentIndex) return;
-        isAnimating = true;
-        const currentSlide = slides[currentIndex];
-        const nextSlide = slides[index];
-        const yPercentOut = direction === 1 ? -100 : 100;
-        const yPercentIn  = direction === 1 ?  100 : -100;
-        gsap.set(nextSlide, { yPercent: yPercentIn, autoAlpha: 1 });
-        const tl = gsap.timeline({
-            defaults: { duration: 0.7, ease: "power4.inOut" },
-            onComplete: () => {
-                gsap.set(currentSlide, { autoAlpha: 0 });
-                currentIndex = index;
-                updateDots();
-                isAnimating = false;
-            }
-        });
-        tl.to(currentSlide, { yPercent: yPercentOut }).to(nextSlide, { yPercent: 0 }, "<");
-        animateElementsIn(nextSlide);
-        fireCountersIn(nextSlide);
-    }
-
-    Observer.create({
-        type: "wheel,touch,pointer",
-        wheelSpeed: -1, tolerance: 40, preventDefault: false,
-        onDown: () => gotoSlide(currentIndex - 1, -1),
-        onUp: () => gotoSlide(currentIndex + 1, 1),
-    });
-
-    document.querySelectorAll('.custom-scroll').forEach(el => {
-        el.addEventListener('wheel', (e) => {
-            const isAtTop = el.scrollTop === 0;
-            const isAtBottom = Math.abs((el.scrollHeight - el.scrollTop) - el.clientHeight) < 2;
-            if ((e.deltaY < 0 && !isAtTop) || (e.deltaY > 0 && !isAtBottom)) { e.stopPropagation(); }
-        }, { passive: false });
-        el.addEventListener('touchmove', (e) => { e.stopPropagation(); }, { passive: false });
-    });
-
-    window.addEventListener('keydown', (e) => {
-        if (['ArrowDown', 'PageDown', ' '].includes(e.key)) { e.preventDefault(); gotoSlide(currentIndex + 1, 1); }
-        else if (['ArrowUp', 'PageUp'].includes(e.key)) { e.preventDefault(); gotoSlide(currentIndex - 1, -1); }
-    });
-
-    if (!isEmbed) {
-        const btnUp = document.getElementById('btn-up');
-        const btnDown = document.getElementById('btn-down');
-        if (btnUp) btnUp.addEventListener('click', () => gotoSlide(currentIndex - 1, -1));
-        if (btnDown) btnDown.addEventListener('click', () => gotoSlide(currentIndex + 1, 1));
-    }
-
-    const restartBtn = document.getElementById('restart-btn');
-    if (restartBtn) restartBtn.addEventListener('click', () => { gotoSlide(0, -1); });
-
-    /* ═══════════════════════════════════════════════
-       MODAL RED DE ALIADOS
-       ═══════════════════════════════════════════════ */
-    (function () {
-        const modal = document.getElementById('aliados-modal');
-        if (!modal) return;
-        window.openAliadosModal = function () {
-            modal.classList.remove('hidden');
-            modal.classList.add('flex');
-            document.body.style.overflow = 'hidden';
-        };
-        window.closeAliadosModal = function () {
-            modal.classList.add('hidden');
-            modal.classList.remove('flex');
-            document.body.style.overflow = '';
-        };
-        document.addEventListener('keydown', function (e) {
-            if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
-                window.closeAliadosModal();
-            }
-        });
-    })();
-
-    /* ═══════════════════════════════════════════════
-       TEMA CLARO / OSCURO
-       ═══════════════════════════════════════════════ */
-    (function () {
-        const root = document.documentElement;
-        const btn  = document.getElementById('theme-btn') || document.getElementById('themeToggle');
-        if (!btn) return;
-        if (btn.dataset.themeBound === '1') return;
-        btn.dataset.themeBound = '1';
-
-        function syncButton() {
-            const isDark = root.classList.contains('dark');
-            btn.textContent = isDark ? '☀️' : '🌙';
-            btn.setAttribute('aria-label', isDark ? 'Cambiar a modo claro' : 'Cambiar a modo oscuro');
-        }
-        const saved = localStorage.getItem('unad-theme');
-        if (saved === 'dark') { root.classList.add('dark'); root.classList.remove('light'); }
-        else if (saved === 'light') { root.classList.remove('dark'); root.classList.add('light'); }
-        syncButton();
-        btn.addEventListener('click', () => {
-            const willBeDark = !root.classList.contains('dark');
-            root.classList.toggle('dark', willBeDark);
-            root.classList.toggle('light', !willBeDark);
-            localStorage.setItem('unad-theme', willBeDark ? 'dark' : 'light');
-            syncButton();
-        });
-    })();
-</script>
+<script src="js/presentacion.js"></script>
+<script src="js/embed-mode.js"></script>
 </body>
 </html>
