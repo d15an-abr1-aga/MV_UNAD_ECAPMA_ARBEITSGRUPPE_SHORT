@@ -5,9 +5,13 @@
    · Hover / click en un curso → resalta su cadena de prerrequisitos y
      los cursos que dependen de él; el detalle aparece en el panel inferior.
    · Barra de rutas con 3 pestañas:
-       - Resultados de aprendizaje (NP1 → RAP 1-3 · NP2 → RAP 4-5)
-       - Rutas de prerrequisitos
-       - Rutas transversales (Idioma, Investigación, Innovación, Saber Pro, SISSU)
+       - Resultados de aprendizaje (NIP → NP1: RAP 1-3 · NP2: RAP 4-5)
+       - Rutas de prerrequisitos (flechas de colores del Plan de Estudios)
+       - Rutas transversales (Rotaciones, Idioma, Investigación, Innovación,
+         Saber Pro, SISSU)
+   · Rotaciones Clínicas I, II y III: en cada una el estudiante inscribe 2
+     de los 6 cursos de rotación (TABLA 1 del Anexo 3.8), a su elección.
+     Los 6 cursos se muestran en un banco bajo los periodos VIII–X.
    Lee los datos de window.MALLA_DATA (malla-data.js).
    ========================================================================= */
 (function () {
@@ -39,6 +43,8 @@
   var D = window.MALLA_DATA;
   var MALLA = D.MALLA, PRE = D.PREREQUISITOS, TIPO = D.TIPO_INFO, PCOL = D.PERIODO_COLORES;
   var RAP = D.RAP || {}, NUC = D.NUCLEOS || {}, RUTAS = D.RUTAS || {};
+  var COMP = D.COMPETENCIAS || {}, EVID = D.EVIDENCIAS || {}, NIP = D.NIP || '';
+  var NOTA_ROT = D.NOTA_ROTACIONES || '';
 
   /* ── Índices ─────────────────────────────────────────────────────── */
   var cursoById = new Map();      // id → datos + periodo
@@ -49,6 +55,14 @@
     p.cursos.forEach(function (c) {
       cursoById.set(c.id, Object.assign({}, c, { periodo: p.numero, periodoIndex: i }));
     });
+  });
+  var ROT_IDS = [];      // tarjetas Rotación Clínica I, II, III
+  MALLA.forEach(function (p) { p.cursos.forEach(function (c) { if (c.rotacion) ROT_IDS.push(c.id); }); });
+  var ROT_CURSOS = D.ROTACION_CURSOS || [];
+  var ROT_DESDE = cursoById.get(ROT_IDS[0]) ? cursoById.get(ROT_IDS[0]).periodoIndex : 7;
+  ROT_CURSOS.forEach(function (a) {
+    cursoById.set(a.id, Object.assign({}, a, { tipo: 'P', area: true, periodo: 'VIII–X',
+      parentNombre: 'Rotación Clínica I, II o III (a elección)', periodoIndex: ROT_DESDE }));
   });
   Object.keys(PRE).forEach(function (id) {
     PRE[id].forEach(function (req) { (dependientes[req] = dependientes[req] || []).push(id); });
@@ -64,6 +78,7 @@
 
   var TOTAL_CREDITOS = MALLA.reduce(function (s, p) { return s + p.creditos; }, 0);
   var TOTAL_CURSOS   = MALLA.reduce(function (s, p) { return s + p.cursos.length; }, 0);
+  var TOTAL_AREAS    = ROT_CURSOS.length;
 
   /* ── Render de la malla ──────────────────────────────────────────── */
   function rapDots(c) {
@@ -101,6 +116,13 @@
           '<span class="curso__top"><span class="curso__type">' + c.tipo + ' · ' + c.creditos + ' cr</span>' + rapDots(c) + '</span>' +
           '<span class="curso__name">' + esc(c.nombre) + '</span>';
         elById.set(c.id, el);
+        if (c.rotacion) {
+          var box = document.createElement('span');
+          box.className = 'curso__eleccion';
+          box.innerHTML = '<span class="iconify" data-icon="lucide:shuffle" data-width="11"></span>' +
+            (c.eleccion || 2) + ' cursos de rotación a elección';
+          el.appendChild(box);
+        }
         body.appendChild(el);
       });
 
@@ -112,9 +134,35 @@
       mallaEl.appendChild(col);
     });
 
+    /* Banco de cursos de rotación (bajo los periodos de las Rotaciones Clínicas) */
+    if (ROT_CURSOS.length) {
+      var banco = document.createElement('section');
+      banco.className = 'rot-banco';
+      banco.style.gridColumn = (ROT_DESDE + 1) + ' / span ' + ROT_IDS.length;
+      banco.innerHTML = '<header class="rot-banco__head"><span class="iconify" data-icon="lucide:shuffle" data-width="13"></span>' +
+        'Cursos de rotación · el estudiante elige 2 por Rotación Clínica</header>';
+      var grid = document.createElement('div');
+      grid.className = 'rot-banco__grid';
+      ROT_CURSOS.forEach(function (a) {
+        var s = document.createElement('span');
+        s.className = 'curso__area';
+        s.dataset.id = a.id;
+        s.tabIndex = 0;
+        s.setAttribute('role', 'button');
+        s.setAttribute('title', a.nombre);
+        s.style.setProperty('--tipo-color', (TIPO.P || {}).color || '#C9930C');
+        s.innerHTML = '<span class="curso__area-name">' + esc(a.corto || a.nombre) + '</span>' + rapDots(a);
+        elById.set(a.id, s);
+        grid.appendChild(s);
+      });
+      banco.appendChild(grid);
+      mallaEl.appendChild(banco);
+    }
+
     var totEl = document.getElementById('malla-totales');
     if (totEl) totEl.innerHTML =
-      '<span><b>' + TOTAL_CURSOS + '</b> cursos</span><span><b>' + TOTAL_CREDITOS + '</b> créditos</span><span><b>10</b> periodos</span><span><b>5</b> RAP</span>';
+      '<span><b>' + TOTAL_CURSOS + '</b> cursos</span><span><b>' + TOTAL_CREDITOS + '</b> créditos</span><span><b>10</b> periodos</span>' +
+      '<span><b>' + TOTAL_AREAS + '</b> cursos de rotación</span><span><b>5</b> RAP</span>';
   }
 
   /* ── Estado ──────────────────────────────────────────────────────── */
@@ -124,10 +172,18 @@
 
   function limpiarClases() {
     mallaEl.classList.remove('has-focus', 'has-ruta');
-    mallaEl.querySelectorAll('.curso').forEach(function (el) {
-      el.classList.remove('is-active', 'is-prereq', 'is-dep', 'is-pinned', 'is-ruta', 'is-control');
+    mallaEl.querySelectorAll('.curso, .curso__area').forEach(function (el) {
+      el.classList.remove('is-active', 'is-prereq', 'is-dep', 'is-pinned', 'is-ruta', 'is-control', 'has-hit');
       el.style.removeProperty('--ruta-color');
     });
+  }
+
+  function marcar(id, cls, color) {
+    var el = elById.get(id); if (!el) return;
+    el.classList.add(cls);
+    if (color) el.style.setProperty('--ruta-color', color);
+    var c = cursoById.get(id);
+    if (c && c.area) ROT_IDS.forEach(function (r) { var p = elById.get(r); if (p) p.classList.add('has-hit'); });
   }
 
   /* ── Rutas: definición unificada ─────────────────────────────────── */
@@ -137,8 +193,8 @@
       return r && { key: key, tipo: 'rap', ids: r.cursos, control: r.control || [], color: r.color, rap: r };
     }
     if (NUC[key]) {
-      var n = NUC[key], set = n.cursos ? n.cursos.slice() : [];
-      if (!set.length) n.raps.forEach(function (num) { RAP[num].cursos.forEach(function (id) { if (set.indexOf(id) < 0) set.push(id); }); });
+      var n = NUC[key], set = [];
+      n.raps.forEach(function (num) { RAP[num].cursos.forEach(function (id) { if (set.indexOf(id) < 0) set.push(id); }); });
       return { key: key, tipo: 'np', ids: set, control: [], color: n.color, np: n };
     }
     /* Módulo individual de una ruta con módulos: "saberpro~2" */
@@ -160,26 +216,23 @@
     mallaEl.classList.add('has-ruta');
     mallaEl.style.setProperty('--ruta-color', ruta.color);
     ruta.ids.forEach(function (id) {
-      var el = elById.get(id); if (!el) return;
-      el.classList.add('is-ruta');
-      if (ruta.colorDe && ruta.colorDe[id]) el.style.setProperty('--ruta-color', ruta.colorDe[id]);
+      marcar(id, 'is-ruta', ruta.colorDe && ruta.colorDe[id]);
     });
-    ruta.control.forEach(function (id) {
-      var el = elById.get(id); if (el) el.classList.add('is-control');
-    });
+    ruta.control.forEach(function (id) { marcar(id, 'is-control'); });
   }
 
   /* ── Panel inferior ──────────────────────────────────────────────── */
   function chip(id, extra) {
     var c = cursoById.get(id); if (!c) return '';
     return '<button type="button" class="det-chip ' + (extra || '') + '" data-goto="' + id + '">' +
-      '<span class="det-chip__per">P' + c.periodo + '</span>' + esc(c.nombre) + '</button>';
+      '<span class="det-chip__per">' + (c.area ? 'Rot.' : 'P' + c.periodo) + '</span>' + esc(c.nombre) + '</button>';
   }
 
   function timeline(ids, control, color, colorDe) {
     colorDe = colorDe || {};
     var porPer = MALLA.map(function () { return []; });
-    ids.forEach(function (id) { var c = cursoById.get(id); if (c) porPer[c.periodoIndex].push(c); });
+    var areas = [];
+    ids.forEach(function (id) { var c = cursoById.get(id); if (!c) return; if (c.area) areas.push(c); else porPer[c.periodoIndex].push(c); });
     return '<div class="det-timeline" style="--ruta-color:' + color + '">' +
       porPer.map(function (lista, i) {
         return '<div class="det-tl__col' + (lista.length ? ' has' : '') + '">' +
@@ -188,19 +241,56 @@
             var cp = control.indexOf(c.id) >= 0;
             return '<button type="button" class="det-tl__item' + (cp ? ' is-control' : '') + '" data-goto="' + c.id + '"' + (colorDe[c.id] ? ' style="--ruta-color:' + colorDe[c.id] + '"' : '') + ' title="' + esc(c.nombre) + (cp ? ' · Punto de control' : '') + '">' +
               (cp ? '<span class="iconify" data-icon="lucide:flag" data-width="11"></span>' : '') +
-              esc(c.nombre) + '</button>';
+              esc(c.nombre) + (c.area ? '<small class="det-tl__sub">en ' + esc(c.parentNombre) + '</small>' : '') + '</button>';
           }).join('') +
         '</div>';
-      }).join('') + '</div>';
+      }).join('') + '</div>' +
+      (areas.length ? '<div class="det-tl__rot" style="--ruta-color:' + color + '"><span class="det-tl__per">Cursos de rotación · VIII–X, a elección del estudiante</span><div>' +
+        areas.map(function (c) {
+          var cp = control.indexOf(c.id) >= 0;
+          return '<button type="button" class="det-tl__item' + (cp ? ' is-control' : '') + '" data-goto="' + c.id + '" title="' + esc(c.nombre) + (cp ? ' · Punto de control' : '') + '">' +
+            (cp ? '<span class="iconify" data-icon="lucide:flag" data-width="11"></span>' : '') + esc(c.nombre) + '</button>';
+        }).join('') + '</div></div>' : '');
   }
 
   function creditosDe(ids) {
-    return ids.reduce(function (s, id) { var c = cursoById.get(id); return s + (c ? c.creditos : 0); }, 0);
+    /* Un curso de rotación aporta los créditos de su Rotación Clínica (una sola vez). */
+    var vistos = {};
+    return ids.reduce(function (s, id) {
+      var c = cursoById.get(id); if (!c) return s;
+      if (c.area || vistos[id]) return s; vistos[id] = 1;
+      return s + (c.creditos || 0);
+    }, 0);
+  }
+  function areasDe(ids) {
+    return ids.filter(function (id) { var c = cursoById.get(id); return c && c.area; }).length;
+  }
+
+  function lista(items) {
+    return '<ul>' + items.map(function (x) { return '<li>' + esc(x) + '</li>'; }).join('') + '</ul>';
+  }
+
+  /* Matriz "Evidencia de los RAP": acciones · mecanismos · evidencias */
+  function htmlEvidencias(key) {
+    var e = EVID[key]; if (!e) return '';
+    var nota = e.raps.length > 1
+      ? '<p class="det-evid__nota">En la matriz, <strong>' + e.raps.map(function (n) { return 'RAP ' + n; }).join(' y ') + '</strong> comparten la misma fila de seguimiento, mecanismos y evidencias.</p>'
+      : '';
+    return '<details class="det-evid" open><summary>Evidencia de los RAP · seguimiento, evaluación y logro</summary>' + nota +
+      '<div class="det-evid__grid">' +
+        '<div><h4>Acciones de seguimiento</h4>' + lista(e.seguimiento) + '</div>' +
+        '<div><h4>Mecanismos de evaluación</h4>' + lista(e.mecanismos) + '</div>' +
+        '<div><h4>Evidencias de logro</h4>' + lista(e.evidencias) + '</div>' +
+      '</div></details>';
   }
 
   function htmlRuta() {
-    var r = ruta, head = '', side = '';
-    var stats = '<div class="det-stats"><span><b>' + r.ids.length + '</b> cursos</span><span><b>' + creditosDe(r.ids) + '</b> créditos</span>' +
+    var r = ruta, head = '', side = '', extra = '';
+    var nAreas = areasDe(r.ids);
+    var nCursos = r.ids.length - nAreas;
+    var stats = '<div class="det-stats">' + (nCursos ? '<span><b>' + nCursos + '</b> cursos</span>' : '') +
+      (nAreas ? '<span><b>' + nAreas + '</b> ' + (nAreas === 1 ? 'curso de rotación' : 'cursos de rotación') + '</span>' : '') +
+      '<span><b>' + creditosDe(r.ids) + '</b> créditos</span>' +
       (r.control.length ? '<span><b>' + r.control.length + '</b> puntos de control</span>' : '') + '</div>';
 
     if (r.tipo === 'rap') {
@@ -211,17 +301,21 @@
         '<p class="det-lead"><strong>' + esc(rap.verbo) + '</strong>' + esc(rap.enunciado.slice(rap.verbo.length)) + '</p>';
       side =
         '<aside class="det-side">' +
-          '<h4>Competencia ' + rap.competencia + '</h4><p>' + esc(rap.competenciaTexto) + '</p>' +
-          '<h4>Evidencias de logro</h4><ul>' + rap.evidencias.map(function (e) { return '<li>' + esc(e) + '</li>'; }).join('') + '</ul>' +
+          '<h4>Núcleo problémico ' + np.sigla.slice(2) + '</h4><p>' + esc(np.nombre) + '.</p>' +
+          '<h4>Competencia ' + rap.competencia + '</h4><p>' + esc(COMP[rap.competencia] || '') + '</p>' +
         '</aside>';
+      extra = htmlEvidencias(rap.evidencias);
     } else if (r.tipo === 'np') {
       var n = r.np;
       head =
         '<p class="det-kicker">Núcleo problémico · Competencias ' + n.competencias.join(' y ') + '</p>' +
         '<h3><span class="det-badge">' + n.sigla + '</span>' + esc(n.nombre) + '</h3>' +
-        '<p class="det-lead">Cursos marcados en la hoja <strong>C3. RUTA NP</strong>. Integra los resultados de aprendizaje ' + n.raps.map(function (x) { return 'RAP ' + x; }).join(', ') + '.</p>';
+        '<p class="det-lead"><strong>Pregunta generadora:</strong> ' + esc(n.pregunta) + '</p>' +
+        '<p class="det-lead"><strong>Manifestación del problema:</strong> ' + esc(n.manifestacion) + '</p>';
       side =
-        '<aside class="det-side"><h4>Resultados que lo componen</h4><ul class="det-raplist">' +
+        '<aside class="det-side"><h4>Núcleo Integrador de Problema (NIP)</h4><p>' + esc(NIP) + '</p>' +
+        '<h4>Competencias</h4><ul>' + n.competencias.map(function (k) { return '<li><b>C' + k + '.</b> ' + esc(COMP[k] || '') + '</li>'; }).join('') + '</ul>' +
+        '<h4>Resultados que lo componen</h4><ul class="det-raplist">' +
           n.raps.map(function (x) {
             var rp = RAP[x];
             return '<li><button type="button" data-ruta-go="rap' + x + '" style="--rap:' + rp.color + '"><b>RAP ' + x + '</b> ' + esc(rp.corto) + '</button></li>';
@@ -231,6 +325,18 @@
       head =
         '<p class="det-kicker">' + (r.def.grupo === 'prereq' ? 'Ruta de prerrequisitos' : 'Ruta transversal') + '</p>' +
         '<h3>' + esc(r.def.nombre) + (r.modulo ? ' · ' + esc(r.modulo.nombre) : '') + '</h3>';
+      if (r.def.grupo === 'prereq') {
+        var pasos = [], avisos = [];
+        for (var i = 1; i < r.def.ids.length; i++) {
+          var a = cursoById.get(r.def.ids[i - 1]), b = cursoById.get(r.def.ids[i]);
+          if ((PRE[b.id] || []).indexOf(a.id) >= 0) pasos.push(esc(a.nombre) + ' → ' + esc(b.nombre));
+          else (PRE[b.id] || []).forEach(function (x) {
+            avisos.push('<strong>' + esc(b.nombre) + '</strong> continúa esta línea, pero su único prerrequisito es <strong>' + esc(cursoById.get(x).nombre) + '</strong> (otra línea): ningún curso tiene doble prerrequisito.');
+          });
+        }
+        head += '<p class="det-lead">Cada curso es prerrequisito del siguiente de la misma línea: ' + pasos.join(' · ') + '.</p>' +
+          avisos.map(function (t) { return '<p class="det-note"><span class="iconify" data-icon="lucide:info" data-width="12"></span> ' + t + '</p>'; }).join('');
+      }
       if (r.def.modulos) {
         var base = r.key.split('~')[0];
         side =
@@ -248,8 +354,9 @@
         '<div class="det-head">' + head + stats +
           '<button type="button" class="det-close" data-clear aria-label="Quitar ruta">×</button></div>' +
         timeline(r.ids, r.control, r.color, r.colorDe) +
-        (r.control.length ? '<p class="det-note"><span class="iconify" data-icon="lucide:flag" data-width="12"></span> Cursos marcados con bandera = <strong>puntos de seguimiento del RAP</strong>.</p>' : '') +
-      '</div>' + side + '</div>';
+        (r.control.length ? '<p class="det-note"><span class="iconify" data-icon="lucide:flag" data-width="12"></span> Cursos marcados con bandera = <strong>puntos de seguimiento del RAP</strong> (hoja Puntos de Control RAP).</p>' : '') +
+        (nAreas ? '<p class="det-note"><span class="iconify" data-icon="lucide:repeat" data-width="12"></span> Los cursos de rotación no tienen periodo fijo: el estudiante inscribe 2 en cada Rotación Clínica (VIII, IX y X; 8 créditos cada una; requisito: 80 % de los créditos) hasta completar los 6.</p>' : '') +
+      '</div>' + side + '</div>' + extra;
   }
 
   function htmlCurso(id) {
@@ -264,21 +371,37 @@
     }).join('');
     var tipo = TIPO[c.tipo] || {};
     var pinned = pinnedId === id;
+    var rapsHijos = '';
+    if (c.rotacion) {
+      var vistos = {};
+      ROT_CURSOS.forEach(function (a) { (a.rap || []).forEach(function (n) { vistos[n] = 1; }); });
+      raps = Object.keys(vistos).map(function (n) {
+        var r = RAP[n];
+        return '<button type="button" class="det-rapchip" data-ruta-go="rap' + n + '" style="--rap:' + r.color + '"><b>RAP ' + n + '</b> ' + esc(r.corto) + '</button>';
+      }).join('');
+      rapsHijos = '<div class="det-areas"><h4>El estudiante inscribe ' + (c.eleccion || 2) + ' de estos cursos de rotación</h4><div class="det-chips">' +
+        ROT_CURSOS.map(function (a) { return chip(a.id, 'is-area'); }).join('') +
+        '</div></div>';
+    }
+    var kicker = c.area
+      ? 'Curso de rotación · periodos VIII–X · se inscribe, a elección del estudiante, en la Rotación Clínica I, II o III'
+      : 'Periodo ' + c.periodo + ' · ' + (tipo.label || '') + ' · ' + c.creditos + ' créditos' +
+        (c.codigo ? ' · Cód. ' + esc(c.codigo) : '') + (c.electivo ? ' · Electivo' : ' · Obligatorio');
+    var esRot = c.rotacion || c.area;
 
-    return '<div class="det-curso" style="--ruta-color:' + PCOL[c.periodoIndex] + '">' +
+    return '<div class="det-curso" style="--ruta-color:' + (PCOL[c.periodoIndex] || '#0891B2') + '">' +
       '<div class="det-head">' +
-        '<p class="det-kicker">Periodo ' + c.periodo + ' · ' + (tipo.label || '') + ' · ' + c.creditos + ' créditos' +
-          (c.codigo ? ' · Cód. ' + esc(c.codigo) : '') + (c.electivo ? ' · Electivo' : ' · Obligatorio') + '</p>' +
+        '<p class="det-kicker">' + kicker + '</p>' +
         '<h3>' + esc(c.nombre) + '</h3>' +
         (c.nota ? '<p class="det-lead">' + esc(c.nota) + '</p>' : '') +
-        (c.rotacion ? '<p class="det-lead">Para matricular una rotación se debe haber cursado al menos el <strong>80 % de los créditos</strong> del programa.</p>' : '') +
+        (esRot ? '<p class="det-lead">Requisito: haber cursado al menos el <strong>80 % de los créditos académicos</strong> del programa. ' + esc(NOTA_ROT.replace(/^Nota:\s*/, '')) + '</p>' : '') +
         (pinned ? '<button type="button" class="det-close" data-unpin aria-label="Soltar curso">×</button>' : '') +
       '</div>' +
       '<div class="det-grid">' +
         '<div><h4>Aporta a</h4>' + (raps ? '<div class="det-chips">' + raps + '</div>' : '<p class="det-muted">Sin RAP asociado en la matriz de consistencia.</p>') + '</div>' +
-        '<div><h4><span class="det-dot det-dot--pre"></span>Requiere haber cursado</h4>' + (pre.length ? '<div class="det-chips">' + pre.map(function (x) { return chip(x, 'is-pre'); }).join('') + '</div>' : '<p class="det-muted">No tiene prerrequisitos.</p>') + '</div>' +
+        '<div><h4><span class="det-dot det-dot--pre"></span>Requiere haber cursado</h4>' + (pre.length ? '<div class="det-chips">' + pre.map(function (x) { return chip(x, 'is-pre'); }).join('') + '</div>' : '<p class="det-muted">' + (esRot ? 'Sin prerrequisito de curso: aplica la regla del 80 % de créditos.' : 'No tiene prerrequisitos.') + '</p>') + '</div>' +
         '<div><h4><span class="det-dot det-dot--dep"></span>Habilita</h4>' + (dep.length ? '<div class="det-chips">' + dep.map(function (x) { return chip(x, 'is-dep'); }).join('') + '</div>' : '<p class="det-muted">No es prerrequisito de otros cursos.</p>') + '</div>' +
-      '</div>' +
+      '</div>' + rapsHijos +
       (pinned ? '' : '<p class="det-note">Haz click para fijar el curso.</p>') +
     '</div>';
   }
@@ -304,10 +427,12 @@
     limpiarClases();
     var el = elById.get(id); if (!el) return;
     mallaEl.classList.add('has-focus');
-    el.classList.add('is-active');
+    marcar(id, 'is-active');
     if (pinnedId === id) el.classList.add('is-pinned');
-    cadena(id, PRE).forEach(function (x) { var e = elById.get(x); if (e) e.classList.add('is-prereq'); });
-    cadena(id, dependientes).forEach(function (x) { var e = elById.get(x); if (e) e.classList.add('is-dep'); });
+    var c = cursoById.get(id);
+    if (c && c.rotacion) ROT_CURSOS.forEach(function (a) { marcar(a.id, 'is-ruta'); });
+    cadena(id, PRE).forEach(function (x) { marcar(x, 'is-prereq'); });
+    cadena(id, dependientes).forEach(function (x) { marcar(x, 'is-dep'); });
     renderDetalle(htmlCurso(id));
   }
 
@@ -371,13 +496,16 @@
   }
 
   /* ── Eventos ─────────────────────────────────────────────────────── */
+  function objetivo(e) { return e.target.closest('.curso__area') || e.target.closest('.curso'); }
+  var ultimo = null;
   mallaEl.addEventListener('mouseover', function (e) {
-    var card = e.target.closest('.curso');
-    if (card && !pinnedId) enfocar(card.dataset.id);
+    var card = objetivo(e);
+    if (card && !pinnedId && card.dataset.id !== ultimo) { ultimo = card.dataset.id; enfocar(ultimo); }
   });
+  mallaEl.addEventListener('mouseleave', function () { ultimo = null; });
   mallaEl.addEventListener('mouseleave', reposo);
   mallaEl.addEventListener('focusin', function (e) {
-    var card = e.target.closest('.curso');
+    var card = objetivo(e);
     if (card && !pinnedId) enfocar(card.dataset.id);
   });
 
@@ -386,11 +514,11 @@
     if (pinnedId) enfocar(id); else reposo();
   }
   mallaEl.addEventListener('click', function (e) {
-    var card = e.target.closest('.curso');
+    var card = objetivo(e);
     if (card) togglePin(card.dataset.id);
   });
   mallaEl.addEventListener('keydown', function (e) {
-    var card = e.target.closest('.curso');
+    var card = objetivo(e);
     if (card && (e.key === 'Enter' || e.key === ' ')) { e.preventDefault(); togglePin(card.dataset.id); }
   });
 
@@ -421,7 +549,7 @@
     render();
     tabActiva = null; setTab('rap');
     renderDetalle(htmlVacio());
-    console.log('[malla.js] Render OK:', TOTAL_CURSOS, 'cursos ·', TOTAL_CREDITOS, 'créditos');
+    console.log('[malla.js] Render OK:', TOTAL_CURSOS, 'cursos ·', TOTAL_CREDITOS, 'créditos ·', TOTAL_AREAS, 'cursos de rotación');
   } catch (err) {
     showFatal('Error durante el render: ' + (err && err.message ? err.message : err));
   }

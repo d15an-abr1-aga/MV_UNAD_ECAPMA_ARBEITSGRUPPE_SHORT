@@ -250,6 +250,76 @@
     border: 2px solid #fff; box-shadow: 0 2px 6px rgba(0,0,0,.25); z-index:3;
   }
 
+
+  /* ── Rotaciones clínicas: cursos de rotación dentro de la tarjeta ── */
+  .curso--rotacion { gap:.28rem; }
+  .curso__eleccion { display:flex; align-items:center; gap:.25rem; font-size:.56rem; font-weight:600; color:#0E7490; }
+  html.dark .curso__eleccion { color:#67E8F9; }
+  .rot-banco {
+    border-radius:.85rem; padding:.45rem .5rem .55rem;
+    background: color-mix(in srgb, #0891B2 7%, rgba(255,255,255,.75));
+    border:1px dashed color-mix(in srgb, #0891B2 45%, transparent);
+  }
+  html.dark .rot-banco { background: rgba(8,145,178,.12); }
+  .rot-banco__head { display:flex; align-items:center; gap:.3rem; font-family:'Montserrat',sans-serif; font-size:.58rem; font-weight:700; letter-spacing:.03em; color:#0E7490; margin-bottom:.4rem; }
+  html.dark .rot-banco__head { color:#67E8F9; }
+  .rot-banco__grid { display:grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap:.3rem; }
+  .malla.has-focus .rot-banco .curso__area:not(.is-active):not(.is-ruta):not(.is-prereq):not(.is-dep),
+  .malla.has-ruta .rot-banco .curso__area:not(.is-ruta) { opacity:.3; }
+  .curso__area {
+    position:relative; display:flex; align-items:flex-start; justify-content:space-between; gap:.25rem;
+    padding:.18rem .3rem; border-radius:.35rem; cursor:pointer; outline:none;
+    font-size:.6rem; font-weight:600; line-height:1.18; color:#01333F;
+    background: color-mix(in srgb, var(--tipo-color) 10%, white);
+    border:1px dashed color-mix(in srgb, var(--tipo-color) 55%, transparent);
+    transition: box-shadow .2s, background .2s, opacity .25s;
+  }
+  html.dark .curso__area { color:#e2e8f0; background: color-mix(in srgb, var(--tipo-color) 18%, #000); }
+  .curso__area:hover, .curso__area:focus-visible { box-shadow: 0 0 0 1.5px var(--tipo-color); }
+  .curso__area .curso__raps { flex-shrink:0; margin-top:2px; }
+  .curso__area.is-active { box-shadow: 0 0 0 2px #00445B; background:#fff; }
+  html.dark .curso__area.is-active { box-shadow: 0 0 0 2px #7FD9C4; }
+  .curso__area.is-prereq { box-shadow: 0 0 0 2px #D26714; }
+  .curso__area.is-dep { box-shadow: 0 0 0 2px #2563EB; }
+  .malla.has-focus .curso.has-hit, .malla.has-ruta .curso.has-hit { opacity:1; filter:none; }
+  .malla.has-ruta .curso.has-hit:not(.is-ruta) .curso__area:not(.is-ruta) { opacity:.35; }
+  .malla.has-focus .curso.has-hit:not(.is-active) .curso__area:not(.is-active):not(.is-ruta) { opacity:.4; }
+  .curso__area.is-ruta { box-shadow: 0 0 0 2px var(--ruta-color, #0891B2); background: color-mix(in srgb, var(--ruta-color, #0891B2) 14%, white); border-style:solid; }
+  html.dark .curso__area.is-ruta { background: color-mix(in srgb, var(--ruta-color, #0891B2) 30%, #000); }
+  .curso__area.is-control::before {
+    content:""; position:absolute; top:-6px; right:-6px; width:14px; height:14px; border-radius:50%;
+    background: var(--ruta-color) url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg>') center/9px no-repeat;
+    border:2px solid #fff; z-index:3;
+  }
+
+  /* Cursos electivos ofertados con código de otros programas */
+  .e-item--otro { background: color-mix(in srgb, #7C3AED 7%, transparent); border-radius:.4rem; }
+  .e-item__tag--otro { background:#7C3AED !important; color:#fff !important; }
+  .e-item--otro .e-item__name { color:#5B21B6; font-weight:600; }
+  html.dark .e-item--otro .e-item__name { color:#C4B5FD; }
+  .e-legend { display:flex; align-items:center; gap:.4rem; font-size:.72rem; color:#475569; margin:.15rem 0 0; }
+  html.dark .e-legend { color:#cbd5e1; }
+  .e-legend i { width:12px; height:12px; border-radius:3px; background:#7C3AED; display:inline-block; }
+
+  /* ── Matriz Evidencia de los RAP ── */
+  .det-evid { margin-top:1rem; border-top:1px solid rgba(0,68,91,.12); padding-top:.75rem; }
+  html.dark .det-evid { border-color: rgba(255,255,255,.1); }
+  .det-evid summary { cursor:pointer; font-family:'Montserrat',sans-serif; font-weight:800; font-size:.78rem; color:#01333F; }
+  html.dark .det-evid summary { color:#fff; }
+  .det-evid__nota { font-size:.74rem; color:#64748b; margin:.4rem 0 0; }
+  .det-evid__grid { display:grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap:1rem; margin-top:.65rem; }
+  .det-evid__grid ul { margin:0; padding-left:1rem; display:flex; flex-direction:column; gap:.3rem; font-size:.74rem; line-height:1.45; color:#334155; }
+  html.dark .det-evid__grid ul { color:#cbd5e1; }
+  .det-evid__grid h4 { border-bottom:2px solid var(--ruta-color, #00445B); padding-bottom:.25rem; }
+  .det-areas { margin-top:.85rem; }
+  .det-chip.is-area { border-style:dashed; }
+  .det-tl__item:has(.det-tl__sub) { flex-wrap:wrap; }
+  .det-tl__rot { margin-top:.6rem; }
+  .det-tl__rot > div { display:flex; flex-wrap:wrap; gap:.35rem; margin-top:.3rem; }
+  .det-tl__rot .det-tl__per { display:block; }
+  .det-tl__sub { flex-basis:100%; display:block; font-size:.56rem; font-weight:500; opacity:.75; }
+  @media (max-width: 900px) { .det-evid__grid { grid-template-columns: 1fr; } }
+
   /* ════════════ Panel de detalle (debajo) ════════════ */
   .detalle { padding: 1rem 1.15rem; min-height: 132px; }
   .detalle h3 { font-family:'Montserrat',sans-serif; font-weight:800; font-size:1rem; margin:0; line-height:1.25; color:#01333F; display:flex; align-items:center; gap:.5rem; flex-wrap:wrap; }
@@ -561,7 +631,7 @@
           </tbody></table>
       </div>
       <div class="linea linea--3">
-        <div class="linea__head"><span>Línea de Profundización III</span><h3>Gestión Integral de la Medicina Veterinaria para Animales de Compañía</h3></div>
+        <div class="linea__head"><span>Línea de Profundización III</span><h3>Gestión Integral de la Medicina Veterinaria</h3></div>
         <table><thead><tr><th>Créd.</th><th>Nombre del curso</th></tr></thead>
           <tbody>
             <tr><td>3</td><td>Especies menores y no convencionales</td></tr>
@@ -571,7 +641,7 @@
           </tbody></table>
       </div>
     </div>
-    <p class="section-note">El estudiante elige <strong>una sola línea de profundización</strong> y cursa sus tres electivos disciplinares específicos en los periodos VIII, IX y X (Electivo DE I, II y III de la malla). No se permite combinar cursos de líneas distintas para cumplir el plan.</p>
+    <p class="section-note">El estudiante elige <strong>una sola línea de profundización</strong> y cursa sus tres electivos disciplinares específicos en los periodos VIII, IX y X (Electivo DE I, II y III de la malla). No se permite combinar cursos de líneas distintas para cumplir el plan. Todos los cursos de las líneas son <strong>E · 3 · M</strong> (electivo, 3 créditos, metodológico); total electivos DE: 9 créditos.</p>
   </section>
 
   <!-- Electivos -->
@@ -583,60 +653,35 @@
     <div class="electivos-layout">
       <div class="electivos-main">
         <div class="electivos-block">
-          <h3 class="block-title">Cursos electivos del componente disciplinar específico*</h3>
-          <div class="electivos-cols">
-            <div class="e-col"><div class="e-col__head">Línea 1: Conservación, manejo y bienestar de la fauna silvestre</div>
-              <div class="e-list">
-                <div class="e-item"><span class="e-item__tag e-item__tag--m">E · 3 · M</span><span class="e-item__name">Conservación y Gestión de Fauna Silvestre y Exótica</span></div>
-                <div class="e-item"><span class="e-item__tag e-item__tag--m">E · 3 · M</span><span class="e-item__name">Bienestar y Manejo Sostenible de Fauna Silvestre</span></div>
-                <div class="e-item"><span class="e-item__tag e-item__tag--m">E · 3 · M</span><span class="e-item__name">Rehabilitación y Restablecimiento de Fauna en Ecosistemas</span></div>
-              </div>
-            </div>
-            <div class="e-col"><div class="e-col__head">Línea 2: Salud pública veterinaria y enfoque One Health</div>
-              <div class="e-list">
-                <div class="e-item"><span class="e-item__tag e-item__tag--m">E · 3 · M</span><span class="e-item__name">Inocuidad alimentaria</span></div>
-                <div class="e-item"><span class="e-item__tag e-item__tag--m">E · 3 · M</span><span class="e-item__name">Salud de hato y gestión sanitaria</span></div>
-                <div class="e-item"><span class="e-item__tag e-item__tag--m">E · 3 · M</span><span class="e-item__name">Prevención, Vigilancia y Control de Zoonosis</span></div>
-              </div>
-            </div>
-            <div class="e-col"><div class="e-col__head">Línea 3: Gestión Integral de la Medicina Veterinaria para Animales de Compañía</div>
-              <div class="e-list">
-                <div class="e-item"><span class="e-item__tag e-item__tag--m">E · 3 · M</span><span class="e-item__name">Especies menores y no convencionales</span></div>
-                <div class="e-item"><span class="e-item__tag e-item__tag--m">E · 3 · M</span><span class="e-item__name">Gestión y Administración de Servicios Veterinarios</span></div>
-                <div class="e-item"><span class="e-item__tag e-item__tag--m">E · 3 · M</span><span class="e-item__name">Geriatría veterinaria</span></div>
-                <div class="e-item"><span class="e-item__tag e-item__tag--m">E · 3 · M</span><span class="e-item__name">Principios de homeopatía veterinaria</span></div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="electivos-block">
           <h3 class="block-title">Cursos electivos por campo de formación</h3>
+          <p class="e-legend"><i></i>Cursos destacados: Ética y Deontología en Psicología, Telesalud y Biomecánica.</p>
           <div class="electivos-cols">
             <div class="e-col"><div class="e-col__head">Interdisciplinar Básico Común (IBC)</div>
               <div class="e-list">
-                <div class="e-item"><span class="e-item__tag e-item__tag--t">E · 3 · T</span><span class="e-item__name">Educación ambiental</span><span class="e-item__code">358028</span></div>
-                <div class="e-item"><span class="e-item__tag e-item__tag--t">E · 3 · T</span><span class="e-item__name">Inclusión Social</span><span class="e-item__code">40004</span></div>
-                <div class="e-item"><span class="e-item__tag e-item__tag--t">E · 3 · T</span><span class="e-item__name">Emprendimiento solidario</span></div>
-                <div class="e-item"><span class="e-item__tag e-item__tag--t">E · 3 · T</span><span class="e-item__name">Responsabilidad social empresarial</span></div>
-                <div class="e-item"><span class="e-item__tag e-item__tag--t">E · 3 · T</span><span class="e-item__name">Sostenibilidad, desarrollo y calidad de vida</span><span class="e-item__code">40006</span></div>
+                <div class="e-item"><span class="e-item__tag e-item__tag--t">E · 3 · T</span><span class="e-item__name">Educación ambiental</span></div>
+                <div class="e-item"><span class="e-item__tag e-item__tag--t">E · 3 · T</span><span class="e-item__name">Lectura crítica</span></div>
+                <div class="e-item"><span class="e-item__tag e-item__tag--t">E · 3 · T</span><span class="e-item__name">Comunicación escrita</span></div>
               </div>
             </div>
             <div class="e-col"><div class="e-col__head">Disciplinar Común (DC)</div>
               <div class="e-list">
                 <div class="e-item"><span class="e-item__tag e-item__tag--t">E · 3 · T</span><span class="e-item__name">Animales de compañía</span></div>
                 <div class="e-item"><span class="e-item__tag e-item__tag--t">E · 3 · T</span><span class="e-item__name">Topografía</span></div>
-                <div class="e-item"><span class="e-item__tag e-item__tag--t">E · 2 · T</span><span class="e-item__name">Economía agraria</span></div>
-                <div class="e-item"><span class="e-item__tag e-item__tag--t">E · 2 · T</span><span class="e-item__name">Gestión ambiental</span></div>
+                <div class="e-item"><span class="e-item__tag e-item__tag--t">E · 2 · T</span><span class="e-item__name">Política Agraria y ambiental</span></div>
+                <div class="e-item e-item--otro"><span class="e-item__tag e-item__tag--t e-item__tag--otro">E · 2 · T</span><span class="e-item__name">Ética y Deontología en Psicología</span><span class="e-item__code">402537641</span></div>
+                <div class="e-item e-item--otro"><span class="e-item__tag e-item__tag--t e-item__tag--otro">E · 3 · T</span><span class="e-item__name">Telesalud</span><span class="e-item__code">15001</span></div>
+                <div class="e-item e-item--otro"><span class="e-item__tag e-item__tag--t e-item__tag--otro">E · 3 · T</span><span class="e-item__name">Biomecánica</span><span class="e-item__code">153048131</span></div>
               </div>
             </div>
             <div class="e-col"><div class="e-col__head">Complementario</div>
               <div class="e-list">
                 <div class="e-item"><span class="e-item__tag e-item__tag--t">E · 1 · T</span><span class="e-item__name">Alimentación saludable y Bienestar humano</span></div>
-                <div class="e-item"><span class="e-item__tag e-item__tag--t">E · 1 · T</span><span class="e-item__name">Estrategias participativas para el trabajo comunitario</span><span class="e-item__code">502369520</span></div>
+                <div class="e-item"><span class="e-item__tag e-item__tag--t">E · 1 · T</span><span class="e-item__name">Herramientas Participativas para el trabajo comunitario</span><span class="e-item__code">502369520</span></div>
                 <div class="e-item"><span class="e-item__tag e-item__tag--t">E · 1 · T</span><span class="e-item__name">Derechos de los animales</span><span class="e-item__code">252519396</span></div>
-                <div class="e-item"><span class="e-item__tag e-item__tag--t">E · 1 · T</span><span class="e-item__name">Discapacidad y sexualidad</span><span class="e-item__code">80011</span></div>
                 <div class="e-item"><span class="e-item__tag e-item__tag--t">E · 1 · T</span><span class="e-item__name">Hoja de Vida</span><span class="e-item__code">300040</span></div>
-                <div class="e-item"><span class="e-item__tag e-item__tag--t">E · 1 · T</span><span class="e-item__name">Guitarra</span><span class="e-item__code">80010</span></div>
+                <div class="e-item"><span class="e-item__tag e-item__tag--t">E · 1 · T</span><span class="e-item__name">Teatro</span><span class="e-item__code">80010</span></div>
+                <div class="e-item"><span class="e-item__tag e-item__tag--t">E · 1 · T</span><span class="e-item__name">Discapacidad y sexualidad</span><span class="e-item__code">80011</span></div>
+                <div class="e-item"><span class="e-item__tag e-item__tag--t">E · 1 · T</span><span class="e-item__name">Guitarra</span><span class="e-item__code">800005</span></div>
               </div>
             </div>
           </div>
@@ -659,7 +704,7 @@
           <ul>
             <li>Electivos DE — 9 Créd</li>
             <li>Electivos IBC — 6 Créd</li>
-            <li>Electivos DC — 5 Créd</li>
+            <li>Electivos DC — 6 Créd</li>
             <li>Electivos CFC — 3 Créd</li>
           </ul>
         </div>
@@ -671,7 +716,7 @@
 
 <script src="js/embed-mode.js"></script>
 <script src="js/theme.js"></script>
-<script src="js/malla-data.js?v=3"></script>
-<script src="js/malla.js?v=3"></script>
+<script src="js/malla-data.js?v=5"></script>
+<script src="js/malla.js?v=5"></script>
 </body>
 </html>
