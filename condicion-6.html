@@ -46,6 +46,8 @@
 <script src="https://code.iconify.design/3/3.1.0/iconify.min.js"></script>
 
 <link rel="stylesheet" href="css/nav.css" />
+<link rel="stylesheet" href="css/c5-visual.css?v=5" />
+<link rel="stylesheet" href="css/c6-visual.css?v=3" />
 <script src="js/nav.js" defer></script>
 
 <style>
@@ -373,45 +375,33 @@
 
     <!-- 3. Modelo de relacionamiento (imagen + cards) -->
     <section class="slide" data-title="Modelo de Relacionamiento">
+        <!-- MODELO DE RELACIONAMIENTO (infografía recreada en código) · css/c5-visual.css + css/c6-visual.css + js/c6-visual.js (ajuste 27-nov-2026; contenido sin cambios) -->
         <div class="glass-panel">
             <div class="gsap-reveal flex justify-between items-end border-b border-gray-200 dark:border-gray-700 pb-3 mb-3 shrink-0">
                 <h2 class="text-2xl md:text-3xl font-display font-bold text-unad-navy dark:text-white flex items-center gap-3">
-                    <span class="iconify text-unad-orange animate-pulse" data-icon="lucide:share-2" data-width="30"></span>
+                    <span class="iconify text-unad-orange" data-icon="lucide:share-2" data-width="30"></span>
                     Modelo de relacionamiento con el sector externo
                 </h2>
                 <span class="bg-unad-teal text-white px-3 py-1 text-xs rounded-full font-bold uppercase tracking-wider">De la intención a la evidencia</span>
             </div>
-            <p class="gsap-reveal text-sm md:text-base text-center text-gray-700 dark:text-gray-300 mb-3">La relación con el entorno conecta <strong>formación, investigación, proyección social e internacionalización</strong> con actores y necesidades reales. Toda presentación debe responder: <em>qué se hace, quién participa, con quién, qué cambia y cómo se verifica</em>.</p>
-
-            <div class="flex-1 min-h-0 overflow-y-auto custom-scroll gsap-reveal pr-2">
-                <div class="grid grid-cols-1 lg:grid-cols-12 gap-5 items-stretch w-full">
-                    <div class="lg:col-span-5 flex items-center justify-center">
-                        <a href="ModeloRelacionamiento.png" class="lightbox-trigger block w-full img-frame hover-card cursor-zoom-in" title="Ver en tamaño completo">
-                            <img src="ModeloRelacionamiento.png" alt="Vinculación con el sector externo: de la intención a la evidencia" class="w-full h-auto object-contain rounded-xl">
-                        </a>
+            <div class="min-h-0 overflow-y-auto custom-scroll gsap-reveal pr-2 flex flex-col" style="flex:1 1 auto">
+                <div class="v5 v6 my-auto">
+                    <p class="v5-lead v6-lead v5-in">La relación con el entorno conecta <strong>formación, investigación, proyección social e internacionalización</strong> con actores y necesidades reales. Toda presentación debe responder: <em>qué se hace, quién participa, con quién, qué cambia y cómo se verifica</em>.</p>
+                    <div class="v6-flow v5-in" data-v6-cycle="2600" data-v6-n="5">
+                        <p class="v5-k v6-flow__k">Vinculación con el sector externo</p>
+                        <div class="v6-flow__track" aria-hidden="true"><span class="v6-flow__fill"></span><span class="v6-flow__dot"></span></div>
+                        <div class="v6-flow__grid">
+                            <button type="button" class="v6-flow__st" data-v6-i="0"><span class="v6-flow__ico"><span class="iconify" data-icon="lucide:lightbulb" data-width="30"></span></span><span class="v6-flow__t">Intención</span><span class="v6-flow__d">Deseo de vincularse con el sector externo</span></button>
+                            <button type="button" class="v6-flow__st" data-v6-i="1"><span class="v6-flow__ico"><span class="iconify" data-icon="lucide:presentation" data-width="30"></span></span><span class="v6-flow__t">Mecanismo</span><span class="v6-flow__d">Práctica, proyecto, educación continua</span></button>
+                            <button type="button" class="v6-flow__st" data-v6-i="2"><span class="v6-flow__ico"><span class="iconify" data-icon="lucide:pencil-ruler" data-width="30"></span></span><span class="v6-flow__t">Participantes</span><span class="v6-flow__d">Estudiantes, profesores, graduados</span></button>
+                            <button type="button" class="v6-flow__st" data-v6-i="3"><span class="v6-flow__ico"><span class="iconify" data-icon="lucide:flask-conical" data-width="30"></span></span><span class="v6-flow__t">Actor externo</span><span class="v6-flow__d">Comunidad, empresa, gremio, entidad</span></button>
+                            <button type="button" class="v6-flow__st" data-v6-i="4"><span class="v6-flow__ico"><span class="iconify" data-icon="lucide:rocket" data-width="30"></span></span><span class="v6-flow__t">Evidencia</span><span class="v6-flow__d">Acta, registro, producto, evaluación</span></button>
+                        </div>
                     </div>
-                    <div class="lg:col-span-7 flex flex-col gap-3 justify-center">
-                        <div class="mini-card hover-card border-l-4 border-l-unad-teal">
-                            <span class="iconify shrink-0 mt-0.5 text-unad-teal" data-icon="lucide:link" data-width="26"></span>
-                            <div>
-                                <h3 class="font-display font-bold text-unad-navy dark:text-white text-base mb-1">Mecanismos</h3>
-                                <p class="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">Prácticas y pasantías, proyectos comunitarios, investigación aplicada, educación continua, cooperación académica y participación en redes.</p>
-                            </div>
-                        </div>
-                        <div class="mini-card hover-card border-l-4 border-l-unad-green">
-                            <span class="iconify shrink-0 mt-0.5 text-unad-green" data-icon="lucide:users" data-width="26"></span>
-                            <div>
-                                <h3 class="font-display font-bold text-unad-navy dark:text-white text-base mb-1">Actores externos</h3>
-                                <p class="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">Comunidades, productores, organizaciones, empresas, gremios, entidades públicas y privadas, instituciones académicas y centros de investigación.</p>
-                            </div>
-                        </div>
-                        <div class="mini-card hover-card border-l-4 border-l-unad-orange">
-                            <span class="iconify shrink-0 mt-0.5 text-unad-orange" data-icon="lucide:clipboard-check" data-width="26"></span>
-                            <div>
-                                <h3 class="font-display font-bold text-unad-navy dark:text-white text-base mb-1">Resultado + evidencia</h3>
-                                <p class="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">Cada interacción debe producir un resultado identificable y una evidencia trazable: aprendizaje, transferencia, mejora, producto, acta, registro o evaluación.</p>
-                            </div>
-                        </div>
+                    <div class="v6-cards3">
+                        <article class="v6-card v6-card--teal v5-in"><span class="v6-card__ico"><span class="iconify" data-icon="lucide:link" data-width="22"></span></span><div><h3 class="v5-h">Mecanismos</h3><p class="v5-b">Prácticas y pasantías, proyectos comunitarios, investigación aplicada, educación continua, cooperación académica y participación en redes.</p></div></article>
+                        <article class="v6-card v6-card--green v5-in"><span class="v6-card__ico"><span class="iconify" data-icon="lucide:users" data-width="22"></span></span><div><h3 class="v5-h">Actores externos</h3><p class="v5-b">Comunidades, productores, organizaciones, empresas, gremios, entidades públicas y privadas, instituciones académicas y centros de investigación.</p></div></article>
+                        <article class="v6-card v6-card--orange v5-in"><span class="v6-card__ico"><span class="iconify" data-icon="lucide:clipboard-check" data-width="22"></span></span><div><h3 class="v5-h">Resultado + evidencia</h3><p class="v5-b">Cada interacción debe producir un resultado identificable y una evidencia trazable: aprendizaje, transferencia, mejora, producto, acta, registro o evaluación.</p></div></article>
                     </div>
                 </div>
             </div>
@@ -433,43 +423,30 @@
 
     <!-- 5. Sistemas institucionales (imagen + cards) -->
     <section class="slide" data-title="Sistemas Institucionales">
+        <!-- SISTEMAS INSTITUCIONALES (infografía recreada en código) · css/c5-visual.css + css/c6-visual.css + js/c6-visual.js (ajuste 27-nov-2026; contenido sin cambios) -->
         <div class="glass-panel">
             <div class="gsap-reveal flex justify-between items-end border-b border-gray-200 dark:border-gray-700 pb-3 mb-3 shrink-0">
                 <h2 class="text-2xl md:text-3xl font-display font-bold text-unad-navy dark:text-white flex items-center gap-3">
-                    <span class="iconify text-unad-teal animate-bounce" data-icon="lucide:layout-grid" data-width="30"></span>
+                    <span class="iconify text-unad-teal" data-icon="lucide:layout-grid" data-width="30"></span>
                     Sistemas institucionales: arquitectura de apoyo
                 </h2>
             </div>
-            <p class="gsap-reveal text-sm md:text-base text-center text-gray-700 dark:text-gray-300 mb-3">La condición utiliza dispositivos institucionales diferenciados según su <strong>función y pertinencia</strong> para Medicina Veterinaria.</p>
-
-            <div class="flex-1 min-h-0 overflow-y-auto custom-scroll gsap-reveal pr-2">
-                <div class="grid grid-cols-1 lg:grid-cols-12 gap-5 items-stretch w-full">
-                    <div class="lg:col-span-6 flex items-center justify-center">
-                        <a href="SistemasInstitucionalesMV.jpg" class="lightbox-trigger block w-full img-frame hover-card cursor-zoom-in" title="Ver en tamaño completo">
-                            <img src="SistemasInstitucionalesMV.jpg" alt="Sistemas institucionales para la relación con el entorno: UNAD Global, SISSU, Redes de Liderazgo, SINEC, OIR y SIDER" class="w-full h-auto object-contain rounded-xl">
-                        </a>
-                    </div>
-                    <div class="lg:col-span-6 flex flex-col gap-3 justify-center">
-                        <div class="mini-card hover-card border-l-4 border-l-unad-orange">
-                            <span class="iconify shrink-0 mt-0.5 text-unad-orange" data-icon="lucide:graduation-cap" data-width="26"></span>
-                            <div>
-                                <h3 class="font-display font-bold text-unad-navy dark:text-white text-base mb-1">SINEP · aplicación limitada</h3>
-                                <p class="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">Reservado a articulación con educación media, orientación vocacional o ETDH cuando corresponda.</p>
+            <div class="min-h-0 overflow-y-auto custom-scroll gsap-reveal pr-2 flex flex-col" style="flex:1 1 auto">
+                <div class="v5 v6 my-auto">
+                    <p class="v5-lead v6-lead v5-in">La condición utiliza dispositivos institucionales diferenciados según su <strong>función y pertinencia</strong> para Medicina Veterinaria.</p>
+                    <div class="v6-sys">
+                        <div class="v6-hub v5-in" data-v6-cycle="2400" data-v6-n="6">
+                            <p class="v6-hub__k"><span class="v5-k">Sistemas institucionales para la relación con el entorno</span><span class="v6-hub__ks">Programa de Medicina Veterinaria</span></p>
+                            <div class="v6-hub__grid">
+                                <div class="v6-hub__col"><button type="button" class="v6-hub__node v6-hub__node--l" data-v6-i="0"><span class="v6-hub__nico"><span class="iconify" data-icon="lucide:globe" data-width="26"></span></span><span><span class="v6-hub__nt">UNAD Global</span><span class="v6-hub__nd">Cooperación e internacionalización</span></span></button><button type="button" class="v6-hub__node v6-hub__node--l" data-v6-i="1"><span class="v6-hub__nico"><span class="iconify" data-icon="lucide:users" data-width="26"></span></span><span><span class="v6-hub__nt">Redes de Liderazgo</span><span class="v6-hub__nd">Participación social</span></span></button><button type="button" class="v6-hub__node v6-hub__node--l" data-v6-i="2"><span class="v6-hub__nico"><span class="iconify" data-icon="lucide:map-pin" data-width="26"></span></span><span><span class="v6-hub__nt">OIR</span><span class="v6-hub__nd">Lectura territorial</span></span></button></div>
+                                <div class="v6-hub__core"><span class="v6-hub__ring"></span><span class="v6-hub__circle"><span class="v6-hub__paw"><span class="iconify" data-icon="lucide:paw-print" data-width="40"></span></span><b>Medicina Veterinaria</b><i></i><small>Relación con el entorno</small></span></div>
+                                <div class="v6-hub__col"><button type="button" class="v6-hub__node v6-hub__node--r" data-v6-i="3"><span class="v6-hub__nico"><span class="iconify" data-icon="lucide:hand-heart" data-width="26"></span></span><span><span class="v6-hub__nt">SISSU</span><span class="v6-hub__nd">Aprendizaje-servicio</span></span></button><button type="button" class="v6-hub__node v6-hub__node--r" data-v6-i="4"><span class="v6-hub__nico"><span class="iconify" data-icon="lucide:monitor-check" data-width="26"></span></span><span><span class="v6-hub__nt">SINEC</span><span class="v6-hub__nd">Educación continua</span></span></button><button type="button" class="v6-hub__node v6-hub__node--r" data-v6-i="5"><span class="v6-hub__nico"><span class="iconify" data-icon="lucide:share-2" data-width="26"></span></span><span><span class="v6-hub__nt">SIDER</span><span class="v6-hub__nd">Desarrollo regional</span></span></button></div>
                             </div>
                         </div>
-                        <div class="mini-card hover-card border-l-4 border-l-unad-teal">
-                            <span class="iconify shrink-0 mt-0.5 text-unad-teal" data-icon="lucide:network" data-width="26"></span>
-                            <div>
-                                <h3 class="font-display font-bold text-unad-navy dark:text-white text-base mb-1">SISSU · SINEC · SIDER · OIR · Redes · UNAD Global</h3>
-                                <p class="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">Aplicación directa o complementaria según el tipo de actividad del programa.</p>
-                            </div>
-                        </div>
-                        <div class="mini-card hover-card border-l-4 border-l-unad-green">
-                            <span class="iconify shrink-0 mt-0.5 text-unad-green" data-icon="lucide:map-pin" data-width="26"></span>
-                            <div>
-                                <h3 class="font-display font-bold text-unad-navy dark:text-white text-base mb-1">OIR · soporte territorial</h3>
-                                <p class="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">Aporta lectura territorial y análisis de información; <strong>no</strong> se presenta como autoridad de vigilancia sanitaria.</p>
-                            </div>
+                        <div class="v6-stack">
+                            <article class="v6-card v6-card--orange v5-in"><span class="v6-card__ico"><span class="iconify" data-icon="lucide:graduation-cap" data-width="22"></span></span><div><h3 class="v5-h">SINEP · aplicación limitada</h3><p class="v5-b">Reservado a articulación con educación media, orientación vocacional o ETDH cuando corresponda.</p></div></article>
+                            <article class="v6-card v6-card--teal v5-in"><span class="v6-card__ico"><span class="iconify" data-icon="lucide:network" data-width="22"></span></span><div><h3 class="v5-h">SISSU · SINEC · SIDER · OIR · Redes · UNAD Global</h3><p class="v5-b">Aplicación directa o complementaria según el tipo de actividad del programa.</p></div></article>
+                            <article class="v6-card v6-card--green v5-in"><span class="v6-card__ico"><span class="iconify" data-icon="lucide:map-pin" data-width="22"></span></span><div><h3 class="v5-h">OIR · soporte territorial</h3><p class="v5-b">Aporta lectura territorial y análisis de información; <strong>no</strong> se presenta como autoridad de vigilancia sanitaria.</p></div></article>
                         </div>
                     </div>
                 </div>
@@ -492,35 +469,25 @@
 
     <!-- 7. Mecanismos de vinculación (tabla 5x5) -->
     <section class="slide" data-title="Mecanismos de Vinculación">
+        <!-- MECANISMOS DE VINCULACIÓN · css/c5-visual.css + css/c6-visual.css + js/c6-visual.js (ajuste 27-nov-2026; contenido sin cambios) -->
         <div class="glass-panel">
             <div class="gsap-reveal flex justify-between items-end border-b border-gray-200 dark:border-gray-700 pb-3 mb-4 shrink-0">
                 <h2 class="text-2xl md:text-3xl font-display font-bold text-unad-navy dark:text-white flex items-center gap-3">
-                    <span class="iconify text-unad-teal animate-spin" data-icon="lucide:users" data-width="30" style="animation-duration: 14s;"></span>
+                    <span class="iconify text-unad-teal" data-icon="lucide:users" data-width="30"></span>
                     Mecanismos de vinculación de profesores y estudiantes
                 </h2>
             </div>
-            <p class="gsap-reveal text-sm md:text-base text-center text-gray-700 dark:text-gray-300 mb-3">La condición evidencia <strong>participación académica</strong> en contextos reales con resultados documentados.</p>
-
-            <div class="flex-1 min-h-0 overflow-y-auto custom-scroll gsap-reveal pr-2">
-                <div class="table-wrap shadow-sm table-x-scroll">
-                    <table class="styled-table" style="min-width:1000px;">
-                        <thead>
-                            <tr>
-                                <th style="width:15%;">Mecanismo</th>
-                                <th style="width:17%;">Participantes</th>
-                                <th style="width:20%;">Actor externo</th>
-                                <th style="width:20%;">Resultado</th>
-                                <th>Evidencia</th>
-                            </tr>
-                        </thead>
-                        <tbody class="text-gray-800 dark:text-gray-200">
-                            <tr><td class="font-semibold border-l-4 border-unad-teal pl-4">Prácticas y pasantías</td><td>Estudiantes + docentes supervisores</td><td>Clínicas/hospitales, laboratorios, entidades sanitarias, sistemas pecuarios</td><td>Desarrollo de competencias y retroalimentación</td><td>Convenio, plan, cupos, registros y evaluación.</td></tr>
-                            <tr><td class="font-semibold border-l-4 border-unad-orange pl-4">SISSU / proyectos comunitarios</td><td>Estudiantes + docentes</td><td>Comunidades y organizaciones territoriales</td><td>Aprendizaje-servicio y educación sanitaria</td><td>Ruta SISSU, actas, productos y evaluación.</td></tr>
-                            <tr><td class="font-semibold border-l-4 border-unad-green pl-4">Investigación aplicada / semilleros</td><td>Estudiantes + docentes investigadores</td><td>Empresas, gremios, entidades públicas y centros de investigación</td><td>Conocimiento aplicado y solución de problemas</td><td>Proyecto avalado, alianza y productos.</td></tr>
-                            <tr><td class="font-semibold border-l-4 border-unad-teal pl-4">SINEC / educación continua</td><td>Docentes; estudiantes cuando aplique</td><td>Profesionales, productores, técnicos, funcionarios y comunidades</td><td>Actualización y transferencia</td><td>Diagnóstico, oferta, asistencia, certificados y satisfacción.</td></tr>
-                            <tr><td class="font-semibold border-l-4 border-unad-orange pl-4">Internacionalización</td><td>Estudiantes + docentes</td><td>IES, centros, redes y expertos internacionales</td><td>Intercambio académico y cooperación</td><td>Convenios/cartas, actas y productos de movilidad o clase espejo.</td></tr>
-                        </tbody>
-                    </table>
+            <div class="min-h-0 overflow-y-auto custom-scroll gsap-reveal pr-2 flex flex-col" style="flex:1 1 auto">
+                <div class="v5 v6 my-auto">
+                    <p class="v5-lead v6-lead v5-in">La condición evidencia <strong>participación académica</strong> en contextos reales con resultados documentados.</p>
+                    <div class="v6-mx" role="table">
+                        <div class="v6-mx__head v5-in" role="row"><span><span class="iconify" data-icon="lucide:layers" data-width="15"></span> Mecanismo</span><span><span class="iconify" data-icon="lucide:pencil-ruler" data-width="15"></span> Participantes</span><span><span class="iconify" data-icon="lucide:flask-conical" data-width="15"></span> Actor externo</span><span><span class="iconify" data-icon="lucide:target" data-width="15"></span> Resultado</span><span><span class="iconify" data-icon="lucide:file-check" data-width="15"></span> Evidencia</span></div>
+                        <div class="v6-mx__row v6-mx__row--teal v5-in" role="row"><span class="v6-mx__m" role="cell"><span class="v6-mx__mico"><span class="iconify" data-icon="lucide:stethoscope" data-width="20"></span></span><span>Prácticas y pasantías</span></span><span class="v6-mx__c" role="cell" data-l="Participantes">Estudiantes + docentes supervisores</span><span class="v6-mx__c" role="cell" data-l="Actor externo">Clínicas/hospitales, laboratorios, entidades sanitarias, sistemas pecuarios</span><span class="v6-mx__c" role="cell" data-l="Resultado">Desarrollo de competencias y retroalimentación</span><span class="v6-mx__c v6-mx__c--ev" role="cell" data-l="Evidencia">Convenio, plan, cupos, registros y evaluación.</span></div>
+                        <div class="v6-mx__row v6-mx__row--orange v5-in" role="row"><span class="v6-mx__m" role="cell"><span class="v6-mx__mico"><span class="iconify" data-icon="lucide:hand-heart" data-width="20"></span></span><span>SISSU / proyectos comunitarios</span></span><span class="v6-mx__c" role="cell" data-l="Participantes">Estudiantes + docentes</span><span class="v6-mx__c" role="cell" data-l="Actor externo">Comunidades y organizaciones territoriales</span><span class="v6-mx__c" role="cell" data-l="Resultado">Aprendizaje-servicio y educación sanitaria</span><span class="v6-mx__c v6-mx__c--ev" role="cell" data-l="Evidencia">Ruta SISSU, actas, productos y evaluación.</span></div>
+                        <div class="v6-mx__row v6-mx__row--green v5-in" role="row"><span class="v6-mx__m" role="cell"><span class="v6-mx__mico"><span class="iconify" data-icon="lucide:microscope" data-width="20"></span></span><span>Investigación aplicada / semilleros</span></span><span class="v6-mx__c" role="cell" data-l="Participantes">Estudiantes + docentes investigadores</span><span class="v6-mx__c" role="cell" data-l="Actor externo">Empresas, gremios, entidades públicas y centros de investigación</span><span class="v6-mx__c" role="cell" data-l="Resultado">Conocimiento aplicado y solución de problemas</span><span class="v6-mx__c v6-mx__c--ev" role="cell" data-l="Evidencia">Proyecto avalado, alianza y productos.</span></div>
+                        <div class="v6-mx__row v6-mx__row--ink v5-in" role="row"><span class="v6-mx__m" role="cell"><span class="v6-mx__mico"><span class="iconify" data-icon="lucide:monitor-check" data-width="20"></span></span><span>SINEC / educación continua</span></span><span class="v6-mx__c" role="cell" data-l="Participantes">Docentes; estudiantes cuando aplique</span><span class="v6-mx__c" role="cell" data-l="Actor externo">Profesionales, productores, técnicos, funcionarios y comunidades</span><span class="v6-mx__c" role="cell" data-l="Resultado">Actualización y transferencia</span><span class="v6-mx__c v6-mx__c--ev" role="cell" data-l="Evidencia">Diagnóstico, oferta, asistencia, certificados y satisfacción.</span></div>
+                        <div class="v6-mx__row v6-mx__row--gold v5-in" role="row"><span class="v6-mx__m" role="cell"><span class="v6-mx__mico"><span class="iconify" data-icon="lucide:globe" data-width="20"></span></span><span>Internacionalización</span></span><span class="v6-mx__c" role="cell" data-l="Participantes">Estudiantes + docentes</span><span class="v6-mx__c" role="cell" data-l="Actor externo">IES, centros, redes y expertos internacionales</span><span class="v6-mx__c" role="cell" data-l="Resultado">Intercambio académico y cooperación</span><span class="v6-mx__c v6-mx__c--ev" role="cell" data-l="Evidencia">Convenios/cartas, actas y productos de movilidad o clase espejo.</span></div>
+                    </div>
                 </div>
             </div>
             <div class="grid grid-cols-2 gap-4 mt-4 shrink-0 gsap-reveal">
@@ -538,48 +505,43 @@
 
     <!-- 8. Matriz maestra (3 cards) — AHORA CENTRADO -->
     <section class="slide" data-title="Matriz Maestra de Escenarios">
+        <!-- MATRIZ MAESTRA + MAPA DE FINCAS (mapa de Colombia en código, js/c6-colombia.js) · css/c5-visual.css + css/c6-visual.css + js/c6-visual.js (ajuste 27-nov-2026; contenido sin cambios) -->
         <div class="glass-panel">
             <div class="gsap-reveal flex justify-between items-end border-b border-gray-200 dark:border-gray-700 pb-3 mb-4 shrink-0">
                 <h2 class="text-2xl md:text-3xl font-display font-bold text-unad-navy dark:text-white flex items-center gap-3">
-                    <span class="iconify text-unad-orange animate-pulse" data-icon="lucide:file-spreadsheet" data-width="30"></span>
+                    <span class="iconify text-unad-orange" data-icon="lucide:file-spreadsheet" data-width="30"></span>
                     Matriz maestra de convenios y escenarios
                 </h2>
                 <span class="bg-unad-teal text-white px-3 py-1 text-xs rounded-full font-bold uppercase tracking-wider">Trazabilidad</span>
             </div>
-            <div class="flex-1 min-h-0 overflow-y-auto custom-scroll gsap-reveal pr-2">
-                <div class="grid grid-cols-1 lg:grid-cols-12 gap-5 items-stretch w-full">
-                    <div class="lg:col-span-5 flex flex-col gap-3">
-                        <div class="grid grid-cols-2 gap-3">
-                            <div class="rounded-2xl bg-gradient-to-br from-unad-teal to-unad-navy text-white p-4 shadow-md">
-                                <span class="font-display font-extrabold text-5xl leading-none block">38</span>
-                                <span class="text-sm font-semibold leading-snug block mt-1">organizaciones con intención de convenio</span>
+            <div class="min-h-0 overflow-y-auto custom-scroll gsap-reveal pr-2 flex flex-col" style="flex:1 1 auto">
+                <div class="v5 v6 my-auto">
+                    <div class="v6-mm">
+                        <div class="v5-col v6-mm__l">
+                            <div class="v6-kpis">
+                                <div class="v6-kpi v6-kpi--teal v5-in"><span class="v6-kpi__v" data-v6-count="38">38</span><span class="v6-kpi__l">organizaciones con intención de convenio</span></div>
+                                <div class="v6-kpi v6-kpi--orange v5-in"><span class="v6-kpi__v" data-v6-count="8">8</span><span class="v6-kpi__l">contratos vigentes en el área pecuaria</span></div>
                             </div>
-                            <div class="rounded-2xl bg-gradient-to-br from-unad-orange to-orange-600 text-white p-4 shadow-md ring-4 ring-unad-orange/30">
-                                <span class="font-display font-extrabold text-5xl leading-none block">8</span>
-                                <span class="text-sm font-semibold leading-snug block mt-1">contratos vigentes en el área pecuaria</span>
+                            <article class="v6-card v6-card--teal v5-in"><span class="v6-card__ico"><span class="iconify" data-icon="lucide:handshake" data-width="22"></span></span><div><h3 class="v5-h">Convenios que manifiestan interés</h3><p class="v5-b">La base de gestión reúne <strong>38 organizaciones</strong> que han manifestado su intención de vincularse como escenarios de práctica (Anexo 6.12). Actualmente el programa cuenta con <strong>8 contratos</strong> destinados al área pecuaria en el país: fincas en Cundinamarca, Quindío, Putumayo y Meta.</p></div></article>
+                            <div class="v6-card v6-card--orange v6-card--col v5-in"><h3 class="v5-h"><span class="iconify" data-icon="lucide:git-commit-horizontal" data-width="20"></span> Estados de gestión</h3><ol class="v6-states"><li><span>Manifestación de interés</span></li><li><span>carta de intención</span></li><li><span>convenio en trámite</span></li><li><span>convenio suscrito, vigente y operativo</span></li></ol></div>
+                            <article class="v6-card v6-card--green v5-in"><span class="v6-card__ico"><span class="iconify" data-icon="lucide:table-2" data-width="22"></span></span><div><h3 class="v5-h">Contenido de la matriz</h3><p class="v5-b">Entidad, localización, campo veterinario, curso y RAP, actividad, cupos, estado documental, vigencia, supervisor y evidencia.</p></div></article>
+                        </div>
+                        <figure class="v6-fincas v5-in" data-v6-cycle="2800" data-v6-n="4">
+                            <div class="v6-fincas__head">
+                                <p class="v6-fincas__t">Fincas para prácticas pecuarias</p>
+                                <p class="v6-fincas__s">Colombia <i></i> Alianzas para la formación práctica</p>
                             </div>
-                        </div>
-                        <div class="bg-white/85 dark:bg-black/50 p-4 rounded-2xl border-l-4 border-unad-teal shadow-sm">
-                            <h3 class="font-display font-bold text-base text-unad-navy dark:text-white mb-1">Convenios que manifiestan interés</h3>
-                            <p class="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">La base de gestión reúne <strong>38 organizaciones</strong> que han manifestado su intención de vincularse como escenarios de práctica (Anexo 6.12). Actualmente el programa cuenta con <strong>8 contratos</strong> destinados al área pecuaria en el país: fincas en Cundinamarca, Quindío, Putumayo y Meta.</p>
-                        </div>
-                        <div class="bg-white/85 dark:bg-black/50 p-4 rounded-2xl border-l-4 border-unad-orange shadow-sm">
-                            <h3 class="font-display font-bold text-base text-unad-navy dark:text-white mb-1">Estados de gestión</h3>
-                            <p class="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">Manifestación de interés → carta de intención → convenio en trámite → convenio suscrito, vigente y operativo.</p>
-                        </div>
-                        <div class="bg-white/85 dark:bg-black/50 p-4 rounded-2xl border-l-4 border-unad-green shadow-sm">
-                            <h3 class="font-display font-bold text-base text-unad-navy dark:text-white mb-1">Contenido de la matriz</h3>
-                            <p class="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">Entidad, localización, campo veterinario, curso y RAP, actividad, cupos, estado documental, vigencia, supervisor y evidencia.</p>
-                        </div>
-                    </div>
-                    <div class="lg:col-span-7 flex items-center justify-center">
-                        <a href="FincasPracticasPecuarias.jpg" class="lightbox-trigger block w-full img-frame hover-card cursor-zoom-in" title="Ver en tamaño completo">
-                            <img src="FincasPracticasPecuarias.jpg" alt="Fincas para prácticas pecuarias con contrato vigente: 8 fincas en 4 departamentos" class="w-full h-auto max-h-[62vh] object-contain rounded-xl">
-                        </a>
+                            <div class="v6-fincas__ribbon"><span class="iconify" data-icon="lucide:file-check-2" data-width="26"></span><span><b>Ya contamos con contratos vigentes</b><small>Para el desarrollo de prácticas actualmente</small></span></div>
+                            <div class="v6-fincas__body">
+                                <div class="v6-fincas__cos"><button type="button" class="v6-co" data-v6-i="0"><span class="v6-co__dep">Cundinamarca</span><span class="v6-co__body"><span class="v6-co__barn"><span class="iconify" data-icon="lucide:warehouse" data-width="24"></span></span><span class="v6-co__txt"><b class="">La Vega</b><small>1 finca</small></span></span><span class="v6-co__ok"><span class="iconify" data-icon="lucide:circle-check" data-width="16"></span> Contrato vigente</span></button><button type="button" class="v6-co" data-v6-i="1"><span class="v6-co__dep">Quindío</span><span class="v6-co__body"><span class="v6-co__barn"><span class="iconify" data-icon="lucide:warehouse" data-width="24"></span></span><span class="v6-co__txt"><b class="">PANACA</b><small>1 finca · Quimbaya</small></span></span><span class="v6-co__ok"><span class="iconify" data-icon="lucide:circle-check" data-width="16"></span> Contrato vigente</span></button><button type="button" class="v6-co" data-v6-i="2"><span class="v6-co__dep">Putumayo</span><span class="v6-co__body"><span class="v6-co__barn"><span class="iconify" data-icon="lucide:warehouse" data-width="24"></span></span><span class="v6-co__txt"><b class="v6-co__big">2</b><small>fincas</small></span></span><span class="v6-co__ok"><span class="iconify" data-icon="lucide:circle-check" data-width="16"></span> Contrato vigente</span></button><button type="button" class="v6-co" data-v6-i="3"><span class="v6-co__dep">Meta</span><span class="v6-co__body"><span class="v6-co__barn"><span class="iconify" data-icon="lucide:warehouse" data-width="24"></span></span><span class="v6-co__txt"><b class="v6-co__big">4</b><small>fincas pecuarias</small></span></span><span class="v6-co__ok"><span class="iconify" data-icon="lucide:circle-check" data-width="16"></span> Contrato vigente</span></button></div>
+                                <div class="v6-map" data-v6-map data-v6-deps="cun,qui,put,met" data-v6-farms="1,1,2,4" role="img" aria-label="Mapa de Colombia con Cundinamarca, Quindío, Putumayo y Meta resaltados"></div>
+                            </div>
+                            <div class="v6-fincas__total"><span class="v6-fincas__tico"><span class="iconify" data-icon="lucide:warehouse" data-width="30"></span></span><span><b><em>8</em> fincas · <em>4</em> departamentos</b><small>Escenarios de práctica con contrato vigente</small></span></div>
+                            <figcaption class="v5-s v6-fincas__note">Ubicaciones referenciales por departamento; no representan coordenadas exactas de las fincas. Mapa base: MapSVG / svg-maps (CC BY 4.0).</figcaption>
+                        </figure>
                     </div>
                 </div>
             </div>
-
             <div class="grid grid-cols-2 gap-4 mt-4 shrink-0 gsap-reveal">
                 <div class="bg-unad-orange/10 border-l-4 border-unad-orange p-3 rounded-r-lg">
                     <h4 class="font-bold text-unad-orange mb-1 flex items-center gap-2 text-sm"><span class="iconify" data-icon="lucide:alert-circle" data-width="18"></span> Criterio del Par Académico</h4>
@@ -595,58 +557,27 @@
 
     <!-- 9. Proyección social (grid de 6 cards) -->
     <section class="slide" data-title="Proyección Social">
+        <!-- PROYECCIÓN SOCIAL · css/c5-visual.css + css/c6-visual.css + js/c6-visual.js (ajuste 27-nov-2026; contenido sin cambios) -->
         <div class="glass-panel">
             <div class="gsap-reveal flex justify-between items-end border-b border-gray-200 dark:border-gray-700 pb-3 mb-4 shrink-0">
                 <h2 class="text-2xl md:text-3xl font-display font-bold text-unad-navy dark:text-white flex items-center gap-3">
-                    <span class="iconify text-unad-teal animate-bounce" data-icon="lucide:heart-handshake" data-width="30"></span>
+                    <span class="iconify text-unad-teal" data-icon="lucide:heart-handshake" data-width="30"></span>
                     Proyección social y trabajo comunitario
                 </h2>
             </div>
-            <p class="gsap-reveal text-sm md:text-base text-center text-gray-700 dark:text-gray-300 mb-3">Acciones territoriales concentradas en problemáticas veterinarias, con supervisión y evidencia.</p>
-
-            <div class="flex-1 min-h-0 overflow-y-auto custom-scroll gsap-reveal pr-2">
-                <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 items-stretch w-full">
-                    <div class="mini-card hover-card border-l-4 border-l-unad-teal flex-col">
-                        <div class="flex items-center gap-2 mb-2">
-                            <span class="iconify text-unad-teal" data-icon="lucide:paw-print" data-width="26"></span>
-                            <h3 class="font-display font-bold text-unad-navy dark:text-white text-base">Salud y bienestar animal</h3>
-                        </div>
-                        <p class="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">Educación, prevención, manejo responsable y bienestar en animales de compañía y producción.</p>
+            <div class="min-h-0 overflow-y-auto custom-scroll gsap-reveal pr-2 flex flex-col" style="flex:1 1 auto">
+                <div class="v5 v6 my-auto">
+                    <p class="v5-lead v6-lead v5-in">Acciones territoriales concentradas en problemáticas veterinarias, con supervisión y evidencia.</p>
+                    <div class="v6-tiles">
+                        <article class="v6-tile v6-tile--unad v5-in"><span class="v6-tile__ico"><span class="iconify" data-icon="lucide:paw-print" data-width="26"></span></span><h3 class="v5-h">Salud y bienestar animal</h3><p class="v5-b">Educación, prevención, manejo responsable y bienestar en animales de compañía y producción.</p></article>
+                        <article class="v6-tile v6-tile--orange v5-in"><span class="v6-tile__ico"><span class="iconify" data-icon="lucide:shield-check" data-width="26"></span></span><h3 class="v5-h">Salud pública veterinaria</h3><p class="v5-b">Educación sobre zoonosis, bioseguridad, inocuidad y prevención de riesgos sanitarios.</p></article>
+                        <article class="v6-tile v6-tile--green v5-in"><span class="v6-tile__ico"><span class="iconify" data-icon="lucide:tractor" data-width="26"></span></span><h3 class="v5-h">Sistemas pecuarios</h3><p class="v5-b">Acompañamiento técnico, buenas prácticas, bienestar, producción sostenible y fortalecimiento de capacidades.</p></article>
+                        <article class="v6-tile v6-tile--ink v5-in"><span class="v6-tile__ico"><span class="iconify" data-icon="lucide:messages-square" data-width="26"></span></span><h3 class="v5-h">Apropiación social</h3><p class="v5-b">Talleres, diálogo de saberes, materiales educativos y transferencia de conocimiento.</p></article>
+                        <article class="v6-tile v6-tile--gold v5-in"><span class="v6-tile__ico"><span class="iconify" data-icon="lucide:map-pin" data-width="26"></span></span><h3 class="v5-h">Lectura territorial</h3><p class="v5-b">Diagnósticos, caracterizaciones y análisis que orientan proyectos y acciones de SISSU/SIDER/OIR.</p></article>
                     </div>
-                    <div class="mini-card hover-card border-l-4 border-l-unad-orange flex-col">
-                        <div class="flex items-center gap-2 mb-2">
-                            <span class="iconify text-unad-orange" data-icon="lucide:shield-check" data-width="26"></span>
-                            <h3 class="font-display font-bold text-unad-navy dark:text-white text-base">Salud pública veterinaria</h3>
-                        </div>
-                        <p class="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">Educación sobre zoonosis, bioseguridad, inocuidad y prevención de riesgos sanitarios.</p>
-                    </div>
-                    <div class="mini-card hover-card border-l-4 border-l-unad-green flex-col">
-                        <div class="flex items-center gap-2 mb-2">
-                            <span class="iconify text-unad-green" data-icon="lucide:tractor" data-width="26"></span>
-                            <h3 class="font-display font-bold text-unad-navy dark:text-white text-base">Sistemas pecuarios</h3>
-                        </div>
-                        <p class="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">Acompañamiento técnico, buenas prácticas, bienestar, producción sostenible y fortalecimiento de capacidades.</p>
-                    </div>
-                    <div class="mini-card hover-card border-l-4 border-l-unad-teal flex-col">
-                        <div class="flex items-center gap-2 mb-2">
-                            <span class="iconify text-unad-teal" data-icon="lucide:messages-square" data-width="26"></span>
-                            <h3 class="font-display font-bold text-unad-navy dark:text-white text-base">Apropiación social</h3>
-                        </div>
-                        <p class="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">Talleres, diálogo de saberes, materiales educativos y transferencia de conocimiento.</p>
-                    </div>
-                    <div class="mini-card hover-card border-l-4 border-l-unad-orange flex-col">
-                        <div class="flex items-center gap-2 mb-2">
-                            <span class="iconify text-unad-orange" data-icon="lucide:map-pin" data-width="26"></span>
-                            <h3 class="font-display font-bold text-unad-navy dark:text-white text-base">Lectura territorial</h3>
-                        </div>
-                        <p class="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">Diagnósticos, caracterizaciones y análisis que orientan proyectos y acciones de SISSU/SIDER/OIR.</p>
-                    </div>
-                    <div class="mini-card hover-card border-l-4 border-l-unad-green flex-col">
-                        <div class="flex items-center gap-2 mb-2">
-                            <span class="iconify text-unad-green" data-icon="lucide:clipboard-check" data-width="26"></span>
-                            <h3 class="font-display font-bold text-unad-navy dark:text-white text-base">Condición operativa</h3>
-                        </div>
-                        <p class="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">Brigadas, campañas y actividades con componente clínico o sanitario se desarrollan bajo supervisión, protocolos de bioseguridad, bienestar animal y marco jurídico aplicable.</p>
+                    <div class="v5-banner v6-band v5-in">
+                        <span class="v5-banner__ico"><span class="iconify" data-icon="lucide:clipboard-check" data-width="24"></span></span>
+                        <div style="position:relative;z-index:1"><h3 class="v5-k">Condición operativa</h3><p class="v5-banner__t">Brigadas, campañas y actividades con componente clínico o sanitario se desarrollan bajo supervisión, protocolos de bioseguridad, bienestar animal y marco jurídico aplicable.</p></div>
                     </div>
                 </div>
             </div>
@@ -665,64 +596,30 @@
 
     <!-- 10. Internacionalización (imagen + 6 cards) -->
     <section class="slide" data-title="Internacionalización">
+        <!-- INTERNACIONALIZACIÓN (la imagen Internacionalizacion.png no existía; infografía en código) · css/c5-visual.css + css/c6-visual.css + js/c6-visual.js (ajuste 27-nov-2026; contenido sin cambios) -->
         <div class="glass-panel">
             <div class="gsap-reveal flex justify-between items-end border-b border-gray-200 dark:border-gray-700 pb-3 mb-3 shrink-0">
                 <h2 class="text-2xl md:text-3xl font-display font-bold text-unad-navy dark:text-white flex items-center gap-3">
-                    <span class="iconify text-unad-teal animate-spin" data-icon="lucide:globe" data-width="30" style="animation-duration: 12s;"></span>
+                    <span class="iconify text-unad-teal" data-icon="lucide:globe" data-width="30"></span>
                     Internacionalización y cooperación académica
                 </h2>
             </div>
-            <p class="gsap-reveal text-sm md:text-base text-center text-gray-700 dark:text-gray-300 mb-3">La dimensión internacional se articula con <strong>UNAD Global</strong> y con la formación disciplinar veterinaria.</p>
-
-            <div class="flex-1 min-h-0 overflow-y-auto custom-scroll gsap-reveal pr-2">
-                <div class="grid grid-cols-1 lg:grid-cols-12 gap-5 items-stretch w-full">
-                    <div class="lg:col-span-5 flex items-center justify-center">
-                        <a href="Internacionalizacion.png" class="lightbox-trigger block w-full img-frame hover-card cursor-zoom-in" title="Ver en tamaño completo">
-                            <img src="Internacionalizacion.png" alt="Internacionalización y cooperación académica del programa" class="w-full h-auto object-contain rounded-xl">
-                        </a>
-                    </div>
-                    <div class="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-3 content-center">
-                        <div class="mini-card hover-card border-l-4 border-l-unad-teal">
-                            <span class="iconify shrink-0 mt-0.5 text-unad-teal" data-icon="lucide:book-open" data-width="24"></span>
-                            <div>
-                                <h3 class="font-display font-bold text-unad-navy dark:text-white text-sm mb-1">Internacionalización curricular</h3>
-                                <p class="text-xs text-gray-700 dark:text-gray-300 leading-relaxed">Clases espejo, contenidos comparados, expertos internacionales y referentes globales en Una Salud.</p>
-                            </div>
+            <div class="min-h-0 overflow-y-auto custom-scroll gsap-reveal pr-2 flex flex-col" style="flex:1 1 auto">
+                <div class="v5 v6 my-auto">
+                    <p class="v5-lead v6-lead v5-in">La dimensión internacional se articula con <strong>UNAD Global</strong> y con la formación disciplinar veterinaria.</p>
+                    <div class="v6-int" data-v6-cycle="2600" data-v6-n="5">
+                        <div class="v6-orb v5-in" aria-hidden="false">
+                            <span class="v6-orb__track"></span><span class="v6-orb__track v6-orb__track--2"></span>
+                            <span class="v6-orb__core"><span class="iconify" data-icon="lucide:globe" data-width="46"></span><b>UNAD Global</b></span>
+                            <div class="v6-orb__ring"><button type="button" class="v6-orb__n v6-orb__n--teal" data-v6-i="0" style="--a:-90deg" aria-label="Internacionalización curricular"><span><span class="iconify" data-icon="lucide:book-open" data-width="22"></span></span></button><button type="button" class="v6-orb__n v6-orb__n--orange" data-v6-i="1" style="--a:-18deg" aria-label="Movilidad e interacción"><span><span class="iconify" data-icon="lucide:plane" data-width="22"></span></span></button><button type="button" class="v6-orb__n v6-orb__n--green" data-v6-i="2" style="--a:54deg" aria-label="Cooperación"><span><span class="iconify" data-icon="lucide:handshake" data-width="22"></span></span></button><button type="button" class="v6-orb__n v6-orb__n--ink" data-v6-i="3" style="--a:126deg" aria-label="Lengua extranjera"><span><span class="iconify" data-icon="lucide:languages" data-width="22"></span></span></button><button type="button" class="v6-orb__n v6-orb__n--gold" data-v6-i="4" style="--a:198deg" aria-label="Evidencia"><span><span class="iconify" data-icon="lucide:file-check" data-width="22"></span></span></button></div>
                         </div>
-                        <div class="mini-card hover-card border-l-4 border-l-unad-orange">
-                            <span class="iconify shrink-0 mt-0.5 text-unad-orange" data-icon="lucide:plane" data-width="24"></span>
-                            <div>
-                                <h3 class="font-display font-bold text-unad-navy dark:text-white text-sm mb-1">Movilidad e interacción</h3>
-                                <p class="text-xs text-gray-700 dark:text-gray-300 leading-relaxed">Movilidad física o virtual, estancias, pasantías académicas y participación en eventos.</p>
-                            </div>
-                        </div>
-                        <div class="mini-card hover-card border-l-4 border-l-unad-green">
-                            <span class="iconify shrink-0 mt-0.5 text-unad-green" data-icon="lucide:handshake" data-width="24"></span>
-                            <div>
-                                <h3 class="font-display font-bold text-unad-navy dark:text-white text-sm mb-1">Cooperación</h3>
-                                <p class="text-xs text-gray-700 dark:text-gray-300 leading-relaxed">Redes, proyectos colaborativos y relaciones con IES, centros y organismos internacionales.</p>
-                            </div>
-                        </div>
-                        <div class="mini-card hover-card border-l-4 border-l-unad-teal">
-                            <span class="iconify shrink-0 mt-0.5 text-unad-teal" data-icon="lucide:languages" data-width="24"></span>
-                            <div>
-                                <h3 class="font-display font-bold text-unad-navy dark:text-white text-sm mb-1">Lengua extranjera</h3>
-                                <p class="text-xs text-gray-700 dark:text-gray-300 leading-relaxed">Lectura de literatura científica, protocolos y participación en actividades académicas internacionales.</p>
-                            </div>
-                        </div>
-                        <div class="mini-card hover-card border-l-4 border-l-unad-orange">
-                            <span class="iconify shrink-0 mt-0.5 text-unad-orange" data-icon="lucide:file-check" data-width="24"></span>
-                            <div>
-                                <h3 class="font-display font-bold text-unad-navy dark:text-white text-sm mb-1">Evidencia</h3>
-                                <p class="text-xs text-gray-700 dark:text-gray-300 leading-relaxed">Convenios/cartas, actas, certificados, productos de movilidad, actividades curriculares y productos colaborativos.</p>
-                            </div>
-                        </div>
-                        <div class="mini-card hover-card border-l-4 border-l-unad-green sm:col-span-2">
-                            <span class="iconify shrink-0 mt-0.5 text-unad-green" data-icon="lucide:info" data-width="24"></span>
-                            <div>
-                                <h3 class="font-display font-bold text-unad-navy dark:text-white text-sm mb-1">Precisión institucional</h3>
-                                <p class="text-xs text-gray-700 dark:text-gray-300 leading-relaxed">Los antecedentes de ECAPMA o de otros programas son capacidad institucional. Solo se atribuye una actividad o alianza al Programa de Medicina Veterinaria cuando existe evidencia específica de su participación.</p>
-                            </div>
+                        <div class="v6-int__list">
+                            <article class="v6-card v6-card--teal v6-int__c" data-v6-i="0"><span class="v6-card__ico"><span class="iconify" data-icon="lucide:book-open" data-width="22"></span></span><div><h3 class="v5-h">Internacionalización curricular</h3><p class="v5-b">Clases espejo, contenidos comparados, expertos internacionales y referentes globales en Una Salud.</p></div></article>
+                            <article class="v6-card v6-card--orange v6-int__c" data-v6-i="1"><span class="v6-card__ico"><span class="iconify" data-icon="lucide:plane" data-width="22"></span></span><div><h3 class="v5-h">Movilidad e interacción</h3><p class="v5-b">Movilidad física o virtual, estancias, pasantías académicas y participación en eventos.</p></div></article>
+                            <article class="v6-card v6-card--green v6-int__c" data-v6-i="2"><span class="v6-card__ico"><span class="iconify" data-icon="lucide:handshake" data-width="22"></span></span><div><h3 class="v5-h">Cooperación</h3><p class="v5-b">Redes, proyectos colaborativos y relaciones con IES, centros y organismos internacionales.</p></div></article>
+                            <article class="v6-card v6-card--ink v6-int__c" data-v6-i="3"><span class="v6-card__ico"><span class="iconify" data-icon="lucide:languages" data-width="22"></span></span><div><h3 class="v5-h">Lengua extranjera</h3><p class="v5-b">Lectura de literatura científica, protocolos y participación en actividades académicas internacionales.</p></div></article>
+                            <article class="v6-card v6-card--gold v6-int__c" data-v6-i="4"><span class="v6-card__ico"><span class="iconify" data-icon="lucide:file-check" data-width="22"></span></span><div><h3 class="v5-h">Evidencia</h3><p class="v5-b">Convenios/cartas, actas, certificados, productos de movilidad, actividades curriculares y productos colaborativos.</p></div></article>
+                            <article class="v6-card v6-card--note v5-in"><span class="v6-card__ico"><span class="iconify" data-icon="lucide:info" data-width="22"></span></span><div><h3 class="v5-h">Precisión institucional</h3><p class="v5-b">Los antecedentes de ECAPMA o de otros programas son capacidad institucional. Solo se atribuye una actividad o alianza al Programa de Medicina Veterinaria cuando existe evidencia específica de su participación.</p></div></article>
                         </div>
                     </div>
                 </div>
@@ -836,43 +733,33 @@
 
     <!-- 14. Plan Estratégico (imagen + 4 cards) -->
     <section class="slide" data-title="Plan a 7 años">
+        <!-- PLAN A 7 AÑOS (infografía de pilares interactiva) · css/c5-visual.css + css/c6-visual.css + js/c6-visual.js (ajuste 27-nov-2026; contenido sin cambios) -->
         <div class="glass-panel">
             <div class="gsap-reveal flex justify-between items-end border-b border-gray-200 dark:border-gray-700 pb-3 mb-3 shrink-0">
                 <h2 class="text-2xl md:text-3xl font-display font-bold text-unad-navy dark:text-white flex items-center gap-3">
-                    <span class="iconify text-unad-teal animate-spin" data-icon="lucide:compass" data-width="30" style="animation-duration: 12s;"></span>
+                    <span class="iconify text-unad-teal" data-icon="lucide:compass" data-width="30"></span>
                     Plan Estratégico de Relacionamiento a 7 años
                 </h2>
                 <span class="bg-unad-teal text-white px-3 py-1 text-xs rounded-full font-bold uppercase tracking-wider">4 líneas</span>
             </div>
-            <p class="gsap-reveal text-sm md:text-base text-center text-gray-700 dark:text-gray-300 mb-3">El plan se organiza en <strong>cuatro líneas</strong> y mantiene el seguimiento de resultados e impacto como dimensión transversal.</p>
-
-            <div class="flex-1 min-h-0 overflow-y-auto custom-scroll gsap-reveal pr-2">
-                <div class="grid grid-cols-1 lg:grid-cols-12 gap-5 items-stretch w-full">
-                    <div class="lg:col-span-4 flex items-center justify-center">
-                        <a href="PlanEstrategico7Anos.png" class="lightbox-trigger block w-full img-frame hover-card cursor-zoom-in" title="Ver en tamaño completo">
-                            <img src="PlanEstrategico7Anos.png" alt="Plan Estratégico de Relacionamiento a siete años" class="w-full h-auto object-contain rounded-xl">
-                        </a>
-                    </div>
-                    <div class="lg:col-span-8 grid grid-cols-1 sm:grid-cols-2 gap-4 content-center">
-                        <div class="bg-white/85 dark:bg-black/50 p-5 rounded-2xl border-t-4 border-unad-teal shadow-sm hover-card flex flex-col">
-                            <span class="iconify text-unad-teal mb-2" data-icon="lucide:building-2" data-width="32"></span>
-                            <h3 class="font-display font-bold text-sm text-unad-navy dark:text-white mb-1.5 uppercase tracking-wide">Línea 1</h3>
-                            <p class="text-sm text-gray-700 dark:text-gray-300 leading-relaxed font-medium">Articulación productiva/sanitaria y escenarios de práctica.</p>
+            <div class="min-h-0 overflow-y-auto custom-scroll gsap-reveal pr-2 flex flex-col" style="flex:1 1 auto">
+                <div class="v5 v6 my-auto">
+                    <p class="v5-lead v6-lead v5-in">El plan se organiza en <strong>cuatro líneas</strong> y mantiene el seguimiento de resultados e impacto como dimensión transversal.</p>
+                    <div class="v6-temple" data-v6-cycle="3400" data-v6-n="4">
+                        <div class="v6-temple__roof v5-in"><span>Plan estratégico de relacionamiento</span><small>7 años</small></div>
+                        <div class="v6-temple__beam v5-in"></div>
+                        <div class="v6-temple__cols">
+                                <button type="button" class="v6-pil v6-pil--l1" data-v6-i="0"><span class="v6-pil__cap"></span><span class="v6-pil__shaft"><span class="v6-pil__ico"><span class="iconify" data-icon="lucide:building-2" data-width="26"></span></span></span><span class="v6-pil__base"></span><span class="v6-pil__lab"><small>Línea 1</small>Sector productivo y sanitario</span></button>
+                                <button type="button" class="v6-pil v6-pil--l2" data-v6-i="1"><span class="v6-pil__cap"></span><span class="v6-pil__shaft"><span class="v6-pil__ico"><span class="iconify" data-icon="lucide:heart-handshake" data-width="26"></span></span></span><span class="v6-pil__base"></span><span class="v6-pil__lab"><small>Línea 2</small>Proyección social y comunitaria</span></button>
+                                <button type="button" class="v6-pil v6-pil--l3" data-v6-i="2"><span class="v6-pil__cap"></span><span class="v6-pil__shaft"><span class="v6-pil__ico"><span class="iconify" data-icon="lucide:globe" data-width="26"></span></span></span><span class="v6-pil__base"></span><span class="v6-pil__lab"><small>Línea 3</small>Internacionalización y cooperación</span></button>
+                                <button type="button" class="v6-pil v6-pil--l4" data-v6-i="3"><span class="v6-pil__cap"></span><span class="v6-pil__shaft"><span class="v6-pil__ico"><span class="iconify" data-icon="lucide:graduation-cap" data-width="26"></span></span></span><span class="v6-pil__base"></span><span class="v6-pil__lab"><small>Línea 4</small>Graduados y educación continua</span></button>
                         </div>
-                        <div class="bg-white/85 dark:bg-black/50 p-5 rounded-2xl border-t-4 border-unad-orange shadow-sm hover-card flex flex-col">
-                            <span class="iconify text-unad-orange mb-2" data-icon="lucide:heart-handshake" data-width="32"></span>
-                            <h3 class="font-display font-bold text-sm text-unad-navy dark:text-white mb-1.5 uppercase tracking-wide">Línea 2</h3>
-                            <p class="text-sm text-gray-700 dark:text-gray-300 leading-relaxed font-medium">Proyección social y trabajo comunitario.</p>
-                        </div>
-                        <div class="bg-white/85 dark:bg-black/50 p-5 rounded-2xl border-t-4 border-unad-green shadow-sm hover-card flex flex-col">
-                            <span class="iconify text-unad-green mb-2" data-icon="lucide:globe" data-width="32"></span>
-                            <h3 class="font-display font-bold text-sm text-unad-navy dark:text-white mb-1.5 uppercase tracking-wide">Línea 3</h3>
-                            <p class="text-sm text-gray-700 dark:text-gray-300 leading-relaxed font-medium">Internacionalización y cooperación académica.</p>
-                        </div>
-                        <div class="bg-white/85 dark:bg-black/50 p-5 rounded-2xl border-t-4 border-unad-navy dark:border-t-gray-400 shadow-sm hover-card flex flex-col">
-                            <span class="iconify text-unad-navy dark:text-white mb-2" data-icon="lucide:graduation-cap" data-width="32"></span>
-                            <h3 class="font-display font-bold text-sm text-unad-navy dark:text-white mb-1.5 uppercase tracking-wide">Línea 4</h3>
-                            <p class="text-sm text-gray-700 dark:text-gray-300 leading-relaxed font-medium">Graduados y educación continua.</p>
+                        <div class="v6-temple__steps v5-in"><span><span class="iconify" data-icon="lucide:activity" data-width="16"></span> Seguimiento de resultados e impacto · dimensión transversal</span></div>
+                        <div class="v6-tdet v5-in">
+                            <div class="v6-tdet__p v6-tdet__p--l1" data-v6-i="0"><span class="v6-tdet__ico"><span class="iconify" data-icon="lucide:building-2" data-width="26"></span></span><div><p class="v5-k">Línea 1</p><p class="v6-tdet__a">Articulación productiva/sanitaria y escenarios de práctica.</p><p class="v5-b">Escenarios de práctica, cooperación técnica e investigación aplicada.</p></div></div>
+                            <div class="v6-tdet__p v6-tdet__p--l2" data-v6-i="1"><span class="v6-tdet__ico"><span class="iconify" data-icon="lucide:heart-handshake" data-width="26"></span></span><div><p class="v5-k">Línea 2</p><p class="v6-tdet__a">Proyección social y trabajo comunitario.</p><p class="v5-b">Educación sanitaria, bienestar animal y capacidades territoriales.</p></div></div>
+                            <div class="v6-tdet__p v6-tdet__p--l3" data-v6-i="2"><span class="v6-tdet__ico"><span class="iconify" data-icon="lucide:globe" data-width="26"></span></span><div><p class="v5-k">Línea 3</p><p class="v6-tdet__a">Internacionalización y cooperación académica.</p><p class="v5-b">Redes, movilidad, clases espejo y proyectos colaborativos.</p></div></div>
+                            <div class="v6-tdet__p v6-tdet__p--l4" data-v6-i="3"><span class="v6-tdet__ico"><span class="iconify" data-icon="lucide:graduation-cap" data-width="26"></span></span><div><p class="v5-k">Línea 4</p><p class="v6-tdet__a">Graduados y educación continua.</p><p class="v5-b">Seguimiento, retroalimentación y actualización profesional.</p></div></div>
                         </div>
                     </div>
                 </div>
@@ -892,56 +779,22 @@
 
     <!-- 15. Indicadores por línea (grid 4 cards) -->
     <section class="slide" data-title="Indicadores por Línea">
+        <!-- INDICADORES POR LÍNEA · css/c5-visual.css + css/c6-visual.css + js/c6-visual.js (ajuste 27-nov-2026; contenido sin cambios) -->
         <div class="glass-panel">
             <div class="gsap-reveal flex justify-between items-end border-b border-gray-200 dark:border-gray-700 pb-3 mb-4 shrink-0">
                 <h2 class="text-2xl md:text-3xl font-display font-bold text-unad-navy dark:text-white flex items-center gap-3">
-                    <span class="iconify text-unad-orange animate-bounce" data-icon="lucide:list-ordered" data-width="30"></span>
+                    <span class="iconify text-unad-orange" data-icon="lucide:list-ordered" data-width="30"></span>
                     Indicadores por línea del plan
                 </h2>
             </div>
-            <p class="gsap-reveal text-sm md:text-base text-center text-gray-700 dark:text-gray-300 mb-3">Los indicadores permiten seguir operación, pertinencia, participación y retroalimentación <strong>sin confundir actividad con impacto</strong>.</p>
-
-            <div class="flex-1 min-h-0 overflow-y-auto custom-scroll gsap-reveal pr-2">
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 items-stretch w-full">
-                    <div class="mini-card hover-card border-l-4 border-l-unad-teal flex-col">
-                        <div class="flex items-center gap-2 mb-2">
-                            <span class="iconify text-unad-teal" data-icon="lucide:building-2" data-width="26"></span>
-                            <h3 class="font-display font-bold text-unad-navy dark:text-white text-base">1. Sector productivo y sanitario</h3>
-                        </div>
-                        <p class="text-xs uppercase font-bold text-gray-500 dark:text-gray-400 mb-1">Mecanismos</p>
-                        <p class="text-sm text-gray-700 dark:text-gray-300 mb-2">Prácticas/pasantías, alianzas, proyectos con sector</p>
-                        <p class="text-xs uppercase font-bold text-gray-500 dark:text-gray-400 mb-1">Indicadores</p>
-                        <p class="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">Convenios vigentes/operativos; cobertura y evaluación de escenarios; proyectos colaborativos.</p>
-                    </div>
-                    <div class="mini-card hover-card border-l-4 border-l-unad-orange flex-col">
-                        <div class="flex items-center gap-2 mb-2">
-                            <span class="iconify text-unad-orange" data-icon="lucide:heart-handshake" data-width="26"></span>
-                            <h3 class="font-display font-bold text-unad-navy dark:text-white text-base">2. Proyección social y trabajo comunitario</h3>
-                        </div>
-                        <p class="text-xs uppercase font-bold text-gray-500 dark:text-gray-400 mb-1">Mecanismos</p>
-                        <p class="text-sm text-gray-700 dark:text-gray-300 mb-2">SISSU, SIDER, OIR, redes y proyectos comunitarios</p>
-                        <p class="text-xs uppercase font-bold text-gray-500 dark:text-gray-400 mb-1">Indicadores</p>
-                        <p class="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">Participación, resultados comunitarios, continuidad y seguimiento.</p>
-                    </div>
-                    <div class="mini-card hover-card border-l-4 border-l-unad-green flex-col">
-                        <div class="flex items-center gap-2 mb-2">
-                            <span class="iconify text-unad-green" data-icon="lucide:globe" data-width="26"></span>
-                            <h3 class="font-display font-bold text-unad-navy dark:text-white text-base">3. Internacionalización y cooperación</h3>
-                        </div>
-                        <p class="text-xs uppercase font-bold text-gray-500 dark:text-gray-400 mb-1">Mecanismos</p>
-                        <p class="text-sm text-gray-700 dark:text-gray-300 mb-2">UNAD Global, clases espejo, movilidad, expertos y redes</p>
-                        <p class="text-xs uppercase font-bold text-gray-500 dark:text-gray-400 mb-1">Indicadores</p>
-                        <p class="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">Actividades, alianzas, productos de cooperación y movilidad.</p>
-                    </div>
-                    <div class="mini-card hover-card border-l-4 border-l-unad-navy dark:border-l-gray-400 flex-col">
-                        <div class="flex items-center gap-2 mb-2">
-                            <span class="iconify text-unad-navy dark:text-white" data-icon="lucide:graduation-cap" data-width="26"></span>
-                            <h3 class="font-display font-bold text-unad-navy dark:text-white text-base">4. Graduados y educación continua</h3>
-                        </div>
-                        <p class="text-xs uppercase font-bold text-gray-500 dark:text-gray-400 mb-1">Mecanismos</p>
-                        <p class="text-sm text-gray-700 dark:text-gray-300 mb-2">SINEC, graduados y empleadores</p>
-                        <p class="text-xs uppercase font-bold text-gray-500 dark:text-gray-400 mb-1">Indicadores</p>
-                        <p class="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">Oferta basada en necesidades, participación y retroalimentación.</p>
+            <div class="min-h-0 overflow-y-auto custom-scroll gsap-reveal pr-2 flex flex-col" style="flex:1 1 auto">
+                <div class="v5 v6 my-auto">
+                    <p class="v5-lead v6-lead v5-in">Los indicadores permiten seguir operación, pertinencia, participación y retroalimentación <strong>sin confundir actividad con impacto</strong>.</p>
+                    <div class="v6-inds">
+                        <article class="v6-ind v6-ind--l1 v5-in"><div class="v6-ind__h"><span class="v6-ind__n">1</span><span class="v6-ind__ico"><span class="iconify" data-icon="lucide:building-2" data-width="24"></span></span><h3 class="v5-h">Sector productivo y sanitario</h3></div><div class="v6-ind__sec"><p class="v5-k"><span class="iconify" data-icon="lucide:settings-2" data-width="13"></span> Mecanismos</p><p class="v5-b">Prácticas/pasantías, alianzas, proyectos con sector</p></div><div class="v6-ind__sec v6-ind__sec--i"><p class="v5-k"><span class="iconify" data-icon="lucide:bar-chart-3" data-width="13"></span> Indicadores</p><p class="v5-b">Convenios vigentes/operativos; cobertura y evaluación de escenarios; proyectos colaborativos.</p></div></article>
+                        <article class="v6-ind v6-ind--l2 v5-in"><div class="v6-ind__h"><span class="v6-ind__n">2</span><span class="v6-ind__ico"><span class="iconify" data-icon="lucide:heart-handshake" data-width="24"></span></span><h3 class="v5-h">Proyección social y trabajo comunitario</h3></div><div class="v6-ind__sec"><p class="v5-k"><span class="iconify" data-icon="lucide:settings-2" data-width="13"></span> Mecanismos</p><p class="v5-b">SISSU, SIDER, OIR, redes y proyectos comunitarios</p></div><div class="v6-ind__sec v6-ind__sec--i"><p class="v5-k"><span class="iconify" data-icon="lucide:bar-chart-3" data-width="13"></span> Indicadores</p><p class="v5-b">Participación, resultados comunitarios, continuidad y seguimiento.</p></div></article>
+                        <article class="v6-ind v6-ind--l3 v5-in"><div class="v6-ind__h"><span class="v6-ind__n">3</span><span class="v6-ind__ico"><span class="iconify" data-icon="lucide:globe" data-width="24"></span></span><h3 class="v5-h">Internacionalización y cooperación</h3></div><div class="v6-ind__sec"><p class="v5-k"><span class="iconify" data-icon="lucide:settings-2" data-width="13"></span> Mecanismos</p><p class="v5-b">UNAD Global, clases espejo, movilidad, expertos y redes</p></div><div class="v6-ind__sec v6-ind__sec--i"><p class="v5-k"><span class="iconify" data-icon="lucide:bar-chart-3" data-width="13"></span> Indicadores</p><p class="v5-b">Actividades, alianzas, productos de cooperación y movilidad.</p></div></article>
+                        <article class="v6-ind v6-ind--l4 v5-in"><div class="v6-ind__h"><span class="v6-ind__n">4</span><span class="v6-ind__ico"><span class="iconify" data-icon="lucide:graduation-cap" data-width="24"></span></span><h3 class="v5-h">Graduados y educación continua</h3></div><div class="v6-ind__sec"><p class="v5-k"><span class="iconify" data-icon="lucide:settings-2" data-width="13"></span> Mecanismos</p><p class="v5-b">SINEC, graduados y empleadores</p></div><div class="v6-ind__sec v6-ind__sec--i"><p class="v5-k"><span class="iconify" data-icon="lucide:bar-chart-3" data-width="13"></span> Indicadores</p><p class="v5-b">Oferta basada en necesidades, participación y retroalimentación.</p></div></article>
                     </div>
                 </div>
             </div>
@@ -1206,5 +1059,8 @@
         });
     })();
 </script>
+<script src="js/c5-visual.js?v=4" defer></script>
+<script src="js/c6-colombia.js?v=1" defer></script>
+<script src="js/c6-visual.js?v=2" defer></script>
 </body>
 </html>
