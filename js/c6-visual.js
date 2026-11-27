@@ -27,15 +27,15 @@
         var gBase = document.createElementNS(NS, 'g'), gHi = document.createElementNS(NS, 'g'), gMk = document.createElementNS(NS, 'g');
         gMk.setAttribute('class', 'v6-map__mk');
         svg.appendChild(gBase); svg.appendChild(gHi);
-        var labels = [['Mar Caribe', 175, 75], ['Océano', 100, 352], ['Pacífico', 100, 372], ['Venezuela', 505, 200], ['Ecuador', 150, 585], ['Perú', 345, 672], ['Brasil', 560, 610]];
+        var labels = [['Mar Caribe', 262, 64], ['Océano', 100, 352], ['Pacífico', 100, 372], ['Venezuela', 505, 200], ['Ecuador', 150, 585], ['Perú', 345, 672], ['Brasil', 560, 610]];
         labels.forEach(function (l) {
             var t = document.createElementNS(NS, 'text');
             t.setAttribute('x', l[1]); t.setAttribute('y', l[2]); t.setAttribute('class', 'v6-map__sea');
             t.textContent = l[0]; svg.appendChild(t);
         });
-        var hiPaths = [];
+        var hiPaths = [], sapPath = null;
         G.deps.forEach(function (d) {
-            if (d[0] === 'sap') return;                     /* San Andrés fuera de encuadre */
+            if (d[0] === 'sap') { sapPath = d; return; }    /* se dibuja ampliado en un recuadro */
             var p = document.createElementNS(NS, 'path');
             p.setAttribute('d', d[2]);
             var t = document.createElementNS(NS, 'title'); t.textContent = d[1]; p.appendChild(t);
@@ -49,6 +49,23 @@
                 p.setAttribute('class', 'v6-map__dep'); gBase.appendChild(p);
             }
         });
+        /* Recuadro: Archipiélago de San Andrés, Providencia y Santa Catalina */
+        if (sapPath) {
+            var gi = document.createElementNS(NS, 'g'); gi.setAttribute('class', 'v6-map__inset');
+            var ks = -1; groups.forEach(function (g, gi2) { if (g.indexOf('sap') >= 0) ks = gi2; });
+            var cls = 'v6-map__dep' + (ks >= 0 ? ' is-hi' : '');
+            gi.innerHTML = '<rect class="v6-map__inbox" x="100" y="38" width="100" height="116" rx="8"/>' +
+                '<path class="' + cls + '" transform="translate(126,52) scale(11)" d="' + sapPath[2] + '"/>' +
+                '<path class="' + cls + '" d="M170 52 l4 -4 l4 1 l1.5 5 l-2.5 5 l-5 1 l-2.5 -4 z"/>' +
+                '<circle class="' + cls + '" cx="174" cy="45" r="2.2"/>' +
+                '<text class="v6-map__inl" x="158" y="104">San Andrés</text><text class="v6-map__inl" x="166" y="72">Providencia y</text><text class="v6-map__inl" x="166" y="80">Santa Catalina</text>' +
+                '<text class="v6-map__intx" x="150" y="122">San Andrés,</text>' +
+                '<text class="v6-map__intx" x="150" y="133">Providencia y</text>' +
+                '<text class="v6-map__intx" x="150" y="144">Santa Catalina</text>';
+            if (ks >= 0) Array.prototype.forEach.call(gi.querySelectorAll('.is-hi'), function (el) { el.setAttribute('data-v6-i', ks); });
+            var tt = document.createElementNS(NS, 'title'); tt.textContent = 'San Andrés, Providencia y Santa Catalina'; gi.appendChild(tt);
+            svg.appendChild(gi);
+        }
         svg.appendChild(gMk);
         /* N */
         var n = document.createElementNS(NS, 'g'); n.setAttribute('class', 'v6-map__north');

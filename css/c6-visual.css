@@ -404,3 +404,11 @@
 .v6-city__t { font-size: 22px; stroke-width: 5px; }
 .v6-city.is-on .v6-city__t { font-size: 26px; }
 .v6-city__dot { r: 7px; }
+/* Recuadro del archipiélago de San Andrés, Providencia y Santa Catalina */
+.v6-map__inbox { fill: rgba(205,232,239,.55); stroke: #5b8aa6; stroke-width: 1.4; stroke-dasharray: 4 3; }
+.dark .v6-map__inbox { fill: rgba(80,170,200,.12); stroke: #8fbcd6; }
+.v6-map__inset .v6-map__dep { stroke-width: .25; }
+.v6-map__inset path[transform].v6-map__dep { stroke-width: .15; }
+.v6-map__intx { font: 800 10px 'Inter', sans-serif; fill: #01333F; text-anchor: middle; }
+.v6-map__inl { font: 600 8px 'Inter', sans-serif; fill: #3d5a66; text-anchor: middle; font-style: italic; }
+.dark .v6-map__intx { fill: #fff; } .dark .v6-map__inl { fill: #b9cacb; }

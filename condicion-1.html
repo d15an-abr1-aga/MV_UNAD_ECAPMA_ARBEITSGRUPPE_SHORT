@@ -23,6 +23,10 @@
 <!-- Sistema visual común -->
 <link rel="stylesheet" href="css/nav.css" />
 <link rel="stylesheet" href="css/presentacion.css" />
+<link rel="stylesheet" href="css/c5-visual.css?v=5" />
+<link rel="stylesheet" href="css/c6-visual.css?v=4" />
+<link rel="stylesheet" href="css/c123-visual.css?v=1" />
+<link rel="stylesheet" href="css/c1-visual.css?v=1" />
 <script src="js/nav.js" defer></script>
 </head>
 <body>
@@ -115,119 +119,47 @@
 
     <!-- Diapositiva 2: Equipo Curricular 1/2 (Perfiles 1 al 5) -->
 <section class="slide" data-title="Equipo Curricular (1/2)">
+        <!-- EQUIPO CURRICULAR (sin numeración de slide) · capa visual c5/c6-visual.css + c123-visual.css (ajuste 27-nov-2026; contenido sin cambios) -->
     <div class="glass-panel">
         <div class="slide-head gsap-reveal">
             <h2 class="role-title text-unad-navy dark:text-white">
-                <span class="iconify text-unad-orange animate-bounce" data-icon="lucide:users" data-width="32"></span>
-                Equipo curricular (1/2)
+                <span class="iconify text-unad-orange" data-icon="lucide:users" data-width="32"></span>
+                Equipo curricular
             </h2>
             <span class="t-caption text-gray-500 font-semibold uppercase tracking-wider">Decano + Líder + Perfiles 1 al 4</span>
         </div>
-
-        <div class="flex-1 min-h-0 overflow-y-auto custom-scroll gsap-reveal pr-2 flex flex-col justify-center">
-            <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-5 items-stretch w-full">
-                <!-- DECANO · Jordano Salamanca Bastidas -->
-                <article class="profile-card profile-card--leader hover-card bg-white/85 dark:bg-black/50 rounded-2xl border-t-4 border-unad-navy shadow-md overflow-hidden">
-                    <div class="p-3 pb-2">
-                        <div class="profile-card__photo">
-                            <span class="profile-card__badge">
-                                <span class="iconify" data-icon="lucide:shield-check" data-width="10"></span>
-                                Decano
-                            </span>
-                            <button type="button" class="img-zoom-trigger" data-image-zoom="Decano.jpg" data-image-alt="Jordno Salamanca Bastidas" data-image-title="Jordno Salamanca Bastidas" data-image-label="Equipo curricular" data-image-icon="lucide:user"><img src="Decano.jpg" alt="Jordno Salamanca Bastidas"></button>
-                        </div>
+            <div class="min-h-0 overflow-y-auto custom-scroll gsap-reveal pr-2 flex flex-col v123-body" style="flex:1 1 auto">
+                <div class="v5 v6 v123 my-auto">
+                    <div class="v1-team v1-team--6"><article class="v1-prof v5-in v1-prof--lead">
+                            <button type="button" class="img-zoom-trigger v1-prof__ph" data-image-zoom="Decano.jpg" data-image-alt="Jordano Salamanca Bastidas" data-image-title="Jordano Salamanca Bastidas" data-image-label="Equipo curricular" data-image-icon="lucide:user"><img src="Decano.jpg" alt="Jordano Salamanca Bastidas"></button>
+                            <span class="v1-prof__badge"><span class="iconify" data-icon="lucide:shield-check" data-width="12"></span> Decano</span><h3 class="v5-h">Jordano Salamanca Bastidas</h3>
+                            <p class="v5-b">Decano de la Escuela de Ciencias Agrícolas, Pecuarias y del Medio Ambiente - ECAPMA.</p>
+                        </article><article class="v1-prof v5-in v1-prof--lead">
+                            <button type="button" class="img-zoom-trigger v1-prof__ph" data-image-zoom="docente3.png" data-image-alt="Viviana Vanadia Villamil Reyes" data-image-title="Viviana Vanadia Villamil Reyes" data-image-label="Equipo curricular" data-image-icon="lucide:user"><img src="docente3.png" alt="Viviana Vanadia Villamil Reyes"></button>
+                            <span class="v1-prof__badge"><span class="iconify" data-icon="lucide:star" data-width="12"></span> Líder del Programa</span><h3 class="v5-h">Viviana Vanadia Villamil Reyes</h3>
+                            <p class="v5-b">Médica Veterinaria, <strong>MSc. Salud Animal</strong> de la Universidad Nacional de Colombia. Línea de profundización en <strong>Virología Animal</strong>.</p>
+                        </article><article class="v1-prof v5-in">
+                            <button type="button" class="img-zoom-trigger v1-prof__ph" data-image-zoom="docente2.png" data-image-alt="Ximena María Guzmán Perlaza" data-image-title="Ximena María Guzmán Perlaza" data-image-label="Equipo curricular" data-image-icon="lucide:user"><img src="docente2.png" alt="Ximena María Guzmán Perlaza"></button>
+                            <h3 class="v5-h">Ximena María Guzmán Perlaza</h3>
+                            <p class="v5-b">Zootecnista universidad UNAL · Especialista en Mercadeo universidad ICESI · Magister en Agronegocios universidad UNAD</p>
+                        </article><article class="v1-prof v5-in">
+                            <button type="button" class="img-zoom-trigger v1-prof__ph" data-image-zoom="docente5.png" data-image-alt="David Leonardo Sanabria García" data-image-title="David Leonardo Sanabria García" data-image-label="Equipo curricular" data-image-icon="lucide:user"><img src="docente5.png" alt="David Leonardo Sanabria García"></button>
+                            <h3 class="v5-h">David Leonardo Sanabria García</h3>
+                            <p class="v5-b">Médico Veterinario Zootecnista de la Universidad Pedagógica y Tecnológica de Colombia · Agrónomo y estudiante de la Maestría en Geoinformación del Territorio de la Universidad Nacional Abierta y a Distancia (UNAD).</p>
+                        </article><article class="v1-prof v5-in">
+                            <button type="button" class="img-zoom-trigger v1-prof__ph" data-image-zoom="docente10.png" data-image-alt="Isabel Guerrero Naudín" data-image-title="Isabel Guerrero Naudín" data-image-label="Equipo curricular" data-image-icon="lucide:user"><img src="docente10.png" alt="Isabel Guerrero Naudín"></button>
+                            <h3 class="v5-h">Isabel Guerrero Naudín</h3>
+                            <p class="v5-b">Médica veterinaria · Esp. Geriatría y atención del paciente geronte · Magister en Bioética.</p>
+                        </article><article class="v1-prof v5-in">
+                            <button type="button" class="img-zoom-trigger v1-prof__ph" data-image-zoom="docente6.png" data-image-alt="Lourdes Elvira Rodríguez Guzmán" data-image-title="Lourdes Elvira Rodríguez Guzmán" data-image-label="Equipo curricular" data-image-icon="lucide:user"><img src="docente6.png" alt="Lourdes Elvira Rodríguez Guzmán"></button>
+                            <h3 class="v5-h">Lourdes Elvira Rodríguez Guzmán</h3>
+                            <p class="v5-b">Médica Veterinaria Zootecnista · Esp. Docencia Universitaria · MSc. Educación · MSc. Producción Animal Tropical (Salud Animal) · Doctorado en Proyectos.</p>
+                        </article>
                     </div>
-                    <div class="px-4 pb-4 flex flex-col flex-1">
-                        <h3 class="font-display font-bold t-small text-unad-navy dark:text-white mb-1.5 leading-snug">Jordano Salamanca Bastidas</h3>
-                        <p class="t-caption text-gray-700 dark:text-gray-300 leading-relaxed flex-1">
-                            Decano de la Escuela de Ciencias Agrícolas, Pecuarias y del Medio Ambiente - ECAPMA.
-                        </p>
-                    </div>
-                </article>
-
-                <!-- LÍDER · Viviana Vanadia Villamil Reyes (DESTACADA) -->
-                <article class="profile-card profile-card--leader hover-card bg-white/85 dark:bg-black/50 rounded-2xl border-t-4 border-unad-orange shadow-md overflow-hidden">
-                    <div class="p-3 pb-2">
-                        <div class="profile-card__photo">
-                            <span class="profile-card__badge">
-                                <span class="iconify" data-icon="lucide:star" data-width="10"></span>
-                                Líder del Programa
-                            </span>
-                            <button type="button" class="img-zoom-trigger" data-image-zoom="docente3.png" data-image-alt="Viviana Vanadia Villamil Reyes " data-image-title="Viviana Vanadia Villamil Reyes " data-image-label="Equipo curricular" data-image-icon="lucide:user"><img src="docente3.png" alt="Viviana Vanadia Villamil Reyes "></button>
-                        </div>
-                    </div>
-                    <div class="px-4 pb-4 flex flex-col flex-1">
-                        <h3 class="font-display font-bold t-small text-unad-navy dark:text-white mb-1.5 leading-snug">Viviana Vanadia Villamil Reyes</h3>
-                        <p class="t-caption text-gray-700 dark:text-gray-300 leading-relaxed flex-1">
-                            Médica Veterinaria, <strong>MSc. Salud Animal</strong> de la Universidad Nacional de Colombia. Línea de profundización en <strong>Virología Animal</strong>.
-                        </p>
-                    </div>
-                </article>
-
-                <!-- Ximena María Guzmán Perlaza -->
-                <article class="profile-card hover-card bg-white/85 dark:bg-black/50 rounded-2xl border-t-4 border-unad-teal shadow-sm overflow-hidden">
-                    <div class="p-3 pb-2">
-                        <div class="profile-card__photo">
-                            <button type="button" class="img-zoom-trigger" data-image-zoom="docente2.png" data-image-alt="Ximena Maria Guzman Perlaza" data-image-title="Ximena Maria Guzman Perlaza" data-image-label="Equipo curricular" data-image-icon="lucide:user"><img src="docente2.png" alt="Ximena Maria Guzman Perlaza"></button>
-                        </div>
-                    </div>
-                    <div class="px-4 pb-4 flex flex-col flex-1">
-                        <h3 class="font-display font-bold t-small text-unad-navy dark:text-white mb-1.5 leading-snug">Ximena María Guzmán Perlaza</h3>
-                        <p class="t-caption text-gray-700 dark:text-gray-300 leading-relaxed flex-1">
-                            Zootecnista universidad UNAL · Especialista en Mercadeo universidad ICESI · Magister en Agronegocios universidad UNAD
-                        </p>
-                    </div>
-                </article>
-
-                <!-- David Leonardo Sanabria García -->
-                <article class="profile-card hover-card bg-white/85 dark:bg-black/50 rounded-2xl border-t-4 border-unad-teal shadow-sm overflow-hidden">
-                    <div class="p-3 pb-2">
-                        <div class="profile-card__photo">
-                            <button type="button" class="img-zoom-trigger" data-image-zoom="docente5.png" data-image-alt="David Leonardo Sanabria García" data-image-title="David Leonardo Sanabria García" data-image-label="Equipo curricular" data-image-icon="lucide:user"><img src="docente5.png" alt="David Leonardo Sanabria García"></button>
-                        </div> 
-                    </div>
-                    <div class="px-4 pb-4 flex flex-col flex-1">
-                        <h3 class="font-display font-bold t-small text-unad-navy dark:text-white mb-1.5 leading-snug">David Leonardo Sanabria García</h3>
-                        <p class="t-caption text-gray-700 dark:text-gray-300 leading-relaxed flex-1">
-                            Médico Veterinario Zootecnista de la Universidad Pedagógica y Tecnológica de Colombia · Agrónomo y estudiante de la Maestría en Geoinformación del Territorio de la Universidad Nacional Abierta y a Distancia (UNAD).
-                        </p>
-                    </div>
-                </article>
-
-                <!-- Isabel Guerrero Naudín -->
-                <article class="profile-card hover-card bg-white/85 dark:bg-black/50 rounded-2xl border-t-4 border-unad-teal shadow-sm overflow-hidden">
-                    <div class="p-3 pb-2">
-                        <div class="profile-card__photo">
-                            <button type="button" class="img-zoom-trigger" data-image-zoom="docente10.png" data-image-alt="Isabel Guerrero Naudín" data-image-title="Isabel Guerrero Naudín" data-image-label="Equipo curricular" data-image-icon="lucide:user"><img src="docente10.png" alt="Isabel Guerrero Naudín"></button>
-                        </div>
-                    </div>
-                    <div class="px-4 pb-4 flex flex-col flex-1">
-                        <h3 class="font-display font-bold t-small text-unad-navy dark:text-white mb-1.5 leading-snug">Isabel Guerrero Naudín</h3>
-                        <p class="t-caption text-gray-700 dark:text-gray-300 leading-relaxed flex-1">
-                            Médica veterinaria · Esp. Geriatría y atención del paciente geronte · Magister en Bioética.
-                        </p>
-                    </div>
-                </article>
-
-                <!-- Lourdes Elvira Rodríguez Guzmán -->
-                <article class="profile-card hover-card bg-white/85 dark:bg-black/50 rounded-2xl border-t-4 border-unad-teal shadow-sm overflow-hidden">
-                    <div class="p-3 pb-2">
-                        <div class="profile-card__photo">
-                            <button type="button" class="img-zoom-trigger" data-image-zoom="docente6.png" data-image-alt="Lourdes Elvira Rodríguez Guzmán" data-image-title="Lourdes Elvira Rodríguez Guzmán" data-image-label="Equipo curricular" data-image-icon="lucide:user"><img src="docente6.png" alt="Lourdes Elvira Rodríguez Guzmán"></button>
-                        </div>
-                    </div>
-                    <div class="px-4 pb-4 flex flex-col flex-1">
-                        <h3 class="font-display font-bold t-small text-unad-navy dark:text-white mb-1.5 leading-snug">Lourdes Elvira Rodríguez Guzmán</h3>
-                        <p class="t-caption text-gray-700 dark:text-gray-300 leading-relaxed flex-1">
-                            Médica Veterinaria Zootecnista · Esp. Docencia Universitaria · MSc. Educación · MSc. Producción Animal Tropical (Salud Animal) · Doctorado en Proyectos.
-                        </p>
-                    </div>
-                </article>
-
+                </div>
             </div>
-        </div>
 
-        <div class="par-footer gsap-reveal">
+            <div class="par-footer gsap-reveal">
             <div class="par-box par-box--criterio">
                 <h4><span class="iconify" data-icon="lucide:alert-circle" data-width="18"></span> Criterio del Par Académico</h4>
                 <p>Evaluar idoneidad y trayectoria del equipo formulador del programa.</p>
@@ -242,111 +174,43 @@
 
     <!-- Diapositiva 3: Equipo Curricular 2/2 (Perfiles 6 al 10) -->
 <section class="slide" data-title="Equipo Curricular (2/2)">
+        <!-- EQUIPO CURRICULAR (sin numeración de slide) · capa visual c5/c6-visual.css + c123-visual.css (ajuste 27-nov-2026; contenido sin cambios) -->
     <div class="glass-panel">
         <div class="slide-head gsap-reveal">
             <h2 class="role-title text-unad-navy dark:text-white">
-                <span class="iconify text-unad-teal animate-pulse" data-icon="lucide:users" data-width="32"></span>
-                Equipo curricular (2/2)
+                <span class="iconify text-unad-teal" data-icon="lucide:users" data-width="32"></span>
+                Equipo curricular
             </h2>
             <span class="t-caption text-gray-500 font-semibold uppercase tracking-wider">Perfiles 5 al 9</span>
         </div>
-
-        <div class="flex-1 min-h-0 overflow-y-auto custom-scroll gsap-reveal pr-2 flex flex-col justify-center">
-            <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-5 items-stretch w-full">
-                <!-- Danilo Bonilla Trujillo -->
-                <article class="profile-card hover-card bg-white/85 dark:bg-black/50 rounded-2xl border-t-4 border-unad-teal shadow-sm overflow-hidden">
-                    <div class="p-3 pb-2">
-                        <div class="profile-card__photo">
-                            <button type="button" class="img-zoom-trigger" data-image-zoom="docente1.png" data-image-alt="Danilo Bonilla Trujillo" data-image-title="Danilo Bonilla Trujillo" data-image-label="Equipo curricular" data-image-icon="lucide:user"><img src="docente1.png" alt="Danilo Bonilla Trujillo"></button>
-                        </div>
+            <div class="min-h-0 overflow-y-auto custom-scroll gsap-reveal pr-2 flex flex-col v123-body" style="flex:1 1 auto">
+                <div class="v5 v6 v123 my-auto">
+                    <div class="v1-team v1-team--5"><article class="v1-prof v5-in">
+                            <button type="button" class="img-zoom-trigger v1-prof__ph" data-image-zoom="docente1.png" data-image-alt="Danilo Bonilla Trujillo" data-image-title="Danilo Bonilla Trujillo" data-image-label="Equipo curricular" data-image-icon="lucide:user"><img src="docente1.png" alt="Danilo Bonilla Trujillo"></button>
+                            <h3 class="v5-h">Danilo Bonilla Trujillo</h3>
+                            <p class="v5-b">Médico Veterinario Zootecnista · Esp. Pedagogía para el Desarrollo del Aprendizaje Autónomo · MSc. Ciencias Pecuarias (Ecofisiología y Ganadería Ecológica) · Diplomado Gestor de Curso en Ambientes Virtuales.</p>
+                        </article><article class="v1-prof v5-in">
+                            <button type="button" class="img-zoom-trigger v1-prof__ph" data-image-zoom="docente4.png" data-image-alt="Heisson Sneider Téllez Gamba" data-image-title="Heisson Sneider Téllez Gamba" data-image-label="Equipo curricular" data-image-icon="lucide:user"><img src="docente4.png" alt="Heisson Sneider Téllez Gamba"></button>
+                            <h3 class="v5-h">Heisson Sneider Téllez Gamba</h3>
+                            <p class="v5-b">Estudiante de Doctorado en Educación - UTEL México (En curso) · Magister en Educación y Docencia – UTEL México · Especialista en Nutrición Animal - Universidad Nacional Abierta y a Distancia · Medico Veterinario - IUDC (En curso) · Zootecnista - Universidad Nacional de Colombia sede Bogotá</p>
+                        </article><article class="v1-prof v5-in">
+                            <button type="button" class="img-zoom-trigger v1-prof__ph" data-image-zoom="docente8.png" data-image-alt="Paola Alvarado" data-image-title="Paola Alvarado" data-image-label="Equipo curricular" data-image-icon="lucide:user"><img src="docente8.png" alt="Paola Alvarado"></button>
+                            <h3 class="v5-h">Paola Alvarado</h3>
+                            <p class="v5-b">Médica Veterinaria · Maestría en Producción Animal, línea de investigación en Fisiología de la Reproducción, con énfasis en ovinos.</p>
+                        </article><article class="v1-prof v5-in">
+                            <button type="button" class="img-zoom-trigger v1-prof__ph" data-image-zoom="docente7.png" data-image-alt="Eustorgio Cardenas" data-image-title="Eustorgio Cardenas" data-image-label="Equipo curricular" data-image-icon="lucide:user"><img src="docente7.png" alt="Eustorgio Cardenas"></button>
+                            <h3 class="v5-h">Eustorgio Cardenas</h3>
+                            <p class="v5-b">Médico Veterinario egresado de la Universidad de Pamplona · Esp. Mejoramiento Genético de la Universidad Nacional Abierta y a Distancia (UNAD) · Magíster (C) en Epidemiología (Fundación Universitaria del Área Andina).</p>
+                        </article><article class="v1-prof v5-in">
+                            <button type="button" class="img-zoom-trigger v1-prof__ph" data-image-zoom="Aseguramiento.jpg" data-image-alt="Linda Jeimmy Rincon Rivera" data-image-title="Linda Jeimmy Rincon Rivera" data-image-label="Equipo curricular" data-image-icon="lucide:user"><img src="Aseguramiento.jpg" alt="Linda Jeimmy Rincon Rivera"></button>
+                            <h3 class="v5-h">Linda Jeimmy Rincon Rivera</h3>
+                            <p class="v5-b">Líder de Aseguramiento de la Calidad de la Escuela de Ciencias Agrícolas, Pecuarias y del Medio Ambiente - ECAPMA.</p>
+                        </article>
                     </div>
-                    <div class="px-4 pb-4 flex flex-col flex-1">
-                        <h3 class="font-display font-bold t-small text-unad-navy dark:text-white mb-1.5 leading-snug">Danilo Bonilla Trujillo</h3>
-                        <p class="t-caption text-gray-700 dark:text-gray-300 leading-relaxed flex-1">
-                            Médico Veterinario Zootecnista · Esp. Pedagogía para el Desarrollo del Aprendizaje Autónomo · MSc. Ciencias Pecuarias (Ecofisiología y Ganadería Ecológica) · Diplomado Gestor de Curso en Ambientes Virtuales.
-                        </p>
-                    </div>
-                </article>
-
-                <!-- Heisson Sneider Téllez Gamba -->
-                <article class="profile-card hover-card bg-white/85 dark:bg-black/50 rounded-2xl border-t-4 border-unad-teal shadow-sm overflow-hidden">
-                    <div class="p-3 pb-2">
-                        <div class="profile-card__photo">
-                            <button type="button" class="img-zoom-trigger" data-image-zoom="docente4.png" data-image-alt="Heisson Sneider Tellez Gamba" data-image-title="Heisson Sneider Tellez Gamba" data-image-label="Equipo curricular" data-image-icon="lucide:user"><img src="docente4.png" alt="Heisson Sneider Tellez Gamba"></button>
-                        </div>
-                    </div>
-                    <div class="px-4 pb-4 flex flex-col flex-1">
-                        <h3 class="font-display font-bold t-small text-unad-navy dark:text-white mb-1.5 leading-snug">Heisson Sneider Téllez Gamba</h3>
-                        <p class="t-caption text-gray-700 dark:text-gray-300 leading-relaxed flex-1">
-                            Estudiante de Doctorado en Educación - UTEL México (En curso) · Magister en Educación y Docencia – UTEL México · Especialista en Nutrición Animal - Universidad Nacional Abierta y a Distancia · Medico Veterinario - IUDC (En curso) · Zootecnista - Universidad Nacional de Colombia sede Bogotá
-                        </p>
-                    </div>
-                </article>
-
-                <!-- Paola Alvarado -->
-                <article class="profile-card hover-card bg-white/85 dark:bg-black/50 rounded-2xl border-t-4 border-unad-teal shadow-sm overflow-hidden">
-                    <div class="p-3 pb-2">
-                        <div class="profile-card__photo">
-                            <button type="button" class="img-zoom-trigger" data-image-zoom="docente8.png" data-image-alt="Paola Alvarado" data-image-title="Paola Alvarado" data-image-label="Equipo curricular" data-image-icon="lucide:user"><img src="docente8.png" alt="Paola Alvarado"></button>
-                        </div>
-                    </div>
-                    <div class="px-4 pb-4 flex flex-col flex-1">
-                        <h3 class="font-display font-bold t-small text-unad-navy dark:text-white mb-1.5 leading-snug">Paola Alvarado</h3>
-                        <p class="t-caption text-gray-700 dark:text-gray-300 leading-relaxed flex-1">
-                            Médica Veterinaria · Maestría en Producción Animal, línea de investigación en Fisiología de la Reproducción, con énfasis en ovinos.
-                        </p>
-                    </div>
-                </article>
-
-                <!-- Eustorgio Cardenas -->
-                <article class="profile-card hover-card bg-white/85 dark:bg-black/50 rounded-2xl border-t-4 border-unad-teal shadow-sm overflow-hidden">
-                    <div class="p-3 pb-2">
-                        <div class="profile-card__photo">
-                            <button type="button" class="img-zoom-trigger" data-image-zoom="docente7.png" data-image-alt="Eustorgio Cardenas" data-image-title="Eustorgio Cardenas" data-image-label="Equipo curricular" data-image-icon="lucide:user"><img src="docente7.png" alt="Eustorgio Cardenas"></button>
-                        </div>
-                    </div>
-                    <div class="px-4 pb-4 flex flex-col flex-1">
-                        <h3 class="font-display font-bold t-small text-unad-navy dark:text-white mb-1.5 leading-snug">Eustorgio Cardenas</h3>
-                        <p class="t-caption text-gray-700 dark:text-gray-300 leading-relaxed flex-1">
-                            Médico Veterinario egresado de la Universidad de Pamplona · Esp. Mejoramiento Genético de la Universidad Nacional Abierta y a Distancia (UNAD) · Magíster (C) en Epidemiología (Fundación Universitaria del Área Andina).
-                        </p>
-                    </div>
-                </article>
-
-                <!-- Angela P. Jiménez Mora
-                <article class="profile-card hover-card bg-white/85 dark:bg-black/50 rounded-2xl border-t-4 border-unad-teal shadow-sm overflow-hidden">
-                    <div class="p-3 pb-2">
-                        <div class="profile-card__photo">
-                            <button type="button" class="img-zoom-trigger" data-image-zoom="docente9.png" data-image-alt="Angela P. Jiménez Mora" data-image-title="Angela P. Jiménez Mora" data-image-label="Equipo curricular" data-image-icon="lucide:user"><img src="docente9.png" alt="Angela P. Jiménez Mora"></button>
-                        </div>
-                    </div>
-                    <div class="px-4 pb-4 flex flex-col flex-1">
-                        <h3 class="font-display font-bold t-small text-unad-navy dark:text-white mb-1.5 leading-snug">Angela P. Jiménez Mora</h3>
-                        <p class="t-caption text-gray-700 dark:text-gray-300 leading-relaxed flex-1">
-                            MV Universidad Nacional de Colombia · MSc. Ciencias – Biotecnología (Enfermedades Infecciosas) · Diplomado Epidemiología Clínica y Salud Pública (Javeriana) · Certified Cat-friendly Practitioner · WSAVA · Research Intern, University of Wisconsin–Madison.
-                        </p>
-                    </div>
-                </article> -->
-
-                <!-- Linda Jeimmy Rincon Rivera -->
-                <article class="profile-card hover-card bg-white/85 dark:bg-black/50 rounded-2xl border-t-4 border-unad-teal shadow-sm overflow-hidden">
-                    <div class="p-3 pb-2">
-                        <div class="profile-card__photo">
-                            <button type="button" class="img-zoom-trigger" data-image-zoom="Aseguramiento.jpg" data-image-alt="Linda Jeimmy Rincon Rivera" data-image-title="Linda Jeimmy Rincon Rivera" data-image-label="Equipo curricular" data-image-icon="lucide:user"><img src="Aseguramiento.jpg" alt="Linda Jeimmy Rincon Rivera"></button>
-                        </div>
-                    </div>
-                    <div class="px-4 pb-4 flex flex-col flex-1">
-                        <h3 class="font-display font-bold t-small text-unad-navy dark:text-white mb-1.5 leading-snug">Linda Jeimmy Rincon Rivera</h3>
-                        <p class="t-caption text-gray-700 dark:text-gray-300 leading-relaxed flex-1">
-                            Líder de Aseguramiento de la Calidad de la Escuela de Ciencias Agrícolas, Pecuarias y del Medio Ambiente - ECAPMA.
-                        </p>
-                    </div>
-                </article>
-
+                </div>
             </div>
-        </div>
 
-        <div class="par-footer gsap-reveal">
+            <div class="par-footer gsap-reveal">
             <div class="par-box par-box--criterio">
                 <h4><span class="iconify" data-icon="lucide:alert-circle" data-width="18"></span> Criterio del Par Académico</h4>
                 <p>Evaluar idoneidad y trayectoria del equipo formulador del programa.</p>
@@ -361,62 +225,29 @@
 
     <!-- Diapositiva 6: Tabla 1.1 Alineación taxonómica -->
     <section class="slide" data-accent="navy" data-title="Alineación Taxonómica">
+        <!-- ALINEACIÓN TAXONÓMICA Y LEGAL · capa visual c5/c6-visual.css + c123-visual.css (ajuste 27-nov-2026; contenido sin cambios) -->
         <div class="glass-panel">
             <div class="slide-head gsap-reveal">
                 <h2 class="role-title text-unad-navy dark:text-white">
-                    <span class="iconify text-unad-orange animate-pulse" data-icon="lucide:table" data-width="28"></span>
+                    <span class="iconify text-unad-orange" data-icon="lucide:table" data-width="28"></span>
                     Alineación taxonómica y legal de la denominación del programa
                 </h2>
             </div>
-            <div class="flex-1 overflow-y-auto custom-scroll gsap-reveal bg-white/80 dark:bg-black/50 rounded-xl border border-gray-200 dark:border-gray-700">
-                <table class="styled-table w-full">
-                    <thead>
-                        <tr>
-                            <th class="w-1/5">Criterio de Clasificación</th>
-                            <th class="w-1/5">Registro / Código</th>
-                            <th>Sustentación Académica y Legal</th>
-                        </tr>
-                    </thead>
-                    <tbody class="text-gray-800 dark:text-gray-200">
-                        <tr>
-                            <td class="font-bold">Denominación Pura</td>
-                            <td class="font-medium text-unad-teal dark:text-unad-orange">Medicina Veterinaria</td>
-                            <td>Corresponde a una denominación disciplinar específica reconocida nacional e internacionalmente, orientada al estudio, prevención, diagnóstico, tratamiento y control de las enfermedades animales, así como a la protección de la salud pública veterinaria y el bienestar animal. Su alcance se articula con el enfoque <strong>One Health (Una Sola Salud)</strong>, el cual reconoce la interdependencia entre la salud animal, humana y ambiental (OMS, FAO, PNUMA y OMSA, 2022; OMSA, 2024).</td>
-                        </tr>
-                        <tr>
-                            <td class="font-bold">Nivel de Formación</td>
-                            <td>Pregrado Universitario</td>
-                            <td>Corresponde al nivel profesional definido en el Artículo 11 de la Ley 30 de 1992, orientado a la formación integral para el ejercicio autónomo de una profesión regulada, con competencias científicas, técnicas y éticas.</td>
-                        </tr>
-                        <tr>
-                            <td class="font-bold">Título a Otorgar</td>
-                            <td>Médico(a) Veterinario(a)</td>
-                            <td>El título mantiene correspondencia directa, unívoca y coherente con la denominación del programa y con las competencias profesionales que desarrolla. Su ejercicio se encuentra enmarcado por las disposiciones éticas y deontológicas establecidas en la <strong>Ley 576 de 2000</strong> (Congreso de Colombia, 2000).</td>
-                        </tr>
-                        <tr>
-                            <td class="font-bold">Regulación Profesional</td>
-                            <td>Ley 73 de 1985 · Decreto 1122 de 1988 · Ley 576 de 2000</td>
-                            <td>Estas disposiciones reconocen y regulan de manera diferenciada la Medicina Veterinaria, la Medicina Veterinaria y Zootecnia y la Zootecnia, y establecen disposiciones relacionadas con su ejercicio y responsabilidad ética (Congreso de Colombia, 1985, 2000; Presidencia de la República de Colombia, 1988).</td>
-                        </tr>
-                        <tr>
-                            <td class="font-bold">Clasificación CINE-F 2013</td>
-                            <td><strong>Campo específico</strong>: 0841 (Veterinaria)</td>
-                            <td>La denominación se clasifica en el campo específico <strong>0841 Veterinaria</strong> de la <strong>Clasificación Internacional Normalizada de la Educación (CINE-F 2013)</strong>, adoptada por Colombia para fines estadísticos y de aseguramiento de calidad (UNESCO, 2015; DANE, 2023).</td>
-                        </tr>
-                        <tr>
-                            <td class="font-bold">Clasificación CUOC (2022)</td>
-                            <td><strong>Código de Ocupación</strong>: 22500</td>
-                            <td>El programa se asocia a la ocupación <strong>22500 - Veterinarios</strong>, establecida en la <strong>Clasificación Única de Ocupaciones para Colombia (CUOC)</strong>, facilitando su reconocimiento en el mercado laboral nacional (DANE, 2022).</td>
-                        </tr>
-                        <tr>
-                            <td class="font-bold">Modalidad</td>
-                            <td>Híbrida (presencial - virtual)</td>
-                            <td>Integra ambientes virtuales de aprendizaje y actividades presenciales obligatorias de acuerdo con los resultados de aprendizaje y las competencias profesionales del programa, en concordancia con el <strong>MHUS 5.0</strong> (Consejo Superior Universitario de la Universidad Nacional Abierta y a Distancia, 2025).</td>
-                        </tr>
-                    </tbody>
-                </table>
+            <div class="min-h-0 overflow-y-auto custom-scroll gsap-reveal pr-2 flex flex-col v123-body" style="flex:1 1 auto">
+                <div class="v5 v6 v123 my-auto">
+                    <div class="v1-taxes"><div class="v1-taxes__head v5-in"><span>Criterio de Clasificación</span><span>Registro / Código</span><span>Sustentación Académica y Legal</span></div>
+                        <article class="v1-tax v1-tax--unad v5-in"><div class="v1-tax__h"><span class="v1-tax__ico"><span class="iconify" data-icon="lucide:tag" data-width="20"></span></span><div><p class="v5-k">Denominación Pura</p><p class="v1-tax__v">Medicina Veterinaria</p></div></div><p class="v5-b">Corresponde a una denominación disciplinar específica reconocida nacional e internacionalmente, orientada al estudio, prevención, diagnóstico, tratamiento y control de las enfermedades animales, así como a la protección de la salud pública veterinaria y el bienestar animal. Su alcance se articula con el enfoque <strong>One Health (Una Sola Salud)</strong>, el cual reconoce la interdependencia entre la salud animal, humana y ambiental (OMS, FAO, PNUMA y OMSA, 2022; OMSA, 2024).</p></article>
+                        <article class="v1-tax v1-tax--green v5-in"><div class="v1-tax__h"><span class="v1-tax__ico"><span class="iconify" data-icon="lucide:graduation-cap" data-width="20"></span></span><div><p class="v5-k">Nivel de Formación</p><p class="v1-tax__v">Pregrado Universitario</p></div></div><p class="v5-b">Corresponde al nivel profesional definido en el Artículo 11 de la Ley 30 de 1992, orientado a la formación integral para el ejercicio autónomo de una profesión regulada, con competencias científicas, técnicas y éticas.</p></article>
+                        <article class="v1-tax v1-tax--orange v5-in"><div class="v1-tax__h"><span class="v1-tax__ico"><span class="iconify" data-icon="lucide:award" data-width="20"></span></span><div><p class="v5-k">Título a Otorgar</p><p class="v1-tax__v">Médico(a) Veterinario(a)</p></div></div><p class="v5-b">El título mantiene correspondencia directa, unívoca y coherente con la denominación del programa y con las competencias profesionales que desarrolla. Su ejercicio se encuentra enmarcado por las disposiciones éticas y deontológicas establecidas en la <strong>Ley 576 de 2000</strong> (Congreso de Colombia, 2000).</p></article>
+                        <article class="v1-tax v1-tax--ink v5-in"><div class="v1-tax__h"><span class="v1-tax__ico"><span class="iconify" data-icon="lucide:scale" data-width="20"></span></span><div><p class="v5-k">Regulación Profesional</p><p class="v1-tax__v">Ley 73 de 1985 · Decreto 1122 de 1988 · Ley 576 de 2000</p></div></div><p class="v5-b">Estas disposiciones reconocen y regulan de manera diferenciada la Medicina Veterinaria, la Medicina Veterinaria y Zootecnia y la Zootecnia, y establecen disposiciones relacionadas con su ejercicio y responsabilidad ética (Congreso de Colombia, 1985, 2000; Presidencia de la República de Colombia, 1988).</p></article>
+                        <article class="v1-tax v1-tax--teal v5-in"><div class="v1-tax__h"><span class="v1-tax__ico"><span class="iconify" data-icon="lucide:book-open" data-width="20"></span></span><div><p class="v5-k">Clasificación CINE-F 2013</p><p class="v1-tax__v"><strong>Campo específico</strong>: 0841 (Veterinaria)</p></div></div><p class="v5-b">La denominación se clasifica en el campo específico <strong>0841 Veterinaria</strong> de la <strong>Clasificación Internacional Normalizada de la Educación (CINE-F 2013)</strong>, adoptada por Colombia para fines estadísticos y de aseguramiento de calidad (UNESCO, 2015; DANE, 2023).</p></article>
+                        <article class="v1-tax v1-tax--gold v5-in"><div class="v1-tax__h"><span class="v1-tax__ico"><span class="iconify" data-icon="lucide:briefcase" data-width="20"></span></span><div><p class="v5-k">Clasificación CUOC (2022)</p><p class="v1-tax__v"><strong>Código de Ocupación</strong>: 22500</p></div></div><p class="v5-b">El programa se asocia a la ocupación <strong>22500 - Veterinarios</strong>, establecida en la <strong>Clasificación Única de Ocupaciones para Colombia (CUOC)</strong>, facilitando su reconocimiento en el mercado laboral nacional (DANE, 2022).</p></article>
+                        <article class="v1-tax v1-tax--green v5-in"><div class="v1-tax__h"><span class="v1-tax__ico"><span class="iconify" data-icon="lucide:monitor-smartphone" data-width="20"></span></span><div><p class="v5-k">Modalidad</p><p class="v1-tax__v">Híbrida (presencial - virtual)</p></div></div><p class="v5-b">Integra ambientes virtuales de aprendizaje y actividades presenciales obligatorias de acuerdo con los resultados de aprendizaje y las competencias profesionales del programa, en concordancia con el <strong>MHUS 5.0</strong> (Consejo Superior Universitario de la Universidad Nacional Abierta y a Distancia, 2025).</p></article>
+                    </div>
+                    <p class="v5-s v1-src v5-in">Fuente: Elaboración propia, Programa de Medicina Veterinaria UNAD, 2026.</p>
+                </div>
             </div>
-            <p class="gsap-reveal role-note text-gray-500 mt-2 shrink-0">Fuente: Elaboración propia, Programa de Medicina Veterinaria UNAD, 2026.</p>
+
             <div class="par-footer gsap-reveal">
                 <div class="par-box par-box--criterio">
                     <h4><span class="iconify" data-icon="lucide:alert-circle" data-width="18"></span> Criterio del Par Académico</h4>
@@ -432,55 +263,29 @@
 
     <!-- Diapositiva 20: Ficha Técnica -->
     <section class="slide" data-accent="navy" data-title="Ficha Técnica">
+        <!-- FICHA TÉCNICA DE IDENTIFICACIÓN · capa visual c5/c6-visual.css + c123-visual.css (ajuste 27-nov-2026; contenido sin cambios) -->
         <div class="glass-panel">
             <div class="slide-head gsap-reveal">
                 <h2 class="role-title text-unad-navy dark:text-white">
-                    <span class="iconify text-unad-teal animate-pulse" data-icon="lucide:file-spreadsheet" data-width="28"></span>
+                    <span class="iconify text-unad-teal" data-icon="lucide:file-spreadsheet" data-width="28"></span>
                     Ficha Técnica de Identificación
                 </h2>
             </div>
-
-            <div class="flex-1 overflow-y-auto custom-scroll gsap-reveal flex flex-col gap-4 pr-2">
-
-                <div class="bg-white/80 dark:bg-black/50 rounded-xl border border-gray-200 dark:border-gray-700 p-2">
-                    <table class="styled-table w-full t-caption">
-                        <thead>
-                            <tr><th colspan="4" class="text-center role-card-title bg-unad-navy text-white">IDENTIFICACIÓN GENERAL DEL PROGRAMA</th></tr>
-                        </thead>
-                        <tbody class="text-gray-800 dark:text-gray-200">
-                            <tr><td class="font-bold">Institución</td><td colspan="3">Universidad Nacional Abierta y a Distancia -- UNAD</td></tr>
-                            <tr><td class="font-bold w-1/4">Domicilio principal</td><td class="w-1/4">Calle 14 sur # 14 -- 23, Piso 5° Bogotá D.C.</td><td class="font-bold w-1/4">Teléfono institucional</td><td class="w-1/4">601 375 9500</td></tr>
-                            <tr><td colspan="4"><span class="font-bold">Nombre del programa:</span> Medicina Veterinaria</td></tr>
-                            <tr><td class="font-bold">Modalidad</td><td>Híbrida (presencial -- virtual)</td><td class="font-bold">Inclusión de tecnología:</td><td>Sí</td></tr>
-                            <tr><td colspan="4"><span class="font-bold">Título que otorga:</span> Médico(a) Veterinario(a)</td></tr>
-                            <tr><td class="font-bold">Nivel académico / formación</td><td colspan="3">Pregrado / Universitario</td></tr>
-                            <tr><td colspan="4"><span class="font-bold">Duración estimada:</span> 10 semestres</td></tr>
-                            <tr><td rowspan="2" class="font-bold align-middle">Campos de formación (CINE 2013)</td><td class="font-bold bg-gray-50 dark:bg-gray-800/50">Campo amplio</td><td colspan="2" class="bg-gray-50 dark:bg-gray-800/50">Agropecuario, Silvicultura, Pesca y Veterinaria</td></tr>
-                            <tr><td class="font-bold">Campo específico</td><td colspan="2">Veterinaria</td></tr>
-                            <tr><td colspan="4"><span class="font-bold">Periodicidad de admisión:</span> Semestral (16-1, 16-4)</td></tr>
-                            <tr><td colspan="4"><span class="font-bold">Cobertura del programa:</span> Nacional (en 8 centros)</td></tr>
-                        </tbody>
-                    </table>
+            <div class="min-h-0 overflow-y-auto custom-scroll gsap-reveal pr-2 flex flex-col v123-body" style="flex:1 1 auto">
+                <div class="v5 v6 v123 my-auto">
+                    <div class="v1-ficha">
+                        <section class="v1-ficha__sec v5-in">
+                            <h3 class="v1-ficha__h"><span class="iconify" data-icon="lucide:id-card" data-width="18"></span> Identificación general del programa</h3>
+                            <div class="v1-facts"><div class="v1-fact v1-fact--wide"><span class="v1-fact__ico"><span class="iconify" data-icon="lucide:landmark" data-width="16"></span></span><div><p class="v1-fact__l">Institución</p><p class="v1-fact__v">Universidad Nacional Abierta y a Distancia -- UNAD</p></div></div><div class="v1-fact "><span class="v1-fact__ico"><span class="iconify" data-icon="lucide:map-pin" data-width="16"></span></span><div><p class="v1-fact__l">Domicilio principal</p><p class="v1-fact__v">Calle 14 sur # 14 -- 23, Piso 5° Bogotá D.C.</p></div></div><div class="v1-fact "><span class="v1-fact__ico"><span class="iconify" data-icon="lucide:phone" data-width="16"></span></span><div><p class="v1-fact__l">Teléfono institucional</p><p class="v1-fact__v">601 375 9500</p></div></div><div class="v1-fact v1-fact--hl"><span class="v1-fact__ico"><span class="iconify" data-icon="lucide:stethoscope" data-width="16"></span></span><div><p class="v1-fact__l">Nombre del programa:</p><p class="v1-fact__v">Medicina Veterinaria</p></div></div><div class="v1-fact v1-fact--hl"><span class="v1-fact__ico"><span class="iconify" data-icon="lucide:award" data-width="16"></span></span><div><p class="v1-fact__l">Título que otorga:</p><p class="v1-fact__v">Médico(a) Veterinario(a)</p></div></div><div class="v1-fact "><span class="v1-fact__ico"><span class="iconify" data-icon="lucide:monitor-smartphone" data-width="16"></span></span><div><p class="v1-fact__l">Modalidad</p><p class="v1-fact__v">Híbrida (presencial -- virtual)</p></div></div><div class="v1-fact "><span class="v1-fact__ico"><span class="iconify" data-icon="lucide:cpu" data-width="16"></span></span><div><p class="v1-fact__l">Inclusión de tecnología:</p><p class="v1-fact__v">Sí</p></div></div><div class="v1-fact "><span class="v1-fact__ico"><span class="iconify" data-icon="lucide:graduation-cap" data-width="16"></span></span><div><p class="v1-fact__l">Nivel académico / formación</p><p class="v1-fact__v">Pregrado / Universitario</p></div></div><div class="v1-fact "><span class="v1-fact__ico"><span class="iconify" data-icon="lucide:calendar" data-width="16"></span></span><div><p class="v1-fact__l">Duración estimada:</p><p class="v1-fact__v">10 semestres</p></div></div><div class="v1-fact "><span class="v1-fact__ico"><span class="iconify" data-icon="lucide:layers" data-width="16"></span></span><div><p class="v1-fact__l">Campos de formación (CINE 2013) · Campo amplio</p><p class="v1-fact__v">Agropecuario, Silvicultura, Pesca y Veterinaria</p></div></div><div class="v1-fact "><span class="v1-fact__ico"><span class="iconify" data-icon="lucide:tag" data-width="16"></span></span><div><p class="v1-fact__l">Campo específico</p><p class="v1-fact__v">Veterinaria</p></div></div><div class="v1-fact "><span class="v1-fact__ico"><span class="iconify" data-icon="lucide:repeat" data-width="16"></span></span><div><p class="v1-fact__l">Periodicidad de admisión:</p><p class="v1-fact__v">Semestral (16-1, 16-4)</p></div></div><div class="v1-fact "><span class="v1-fact__ico"><span class="iconify" data-icon="lucide:map" data-width="16"></span></span><div><p class="v1-fact__l">Cobertura del programa:</p><p class="v1-fact__v">Nacional (en 8 centros)</p></div></div></div>
+                        </section>
+                        <section class="v1-ficha__sec v1-ficha__sec--b v5-in">
+                            <h3 class="v1-ficha__h"><span class="iconify" data-icon="lucide:layers" data-width="18"></span> Créditos, prácticas y responsables</h3>
+                            <div class="v1-cred"><p class="v1-fact__l" style="grid-column:1/-1">Créditos académicos (Total: 174) · Distribución · Cantidad · %</p><div class="v1-donut v5-in" style="--a:86"><svg viewBox="0 0 120 120" aria-hidden="true"><circle class="v1-donut__bg" cx="60" cy="60" r="48"/><circle class="v1-donut__a" cx="60" cy="60" r="48" pathLength="100"/><circle class="v1-donut__b" cx="60" cy="60" r="48" pathLength="100"/></svg><div class="v1-donut__c"><b data-v6-count="174">174</b><small>créditos</small></div></div>
+                            <ul class="v1-legend"><li><i style="background:#00445B"></i><span>Créditos obligatorios</span><b>150</b><em>86%</em></li><li><i style="background:#D26714"></i><span>Créditos electivos</span><b>24</b><em>14%</em></li></ul></div>
+                            <div class="v1-facts v1-facts--2"><div class="v1-fact "><span class="v1-fact__ico"><span class="iconify" data-icon="lucide:languages" data-width="16"></span></span><div><p class="v1-fact__l">Requisito segunda lengua</p><p class="v1-fact__v">No · <strong>Idioma:</strong> Inglés · <strong>Nivel:</strong> B2</p></div></div><div class="v1-fact "><span class="v1-fact__ico"><span class="iconify" data-icon="lucide:users" data-width="16"></span></span><div><p class="v1-fact__l">Escenario de práctica: Sí</p><p class="v1-fact__v"><strong>Estudiantes 1er semestre:</strong> 30</p></div></div><div class="v1-fact v1-fact--wide"><span class="v1-fact__ico"><span class="iconify" data-icon="lucide:building-2" data-width="16"></span></span><div><p class="v1-fact__l">Escuela:</p><p class="v1-fact__v">Escuela de Ciencias Agrícolas, Pecuarias y del Medio Ambiente - ECAPMA</p></div></div><div class="v1-fact "><span class="v1-fact__ico"><span class="iconify" data-icon="lucide:user-check" data-width="16"></span></span><div><p class="v1-fact__l">Decano de la Escuela</p><p class="v1-fact__v">Jordano Salamanca Bastidas</p></div></div><div class="v1-fact v1-fact--wide"><span class="v1-fact__ico"><span class="iconify" data-icon="lucide:mail" data-width="16"></span></span><div><p class="v1-fact__l">Correo escuela</p><p class="v1-fact__v">Escuela.agricolas@unad.edu.co</p></div></div><div class="v1-fact v1-fact--wide"><span class="v1-fact__ico"><span class="iconify" data-icon="lucide:star" data-width="16"></span></span><div><p class="v1-fact__l">Líder Nacional del Programa:</p><p class="v1-fact__v">Viviana Vanadia Villamil Reyes</p></div></div></div>
+                        </section>
+                    </div>
                 </div>
-
-                <div class="bg-white/80 dark:bg-black/50 rounded-xl border border-gray-200 dark:border-gray-700 p-2">
-                    <table class="styled-table w-full t-caption">
-                        <thead>
-                            <tr><th colspan="4" class="text-center role-card-title bg-unad-teal text-white">CRÉDITOS, PRÁCTICAS Y RESPONSABLES</th></tr>
-                        </thead>
-                        <tbody class="text-gray-800 dark:text-gray-200">
-                            <tr><td rowspan="3" class="font-bold align-middle">Créditos académicos (Total: 174)</td><td class="font-bold bg-gray-50 dark:bg-gray-800/50">Distribución</td><td class="font-bold bg-gray-50 dark:bg-gray-800/50">Cantidad</td><td class="font-bold bg-gray-50 dark:bg-gray-800/50">%</td></tr>
-                            <tr><td>Créditos obligatorios</td><td>150</td><td>86%</td></tr>
-                            <tr><td>Créditos electivos</td><td>24</td><td>14%</td></tr>
-                            <tr><td class="font-bold">Requisito segunda lengua</td><td>No</td><td colspan="2"><strong>Idioma:</strong> Inglés | <strong>Nivel:</strong> B2</td></tr>
-                            <tr><td colspan="4"><span class="font-bold">Escenario de práctica:</span> Sí | <strong>Estudiantes 1er semestre:</strong> 30</td></tr>
-                            <tr><td colspan="4"><span class="font-bold">Escuela:</span> Escuela de Ciencias Agrícolas, Pecuarias y del Medio Ambiente - ECAPMA</td></tr>
-                            <tr><td class="font-bold">Decano de la Escuela</td><td>Jordano Salamanca Bastidas</td><td class="font-bold">Correo escuela</td><td>Escuela.agricolas@unad.edu.co</td></tr>
-                            <tr><td colspan="4"><span class="font-bold">Líder Nacional del Programa:</span> Viviana Vanadia Villamil Reyes</td></tr>
-                        </tbody>
-                    </table>
-                </div>
-
             </div>
 
             <div class="par-footer gsap-reveal">
@@ -502,81 +307,41 @@
           Tabla 3.22 de la Condición 3 y rotaciones 80/20)
     ══════════════════════════════════════════════ -->
     <section class="slide" data-title="Cursos">
+        <!-- CURSOS METODOLÓGICOS Y PRÁCTICOS (rotaciones recreadas en código) · capa visual c5/c6-visual.css + c123-visual.css (ajuste 27-nov-2026; contenido sin cambios) -->
         <div class="glass-panel">
             <div class="slide-head gsap-reveal">
                 <h2 class="role-title text-unad-navy dark:text-white">
-                    <span class="iconify text-unad-teal animate-bounce" data-icon="lucide:flask-conical" data-width="30"></span>
+                    <span class="iconify text-unad-teal" data-icon="lucide:flask-conical" data-width="30"></span>
                     Cursos metodológicos y prácticos
                 </h2>
             </div>
-
-            <div class="flex-1 min-h-0 overflow-y-auto custom-scroll gsap-reveal pr-2">
-                <div class="w-full max-w-6xl mx-auto flex flex-col gap-3 text-gray-800 dark:text-gray-200">
-
-                    <!-- Tipología de cursos (malla: 63 cursos) -->
-                    <div class="grid grid-cols-3 gap-3">
-                        <div class="rounded-2xl bg-gradient-to-r from-unad-teal to-unad-navy text-white px-5 py-3 flex items-center gap-4 shadow-md">
-                            <span class="font-display font-extrabold text-5xl leading-none">29</span>
-                            <p class="text-sm leading-snug"><strong>Prácticos (P)</strong><br>incluye las 3 Rotaciones Clínicas</p>
+            <div class="min-h-0 overflow-y-auto custom-scroll gsap-reveal pr-2 flex flex-col v123-body" style="flex:1 1 auto">
+                <div class="v5 v6 v123 my-auto">
+                    <div class="v1-cur">
+                        <div class="v5-col">
+                            <div class="v1-tipo v5-in">
+                                <div class="v1-tipo__k v1-tipo__k--p"><b data-v6-count="29">29</b><span><strong>Prácticos (P)</strong>incluye las 3 Rotaciones Clínicas</span></div>
+                                <div class="v1-tipo__k v1-tipo__k--m"><b data-v6-count="23">23</b><span><strong>Metodológicos (M)</strong>teoría y práctica articuladas</span></div>
+                                <div class="v1-tipo__k v1-tipo__k--t"><b data-v6-count="11">11</b><span><strong>Teóricos (T)</strong>fundamentación disciplinar</span></div>
+                                <div class="v1-tipo__bar" aria-hidden="true"><span style="flex:29;background:#00445B"></span><span style="flex:23;background:#D26714"></span><span style="flex:11;background:#035B3B"></span></div>
+                            </div>
+                            <div class="v1-vias v5-in"><p class="v5-k">Desarrollados mediante:</p><div><span class="v1-via"><span class="iconify" data-icon="lucide:flask-conical" data-width="15"></span> Laboratorios</span><span class="v1-via"><span class="iconify" data-icon="lucide:monitor-play" data-width="15"></span> Simuladores</span><span class="v1-via"><span class="iconify" data-icon="lucide:stethoscope" data-width="15"></span> Prácticas clínicas</span><span class="v1-via"><span class="iconify" data-icon="lucide:tractor" data-width="15"></span> Centros de producción</span><span class="v1-via"><span class="iconify" data-icon="lucide:refresh-cw" data-width="15"></span> Rotaciones</span><span class="v1-via"><span class="iconify" data-icon="lucide:hand-heart" data-width="15"></span> Docencia-servicio</span></div></div>
+                            <div class="v6-card v6-card--teal v6-card--col v5-in">
+                                <h3 class="v5-h"><span class="iconify" data-icon="lucide:clock" data-width="18"></span> Cursos prácticos (P) · 10 prácticas por curso</h3>
+                                <table class="v1-tbl"><thead><tr><th>Créditos</th><th>Horas del curso</th><th>Horas por práctica</th><th>Directo y presencial (50 %)</th><th>Independiente (50 %)</th></tr></thead>
+                                <tbody><tr><td><b>2</b></td><td>96 h</td><td>9,6 h</td><td>4,8 h</td><td>4,8 h</td></tr><tr><td><b>3</b></td><td>144 h</td><td>14,4 h</td><td>7,2 h</td><td>7,2 h</td></tr><tr><td><b>4</b></td><td>192 h</td><td>19,2 h</td><td>9,6 h</td><td>9,6 h</td></tr></tbody></table>
+                                <p class="v5-b"><strong>50 % / 50 %:</strong> en los cursos de naturaleza práctica, las horas de trabajo académico se distribuyen en <strong>50 % de trabajo directo y presencial</strong> y <strong>50 % de trabajo independiente</strong>, según los créditos de cada curso.</p>
+                                <p class="v5-s">Fuente: Condición 3, Tabla 3.22. Distribución de horas por curso y por práctica (2026).</p>
+                            </div>
                         </div>
-                        <div class="rounded-2xl bg-gradient-to-r from-unad-green to-emerald-800 text-white px-5 py-3 flex items-center gap-4 shadow-md">
-                            <span class="font-display font-extrabold text-5xl leading-none">23</span>
-                            <p class="text-sm leading-snug"><strong>Metodológicos (M)</strong><br>teoría y práctica articuladas</p>
-                        </div>
-                        <div class="rounded-2xl bg-gradient-to-r from-unad-orange to-orange-600 text-white px-5 py-3 flex items-center gap-4 shadow-md">
-                            <span class="font-display font-extrabold text-5xl leading-none">11</span>
-                            <p class="text-sm leading-snug"><strong>Teóricos (T)</strong><br>fundamentación disciplinar</p>
-                        </div>
-                    </div>
-
-                    <div class="flex flex-wrap items-center justify-center gap-2">
-                        <span class="text-[12px] font-bold text-unad-navy dark:text-white mr-1">Desarrollados mediante:</span>
-                        <span class="inline-flex items-center gap-1.5 bg-white/75 dark:bg-black/45 border border-unad-teal/30 text-unad-teal dark:text-unad-orange rounded-full px-3 py-1 text-[12px] font-semibold"><span class="iconify" data-icon="lucide:flask-conical" data-width="15"></span>Laboratorios</span>
-                        <span class="inline-flex items-center gap-1.5 bg-white/75 dark:bg-black/45 border border-unad-teal/30 text-unad-teal dark:text-unad-orange rounded-full px-3 py-1 text-[12px] font-semibold"><span class="iconify" data-icon="lucide:activity" data-width="15"></span>Simuladores</span>
-                        <span class="inline-flex items-center gap-1.5 bg-white/75 dark:bg-black/45 border border-unad-teal/30 text-unad-teal dark:text-unad-orange rounded-full px-3 py-1 text-[12px] font-semibold"><span class="iconify" data-icon="lucide:stethoscope" data-width="15"></span>Prácticas clínicas</span>
-                        <span class="inline-flex items-center gap-1.5 bg-white/75 dark:bg-black/45 border border-unad-teal/30 text-unad-teal dark:text-unad-orange rounded-full px-3 py-1 text-[12px] font-semibold"><span class="iconify" data-icon="lucide:paw-print" data-width="15"></span>Centros de producción</span>
-                        <span class="inline-flex items-center gap-1.5 bg-white/75 dark:bg-black/45 border border-unad-teal/30 text-unad-teal dark:text-unad-orange rounded-full px-3 py-1 text-[12px] font-semibold"><span class="iconify" data-icon="lucide:route" data-width="15"></span>Rotaciones</span>
-                        <span class="inline-flex items-center gap-1.5 bg-white/75 dark:bg-black/45 border border-unad-teal/30 text-unad-teal dark:text-unad-orange rounded-full px-3 py-1 text-[12px] font-semibold"><span class="iconify" data-icon="lucide:hospital" data-width="15"></span>Docencia-servicio</span>
-                    </div>
-
-                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-3">
-                        <!-- Cursos prácticos: Tabla 3.22 (Condición 3) -->
-                        <div class="bg-white/80 dark:bg-black/50 rounded-2xl border border-gray-200 dark:border-gray-700 p-3 flex flex-col gap-2">
-                            <h3 class="font-display font-bold text-unad-navy dark:text-white text-[15px] flex items-center gap-2">
-                                <span class="iconify text-unad-orange" data-icon="lucide:clock" data-width="18"></span>
-                                Cursos prácticos (P) · 10 prácticas por curso
-                            </h3>
-                            <table class="styled-table w-full t-caption text-center">
-                                <thead>
-                                    <tr><th>Créditos</th><th>Horas del curso</th><th>Horas por práctica</th><th>Directo y presencial (50 %)</th><th>Independiente (50 %)</th></tr>
-                                </thead>
-                                <tbody class="text-gray-800 dark:text-gray-200">
-                                    <tr><td class="font-bold">2</td><td>96 h</td><td>9,6 h</td><td>4,8 h</td><td>4,8 h</td></tr>
-                                    <tr><td class="font-bold">3</td><td>144 h</td><td>14,4 h</td><td>7,2 h</td><td>7,2 h</td></tr>
-                                    <tr><td class="font-bold">4</td><td>192 h</td><td>19,2 h</td><td>9,6 h</td><td>9,6 h</td></tr>
-                                </tbody>
-                            </table>
-                            <p class="text-[12px] leading-snug text-gray-700 dark:text-gray-300">
-                                <strong class="text-unad-orange">50 % / 50 %:</strong> en los cursos de naturaleza práctica, las horas de trabajo académico se distribuyen en <strong>50 % de trabajo directo y presencial</strong> y <strong>50 % de trabajo independiente</strong>, según los créditos de cada curso.
-                            </p>
-                            <p class="role-note text-gray-500">Fuente: Condición 3, Tabla 3.22. Distribución de horas por curso y por práctica (2026).</p>
-                        </div>
-
-                        <!-- Rotaciones clínicas: 80 / 20 -->
-                        <div class="bg-white/80 dark:bg-black/50 rounded-2xl border border-gray-200 dark:border-gray-700 p-3 flex flex-col gap-2">
-                            <h3 class="font-display font-bold text-unad-navy dark:text-white text-[15px] flex items-center gap-2">
-                                <span class="iconify text-unad-teal" data-icon="lucide:route" data-width="18"></span>
-                                Rotaciones clínicas · 80 % presencial
-                            </h3>
-                            <button type="button" class="img-zoom-trigger rounded-xl overflow-hidden border border-gray-200 dark:border-gray-700 bg-white" data-image-zoom="C1_Rotaciones6Areas.png" data-image-alt="Seis áreas de rotación formativa" data-image-title="Rotaciones formativas: seis áreas clínicas y de profundización" data-image-label="Condición 1" data-image-icon="lucide:route">
-                                <img src="C1_Rotaciones6Areas.png" alt="Seis áreas de rotación formativa del programa" class="w-full h-auto">
-                            </button>
-                            <p class="text-[12px] leading-snug text-gray-700 dark:text-gray-300">
-                                Por la naturaleza de estas experiencias, las rotaciones tendrán una exigencia de <strong>presencialidad del 80 %</strong> en la clínica o escenario de práctica que el programa disponga, mientras que el <strong>20 %</strong> restante corresponderá al trabajo independiente.
-                            </p>
+                        <div class="v6-card v6-card--orange v6-card--col v1-rots v5-in" data-v6-cycle="2200" data-v6-n="6">
+                            <h3 class="v5-h"><span class="iconify" data-icon="lucide:refresh-cw" data-width="18"></span> Rotaciones clínicas · 80 % presencial</h3>
+                            <p class="v1-note"><strong>Nota:</strong> El estudiante deberá realizar las rotaciones formativas en las seis áreas clínicas y de profundización establecidas por el programa, de acuerdo con la organización curricular y los escenarios de práctica definidos para tal fin.</p>
+                            <div class="v1-rotg"><button type="button" class="v1-rot" data-v6-i="0"><span class="v1-rot__p">P</span><span class="v1-rot__ico"><span class="iconify" data-icon="lucide:paw-print" data-width="20"></span></span><span class="v1-rot__t">Rotación Clínica de pequeños animales</span></button><button type="button" class="v1-rot" data-v6-i="1"><span class="v1-rot__p">P</span><span class="v1-rot__ico"><span class="iconify" data-icon="lucide:tractor" data-width="20"></span></span><span class="v1-rot__t">Rotación sistemas de producción animal</span></button><button type="button" class="v1-rot" data-v6-i="2"><span class="v1-rot__p">P</span><span class="v1-rot__ico"><span class="iconify" data-icon="lucide:shield-check" data-width="20"></span></span><span class="v1-rot__t">Rotación One health y vigilancia sanitaria</span></button><button type="button" class="v1-rot" data-v6-i="3"><span class="v1-rot__p">P</span><span class="v1-rot__ico"><span class="iconify" data-icon="lucide:activity" data-width="20"></span></span><span class="v1-rot__t">Rotación Clínica en Medicina y cirugía equina</span></button><button type="button" class="v1-rot" data-v6-i="4"><span class="v1-rot__p">P</span><span class="v1-rot__ico"><span class="iconify" data-icon="lucide:dna" data-width="20"></span></span><span class="v1-rot__t">Rotación Reproducción y biotecnología veterinaria</span></button><button type="button" class="v1-rot" data-v6-i="5"><span class="v1-rot__p">P</span><span class="v1-rot__ico"><span class="iconify" data-icon="lucide:target" data-width="20"></span></span><span class="v1-rot__t">Rotación de profundización</span></button></div>
+                            <div class="v1-8020" aria-hidden="true"><span class="v1-8020__a"><b>80 %</b></span><span class="v1-8020__b"><b>20 %</b></span></div>
+                            <p class="v5-b">Por la naturaleza de estas experiencias, las rotaciones tendrán una exigencia de <strong>presencialidad del 80 %</strong> en la clínica o escenario de práctica que el programa disponga, mientras que el <strong>20 %</strong> restante corresponderá al trabajo independiente.</p>
                         </div>
                     </div>
-
                 </div>
             </div>
 
@@ -595,58 +360,24 @@
 
     <!-- ✅ Diapositiva Naturaleza del Programa (unificada · texto izq 7/12 · imagen der 5/12) -->
 <section class="slide" data-accent="green" data-title="Naturaleza del Programa">
+        <!-- NATURALEZA DEL PROGRAMA · capa visual c5/c6-visual.css + c123-visual.css (ajuste 27-nov-2026; contenido sin cambios) -->
     <div class="glass-panel">
         <div class="slide-head gsap-reveal">
             <h2 class="role-title text-unad-navy dark:text-white">
-                <span class="iconify text-unad-teal animate-bounce" data-icon="lucide:target" data-width="32"></span>
+                <span class="iconify text-unad-teal" data-icon="lucide:target" data-width="32"></span>
                 Naturaleza del Programa
             </h2>
         </div>
-
-        <div class="flex-1 overflow-y-auto custom-scroll gsap-reveal flex items-center justify-center pr-2">
-            <div class="flex flex-col md:flex-row items-center justify-center gap-6 w-full text-gray-800 dark:text-gray-200">
-
-                <div class="w-full md:w-7/12 flex flex-col gap-4 justify-center">
-                    <div class="mini-card hover-card border-l-4 border-unad-teal items-start gap-3">
-                        <span class="iconify text-unad-teal shrink-0 mt-0.5" data-icon="lucide:shield-plus" data-width="24"></span>
-                        <p class="role-note leading-relaxed">Su objeto de estudio comprende la <strong>prevención, diagnóstico, tratamiento y control de enfermedades animales</strong>, así como la promoción de la <strong>salud animal, salud pública veterinaria, bienestar animal y sostenibilidad productiva</strong>.</p>
-                    </div>
-                    <div class="mini-card hover-card border-l-4 border-unad-green items-start gap-3">
-                        <span class="iconify text-unad-green shrink-0 mt-0.5" data-icon="lucide:activity" data-width="24"></span>
-                        <p class="role-note leading-relaxed">Su papel estratégico se fortalece a través del enfoque <strong>One Health (Una Sola Salud)</strong>, que integra la <strong>salud humana, animal y ambiental</strong> para abordar desafíos sanitarios globales.</p>
-                    </div>
-                    <div class="mini-card hover-card border-l-4 border-unad-orange items-start gap-3">
-                        <span class="iconify text-unad-orange shrink-0 mt-0.5" data-icon="lucide:graduation-cap" data-width="24"></span>
-                        <p class="role-note leading-relaxed">Universidades líderes en América y Europa utilizan denominaciones equivalentes (<em>Veterinary Medicine</em>, <em>DVM</em>, <em>Veterinary Science</em>), lo que facilita la <strong>comparabilidad académica, el reconocimiento profesional y la movilidad internacional</strong>.</p>
+            <div class="min-h-0 overflow-y-auto custom-scroll gsap-reveal pr-2 flex flex-col v123-body" style="flex:1 1 auto">
+                <div class="v5 v6 v123 my-auto">
+                    <div class="v123-split">
+                        <div class="v5-col"><article class="v6-card v6-card--teal v5-in"><span class="v6-card__ico"><span class="iconify" data-icon="lucide:microscope" data-width="22"></span></span><div><p class="v5-b">Su objeto de estudio comprende la <strong>prevención, diagnóstico, tratamiento y control de enfermedades animales</strong>, así como la promoción de la <strong>salud animal, salud pública veterinaria, bienestar animal y sostenibilidad productiva</strong>.</p></div></article><article class="v6-card v6-card--green v5-in"><span class="v6-card__ico"><span class="iconify" data-icon="lucide:globe" data-width="22"></span></span><div><p class="v5-b">Su papel estratégico se fortalece a través del enfoque <strong>One Health (Una Sola Salud)</strong>, que integra la <strong>salud humana, animal y ambiental</strong> para abordar desafíos sanitarios globales.</p></div></article><article class="v6-card v6-card--orange v5-in"><span class="v6-card__ico"><span class="iconify" data-icon="lucide:plane" data-width="22"></span></span><div><p class="v5-b">Universidades líderes en América y Europa utilizan denominaciones equivalentes (Veterinary Medicine, DVM, Veterinary Science), lo que facilita la <strong>comparabilidad académica, el reconocimiento profesional y la movilidad internacional</strong>.</p></div></article></div>
+                        <figure class="v123-fig v5-in "><button type="button" class="img-zoom-trigger v123-fig__btn" data-image-zoom="Reconocimiento Global.png" data-image-alt="Reconocimiento global de la Medicina Veterinaria" data-image-title="Reconocimiento Global" data-image-label="Figura" data-image-icon="lucide:globe"><img src="Reconocimiento Global.png" alt="Reconocimiento global de la Medicina Veterinaria"><span class="v8-fig__zoom"><span class="iconify" data-icon="lucide:maximize-2" data-width="14"></span> Ampliar</span></button><figcaption class="v5-s">Reconocimiento Global</figcaption></figure>
                     </div>
                 </div>
-
-                <div class="w-full md:w-5/12 flex items-center justify-center">
-                    <button type="button"
-                            class="img-zoom-trigger figura"
-                            data-image-zoom="Reconocimiento Global.png"
-                            data-image-alt="Reconocimiento Global"
-                            data-image-title="Reconocimiento Global"
-                            data-image-label="Figura"
-                            data-image-icon="lucide:globe-2"
-                            data-image-gradient-from="#0d9488"
-                            data-image-gradient-to="#1e3a5f">
-                        <img src="Reconocimiento Global.png"
-                             alt="Reconocimiento Global"
-                             class="figura__img">
-                        <span class="img-zoom-trigger__overlay">
-                            <span class="img-zoom-trigger__hint">
-                                <span class="iconify" data-icon="lucide:maximize-2" data-width="11"></span> Ampliar
-                            </span>
-                        </span>
-<span class="figura__cap"><b>Figura 1.</b> Reconocimiento Global</span>
-</button>
-                </div>
-
             </div>
-        </div>
 
-        <div class="par-footer gsap-reveal">
+            <div class="par-footer gsap-reveal">
             <div class="par-box par-box--criterio">
                 <h4><span class="iconify" data-icon="lucide:alert-circle" data-width="18"></span> Criterio del Par Académico</h4>
                 <p>Coherencia de la denominación con la naturaleza del programa y las tendencias globales.</p>
@@ -661,70 +392,21 @@
 
     <!-- ✅ Diapositiva Reconocimiento Global (2/2) (texto izq 7/12 · diagrama+ODS der 5/12) -->
     <section class="slide" data-accent="orange" data-title="Reconocimiento (2/2)">
+        <!-- RECONOCIMIENTO GLOBAL E IMPACTO (diagrama One Health recreado en código) · capa visual c5/c6-visual.css + c123-visual.css (ajuste 27-nov-2026; contenido sin cambios) -->
         <div class="glass-panel">
             <div class="slide-head gsap-reveal">
                 <h2 class="role-title text-unad-navy dark:text-white">
-                    <span class="iconify text-unad-orange animate-pulse" data-icon="lucide:trending-up" data-width="32"></span>
+                    <span class="iconify text-unad-orange" data-icon="lucide:trending-up" data-width="32"></span>
                     Reconocimiento Global e Impacto
                 </h2>
                 <span class="role-label slide-tag text-gray-500">Clic en las imágenes para ampliar</span>
             </div>
-
-            <div class="flex-1 min-h-0 overflow-y-auto custom-scroll gsap-reveal flex items-center justify-center pr-2">
-                <div class="flex flex-col md:flex-row items-center justify-center gap-6 w-full text-gray-800 dark:text-gray-200">
-
-                    <!-- IZQUIERDA · texto (7/12) -->
-                    <div class="w-full md:w-7/12 flex flex-col gap-3 justify-center">
-                        <div class="mini-card hover-card border-l-4 border-unad-orange items-start gap-3">
-                            <span class="iconify text-unad-orange shrink-0 mt-0.5" data-icon="lucide:globe" data-width="22"></span>
-                            <p class="role-note leading-relaxed text-gray-700 dark:text-gray-300">
-                                La disciplina aporta directamente al cumplimiento de los <strong>Objetivos de Desarrollo Sostenible (ODS)</strong>, especialmente en salud y bienestar, hambre cero y producción responsable.
-                            </p>
-                        </div>
-                        <div class="mini-card hover-card border-l-4 border-unad-green items-start gap-3">
-                            <span class="iconify text-unad-green shrink-0 mt-0.5" data-icon="lucide:award" data-width="22"></span>
-                            <p class="role-note leading-relaxed text-gray-700 dark:text-gray-300">
-                                El programa de <strong>Medicina Veterinaria de la UNAD</strong> está alineado con estándares internacionales, fortaleciendo la calidad académica y la cooperación global.
-                            </p>
-                        </div>
-                        <div class="mini-card hover-card border-l-4 border-unad-navy dark:border-gray-400 items-start gap-3">
-                            <span class="iconify text-unad-navy dark:text-white shrink-0 mt-0.5" data-icon="lucide:compass" data-width="22"></span>
-                            <p class="role-note leading-relaxed text-gray-700 dark:text-gray-300">
-                                La denominación refleja una formación orientada a la solución de los desafíos <strong>sanitarios, ambientales, sociales y productivos</strong> del mundo contemporáneo.
-                            </p>
-                        </div>
-                    </div>
-
-                    <!-- DERECHA · diagrama + 6 ODS (5/12) -->
-                    <div class="w-full md:w-5/12 flex flex-col gap-3 items-center justify-center">
-
-                        <button type="button"
-                                class="img-zoom-trigger figura"
-                                data-image-zoom="DiagrameEnfoque.png"
-                                data-image-alt="Diagrama de Enfoque Global: Una Sola Salud (One Health) en Medicina Veterinaria UNAD"
-                                data-image-title="Diagrama de Enfoque Global · One Health"
-                                data-image-label="Figura 8.1"
-                                data-image-icon="lucide:globe-2"
-                                data-image-gradient-from="#ea580c"
-                                data-image-gradient-to="#01333f">
-                            <img src="DiagrameEnfoque.png"
-                                 alt="Diagrama de Enfoque Global: Una Sola Salud (One Health) en Medicina Veterinaria UNAD"
-                                 class="figura__img">
-                            <span class="img-zoom-trigger__overlay">
-                                <span class="img-zoom-trigger__hint">
-                                    <span class="iconify" data-icon="lucide:maximize-2" data-width="11"></span> Ampliar
-                                </span>
-                            </span>
-<span class="figura__cap"><b>Figura 2.</b> Diagrama de Enfoque Global · One Health</span>
-</button>
-
-                        <span class="role-label text-unad-orange flex items-center gap-1.5 justify-center">
-                            <span class="iconify" data-icon="lucide:target" data-width="12"></span>
-                            Objetivos de Desarrollo Sostenible
-                        </span>
-
-                        <div class="grid grid-cols-3 gap-2 justify-items-center w-full">
-                            <button type="button"
+            <div class="min-h-0 overflow-y-auto custom-scroll gsap-reveal pr-2 flex flex-col v123-body" style="flex:1 1 auto">
+                <div class="v5 v6 v123 my-auto">
+                    <div class="v1-rec">
+                        <div class="v5-col">
+                            <article class="v6-card v6-card--teal v5-in"><span class="v6-card__ico"><span class="iconify" data-icon="lucide:target" data-width="22"></span></span><div><p class="v5-b">La disciplina aporta directamente al cumplimiento de los <strong>Objetivos de Desarrollo Sostenible (ODS)</strong>, especialmente en salud y bienestar, hambre cero y producción responsable.</p></div></article><article class="v6-card v6-card--green v5-in"><span class="v6-card__ico"><span class="iconify" data-icon="lucide:globe-2" data-width="22"></span></span><div><p class="v5-b">El programa de <strong>Medicina Veterinaria de la UNAD</strong> está alineado con estándares internacionales, fortaleciendo la calidad académica y la cooperación global.</p></div></article><article class="v6-card v6-card--orange v5-in"><span class="v6-card__ico"><span class="iconify" data-icon="lucide:compass" data-width="22"></span></span><div><p class="v5-b">La denominación refleja una formación orientada a la solución de los desafíos <strong>sanitarios, ambientales, sociales y productivos</strong> del mundo contemporáneo.</p></div></article>
+                            <div class="v1-ods v5-in"><p class="v5-k"><span class="iconify" data-icon="lucide:target" data-width="14"></span> Objetivos de Desarrollo Sostenible</p><div class="v1-ods__g"><button type="button"
                                     class="img-zoom-trigger figura figura--icono"
                                     data-image-zoom="ODS-2.png" data-image-alt="ODS 2: Hambre Cero"
                                     data-image-title="ODS 2 · Hambre Cero" data-image-label="ODS"
@@ -732,8 +414,7 @@
                                     data-image-gradient-from="#ea580c" data-image-gradient-to="#01333f">
                                 <img src="ODS-2.png" alt="ODS 2: Hambre Cero" class="figura__img">
                                 <span class="img-zoom-trigger__overlay"><span class="img-zoom-trigger__hint"><span class="iconify" data-icon="lucide:maximize-2" data-width="9"></span> Ver</span></span>
-                            </button>
-                            <button type="button"
+                            </button><button type="button"
                                     class="img-zoom-trigger figura figura--icono"
                                     data-image-zoom="ODS-3.png" data-image-alt="ODS 3: Salud y Bienestar"
                                     data-image-title="ODS 3 · Salud y Bienestar" data-image-label="ODS"
@@ -741,8 +422,7 @@
                                     data-image-gradient-from="#ea580c" data-image-gradient-to="#01333f">
                                 <img src="ODS-3.png" alt="ODS 3: Salud y Bienestar" class="figura__img">
                                 <span class="img-zoom-trigger__overlay"><span class="img-zoom-trigger__hint"><span class="iconify" data-icon="lucide:maximize-2" data-width="9"></span> Ver</span></span>
-                            </button>
-                            <button type="button"
+                            </button><button type="button"
                                     class="img-zoom-trigger figura figura--icono"
                                     data-image-zoom="ODS-4.png" data-image-alt="ODS 4: Educación de Calidad"
                                     data-image-title="ODS 4 · Educación de Calidad" data-image-label="ODS"
@@ -750,8 +430,7 @@
                                     data-image-gradient-from="#ea580c" data-image-gradient-to="#01333f">
                                 <img src="ODS-4.png" alt="ODS 4: Educación de Calidad" class="figura__img">
                                 <span class="img-zoom-trigger__overlay"><span class="img-zoom-trigger__hint"><span class="iconify" data-icon="lucide:maximize-2" data-width="9"></span> Ver</span></span>
-                            </button>
-                            <button type="button"
+                            </button><button type="button"
                                     class="img-zoom-trigger figura figura--icono"
                                     data-image-zoom="ODS-12.png" data-image-alt="ODS 12: Producción y Consumo Responsables"
                                     data-image-title="ODS 12 · Producción y Consumo Responsables" data-image-label="ODS"
@@ -759,8 +438,7 @@
                                     data-image-gradient-from="#ea580c" data-image-gradient-to="#01333f">
                                 <img src="ODS-12.png" alt="ODS 12: Producción y Consumo Responsables" class="figura__img">
                                 <span class="img-zoom-trigger__overlay"><span class="img-zoom-trigger__hint"><span class="iconify" data-icon="lucide:maximize-2" data-width="9"></span> Ver</span></span>
-                            </button>
-                            <button type="button"
+                            </button><button type="button"
                                     class="img-zoom-trigger figura figura--icono"
                                     data-image-zoom="ODS-13.png" data-image-alt="ODS 13: Acción por el Clima"
                                     data-image-title="ODS 13 · Acción por el Clima" data-image-label="ODS"
@@ -768,8 +446,7 @@
                                     data-image-gradient-from="#ea580c" data-image-gradient-to="#01333f">
                                 <img src="ODS-13.png" alt="ODS 13: Acción por el Clima" class="figura__img">
                                 <span class="img-zoom-trigger__overlay"><span class="img-zoom-trigger__hint"><span class="iconify" data-icon="lucide:maximize-2" data-width="9"></span> Ver</span></span>
-                            </button>
-                            <button type="button"
+                            </button><button type="button"
                                     class="img-zoom-trigger figura figura--icono"
                                     data-image-zoom="ODS-15.png" data-image-alt="ODS 15: Vida de Ecosistemas Terrestres"
                                     data-image-title="ODS 15 · Vida de Ecosistemas Terrestres" data-image-label="ODS"
@@ -777,14 +454,20 @@
                                     data-image-gradient-from="#ea580c" data-image-gradient-to="#01333f">
                                 <img src="ODS-15.png" alt="ODS 15: Vida de Ecosistemas Terrestres" class="figura__img">
                                 <span class="img-zoom-trigger__overlay"><span class="img-zoom-trigger__hint"><span class="iconify" data-icon="lucide:maximize-2" data-width="9"></span> Ver</span></span>
-                            </button>
+                            </button></div><p class="v5-s">Clic en cualquier ícono para verlo en detalle</p></div>
                         </div>
-
-                        <p class="t-caption text-gray-500 dark:text-gray-400 italic text-center leading-snug">
-                            Clic en cualquier ícono para verlo en detalle
-                        </p>
+                        <figure class="v1-oh v5-in" data-v6-cycle="3000" data-v6-n="3">
+                            <p class="v1-oh__t">Diagrama de enfoque global de la denominación: “Una sola salud” (One Health) en Medicina Veterinaria</p>
+                            <div class="v1-oh__g">
+                                <div class="v1-oh__list v1-oh__list--amb" data-v6-i="0"><h4><span class="iconify" data-icon="lucide:leaf" data-width="16"></span> Salud ambiental y ecosistemas territoriales</h4><ul><li>Sostenibilidad de los ecosistemas</li><li>Cambio climático</li><li>Biodiversidad</li><li>Calidad del agua y suelo</li></ul></div>
+                                <div class="v1-oh__list v1-oh__list--hum" data-v6-i="1"><h4><span class="iconify" data-icon="lucide:heart-pulse" data-width="16"></span> Salud pública humana</h4><ul><li>Prevención de enfermedades</li><li>Seguridad e inocuidad alimentaria</li><li>Resistencia a antimicrobianos</li><li>Salud y bienestar de las comunidades</li></ul></div>
+                                <div class="v1-oh__venn"><button type="button" class="v1-oh__c v1-oh__c--amb" data-v6-i="0" aria-label="Salud ambiental y ecosistemas territoriales"><span><span class="iconify" data-icon="lucide:leaf" data-width="26"></span></span></button><button type="button" class="v1-oh__c v1-oh__c--hum" data-v6-i="1" aria-label="Salud pública humana"><span><span class="iconify" data-icon="lucide:heart-pulse" data-width="26"></span></span></button><button type="button" class="v1-oh__c v1-oh__c--ani" data-v6-i="2" aria-label="Sanidad y bienestar animal"><span><span class="iconify" data-icon="lucide:paw-print" data-width="26"></span></span></button><span class="v1-oh__core"><span class="iconify" data-icon="lucide:heart-handshake" data-width="22"></span><b>Una sola salud</b></span><span class="v1-oh__arr v1-oh__arr--1"></span><span class="v1-oh__arr v1-oh__arr--2"></span><span class="v1-oh__arr v1-oh__arr--3"></span></div>
+                                <div class="v1-oh__list v1-oh__list--ani" data-v6-i="2"><h4><span class="iconify" data-icon="lucide:paw-print" data-width="16"></span> Sanidad y bienestar animal</h4><ul><li>Medicina clínica avanzada</li><li>Producción pecuaria sostenible</li><li>Vigilancia epidemiológica</li><li>Bienestar animal</li></ul></div>
+                            </div>
+                            <p class="v1-oh__band"><b>Medicina Veterinaria:</b> trascendiendo la clínica individual hacia el impacto territorial</p>
+                            <figcaption class="v5-s">Diagrama de Enfoque Global · One Health</figcaption>
+                        </figure>
                     </div>
-
                 </div>
             </div>
 
@@ -803,59 +486,25 @@
 
     <!-- Diapositiva 9: Tradición Nacional de la Denominación -->
     <section class="slide" data-accent="navy" data-title="Tradición Nacional">
+        <!-- TRADICIÓN NACIONAL DE LA DENOMINACIÓN · capa visual c5/c6-visual.css + c123-visual.css (ajuste 27-nov-2026; contenido sin cambios) -->
         <div class="glass-panel">
             <div class="slide-head slide-head--center gsap-reveal">
                 <h2 class="role-title text-unad-navy dark:text-white justify-center text-center">
-                    <span class="iconify text-unad-teal animate-pulse" data-icon="lucide:landmark" data-width="32"></span>
+                    <span class="iconify text-unad-teal" data-icon="lucide:landmark" data-width="32"></span>
                     Tradición Nacional de la Denominación
                 </h2>
             </div>
-
-            <div class="flex-1 overflow-y-auto custom-scroll gsap-reveal text-gray-800 dark:text-gray-200 flex items-center justify-center">
-                <div class="grid grid-cols-1 lg:grid-cols-12 gap-5 max-w-6xl w-full mx-auto items-stretch">
-
-                    <div class="lg:col-span-7 grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <div class="mini-card hover-card border-l-4 border-unad-teal flex-col justify-center gap-2">
-                            <h3 class="role-card-title text-unad-teal dark:text-unad-orange flex items-center justify-center gap-2 text-center"><span class="iconify" data-icon="lucide:award" data-width="24"></span> Reconocimiento SNIES</h3>
-                            <p class="role-note text-center">La <strong>Medicina Veterinaria</strong> es una denominación ampliamente reconocida en la educación superior colombiana, respaldada por el marco normativo, con <strong>16 programas activos de Medicina Veterinaria</strong> y <strong>20 de Medicina Veterinaria y Zootecnia</strong> en el país (SNIES, 2026).</p>
+            <div class="min-h-0 overflow-y-auto custom-scroll gsap-reveal pr-2 flex flex-col v123-body" style="flex:1 1 auto">
+                <div class="v5 v6 v123 my-auto">
+                    <div class="v123-split">
+                        <div class="v1-trad">
+                            <article class="v1-trad__k v5-in"><div class="v1-trad__nums"><span><b data-v6-count="16">16</b><small>Medicina Veterinaria</small></span><span><b data-v6-count="20">20</b><small>Medicina Veterinaria y Zootecnia</small></span></div><h3 class="v5-h"><span class="iconify" data-icon="lucide:check-circle" data-width="18"></span> Reconocimiento SNIES</h3><p class="v5-b">La <strong>Medicina Veterinaria</strong> es una denominación ampliamente reconocida en la educación superior colombiana, respaldada por el marco normativo, con <strong>16 programas activos de Medicina Veterinaria</strong> y <strong>20 de Medicina Veterinaria y Zootecnia</strong> en el país (SNIES, 2026).</p></article>
+                            <article class="v6-card v6-card--orange v5-in"><span class="v6-card__ico"><span class="iconify" data-icon="lucide:monitor-smartphone" data-width="22"></span></span><div><h3 class="v5-h">Innovación Híbrida</h3><p class="v5-b">La <strong>UNAD innova</strong> con una modalidad <strong>híbrida (presencial-virtual)</strong>, ampliando el acceso a la formación veterinaria en territorios rurales y regiones con limitada oferta.</p></div></article>
+                            <article class="v6-card v6-card--green v5-in"><span class="v6-card__ico"><span class="iconify" data-icon="lucide:git-merge" data-width="22"></span></span><div><h3 class="v5-h">Cierre de Brechas</h3><p class="v5-b">Contribuye al <strong>cierre de brechas regionales</strong> y al fortalecimiento del talento humano para los sectores pecuario, sanitario y de salud pública veterinaria.</p></div></article>
+                            <article class="v6-card v6-card--ink v5-in"><span class="v6-card__ico"><span class="iconify" data-icon="lucide:map-pin" data-width="22"></span></span><div><h3 class="v5-h">Pertinencia Territorial</h3><p class="v5-b">Fortalece la <strong>pertinencia social, académica y profesional</strong> articulada mediante el Núcleo Integrador de Problema (NIP).</p></div></article>
                         </div>
-                        <div class="mini-card hover-card border-l-4 border-unad-orange flex-col justify-center gap-2">
-                            <h3 class="role-card-title text-unad-orange flex items-center justify-center gap-2 text-center"><span class="iconify" data-icon="lucide:cpu" data-width="24"></span> Innovación Híbrida</h3>
-                            <p class="role-note text-center">La <strong>UNAD innova</strong> con una modalidad <strong>híbrida (presencial-virtual)</strong>, ampliando el acceso a la formación veterinaria en territorios rurales y regiones con limitada oferta.</p>
-                        </div>
-                        <div class="mini-card hover-card border-l-4 border-unad-green flex-col justify-center gap-2">
-                            <h3 class="role-card-title text-unad-green flex items-center justify-center gap-2 text-center"><span class="iconify" data-icon="lucide:git-pull-request" data-width="24"></span> Cierre de Brechas</h3>
-                            <p class="role-note text-center">Contribuye al <strong>cierre de brechas regionales</strong> y al fortalecimiento del talento humano para los sectores pecuario, sanitario y de salud pública veterinaria.</p>
-                        </div>
-                        <div class="mini-card hover-card border-l-4 border-unad-navy dark:border-gray-400 flex-col justify-center gap-2">
-                            <h3 class="role-card-title text-unad-navy dark:text-white flex items-center justify-center gap-2 text-center"><span class="iconify" data-icon="lucide:compass" data-width="24"></span> Pertinencia Territorial</h3>
-                            <p class="role-note text-center">Fortalece la <strong>pertinencia social, académica y profesional</strong> articulada mediante el Núcleo Integrador de Problema (NIP).</p>
-                        </div>
+                        <figure class="v123-fig v5-in "><button type="button" class="img-zoom-trigger v123-fig__btn" data-image-zoom="granjaestabulada.png" data-image-alt="Granja estabulada" data-image-title="Granja estabulada" data-image-label="Figura" data-image-icon="lucide:home"><img src="granjaestabulada.png" alt="Granja estabulada"><span class="v8-fig__zoom"><span class="iconify" data-icon="lucide:maximize-2" data-width="14"></span> Ampliar</span></button><figcaption class="v5-s">Granja estabulada</figcaption></figure>
                     </div>
-
-                    <div class="lg:col-span-5 flex items-center justify-center">
-                        <button type="button"
-                                class="img-zoom-trigger figura"
-                                data-image-zoom="granjaestabulada.png"
-                                data-image-alt="Granja estabulada con médico veterinario atendiendo bovinos"
-                                data-image-title="Granja estabulada"
-                                data-image-label="Producción pecuaria"
-                                data-image-icon="lucide:warehouse"
-                                data-image-gradient-from="#0d9488"
-                                data-image-gradient-to="#1e3a5f">
-                            <img src="granjaestabulada.png"
-                                 alt="Granja estabulada con médico veterinario atendiendo bovinos"
-                                 class="figura__img"
-                                 onerror="this.onerror=null; this.src='assets/granjaestabulada.png';">
-                            <span class="img-zoom-trigger__overlay">
-                                <span class="img-zoom-trigger__hint">
-                                    <span class="iconify" data-icon="lucide:maximize-2" data-width="11"></span> Ampliar
-                                </span>
-                            </span>
-<span class="figura__cap"><b>Figura 3.</b> Granja estabulada</span>
-</button>
-                    </div>
-
                 </div>
             </div>
 
@@ -874,102 +523,35 @@
 
     <!-- ✅ Diapositiva Matriz de Consistencia (texto izq 7/12 · imagen der 5/12) -->
 <section class="slide" data-accent="green" data-title="Matriz de Consistencia">
+        <!-- MATRIZ DE CONSISTENCIA METODOLÓGICA · capa visual c5/c6-visual.css + c123-visual.css (ajuste 27-nov-2026; contenido sin cambios) -->
     <div class="glass-panel">
         <div class="slide-head gsap-reveal">
             <h2 class="role-title text-unad-navy dark:text-white">
-                <span class="iconify text-unad-orange animate-pulse" data-icon="lucide:layout-grid" data-width="28"></span>
+                <span class="iconify text-unad-orange" data-icon="lucide:layout-grid" data-width="28"></span>
                 Matriz de Consistencia Metodológica
             </h2>
             <span class="role-label slide-tag bg-unad-orange text-white">Modalidad Híbrida</span>
         </div>
-
-        <div class="flex-1 overflow-y-auto custom-scroll gsap-reveal flex items-center justify-center pr-2">
-            <div class="flex flex-col md:flex-row items-center justify-center gap-6 w-full text-gray-800 dark:text-gray-200">
-
-                <!-- IZQUIERDA · 2 bloques (7/12) -->
-                <div class="w-full md:w-7/12 flex flex-col gap-6 justify-center">
-
-                    <!-- BLOQUE 1 · Simulación y prácticas clínicas -->
-                    <div class="bg-white/80 dark:bg-black/50 rounded-2xl border border-gray-200 dark:border-gray-700 shadow-sm overflow-hidden hover-card">
-                        <div class="bg-unad-teal text-white px-5 py-3 flex items-center gap-2">
-                            <span class="iconify" data-icon="lucide:stethoscope" data-width="20"></span>
-                            <h3 class="role-card-title text-white">Simulación y prácticas clínicas</h3>
+            <div class="min-h-0 overflow-y-auto custom-scroll gsap-reveal pr-2 flex flex-col v123-body" style="flex:1 1 auto">
+                <div class="v5 v6 v123 my-auto">
+                    <div class="v1-mxw">
+                        <div class="v5-col">
+                            <div class="v1-mx v5-in"><h3 class="v1-mx__h"><span class="iconify" data-icon="lucide:stethoscope" data-width="20"></span> Simulación y prácticas clínicas</h3><div class="v1-mx__f">
+                                <div class="v1-mx__s v1-mx__s--a"><p class="v5-k">Enfoque Tradicional Nacional (Presencial)</p><p class="v5-b">Clases presenciales y experiencias clínicas que consolidan el aprendizaje profesional.</p></div>
+                                <div class="v1-mx__s v1-mx__s--b"><p class="v5-k"><span class="iconify" data-icon="lucide:zap" data-width="12"></span> Innovación de la Modalidad UNAD (Híbrida)</p><p class="v5-b"><strong>Tecnología, simulación y prácticas presenciales</strong> articuladas para una formación flexible y aplicada.</p></div>
+                                <div class="v1-mx__s v1-mx__s--c"><p class="v5-k">Mecanismo de Aseguramiento de Calidad (CONACES)</p><p class="v5-b">Un modelo que garantiza aprendizaje de calidad, pensamiento crítico y desempeño clínico efectivo.</p></div></div></div>
+                            <div class="v1-mx v5-in"><h3 class="v1-mx__h"><span class="iconify" data-icon="lucide:handshake" data-width="20"></span> Interacción con el Sector Productivo</h3><div class="v1-mx__f">
+                                <div class="v1-mx__s v1-mx__s--a"><p class="v5-k">Enfoque Tradicional Nacional (Presencial)</p><p class="v5-b">Vinculación principalmente a través de prácticas concentradas en el área de influencia institucional.</p></div>
+                                <div class="v1-mx__s v1-mx__s--b"><p class="v5-k"><span class="iconify" data-icon="lucide:zap" data-width="12"></span> Innovación de la Modalidad UNAD (Híbrida)</p><p class="v5-b">Articulación con redes territoriales, sistemas productivos regionales y entidades públicas y privadas en todo el país.</p></div>
+                                <div class="v1-mx__s v1-mx__s--c"><p class="v5-k">Mecanismo de Aseguramiento de Calidad (CONACES)</p><p class="v5-b">Fortalece la pertinencia regional, el conocimiento de dinámicas productivas locales y capacidad de intervención.</p></div></div></div>
+                            <p class="v5-s v5-in">Fuente: Elaboración propia, Programa de Medicina Veterinaria UNAD, 2026.</p>
                         </div>
-                        <div class="grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-gray-200 dark:divide-gray-700">
-                            <div class="p-5">
-                                <span class="role-label block text-gray-500 mb-2">Enfoque Tradicional Nacional (Presencial)</span>
-                                <p class="role-note text-gray-800 dark:text-gray-200">Clases presenciales y experiencias clínicas que consolidan el aprendizaje profesional.</p>
-                            </div>
-                            <div class="p-5 bg-gradient-to-br from-unad-orange/15 via-unad-orange/5 to-transparent border-t-4 border-unad-orange relative">
-                                <span class="role-label block text-unad-orange mb-2 flex items-center gap-1">
-                                    <span class="iconify" data-icon="lucide:sparkles" data-width="14"></span>
-                                    Innovación de la Modalidad UNAD (Híbrida)
-                                </span>
-                                <p class="role-note text-gray-800 dark:text-gray-200"><strong>Tecnología, simulación y prácticas presenciales</strong> articuladas para una formación flexible y aplicada.</p>
-                            </div>
-                            <div class="p-5">
-                                <span class="role-label block text-unad-green mb-2">Mecanismo de Aseguramiento de Calidad (CONACES)</span>
-                                <p class="role-note text-gray-800 dark:text-gray-200">Un modelo que garantiza aprendizaje de calidad, pensamiento crítico y desempeño clínico efectivo.</p>
-                            </div>
-                        </div>
+                        <figure class="v123-fig v5-in "><button type="button" class="img-zoom-trigger v123-fig__btn" data-image-zoom="simulador_clinica.png" data-image-alt="Simulador de práctica clínica veterinaria" data-image-title="Simulador de práctica clínica veterinaria" data-image-label="Figura" data-image-icon="lucide:stethoscope"><img src="simulador_clinica.png" alt="Simulador de práctica clínica veterinaria"><span class="v8-fig__zoom"><span class="iconify" data-icon="lucide:maximize-2" data-width="14"></span> Ampliar</span></button><figcaption class="v5-s">Simulador de práctica clínica veterinaria</figcaption></figure>
                     </div>
-
-                    <!-- BLOQUE 2 · Interacción con el Sector Productivo -->
-                    <div class="bg-white/80 dark:bg-black/50 rounded-2xl border border-gray-200 dark:border-gray-700 shadow-sm overflow-hidden hover-card">
-                        <div class="bg-unad-teal text-white px-5 py-3 flex items-center gap-2">
-                            <span class="iconify" data-icon="lucide:map" data-width="20"></span>
-                            <h3 class="role-card-title text-white">Interacción con el Sector Productivo</h3>
-                        </div>
-                        <div class="grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-gray-200 dark:divide-gray-700">
-                            <div class="p-5">
-                                <span class="role-label block text-gray-500 mb-2">Enfoque Tradicional Nacional (Presencial)</span>
-                                <p class="role-note text-gray-800 dark:text-gray-200">Vinculación principalmente a través de prácticas concentradas en el área de influencia institucional.</p>
-                            </div>
-                            <div class="p-5 bg-gradient-to-br from-unad-orange/15 via-unad-orange/5 to-transparent border-t-4 border-unad-orange relative">
-                                <span class="role-label block text-unad-orange mb-2 flex items-center gap-1">
-                                    <span class="iconify" data-icon="lucide:sparkles" data-width="14"></span>
-                                    Innovación de la Modalidad UNAD (Híbrida)
-                                </span>
-                                <p class="role-note text-gray-800 dark:text-gray-200">Articulación con redes territoriales, sistemas productivos regionales y entidades públicas y privadas en todo el país.</p>
-                            </div>
-                            <div class="p-5">
-                                <span class="role-label block text-unad-green mb-2">Mecanismo de Aseguramiento de Calidad (CONACES)</span>
-                                <p class="role-note text-gray-800 dark:text-gray-200">Fortalece la pertinencia regional, el conocimiento de dinámicas productivas locales y capacidad de intervención.</p>
-                            </div>
-                        </div>
-                    </div>
-
                 </div>
-
-                <!-- DERECHA · imagen (5/12) -->
-                <div class="w-full md:w-5/12 flex items-center justify-center">
-                    <button type="button"
-                            class="img-zoom-trigger figura"
-                            data-image-zoom="simulador_clinica.png"
-                            data-image-alt="Simulador de práctica clínica veterinaria"
-                            data-image-title="Simulador de práctica clínica veterinaria"
-                            data-image-label="Figura 2"
-                            data-image-icon="lucide:monitor"
-                            data-image-gradient-from="#0d9488"
-                            data-image-gradient-to="#1e3a5f">
-                        <img src="simulador_clinica.png"
-                             alt="Simulador de práctica clínica veterinaria"
-                             class="figura__img">
-                        <span class="img-zoom-trigger__overlay">
-                            <span class="img-zoom-trigger__hint">
-                                <span class="iconify" data-icon="lucide:maximize-2" data-width="11"></span> Ampliar
-                            </span>
-                        </span>
-<span class="figura__cap"><b>Figura 4.</b> Simulador de práctica clínica veterinaria</span>
-</button>
-                </div>
-
             </div>
-        </div>
 
-        <p class="gsap-reveal role-note text-gray-500 mt-2 shrink-0">Fuente: Elaboración propia, Programa de Medicina Veterinaria UNAD, 2026.</p>
-
-        <div class="par-footer gsap-reveal">
+            <div class="par-footer gsap-reveal">
             <div class="par-box par-box--criterio">
                 <h4><span class="iconify" data-icon="lucide:alert-circle" data-width="18"></span> Criterio del Par Académico</h4>
                 <p>Evaluar viabilidad y calidad de la estrategia híbrida.</p>
@@ -984,71 +566,24 @@
 
     <!-- Diapositiva 19: Análisis de Normatividad (referencia) -->
     <section class="slide" data-accent="teal" data-title="Normatividad">
+        <!-- INCIDENCIA DE LA NORMATIVIDAD · capa visual c5/c6-visual.css + c123-visual.css (ajuste 27-nov-2026; contenido sin cambios) -->
         <div class="glass-panel">
             <div class="slide-head gsap-reveal">
                 <h2 class="role-title text-unad-navy dark:text-white">
-                    <span class="iconify text-unad-orange animate-pulse" data-icon="lucide:scale" data-width="32"></span>
+                    <span class="iconify text-unad-orange" data-icon="lucide:scale" data-width="32"></span>
                     Incidencia de la Normatividad en el Ejercicio Profesional
                 </h2>
             </div>
-
-            <div class="flex-1 overflow-y-auto custom-scroll gsap-reveal flex items-center justify-center pr-2">
-                <div class="flex flex-col md:flex-row items-center justify-center gap-6 w-full text-gray-800 dark:text-gray-200">
-
-                    <div class="w-full md:w-7/12 flex flex-col gap-4 justify-center">
-
-                        <p class="role-body w-medium text-center">
-                            El programa integra de manera transversal el marco <strong>ético, legal y técnico</strong> que regula la Medicina Veterinaria en Colombia:
-                        </p>
-
-                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
-                            <div class="mini-card hover-card border-l-4 border-unad-teal flex-col items-start gap-2">
-                                <span class="iconify text-unad-teal" data-icon="lucide:file-check" data-width="26"></span>
-                                <h3 class="role-card-title text-unad-teal dark:text-unad-orange">Ley 576 de 2000</h3>
-                                <p class="role-note">Orienta la formación en ética profesional, responsabilidad social y rigor científico.</p>
-                            </div>
-                            <div class="mini-card hover-card border-l-4 border-unad-green flex-col items-start gap-2">
-                                <span class="iconify text-unad-green" data-icon="lucide:heart" data-width="26"></span>
-                                <h3 class="role-card-title text-unad-green dark:text-emerald-400">Ley 1774 de 2016</h3>
-                                <p class="role-note">Fortalece la protección y bienestar animal, reconociendo a los animales como seres sintientes.</p>
-                            </div>
-                            <div class="mini-card hover-card border-l-4 border-unad-navy dark:border-gray-400 flex-col items-start gap-2">
-                                <span class="iconify text-unad-navy dark:text-white" data-icon="lucide:briefcase" data-width="26"></span>
-                                <h3 class="role-card-title text-unad-navy dark:text-white">Ley 1876 / Dec. 1071</h3>
-                                <p class="role-note">Sustentan la formación en sanidad animal, producción pecuaria e inocuidad alimentaria.</p>
-                            </div>
+            <div class="min-h-0 overflow-y-auto custom-scroll gsap-reveal pr-2 flex flex-col v123-body" style="flex:1 1 auto">
+                <div class="v5 v6 v123 my-auto">
+                    <div class="v123-split v123-split--r">
+                        <div class="v5-col">
+                    <p class="v5-lead v6-lead v5-in ">El programa integra de manera transversal el marco <strong>ético, legal y técnico</strong> que regula la Medicina Veterinaria en Colombia:</p>
+                            <div class="v1-laws"><article class="v6-tile v6-tile--unad v5-in"><span class="v6-tile__ico"><span class="iconify" data-icon="lucide:file-check" data-width="26"></span></span><h3 class="v5-h">Ley 576 de 2000</h3><p class="v5-b">Orienta la formación en ética profesional, responsabilidad social y rigor científico.</p></article><article class="v6-tile v6-tile--green v5-in"><span class="v6-tile__ico"><span class="iconify" data-icon="lucide:heart" data-width="26"></span></span><h3 class="v5-h">Ley 1774 de 2016</h3><p class="v5-b">Fortalece la protección y bienestar animal, reconociendo a los animales como seres sintientes.</p></article><article class="v6-tile v6-tile--orange v5-in"><span class="v6-tile__ico"><span class="iconify" data-icon="lucide:briefcase" data-width="26"></span></span><h3 class="v5-h">Ley 1876 / Dec. 1071</h3><p class="v5-b">Sustentan la formación en sanidad animal, producción pecuaria e inocuidad alimentaria.</p></article></div>
+                    <div class="v5-banner v6-band v5-in"><span class="v5-banner__ico"><span class="iconify" data-icon="lucide:shield-check" data-width="24"></span></span><div style="position:relative;z-index:1"><p class="v5-banner__t">El programa desarrolla competencias para la gestión sanitaria, vigilancia epidemiológica y la interacción con entidades clave como el <strong>ICA</strong> y el <strong>MinSalud</strong>, preparando al egresado para actuar con <strong>criterio ético y cumplimiento normativo</strong>.</p></div></div>
                         </div>
-
-                        <div class="mini-card hover-card border-l-4 border-unad-orange">
-                            <p class="role-body w-medium text-center">
-                                El programa desarrolla competencias para la gestión sanitaria, vigilancia epidemiológica y la interacción con entidades clave como el <strong>ICA</strong> y el <strong>MinSalud</strong>, preparando al egresado para actuar con <strong>criterio ético y cumplimiento normativo</strong>.
-                            </p>
-                        </div>
-
+                        <figure class="v123-fig v5-in v123-fig--emblem"><button type="button" class="img-zoom-trigger v123-fig__btn" data-image-zoom="legislacion.png" data-image-alt="Marco normativo de la Medicina Veterinaria en Colombia" data-image-title="Legislación aplicada al ejercicio veterinario" data-image-label="Figura" data-image-icon="lucide:scale"><img src="legislacion.png" alt="Marco normativo de la Medicina Veterinaria en Colombia"><span class="v8-fig__zoom"><span class="iconify" data-icon="lucide:maximize-2" data-width="14"></span> Ampliar</span></button><figcaption class="v5-s">Legislación aplicada al ejercicio veterinario</figcaption></figure>
                     </div>
-
-                    <div class="w-full md:w-5/12 flex items-center justify-center">
-                        <button type="button"
-                                class="img-zoom-trigger figura"
-                                data-image-zoom="legislacion.png"
-                                data-image-alt="Marco normativo de la Medicina Veterinaria en Colombia"
-                                data-image-title="Legislación aplicada al ejercicio veterinario"
-                                data-image-label="Figura"
-                                data-image-icon="lucide:scale"
-                                data-image-gradient-from="#ea580c"
-                                data-image-gradient-to="#1e3a5f">
-                            <img src="legislacion.png"
-                                 alt="Marco normativo de la Medicina Veterinaria en Colombia"
-                                 class="figura__img">
-                            <span class="img-zoom-trigger__overlay">
-                                <span class="img-zoom-trigger__hint">
-                                    <span class="iconify" data-icon="lucide:maximize-2" data-width="11"></span> Ampliar
-                                </span>
-                            </span>
-<span class="figura__cap"><b>Figura 5.</b> Legislación aplicada al ejercicio veterinario</span>
-</button>
-                    </div>
-
                 </div>
             </div>
 
@@ -1121,5 +656,7 @@
 
 <script src="js/presentacion.js"></script>
 <script src="js/embed-mode.js"></script>
+<script src="js/c5-visual.js?v=4" defer></script>
+<script src="js/c6-visual.js?v=3" defer></script>
 </body>
 </html>

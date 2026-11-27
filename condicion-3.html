@@ -23,6 +23,10 @@
 <!-- Sistema visual común -->
 <link rel="stylesheet" href="css/nav.css" />
 <link rel="stylesheet" href="css/presentacion.css" />
+<link rel="stylesheet" href="css/c5-visual.css?v=5" />
+<link rel="stylesheet" href="css/c6-visual.css?v=4" />
+<link rel="stylesheet" href="css/c123-visual.css?v=1" />
+<link rel="stylesheet" href="css/c3-visual.css?v=1" />
 <script src="js/nav.js" defer></script>
 </head>
 <body>
@@ -114,7 +118,7 @@
         <!-- ENCABEZADO -->
         <div class="slide-head gsap-reveal">
             <h2 class="role-title text-unad-navy dark:text-white">
-                <span class="iconify text-unad-teal animate-bounce" data-icon="lucide:compass" data-width="32"></span>
+                <span class="iconify text-unad-teal" data-icon="lucide:compass" data-width="32"></span>
                 Propósito, Ingreso, Formación y Egreso
             </h2>
             <p class="hidden md:block t-caption text-gray-500 dark:text-gray-400 italic">Toca cada tarjeta para ver el detalle</p>
@@ -325,7 +329,7 @@
         <div class="glass-panel">
             <div class="slide-head gsap-reveal">
                 <h2 class="role-title text-unad-navy dark:text-white">
-                    <span class="iconify text-unad-teal animate-bounce" data-icon="lucide:anchor" data-width="32"></span>
+                    <span class="iconify text-unad-teal" data-icon="lucide:anchor" data-width="32"></span>
                     Núcleo Integrador de Problema (NIP)
                 </h2>
                 <span class="role-label slide-tag bg-unad-teal text-white">Eje articulador</span>
@@ -518,7 +522,7 @@
         <div class="glass-panel">
             <div class="slide-head gsap-reveal">
                 <h2 class="role-title text-unad-navy dark:text-white">
-                    <span class="iconify text-unad-orange animate-pulse" data-icon="lucide:layers" data-width="32"></span>
+                    <span class="iconify text-unad-orange" data-icon="lucide:layers" data-width="32"></span>
                     Núcleos Problémicos (NP) y Competencias
                 </h2>
                 <span class="role-label slide-tag bg-unad-teal text-white">2 NP · 4 Competencias</span>
@@ -843,10 +847,11 @@
     
     <!-- Diapositiva 9: Estructura Curricular -->
     <section class="slide" data-title="Estructura Curricular">
+        <!-- ESTRUCTURA CURRICULAR Y CAMPOS DE FORMACIÓN · capa visual c5/c6-visual.css + c123-visual.css (ajuste 27-nov-2026; contenido sin cambios) -->
         <div class="glass-panel">
             <div class="slide-head gsap-reveal">
                 <h2 class="role-title text-unad-navy dark:text-white">
-                    <span class="iconify text-unad-teal animate-bounce" data-icon="lucide:pie-chart" data-width="30"></span>
+                    <span class="iconify text-unad-teal" data-icon="lucide:pie-chart" data-width="30"></span>
                     Estructura Curricular y Campos de Formación
                 </h2>
                 <div class="flex items-center gap-2">
@@ -858,52 +863,14 @@
                     <span class="bg-unad-teal text-white px-3 py-1 t-caption rounded-full font-bold uppercase tracking-wider">Acuerdo 001 de 2013</span>
                 </div>
             </div>
-            <div class="flex-1 overflow-y-auto custom-scroll gsap-reveal flex flex-col items-center justify-center gap-6">
-
-                <div class="grid grid-cols-2 md:grid-cols-4 gap-5 w-full max-w-5xl">
-                    <div class="bg-unad-teal text-white p-6 rounded-2xl text-center shadow-md hover-card">
-                        <span class="font-bold font-display block mb-1 t-hero">174</span>
-                        <span class="t-small uppercase tracking-wider font-semibold">Créditos Totales</span>
-                    </div>
-                    <div class="bg-unad-navy text-white p-6 rounded-2xl text-center shadow-md hover-card">
-                        <span class="font-bold font-display block mb-1 t-hero">150</span>
-                        <span class="t-small uppercase tracking-wider font-semibold">Obligatorios (86%)</span>
-                    </div>
-                    <div class="bg-unad-orange text-white p-6 rounded-2xl text-center shadow-md hover-card">
-                        <span class="font-bold font-display block mb-1 t-hero">24</span>
-                        <span class="t-small uppercase tracking-wider font-semibold">Electivos (14%)</span>
-                    </div>
-                    <div class="bg-unad-green text-white p-6 rounded-2xl text-center shadow-md hover-card">
-                        <span class="font-bold font-display block mb-1 t-hero">10</span>
-                        <span class="t-small uppercase tracking-wider font-semibold">Períodos Académicos</span>
-                    </div>
-                </div>
-
-                <div class="bg-white/85 dark:bg-black/55 rounded-xl border border-gray-200 dark:border-gray-700 w-full max-w-5xl">
-                    <table class="styled-table w-full t-body">
-                        <thead>
-                            <tr>
-                                <th class="w-1/3">Campo de Formación (Acuerdo 001 de 2013)</th>
-                                <th class="text-center">Tipo de Cursos</th>
-                            </tr>
-                        </thead>
-                        <tbody class="text-gray-800 dark:text-gray-200">
-                            <tr>
-                                <td class="font-bold border-l-4 border-unad-teal pl-4 py-5">Campo de Formación Disciplinar - Común</td>
-                                <td class="py-5">Biología Celular, Química, Bioquímica, Estadística, Inglés (A1-B2), Investigación, Diseño de Proyectos.</td>
-                            </tr>
-                            <tr>
-                                <td class="font-bold border-l-4 border-unad-orange pl-4 py-5">Campo de Formación Disciplinar - Específico</td>
-                                <td class="py-5">Anatomía, Inmunología, Semiología, Patología, Farmacología, Rotaciones Clínicas, Rotaciones de Producción y One Health.</td>
-                            </tr>
-                            <tr>
-                                <td class="font-bold border-l-4 border-unad-green pl-4 py-5">Electividad Disciplinar y Complementaria</td>
-                                <td class="py-5">Cursos IBC, Electivos Disciplinares Comunes (DC), Disciplinares Específicos (DE) y Formación Complementaria (FC).</td>
-                            </tr>
-                        </tbody>
-                    </table>
+            <div class="min-h-0 overflow-y-auto custom-scroll gsap-reveal pr-2 flex flex-col v123-body" style="flex:1 1 auto">
+                <div class="v5 v6 v123 my-auto">
+                    <div class="v3-kpis"><div class="v3-kpi v3-kpi--teal v5-in"><b data-v6-count="174">174</b><span>Créditos Totales</span></div><div class="v3-kpi v3-kpi--ink v5-in"><b data-v6-count="150">150</b><span>Obligatorios (86%)</span></div><div class="v3-kpi v3-kpi--orange v5-in"><b data-v6-count="24">24</b><span>Electivos (14%)</span></div><div class="v3-kpi v3-kpi--green v5-in"><b data-v6-count="10">10</b><span>Períodos Académicos</span></div></div>
+                    <div class="v3-bar v5-in" aria-hidden="true"><span style="flex:150">150 · 86%</span><span style="flex:24">24 · 14%</span></div>
+                    <div class="v3-fields"><article class="v3-field v3-field--teal v5-in"><span class="v3-field__ico"><span class="iconify" data-icon="lucide:flask-conical" data-width="24"></span></span><p class="v5-k">Campo de Formación (Acuerdo 001 de 2013)</p><h3 class="v5-h">Campo de Formación Disciplinar - Común</h3><p class="v3-field__tk">Tipo de Cursos</p><p class="v5-b">Biología Celular, Química, Bioquímica, Estadística, Inglés (A1-B2), Investigación, Diseño de Proyectos.</p></article><article class="v3-field v3-field--orange v5-in"><span class="v3-field__ico"><span class="iconify" data-icon="lucide:stethoscope" data-width="24"></span></span><p class="v5-k">Campo de Formación (Acuerdo 001 de 2013)</p><h3 class="v5-h">Campo de Formación Disciplinar - Específico</h3><p class="v3-field__tk">Tipo de Cursos</p><p class="v5-b">Anatomía, Inmunología, Semiología, Patología, Farmacología, Rotaciones Clínicas, Rotaciones de Producción y One Health.</p></article><article class="v3-field v3-field--green v5-in"><span class="v3-field__ico"><span class="iconify" data-icon="lucide:shuffle" data-width="24"></span></span><p class="v5-k">Campo de Formación (Acuerdo 001 de 2013)</p><h3 class="v5-h">Electividad Disciplinar y Complementaria</h3><p class="v3-field__tk">Tipo de Cursos</p><p class="v5-b">Cursos IBC, Electivos Disciplinares Comunes (DC), Disciplinares Específicos (DE) y Formación Complementaria (FC).</p></article></div>
                 </div>
             </div>
+
             <div class="par-footer gsap-reveal">
                 <div class="par-box par-box--criterio">
                     <h4><span class="iconify" data-icon="lucide:alert-circle" data-width="18"></span> Criterio del Par Académico</h4>
@@ -974,7 +941,7 @@
         <!-- ENCABEZADO -->
         <div class="slide-head gsap-reveal">
             <h2 class="role-title text-unad-navy dark:text-white">
-                <span class="iconify text-unad-teal animate-bounce" data-icon="lucide:clipboard-check" data-width="30"></span>
+                <span class="iconify text-unad-teal" data-icon="lucide:clipboard-check" data-width="30"></span>
                 Mecanismos de Evaluación por RAP
             </h2>
             <span class="role-label slide-tag hidden md:inline-block bg-unad-teal text-white">5 RAP · 2 NP</span>
@@ -1491,22 +1458,39 @@
 
     <!-- Diapositiva: Interdisciplinariedad en Medicina Veterinaria (ajustes 26-nov-2026) -->
 <section class="slide" data-title="Interdisciplinariedad">
+        <!-- INTERDISCIPLINARIEDAD (infografía recreada en código) · capa visual c5/c6-visual.css + c123-visual.css (ajuste 27-nov-2026; contenido sin cambios) -->
     <div class="glass-panel">
         <div class="slide-head gsap-reveal">
             <h2 class="role-title text-unad-navy dark:text-white">
-                <span class="iconify text-unad-green animate-pulse" data-icon="lucide:network" data-width="30"></span>
+                <span class="iconify text-unad-green" data-icon="lucide:network" data-width="30"></span>
                 Interdisciplinariedad en Medicina Veterinaria
             </h2>
             <span class="role-label slide-tag bg-unad-green text-white">Una Salud</span>
         </div>
-        <div class="flex-1 min-h-0 overflow-y-auto custom-scroll gsap-reveal flex items-center justify-center">
-            <button type="button" class="img-zoom-trigger figura max-w-4xl w-full" data-image-zoom="Interdisciplinariedad.jpg" data-image-alt="Interdisciplinariedad en Medicina Veterinaria: integración de saberes, articulación curricular y soluciones integrales" data-image-title="Interdisciplinariedad en Medicina Veterinaria" data-image-label="Condición 3" data-image-icon="lucide:network">
-                <img src="Interdisciplinariedad.jpg" alt="Interdisciplinariedad en Medicina Veterinaria: integración de saberes, articulación curricular y soluciones integrales" class="figura__img">
-                <span class="img-zoom-trigger__overlay"><span class="img-zoom-trigger__hint"><span class="iconify" data-icon="lucide:maximize-2" data-width="11"></span> Ampliar</span></span>
-                <span class="figura__cap"><b>Figura.</b> Integración de saberes, articulación curricular (cursos compartidos ECAPMA, electivos interescuelas y proyectos integradores) y soluciones integrales.</span>
-            </button>
-        </div>
-        <div class="par-footer gsap-reveal">
+            <div class="min-h-0 overflow-y-auto custom-scroll gsap-reveal pr-2 flex flex-col v123-body" style="flex:1 1 auto">
+                <div class="v5 v6 v123 my-auto">
+                    <figure class="v3-int v5-in" data-v6-cycle="1800" data-v6-n="11">
+                        <p class="v3-int__t">Interdisciplinariedad en <em>Medicina Veterinaria</em></p>
+                        <div class="v3-int__g">
+                            <section class="v3-int__col"><h3>Integración de saberes</h3><ul class="v3-int__l"><li data-v6-i="0"><span><span class="iconify" data-icon="lucide:paw-print" data-width="20"></span></span>Ciencias veterinarias y biomédicas</li><li data-v6-i="1"><span><span class="iconify" data-icon="lucide:users" data-width="20"></span></span>Salud humana</li><li data-v6-i="2"><span><span class="iconify" data-icon="lucide:leaf" data-width="20"></span></span>Ciencias ambientales</li><li data-v6-i="3"><span><span class="iconify" data-icon="lucide:settings" data-width="20"></span></span>Ciencias sociales, ingeniería y gestión</li></ul></section>
+                            <div class="v3-int__mid">
+                                <span class="v3-int__arc">Una Salud</span>
+                                <div class="v3-int__orb">
+                                    <span class="v3-int__o v3-int__o--a"><span class="iconify" data-icon="lucide:paw-print" data-width="26"></span><b>Salud y bienestar animal</b></span>
+                                    <span class="v3-int__o v3-int__o--b"><span class="iconify" data-icon="lucide:heart-pulse" data-width="26"></span><b>Salud humana</b></span>
+                                    <span class="v3-int__o v3-int__o--c"><span class="iconify" data-icon="lucide:leaf" data-width="26"></span><b>Ambiente</b></span>
+                                    <span class="v3-int__ring"></span>
+                                </div>
+                            </div>
+                            <section class="v3-int__col"><h3>Articulación curricular</h3><ul class="v3-int__l v3-int__l--a"><li data-v6-i="4"><span><span class="iconify" data-icon="lucide:book-open" data-width="20"></span></span><div><b>Cursos compartidos · ECAPMA</b></div></li><li data-v6-i="5"><span><span class="iconify" data-icon="lucide:graduation-cap" data-width="20"></span></span><div><b>Electivos interescuelas</b><small><b>ECSAH:</b> Ética y Deontología en Psicología</small><small><b>ECISA:</b> Telesalud y Biomecánica</small></div></li><li data-v6-i="6"><span><span class="iconify" data-icon="lucide:file-text" data-width="20"></span></span><div><b>Proyectos integradores, prácticas e investigación</b><small>Salud-enfermedad, diagnóstico y atención</small><small>Salud poblacional, bienestar y sostenibilidad</small></div></li></ul></section>
+                        </div>
+                        <section class="v3-int__sol"><h3><span class="iconify" data-icon="lucide:sparkles" data-width="16"></span> Soluciones integrales</h3><ul><li data-v6-i="7"><span><span class="iconify" data-icon="lucide:shield-check" data-width="22"></span></span>Prevención de zoonosis</li><li data-v6-i="8"><span><span class="iconify" data-icon="lucide:pill" data-width="22"></span></span>Uso responsable de antimicrobianos</li><li data-v6-i="9"><span><span class="iconify" data-icon="lucide:utensils" data-width="22"></span></span>Inocuidad alimentaria</li><li data-v6-i="10"><span><span class="iconify" data-icon="lucide:globe" data-width="22"></span></span>Sostenibilidad y protección de ecosistemas</li></ul><p class="v3-int__foot">Prevención • Intervención • Seguimiento</p></section>
+                        <figcaption class="v5-s"><b>Figura.</b> Integración de saberes, articulación curricular (cursos compartidos ECAPMA, electivos interescuelas y proyectos integradores) y soluciones integrales.</figcaption>
+                    </figure>
+                </div>
+            </div>
+
+            <div class="par-footer gsap-reveal">
             <div class="par-box par-box--criterio">
                 <h4><span class="iconify" data-icon="lucide:alert-circle" data-width="18"></span> Criterio del Par Académico</h4>
                 <p>Estrategias de interdisciplinariedad en el currículo.</p>
@@ -1575,5 +1559,7 @@
 
 <script src="js/presentacion.js"></script>
 <script src="js/embed-mode.js"></script>
+<script src="js/c5-visual.js?v=4" defer></script>
+<script src="js/c6-visual.js?v=3" defer></script>
 </body>
 </html>
